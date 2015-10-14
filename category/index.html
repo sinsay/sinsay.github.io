@@ -1,0 +1,893 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>adlist</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+pre[class*=language-]{position:relative}pre[class*=language-][data-language]::before{content:attr(data-language);color:#000;background-color:#CFCFCF;display:inline-block;position:absolute;top:0;right:0;font-size:.9em;border-radius:0 0 0 5px;padding:0 .5em;text-shadow:none}
+</style>
+</head>
+<body>
+<h1 id="toc_0">双向列表 ADList (A generic doubly linked list)</h1>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">双向列表 ADList (A generic doubly linked list)</a>
+<ul>
+<li>
+<a href="#toc_1">简介</a>
+</li>
+<li>
+<a href="#toc_2">实现</a>
+<ul>
+<li>
+<a href="#toc_3">定义</a>
+</li>
+<li>
+<a href="#toc_4">一些便捷的宏定义</a>
+</li>
+<li>
+<a href="#toc_5">列表的创建</a>
+</li>
+<li>
+<a href="#toc_6">添加一个元素</a>
+<ul>
+<li>
+<a href="#toc_7">首部跟尾部插入 复杂度 O(1)</a>
+</li>
+<li>
+<a href="#toc_8">查找指定节点后从节点位置插入</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_9">删除指定节点</a>
+</li>
+<li>
+<a href="#toc_10">遍历所有节点</a>
+<ul>
+<li>
+<a href="#toc_11">释放一个迭代器</a>
+</li>
+<li>
+<a href="#toc_12">重置当前的迭代器</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_13">释放当前 List</a>
+</li>
+<li>
+<a href="#toc_14">其他的 List 操作</a>
+<ul>
+<li>
+<a href="#toc_15">复制列表</a>
+</li>
+<li>
+<a href="#toc_16">旋转列表</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="toc_1">简介</h2>
+
+<p>因为 C 语言本身只提供了 Array 数组，在需要动态添加删除元素时，需要使用者自行扩充长度，造成使用上的繁琐，鉴于这点许多高级语言都在语言层间上添加了更加高级的 List 类型，让使用者避开内存以及列表长度的管理。</p>
+
+<p>当然，List 跟 Array 本身还是有区别的，因为 Array 的访问效率是 O(1)，而 List 一般的实现都是链表，所以除了首端跟末端，其他的访问效率都是 O(N)，这些具体的区别这里就不一一说明了，但会在接口上进行详解，如果需要更接近 Array 访问效率的列表，可以考虑使用 Vector，他的访问效率跟 Array 是一样的，只是在 Array 上增加了自动扩充长度的功能。</p>
+
+<h2 id="toc_2">实现</h2>
+
+<h3 id="toc_3">定义</h3>
+
+<p>下面是 List 的结构定义</p>
+
+<pre><code class="language-c">// List 的节点
+typedef struct listNode {
+    struct listNode *prev;
+    struct listNode *nex;
+    void *value;
+} listNode;
+
+// 对于节点的封装，用以迭代节点
+typedef struct listIter {
+    listNode *next;
+    int direction;
+} listIter;
+
+// List 结构的定义
+typedef struct list {
+    listNode *head;
+    listNode *tail;
+    void *(*dup)(void *ptr);
+    void *(free)(void *ptr);
+    int (*match)(void *ptr, void *key);
+    unsigned long len;
+} list;</code></pre>
+
+<h3 id="toc_4">一些便捷的宏定义</h3>
+
+<p>对于一些简单的操作及实现，用宏来进行包装，已避免函数调用等开销</p>
+
+<pre><code class="language-c">#define listLength(l) ((l)-&gt;len)
+#define listFirst(l) ((l)-&gt;head)
+#define listLast(l) ((l)-&gt;tail)
+#define listPrevNode(n) ((n)-&gt;prev)
+#define listNextNode(n) ((n)-&gt;next)
+#define listNodeValue(n) ((n)-&gt;value)
+
+#define listSetDupMethod(l, m) ((l)-&gt;dup = (m))
+#define listSetFreeMethod(l, m) ((l)-&gt;free = (m))
+#define listSetMatchMethod(l, m) ((l)-&gt;match = (m))
+
+#define listGetDupMethod(l) ((l)-&gt;dup)
+#define listGetFreeMethod(l) ((l)-&gt;free)
+#define listGetMatchMethod(l) ((l)-&gt;match);</code></pre>
+
+<h3 id="toc_5">列表的创建</h3>
+
+<p>创建一个列表较简单，初始化 list 结构体而已</p>
+
+<pre><code class="language-c">list *listCreate(void) {
+    struct list *list;
+    
+    if ((list = zmalloc(sizeof(*list))) == NULL)
+        return NULL;
+    list-&gt;head = list-&gt;tail = NULL;
+    list-&gt;len = 0;
+    list-&gt;dup = NULL;
+    list-&gt;free = NULL;
+    list-&gt;match = NULL;
+    return list;
+}</code></pre>
+
+<h3 id="toc_6">添加一个元素</h3>
+
+<p>List 对操作节点提供了多种方式的操作，比如在首部或尾部插入新节点，指定位置插入节点，指定节点后插入等，这些操作的时间复杂度都是不同的，这里我们就各个操作都进行一下说明。</p>
+
+<h4 id="toc_7">首部跟尾部插入 复杂度 O(1)</h4>
+
+<p>因为 List 的实现是双向链表，并且同时保存了 head 跟 tail 指针，所以在这两个位置插入新的节点时，可以在 O(1) 的时间内完成，下面是代码</p>
+
+<pre><code class="language-c">list *listAddNodeHead(list *list, void *value) {
+    listNode *node;
+    
+    if ((node = zmalloc(sizeof(*node))) == NULL)
+        return NULL;
+    node-&gt;value = value;
+    // 如果 List 是空的，则 head 跟 tail 都指向新的节点
+    // 并且，它的前后节点都为空
+    if (list-&gt;len == 0) { 
+        list-&gt;head = list-&gt;tail = node;
+        node-&gt;prev = node-&gt;next = NULL;
+    } else {
+        // 否则让新节点成为头结点，并让原有的头节点成为新节点的下一节点
+        node-&gt;prev = NULL;
+        node-&gt;next = list-&gt;head;
+        list-&gt;head-&gt;prev = node;
+        list-&gt;head = node;
+    }
+    list-&gt;len++;
+    return list;
+}
+
+list listAddNodeTail(list *list, void *value) {
+    listNode *node;
+    
+    if ((node = zmalloc(sizeof(*node))) == NULL)
+        return NULL;
+        
+    node-&gt;value = value;
+    if (list-&gt;len == 0) {
+        list-&gt;head = list-&gt;tail = node;
+        node-&gt;prev = node-&gt;next = NULL;
+    } else {
+        node-&gt;prev = list-tail;
+        node-&gt;next = NULL;
+        list-&gt;tail-&gt;next = node;
+        list-&gt;tail = node;
+    }
+    list-&gt;len++;
+    return list;
+}</code></pre>
+
+<h4 id="toc_8">查找指定节点后从节点位置插入</h4>
+
+<p>指定节点插入的时间复杂度是 O(1), 当然，要插入到指定节点后，那首先肯定要找到这个节点，找到节点的时间复杂度取决于插入的位置，而如果插入的位置超过了 List 本身的长度，则视为出错。</p>
+
+<p>首先是查找节点的过程，有两种方式</p>
+
+<ul>
+<li>第一种，指定索引，从指定位置开始迭代，直到遇见所需的节点。查找指定的位置支持正序以及反序，正数表示从列表头开始查找，而负数则表示从列表结尾开始查找，如 -1 表示 List 的最后一个节点，-2 表示最后一个节点的上一个节点。</li>
+<li>第二种，指定 key，也就是查找跟某个值相等的节点</li>
+</ul>
+
+<p>这两种方式都需要有一种遍历列表的机制，这个具体的机制，可以跳过来先看 <a href="#foreach">如何遍历整个列表</a>。</p>
+
+<p>然后是从指定的节点插入新节点。</p>
+
+<pre><code class="language-c">listNode *listIndex(list *list, int index) {
+    listNode *n;
+    
+    if (index &lt; 0) {
+        index = (-index)-1;
+        n = list-&gt;tail;
+        while (index-- &amp;&amp; n) n = n-&gt;prev;
+    } else {
+        n = list-&gt;head;
+        while (index-- &amp;&amp; n) n = n-&gt;next;
+    }
+    
+    return n;
+}
+
+listNode *listSearchKey(list *list, void *key) {
+    listIter *iter;
+    listNode *node;
+    
+    // 从头开始查找
+    iter = listGetIterator(list, AL_START_HEAD);
+    while ((node = listNext(iter)) != NULL) {
+        if (list-&gt;match) {
+            if (list-&gt;match(node-&gt;value, key)) {
+                listReleaseIterator(iter);
+                return node;
+            }
+        } else {
+            if (key == node-&gt;value) {
+                listReleaseIterator(iter);
+                return node;
+            }
+        }
+    }
+    listReleaseIterator(iter);
+    return NULL;
+}
+
+list *listInsertNode(list *list, listNode *old_node, void *value, int after) {
+    listNode *node;
+    
+    if ((node = zmalloc(sizeof(*node))) == NULL)
+        return NULL;
+        
+    node-&gt;value = value;
+    // 插入到指定节点的后面
+    if (after) {
+        node-&gt;prev = oldnode;
+        node-&gt;next = oldnode-&gt;next;
+        if (list-&gt;tail == old_node) { 
+            // 如果插入的位置是最后一个节点，则更新新节点为最后一个节点
+            list-&gt;tail = node;
+        }
+    } else { // 插入到指定节点的前面
+        node-&gt;next = oldnode;
+        node-&gt;prev = oldnode-&gt;prev;
+        if (list-&gt;head == old_node) {
+            list-&gt;head = node;
+        }
+    }
+    
+    // 然后调整关联的节点
+    if (node-&gt;prev != NULL) {
+        node-&gt;prev-&gt;next = node;
+    }    
+    if (node-&gt;next != NULL) {
+        node-&gt;next-&gt;prev = node;
+    }
+    list-&gt;len++;
+    return list;
+}</code></pre>
+
+<h3 id="toc_9">删除指定节点</h3>
+
+<pre><code class="language-c">void listDelNode(list *list, listNode *node) {
+    if (node-&gt;prev)
+        node-&gt;prev-&gt;next = node-&gt;next;
+    else
+        list-&gt;head = node-&gt;next;
+    if (node-&gt;next)
+        node-&gt;next-&gt;prev = node-&gt;prev;
+    else
+        list-&gt;tail = node-&gt;prev;
+        
+    if (list-&gt;free) list-&gt;free(node-&gt;value);
+    zfree(node);
+    list-&gt;len--;
+}</code></pre>
+
+<p><span id="foreach" /></p>
+
+<h3 id="toc_10">遍历所有节点</h3>
+
+<p>List 封装了一个迭代器类型用于遍历所有的节点，使用迭代器的好处是区分开了 List 具体的实现，这样即使是以后 List 有任何的修改，都不会影响到使用者。</p>
+
+<p>首先看如何得到一个迭代器。</p>
+
+<pre><code class="language-c">listIter *listGetIterator(list *list, int direction) {
+    listIter *iter;
+    if ((iter = zmalloc(sizeof(*iter))) == NULL)
+        return NULL;
+    if (direction == AL_START_HEAD)
+        iter-&gt;next = list-&gt;head;
+    else
+        iter-&gt;next = list-&gt;tail;
+    iter-&gt;direction = direction;
+    return iter;
+}</code></pre>
+
+<p>我们看到他构建了一个 listIter 后根据迭代的方向把 head 或 tail 给予了 iter 的 next，这就保证了之后的遍历可以使用 listNext 来继续遍历。<br>
+而根据迭代的方向，listNext 则不断的返回当前迭代器指向的下一个节点，并将自身指向下一个节点。</p>
+
+<pre><code class="language-c">listNode *listNext(listIter *iter) {
+    listNode *current = iter-&gt;next;
+    if (current != NULL) {
+        if (iter-&gt;direction == AL_START_HEAD)
+            iter-&gt;next = current-&gt;next;
+        else
+            iter-&gt;next = current-&gt;prev;
+    }
+    return current;
+}</code></pre>
+
+<h4 id="toc_11">释放一个迭代器</h4>
+
+<pre><code class="language-c">void listReleaseIterator(listIter *iter) {
+    zfree(iter);
+}</code></pre>
+
+<h4 id="toc_12">重置当前的迭代器</h4>
+
+<p>重置迭代器，根据遍历的方向使其指向开头或者结尾。</p>
+
+<pre><code class="language-c">void listRewind(list *list, listIter *li) {
+    li-&gt;next = list-&gt;head;
+    li-&gt;direction = AL_START_HEAD;
+}
+
+void listRewindToTail(list *list, listIter *li) {
+    li-&gt;next = list-&gt;tail;
+    li-&gt;direction = AL_START_TAIL;
+}</code></pre>
+
+<h3 id="toc_13">释放当前 List</h3>
+
+<pre><code class="language-c">void listRelease(list *list) {
+    unsigned long len;
+    listNode *current, *next;
+    
+    current = list-&gt;head;
+    len = list-&gt;len;
+    while (len--) {
+        next = current-&gt;next;
+        if (list-&gt;free) list-&gt;free(current-&gt;value);
+        zfree(current);
+        current = next;
+    }
+    zfree(list);
+}</code></pre>
+
+<h3 id="toc_14">其他的 List 操作</h3>
+
+<h4 id="toc_15">复制列表</h4>
+
+<pre><code class="language-c">list *listDup(list *orig) {
+    list *copy;
+    listIter *iter;
+    listNode *node;
+    
+    if ((copy = listCreate()) == NULL)
+        return NULL;
+        
+    // 这里为什么不使用预先定义好的宏？？？
+    copy-&gt;dup = orig-&gt;dup;
+    copy-&gt;free = orig-&gt;free;
+    copy-&gt;match = orig-&gt;match;
+    iter = listGetIterator(orig, AL_START_HEAD);
+    
+    while ((node = listNext(iter)) != NULL) {
+        void *value;
+        
+        if (copy-&gt;dup) {
+            value = copy-&gt;dup(node-&gt;value);
+            if (value == NULL) {
+                listRelease(copy);
+                listReleaseIterator(iter);
+                return NULL;
+            }
+        } else
+            value = node-&gt;value;
+            
+        if (listAddNodeTail(copy, value) == NULL) {
+            listRelease(copy);
+            listReleaseIterator(iter);
+            return NULL;
+        }
+    }
+    
+    listReleaseIterator(iter);
+    return copy;
+}</code></pre>
+
+<h4 id="toc_16">旋转列表</h4>
+
+<p>将 List 进行旋转，以原本的 tail 作为 head, 相当于把整个 List 进行了一下左旋。</p>
+
+<pre><code class="language-c">void listRotate(list *list) {
+    listNode *tail = list-&gt;tail;
+    
+    if (listLength(list) &lt;= 1) return;
+    
+    // Detach current tail
+    list-&gt;tail = tail-&gt;prev;
+    list-&gt;tail-&gt;next = NULL;
+    // move it as head
+    list-&gt;head-&gt;prev = tail;
+    tail-&gt;prev = NULL;
+    tail-&gt;next = list-&gt;head;
+    list-head = tail;
+}</code></pre>
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=_self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var i=r[e];if(2==arguments.length){a=arguments[1];for(var l in a)a.hasOwnProperty(l)&&(i[l]=a[l]);return i}var o={};for(var s in i)if(i.hasOwnProperty(s)){if(s==n)for(var l in a)a.hasOwnProperty(l)&&(o[l]=a[l]);o[s]=i[s]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,n,a){for(var r in e)e.hasOwnProperty(r)&&(n.call(e,r,e[r],a||r),"Object"===t.util.type(e[r])?t.languages.DFS(e[r],n):"Array"===t.util.type(e[r])&&t.languages.DFS(e[r],n,r))}},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),i=0;a=r[i++];)t.highlightElement(a,e===!0,n)},highlightElement:function(a,r,i){for(var l,o,s=a;s&&!e.test(s.className);)s=s.parentNode;s&&(l=(s.className.match(e)||[,""])[1],o=t.languages[l]),a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,s=a.parentNode,/pre/i.test(s.nodeName)&&(s.className=s.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var u=a.textContent,c={element:a,language:l,grammar:o,code:u};if(u&&(c.code=u.replace(/^(?:\r?\n|\r)/,"")),!u||!o)return t.hooks.run("complete",c),void 0;if(t.hooks.run("before-highlight",c),r&&_self.Worker){var g=new Worker(t.filename);g.onmessage=function(e){c.highlightedCode=n.stringify(JSON.parse(e.data),l),t.hooks.run("before-insert",c),c.element.innerHTML=c.highlightedCode,i&&i.call(c.element),t.hooks.run("after-highlight",c),t.hooks.run("complete",c)},g.postMessage(JSON.stringify({language:c.language,code:c.code}))}else c.highlightedCode=t.highlight(c.code,c.grammar,c.language),t.hooks.run("before-insert",c),c.element.innerHTML=c.highlightedCode,i&&i.call(a),t.hooks.run("after-highlight",c),t.hooks.run("complete",c)},highlight:function(e,a,r){var i=t.tokenize(e,a);return n.stringify(t.util.encode(i),r)},tokenize:function(e,n){var a=t.Token,r=[e],i=n.rest;if(i){for(var l in i)n[l]=i[l];delete n.rest}e:for(var l in n)if(n.hasOwnProperty(l)&&n[l]){var o=n[l];o="Array"===t.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){g&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),N=[p,1];b&&N.push(b);var O=new a(l,c?t.tokenize(m,c):m,h);N.push(O),w&&N.push(w),Array.prototype.splice.apply(r,N)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,i=0;r=a[i++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var i={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==i.type&&(i.attributes.spellcheck="true"),e.alias){var l="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(i.classes,l)}t.hooks.run("wrap",i);var o="";for(var s in i.attributes)o+=s+'="'+(i.attributes[s]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+o+">"+i.content+"</"+i.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code;_self.postMessage(JSON.stringify(t.util.encode(t.tokenize(r,t.languages[a])))),_self.close()},!1),_self.Prism):_self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism);
+</script>
+<script type="text/javascript">
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:/("|')(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,"class-name":{pattern:/((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/,operator:/[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+</script>
+<script type="text/javascript">
+Prism.languages.c=Prism.languages.extend("clike",{keyword:/\b(asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while)\b/,operator:/\-[>-]?|\+\+?|!=?|<<?=?|>>?=?|==?|&&?|\|?\||[~^%?*\/]/}),Prism.languages.insertBefore("c","string",{macro:{pattern:/(^\s*)#\s*[a-z]+([^\r\n\\]|\\.|\\(?:\r\n?|\n))*/im,lookbehind:!0,alias:"property",inside:{string:{pattern:/(#\s*include\s*)(<.+?>|("|')(\\?.)+?\3)/,lookbehind:!0}}}}),delete Prism.languages.c["class-name"],delete Prism.languages.c["boolean"];
+</script>
+<script type="text/javascript">
+!function(){if(self.Prism){var e={csharp:"C#",cpp:"C++"};Prism.hooks.add("before-highlight",function(a){var t=a.element.parentNode;if(t&&/pre/i.test(t.nodeName)){var i=e[a.language]||a.language;t.setAttribute("data-language",i)}})}}();
+</script>
+<script type="text/x-mathjax-config">
+if (typeof MathJaxListener !== 'undefined') {
+  MathJax.Hub.Register.StartupHook('End', function () {
+    MathJaxListener.invokeCallbackForKey_('End');
+  });
+}
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
