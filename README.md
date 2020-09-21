@@ -5,11 +5,12 @@
 
 # 目录
 
-- Cloud 系列
+- Cloud
 
   - [MapReduce 译文](./cloud/mapreduce_note.html)
+  - [Raft 译文](./cloud/raft_note.html)
 
-- Redis 系列
+- Redis
 
   - [0.1 Dict](./redis/0.1+dict.html)
   - [0,2 IntSet](./redis/0.2+intset.html)
