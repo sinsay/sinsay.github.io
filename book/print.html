@@ -984,91 +984,93 @@ sds sdsgrowzero(sds s, size_t len);
 <a class="header" href="print.html#a实现-1" id="a实现-1"><h2>实现</h2></a>
 <a class="header" href="print.html#a字典的定义" id="a字典的定义"><h3>字典的定义</h3></a>
 <div id="dictDefine" ></div>
-``` c
-<p>// 定义了两个宏，用来表示字典的状态
-#define DICT_OK  0
-#define DICT_ERR 1</p>
-<p>// hash 后的 字典项
+<pre><code class="language-c">
+// 定义了两个宏，用来表示字典的状态
+ #define DICT_OK  0
+ #define DICT_ERR 1
+
+// hash 后的 字典项
 // key 保存了用以查找该项的依据
 // v 是保存的值
 // next 则是前面说的链表法的实现，
 // 当有碰撞时则将 hash 结果相同的项连接成一个链表
 typedef struct dictEntry {
-void *key;
-union {
-void *val;
-uint64_t u64;
-int64_t s64;
-double d;
-} v;
-struct dictEntry *next;
-} dictEntry;</p>
-<p>// dictType 保存了当前字典的信息，包括了 Hash 函数的具体实现
-// 以及 <code>键</code> 跟 <code>值</code> 的比较、复制跟销毁方式
+    void *key;
+    union {
+        void *val;
+        uint64_t u64;
+        int64_t s64;
+        double d;
+    } v;
+    struct dictEntry *next;
+} dictEntry;
+
+// dictType 保存了当前字典的信息，包括了 Hash 函数的具体实现
+// 以及 `键` 跟 `值` 的比较、复制跟销毁方式
 typedef struct dictType {
-unsigned int (*hashFunction)(const void *key);
-void *(*keyDup)(void *privdata, const void *key);
-void *(*valDup)(void *privdata, const void *key);
-int (*keyCompare)(void *privdata, const void *key1, const void *key2);
-void (*keyDestructor)(void *privdata, const void *key);
-void (*valDestructor)(void *privdata, const void *key);
-} dictType;</p>
-<p>// 这个是确切的 哈希表，也就是字典的实现，
+    unsigned int (*hashFunction)(const void *key);
+    void *(*keyDup)(void *privdata, const void *key);
+    void *(*valDup)(void *privdata, const void *key);
+    int (*keyCompare)(void *privdata, const void *key1, const void *key2);
+    void (*keyDestructor)(void *privdata, const void *key);
+    void (*valDestructor)(void *privdata, const void *key);
+} dictType;
+
+// 这个是确切的 哈希表，也就是字典的实现，
 // 保存了字典的尺寸、使用量等
 typedef struct dictht {
-dictEntry **table;
-unsigned long size;
-unsigned long sizemask;
-unsigend long used;
-} dictht;</p>
-<p>// 字典对外公开的结构，其中即包含了用于重新扩展字典的标志信息:
+    dictEntry **table;
+    unsigned long size;
+    unsigned long sizemask;
+    unsigend long used;
+} dictht;
+
+// 字典对外公开的结构，其中即包含了用于重新扩展字典的标志信息:
 // rehashidx
 typedef struct dict {
-dictType *type;
-void *privdata;
-dictht ht[2];
-long rehashidx;
-int iterators;
-} dict;</p>
-<pre><code>
-上面是跟字典相关的所有结构的定义，我们也大致说明了各个字段的意义。
+    dictType *type;
+    void *privdata;
+    dictht ht[2];
+    long rehashidx;
+    int iterators;
+} dict;
+
+</code></pre>
+<p>上面是跟字典相关的所有结构的定义，我们也大致说明了各个字段的意义。
 基本上就是 dictht 是每个确切的 hash 表，而 dict 管理了两个 dictht，对他们进行了一个更上层的管理，如 Rehashing 机制。
-接下来看看具体的实现，首先看看如何创建一个字典。
-
-### 乱入的字典说明
-由上面的结构定义我们能看到，Redis 的实现使用了 dict 来管理两个 dictht。
-一般的字典实现是：
-    
-    * 创建 Hash 表
-    * 增加元素
-        * 对 Key Hash, 得到索引
-        * 在指定的索引插入新元素
-        * 如果有冲突，则使用各种冲突解决方案
-    * 查找元素
-        * 对要查找的 Key 进行 Hash，得到索引
-        * 在对应的索引位置查找需要的元素
-
-Reids 的 dict 则将这些操作再次进行了包装，以满足再字典接近满负荷时，可以平滑的进行扩展，这个扩展的机制即是上面说过的 **Rehashing**
-
-* 它使用了两个 `dictdt`, 并使用了 `reashidx` 来管理当前使用的 `dictdt`
-* 当使用中的 `dictdt` 达到负荷条件时，则启动 `Rehashing` 机制
-    * 将新的数据插入到另一个 `dictdt`
-    * 并分批将旧的数据从原有的 `dictdt` 中移到新的 `dictht`。
-
-
-所以在下文中，我们会经常看到 isRehashing 这个函数，它是用来判断当前 `dict` 是否正在进行 `Rehashing`，如果是的话则启动分批处理函数处理旧数据，并提示其他操作都要在新的 `dictht` 中进行。
-
-
-### 创建字典 (dictCreate)
-创建一个字典的时候需要提供两个参数。
-
- * 一个字典类型的定义，其中包括了如何对 `键` 进行哈希，`建` 跟 `值` 的复制、比较以及销毁，具体定义可见 [dictType](#dictDefine) 的定义.
- * 一个私有数据：`privDataPtr`, 这个私有数据字典本身并不会用到，提供它的原因是为了字典类型的各个操作，当他们之间需要维护状态或者通信等操作时可以使用
-
-``` c 
-dict *dictCreate(dictType *type, void privDataPrt) {
+接下来看看具体的实现，首先看看如何创建一个字典。</p>
+<a class="header" href="print.html#a乱入的字典说明" id="a乱入的字典说明"><h3>乱入的字典说明</h3></a>
+<p>由上面的结构定义我们能看到，Redis 的实现使用了 dict 来管理两个 dictht。
+一般的字典实现是：</p>
+<pre><code>* 创建 Hash 表
+* 增加元素
+    * 对 Key Hash, 得到索引
+    * 在指定的索引插入新元素
+    * 如果有冲突，则使用各种冲突解决方案
+* 查找元素
+    * 对要查找的 Key 进行 Hash，得到索引
+    * 在对应的索引位置查找需要的元素
+</code></pre>
+<p>Reids 的 dict 则将这些操作再次进行了包装，以满足再字典接近满负荷时，可以平滑的进行扩展，这个扩展的机制即是上面说过的 <strong>Rehashing</strong></p>
+<ul>
+<li>它使用了两个 <code>dictdt</code>, 并使用了 <code>reashidx</code> 来管理当前使用的 <code>dictdt</code></li>
+<li>当使用中的 <code>dictdt</code> 达到负荷条件时，则启动 <code>Rehashing</code> 机制
+<ul>
+<li>将新的数据插入到另一个 <code>dictdt</code></li>
+<li>并分批将旧的数据从原有的 <code>dictdt</code> 中移到新的 <code>dictht</code>。</li>
+</ul>
+</li>
+</ul>
+<p>所以在下文中，我们会经常看到 isRehashing 这个函数，它是用来判断当前 <code>dict</code> 是否正在进行 <code>Rehashing</code>，如果是的话则启动分批处理函数处理旧数据，并提示其他操作都要在新的 <code>dictht</code> 中进行。</p>
+<a class="header" href="print.html#a创建字典-dictcreate" id="a创建字典-dictcreate"><h3>创建字典 (dictCreate)</h3></a>
+<p>创建一个字典的时候需要提供两个参数。</p>
+<ul>
+<li>一个字典类型的定义，其中包括了如何对 <code>键</code> 进行哈希，<code>建</code> 跟 <code>值</code> 的复制、比较以及销毁，具体定义可见 <a href="print.html#dictDefine">dictType</a> 的定义.</li>
+<li>一个私有数据：<code>privDataPtr</code>, 这个私有数据字典本身并不会用到，提供它的原因是为了字典类型的各个操作，当他们之间需要维护状态或者通信等操作时可以使用</li>
+</ul>
+<pre><code class="language-c">dict *dictCreate(dictType *type, void privDataPrt) {
     dict *d = zmalloc(sizeof(*d));
-    
+
     _dictInit(d, type, privDataPtr);
     return d;
 }
@@ -1127,14 +1129,14 @@ if (DICT_OK == dictAdd(d, key, val)) {
     int index;
     dictEntry *entry;
     dictht *ht;
-    
+
     // 这一步是用来扩展字典的，我们留到后面的章节来进行说明
     if (dictIsRehashing(d)) _dictRehashStep(d);
-    
+
     // 如果 key 已经在字典中存在，则直接返回 NULL
     if ((index = _dictKeyIndex(d, key)) == -1)
         return NULL;
-        
+
     // 接着添加一个新的节点用来存放新的字典项
     // 首先是获取当前可以插入数据的 dictht
     ht = dictIsRehashing(d) ? &amp;d-&gt;ht[1] : &amp;d-&gt;ht[0];
@@ -1144,7 +1146,7 @@ if (DICT_OK == dictAdd(d, key, val)) {
     ht-&gt;table[index] = entry;
     // 添加已有节点数
     ht-&gt;used++;
-    
+
     // 设置新节点的 key 字段，这里的 dictSetKey 是个宏，作用是
     // 如果 字典类型指定了 key 的复制方式，则使用指定的复制方式，
     // 否则直接复制 key 的指针
@@ -1158,11 +1160,11 @@ if (DICT_OK == dictAdd(d, key, val)) {
 <pre><code class="language-c">static int _dictKeyIndex(dict *d, const void *key) {
     unsigned int h, idx, table;
     dictEntry *he;
-    
+
     // 判断字典是否需要扩展
     if (_dictExpandIfNeeded(d) == DICT_ERR)
         return -1;
-        
+
     h = dictHashKey(d, key); // 计算 key 对应的索引值
     for (table = 0; table &lt;= 1; table++) {
         idx = h &amp; d-&gt;ht[table].sizemask;
@@ -1204,13 +1206,13 @@ printf(&quot;%s\n&quot;, (sds)val-&gt;v);
 <pre><code class="language-c">dictEntry *dictFind(dict *d, const void *key) {
     dictEntry *he;
     unsigned int h, idx, table;
-    
+
     // 如果 dict 为空，则直接返回 NULL
     if (d-&gt;ht[0].size == 0) return NULL;
 
     // Rehashing 判断，下面章节会有详细说明
     if (dictIsRehashing(d)) _dictRehashStep(d);
-    
+
     // 计算 key 对应的 hash 值
     h = dictHashKey(d, key);
     // 在有必要的情况下遍历两个 table, 这里的必要指的就是在 Rehashing 的情况下
@@ -1240,24 +1242,24 @@ static int dictGenericDelete(dict *d, const void *key, int nofree) {
     unsigned int h, idx;
     dictEntry *he, *prevHe;
     int table;
-    
+
     if (d-&gt;ht[0].size == 0) return DICT_ERR;
     if (dictIsRehashing(d)) _dictRehashStep(d);
-    
+
     h = dictHashKey(d, key);
-    
+
     for (table = 0; table &lt;= 1; table++) {
         idx = h &amp; d-&gt;ht[table].sizemask;
         he = d-&gt;ht[table].table[idx];
         prevHe = NULL;
-        
+
         while (he) {
             if (dictCompareKeys(d, key, he-&gt;key)) {
                 if (prevHe)
                     prevHe-&gt;next = he-&gt;next;
                 else
                     d-&gt;ht[table].table[idx] = he-&gt;next;
-                    
+
                 if (!nofree) {
                     dictFreeKey(d, he);
                     dictFreeVal(d, he);
@@ -1294,14 +1296,14 @@ static int dictGenericDelete(dict *d, const void *key, int nofree) {
 <pre><code class="language-c">static int _dictExpandIfNeeded(dict *d) {
     // 如果正在进行，则直接返回 OK
     if (dictIsRehashing(d)) return DICT_OK;
-    
+
     // 如果当前 dictht 为空，则已默认的大小 (4) 对其进行初始化
     if (d-&gt;ht[0].size == 0) return dictExpand(d, DICT_HT_INITIAL_SIZE);
-    
+
     if (d-&gt;ht[0].used &gt;= d-&gt;ht[0].size &amp;&amp;
         (dict_can_resize ||
          d-&gt;ht[0].used / d-&gt;ht[0].size &gt; dict_force_resize_ratio) {
-        return dictExpand(d, d-&gt;ht[0].used * 2);   
+        return dictExpand(d, d-&gt;ht[0].used * 2);
      }
      return DICT_OK;
 }
@@ -1317,36 +1319,36 @@ static int dictGenericDelete(dict *d, const void *key, int nofree) {
 <pre><code class="language-c">int dictExpand(dict *d, unsigned long size) {
     dictht n;
     // 选择将要扩张的尺寸，策略是扩张到下一个大于 size 的基于 2 的倍数的尺寸
-    unsigned long realsize = _dictNextPower(size);    
-    
+    unsigned long realsize = _dictNextPower(size);
+
     // 如果已经在 Reashing 或者 dictht 的尺寸不合法，则返回错误
     if (dictIsRehashing(d) || d-&gt;ht[0].used &gt; size)
         return DICT_ERR;
-        
+
     // 如果要扩张的尺寸等于当前尺寸（如已经满负荷，达到了 LONG_MAX) 则返回错误
     if (realsize == d-&gt;ht[0].size) return DICT_ERR;
-    
+
     n.size = realsize;
     n.sizemask = realsize - 1;
     n.table = zcalloc(realsize * sizeof(dictEntry*));
     n.used = 0;
-    
+
     // 如果是第一次扩张，也就是 dict 还没有使用过，则直接设置使用新的 dictht
     if (d-&gt;ht[0].table == NULL) {
         d-&gt;ht[0] = n;
         return DICT_OK;
     }
-    
+
     // 否则设置为需要 Rehashing, 并设置新的 dictht
     d-&gt;ht[1] = n;
     d-&gt;rehashidx = 0;
     return DICT_OK;
-    
+
 }
-    
+
 static unsigned long _dictNextPower(unsigned long size) {
     unsigned long i = DICT_HT_INITIAL_SIZE;
-        
+
     if (size &gt;= LONG_MAX) return LONG_MAX;
     while (1) {
         if (i &gt;= size)
@@ -1373,19 +1375,19 @@ static unsigned long _dictNextPower(unsigned long size) {
 int dictRehash(dict *d, int n) {
     int empty_visits = n * 10;
     if (!dictIsRehashing(d)) return 0;
-    
+
     while (n-- &amp;&amp; d-&gt;ht[0].used != 0) {
         dictEntry *de, *nextde;
-        
+
         assert(d-&gt;ht[0].size &gt; (unsigned long)d-&gt;rehashidx);
-        
+
         while (d-&gt;ht[0].table[d-&gt;rehashidx] == NULL) {
             d-&gt;rehashidx++;
             if (--empty_visits == 0) return1;
         }
         // 找到需要转移的槽
         de = d-&gt;ht[0].table[d-&gt;rehashidx];
-        
+
         while (de) {
             unsigned int h;
             nextde = de-&gt;next;
@@ -1401,7 +1403,7 @@ int dictRehash(dict *d, int n) {
         d-&gt;ht[0].table[d-&gt;rehashidx] = NULL;
         d-&gt;rehashidx++;
     }
-    
+
     // 如果旧有 ht 已经清空，将新的 ht 移到 dict-&gt;ht[0]
     // 并标志 Rehashing 已完成
     if (d-&gt;ht[0].used == 0) {
@@ -1411,7 +1413,7 @@ int dictRehash(dict *d, int n) {
         d-&gt;rehashidx = -1;
         return 0;
     }
-    
+
     // 说明 Rehashing 还未完成
     return 1;
 }
@@ -1442,7 +1444,7 @@ int dictRehash(dict *d, int n) {
 <p>普通的迭代器说明当前迭代器使用期间，<code>dict</code> 有可能被纂改。</p>
 <pre><code class="language-c">dictIterator *dictGetIterator(dict *d) {
     dictIterator *iter = zmalloc(sizeof(*iter));
-    
+
     iter-&gt;d = d;
     iter-&gt;table = 0;
     iter-&gt;index = -1;
@@ -1464,7 +1466,7 @@ int dictRehash(dict *d, int n) {
 <p><code>dict</code> 提供了迭代器机制，以便对其中的元素进行遍历的。具体的使用只需如一个循环般，一直调用 <code>dictNext</code> 直到返回 NULL 即可。</p>
 <pre><code class="language-c">dictEntry *dictNext(dictIterator *iter) {
     while (1) {
-        
+
         if (iter-&gt;entry == NULL) {
             // 如果第一次调用 dictNext, 则初始化对应的标志
             dictht = *ht = &amp;iter-&gt;d-&gt;ht[iter-&gt;table];
@@ -1476,7 +1478,7 @@ int dictRehash(dict *d, int n) {
             }
             // 更新指向下一个元素的索引
             iter-&gt;index++;
-            
+
             // 如果超过了当前 ht 的尺寸，则判断是否正在 Rehashing，是的话，切换到新的
             // ht，因为新元素不会在插入到原有的 ht[0]
             if (iter-&gt;index &gt;= (long)ht-&gt;size) {
@@ -1488,15 +1490,15 @@ int dictRehash(dict *d, int n) {
                 else { // 到这里说明已经迭代到最后了
                     break;
                 }
-            }            
+            }
             iter-&gt;entry - ht-&gt;table[iter-&gt;index];
         }
         else {
             // 如果当前槽仍有元素，则指向下一个
             iter-&gt;entry = iter-&gt;nextEntry;
         }
-                   
-        // 如果当前元素不为空，则返回给用户，并准备好下一个 
+
+        // 如果当前元素不为空，则返回给用户，并准备好下一个
         if (iter-&gt;entry) {
             iter-&gt;nextEntry = iter-&gt;entry-&gt;next;
             return iter-&gt;entry;
@@ -1523,17 +1525,17 @@ int dictRehash(dict *d, int n) {
 <pre><code class="language-c">long long dictFingerprint(dict *d) {
     long long integers[6], hash = 0;
     int j;
-    
+
     iteragers[0] = (long)d-&gt;ht[0].table;
     iteragers[1] = d-&gt;ht[0].size;
     iteragers[2] = d-&gt;ht[0].used;
     iteragers[3] = (long)d-&gt;ht[1].table;
     iteragers[4] = d-&gt;ht[1].size;
     iteragers[5] = d-&gt;ht[1].used;
-    
+
     for (j = 0; j &lt; 6; j++) {
         hash += iteraters[j];
-        
+
         hash = (~hash) + (hash &lt;&lt; 21);
         hash = hash ^ (hash &gt;&gt; 24);
         hash = (hash + (hash &lt;&lt; 3)) + (hash &lt;&lt; 8); // hash * 265
@@ -5409,6 +5411,21 @@ $$
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
