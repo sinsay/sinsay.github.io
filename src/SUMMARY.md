@@ -5,6 +5,7 @@
   - [Hello](./tokio/tokio\ -\ tutorial\ -\ hello.md)
   - [Spawning](./tokio/tokio\ -\ tutorial\ -\ spawning.md)
   - [Shared State](./tokio/tokio\ -\ tutorial\ -\ shared\ state.md)
+  - [Channel](./tokio/tokio\ -\ tutorial\ -\ channel.md)
 - [DataStruct](./data_struct.md)
   - [sds](./redis/sds.md)
   - [dict](./redis/dict.md)
