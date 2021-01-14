@@ -6,6 +6,8 @@
   - [Spawning](./tokio/tokio\ -\ tutorial\ -\ spawning.md)
   - [Shared State](./tokio/tokio\ -\ tutorial\ -\ shared\ state.md)
   - [Channel](./tokio/tokio\ -\ tutorial\ -\ channel.md)
+  - [I/O](./tokio/tokio\ -\ tutorial\ -\ io.md)
+  - [Framing](./tokio/tokio\ -\ tutorial\ -\ framing.md)
 - [DataStruct](./data_struct.md)
   - [sds](./redis/sds.md)
   - [dict](./redis/dict.md)

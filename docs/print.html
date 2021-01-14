@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -1026,6 +1026,257 @@ loop {
 </ul>
 <p>在这么做的时候，要小心的确保这些操作都是有限的，比如在等待接收 TCP 连接的循环中，要确保能打开的套接字的上限。在使用 <code>mpsc::channel</code> 时要选择一个合理的容量，具体的合理值根据程序不同而不同。</p>
 <p>小心的选择这些限额将能够大幅度的提高 Tokio 程序的可靠性。</p>
+<a class="header" href="print.html#io" id="io"><h1>I/O</h1></a>
+<p>Tokio 中的 <code>I/O</code> 操作跟标准库 <code>std</code>的保持一致，只是他是异步的。他提供了用于读取数据的 <code>AsyncRead Trait</code> 及用于写入操作的 <code>AayncWrite Trait</code>，很多类型都实现了他们，比如 <code>TcpStream</code>、<code>File</code>、<code>Stdout</code> 等，还有很多其他的基础类型如 <code>Vec&lt;u8&gt;</code>、 <code>&amp;[u8]</code> ，他们让我们能够像使用 <code>Writer</code> 跟 <code>Reader</code> 一般使用字节数组。</p>
+<p>本页面会使用 Tokio 来实现包含基础 <code>I/O</code> 的读取跟写入的一些示例。下一节我们则将会来探索更高级的示例。</p>
+<a class="header" href="print.html#asyncread-and-asyncwrite" id="asyncread-and-asyncwrite"><h2><code>AsyncRead</code> And <code>AsyncWrite</code></h2></a>
+<p>这两个 <code>Trait</code> 基础设施为字节流提供了异步的读取跟写入能力，事实上这两个 <code>Trait</code> 的函数并不会被直接调用，就像你不会手动的去调用 <code>Future</code> 的 <code>poll</code> 函数，他们更多的是会被其他的使用 <code>Trait</code> 来调用，如 <code>AsyncReadExt</code> 跟 <code>AsyncWriteExt</code>。</p>
+<p>接下来让我们来稍微看其中几个函数，所有的这些函数都是 <code>async</code> 并且必须使用 <code>.await</code> 来调用。</p>
+<a class="header" href="print.html#async-fn-read" id="async-fn-read"><h3><code>async fn read()</code></h3></a>
+<p><code>AsyncReadExt::read()</code> 提供了用来读取数据到缓存然后返回读取字节数的异步函数。</p>
+<p><strong>Note</strong>： 当 <code>read()</code> 返回 <code>Ok(0)</code> 时，意味着读取的数据流已经关闭，后续再进行的 <code>read()</code> 调用都会马上返回 <code>Ok(0)</code>。对于 <code>TcpStream</code> 来说则意味着套接字的读取部分已经关闭。</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::fs::File;
+use tokio::{self, AsyncReadExt};
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut f = File::open(&quot;foo.txt&quot;).await?;
+  let mut buffer = [0; 10];
+  
+  // read up to 10 bytes
+  let n = f.read(&amp;mut buffer[..]).await?;
+  
+  println!(&quot;The bytes: {:?}&quot;, &amp;buffer[..n]);
+  Ok(())
+}
+</code></pre></pre>
+<a class="header" href="print.html#async-fn-read_to_end" id="async-fn-read_to_end"><h3><code>async fn read_to_end()</code></h3></a>
+<p><code>AsyncReadExt::read_to_end()</code> 从数据流中读取所有的数据直到读完。</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncReadExt};
+use tokio::fs::File;
+
+#[tokil::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut f = File::open(&quot;foo.txt&quot;).await?;
+  let mut buffer = Vec::new();
+  
+  // read to whole file
+  f.read_to_end(&amp;mut buffer).await?;
+  Ok(())
+}
+</code></pre></pre>
+<p><code>async fn write()</code></p>
+<p><code>AsyncWriteExt::write</code> 将缓存中的数据写入到写入者中，然后返回写入的数据字节数。</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncWriteExt};
+use tokio::fs::File;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut file = File::create(&quot;foo.txt&quot;).await?;
+  
+  // Writes some prefix of the byte string, but not necessarily all of it.
+  let n = file.write(b&quot;some bytes&quot;).await?;
+  println!(&quot;Wrote the first {} bytes of 'some bytes'&quot;, n);
+  Ok(())
+}
+</code></pre></pre>
+<a class="header" href="print.html#async-fn-write_all" id="async-fn-write_all"><h3><code>async fn write_all()</code></h3></a>
+<p><code>AsyncWriteExt::write_all</code> 写入缓存中所有的数据到写入者中。</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncWriteExt};
+use tokio::fs::File;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut buffer = File::create(&quot;foo.txt&quot;).await?;
+  
+  buffer.write_all(b&quot;some bytes&quot;).await?;
+  Ok(())
+}
+</code></pre></pre>
+<p>每个 <code>Trait</code> 都包含了一些其他的函数，可以查看文档来全面的了解可用的函数。</p>
+<a class="header" href="print.html#helper-functions" id="helper-functions"><h2>Helper Functions</h2></a>
+<p>跟标准库 <code>std</code> 一样，<code>tokio::io</code> 模块也包含了许多适用于标准输入、标准输出及标准错误的实用函数，比如 <code>tokio::io::copy</code> 异步复制函数可用于从读取对象中读取所有数据到写入对象中。</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::fs::File;
+use tokio::io;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut reader: &amp;[u8] = b&quot;hello&quot;;
+  let mut file = File::create(&quot;foo.txt&quot;).await?;
+  
+  io::copy(&amp;mut reader, &amp;mut file).await?;
+  Ok(())
+}
+</code></pre></pre>
+<p>我们知道这里能够复制是因为字节数组同样实现了 <code>AsyncRead</code>。</p>
+<a class="header" href="print.html#echo-server" id="echo-server"><h2>Echo Server</h2></a>
+<p>接下来会通过一个 Echo 服务来熟悉异步 IO。</p>
+<p>该 Echo 服务会绑定一个 <code>TcpListener</code> 并用他在循环中接收进来的连接，都会该套接字中读取所有的数据，然后马上将数据写回该套接字。对于客户端来说，则是发送数据给服务端然后会接收到一模一样的回复。</p>
+<p>我们会以两种不同的策略来实现 Echo 服务两次。</p>
+<a class="header" href="print.html#using-iocopy" id="using-iocopy"><h3>Using <code>io::copy()</code></h3></a>
+<p>第一步我们先使用一个实用的 <code>io::copy</code> 函数来实现。</p>
+<p>这是个 TCP 服务所以我们首先需要一个接收连接的循环，在每次接收到一个套接字时则会创建一个任务对其进行处理。</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::io;
+use tokio::net::TcpListener;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut listener = TcpListener::bind(&quot;127.0.0.1:6142&quot;).await.unwrap();
+  
+  loop {
+    let (mut socket, _) = listener.accept().await?;
+    
+    tokio::spawn(async move {
+      // Copy data here
+    })
+  }
+}
+</code></pre></pre>
+<p>正如我们之前介绍的，这个实用函数需要 <code>Reader</code> 跟 <code>Writer</code> 两个参数，并从 <code>Reader</code> 中拷贝数据到 <code>Writer</code>。我们现在只有一个同时实现了 <code>AsyncRead</code> 跟 <code>AsyncWrite</code> 的 <code>TcpStream</code>，并且因为 <code>io::copy</code> 的两个参数都需要 <code>&amp;mut</code> 类型，所以我们现在手上的套接字不能同时作为两个参数传递给它。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// This fails to cpmpile
+io::copy(&amp;mut socket, &amp;,ut socket).await
+#}</code></pre></pre>
+<a class="header" href="print.html#spliting-a-reader--writer" id="spliting-a-reader--writer"><h3>Spliting A Reader + Writer</h3></a>
+<p>为了解决这个问题，我们需要将套接字拆分为 <code>Reader</code> 跟 <code>Writer</code>，而拆分的最佳方法取决于我们所需要拆分的具体类型。</p>
+<p>任何一个 <code>Reader</code> + <code>Writer</code> 都可以通过 <code>io::split</code> 来拆分，这个函数获取一个参数然后将其拆分为 <code>Reader</code> 跟 <code>Writer</code> 返回，返回的这两个句柄现在可以独立的使用，比如将他们用到不同的任务中。</p>
+<p>举个例子，Echo 服务可以像这样来使用 <code>Writer</code> 跟 <code>Reader</code></p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncReaderExt, AsyncWriterExt};
+use tokio::net::TcpStream;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let socket = TcpStream::connect(&quot;127.0.0.1:6142&quot;).await?;
+  let (mut rf, mut wr) = io::split(socket);
+  
+  // Write data in the background
+  let write_data = tokio::spawn(async move {
+    wr.write_all(b&quot;hello\r\n&quot;).await?;
+    wr.write_all(b&quot;world\r\n&quot;).await?;
+    
+    Ok::&lt;_,io::Error&gt;(())
+  });
+  
+  let mut buf = vec![0; 128];
+  
+  lop {
+    let n = rd.read(&amp;mut buf).await?;
+    
+    if n == 0 {
+      break;
+    }
+    
+    println!(&quot;GOT {:?}&quot;, &amp;buf[..n]);
+  }
+  
+  Ok(())
+}
+</code></pre></pre>
+<p><code>io::split</code> 支持将任意的实现了 <code>AsyncRead</code> + <code>AsyncWrite</code> 的值拆分为独立的句柄，在函数的内部，他使用 <code>Arc</code> 跟 <code>Mutex</code> 来实现这个功能。为了避免这个额外的负荷，我们可以使用 <code>TcpStream</code> 提供的两个特殊的拆分函数。</p>
+<p><code>TcpStream::split</code>  获取一个自身的引用并返回 <code>Reader</code> 跟 <code>Writer</code>。因为使用了自身的引用，所以两个返回的句柄需要保留在调用了 <code>split()</code> 进行拆分在同一个任务中，这个特殊的 <code>split</code> 调用是无需任何代价的，他不需要使用到任何类似 <code>Arc</code> 或 <code>Mutex</code> 之类的东西。<code>TcpStream</code> 同时也提供使用了 <code>Arc</code> 作为实现的 <code>into_split</code> 用来支持将拆分的 <code>Reader</code> 跟 <code>Writer</code> 应用到不同的任务中。</p>
+<p>因为 <code>io::copy</code> 是在持有 <code>TcpStream</code> 的同一个任务中调用的，所以我们使用 <code>TcpSteram::split</code>，处理请求的任务现在变为了</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+tokio::spawn(async move {
+  let (mut rd, mut wr) = soket.split();
+  
+  if io::copy(&amp;mut rd, &amp;mut wr).await.is_err() {
+    eprintln!(&quot;failed to copy&quot;);
+  }
+});
+#}</code></pre></pre>
+<p>完整的代码可以在 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/io/src/echo-server.rs">这里</a> 找到。</p>
+<a class="header" href="print.html#manual-copying" id="manual-copying"><h3>Manual Copying</h3></a>
+<p>接下来我们来实现一个手动复制数据的 Echo 服务，这里面我们使用了 <code>AsyncReadExt::read</code> 跟 <code>AsyncWriteExt::write_all</code>。</p>
+<p>完整的代码如下:</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
+use tokio::net::TcpListener;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  let mut listener = TcpListener::bind(&quot;127.0.0.1:6142&quot;).await.unwrap();
+  
+  loop {
+    let (mut socket, _) = listener.accept().await?;
+    
+    tokio::spawn(async move {
+      let mut buf = vec![0; 1024];
+      
+      loop {
+        match socket.read(&amp;mut buf).await {
+          // Return value of `Ok(0)` signfies that eh remote has closed
+          Ok(0) =&gt; return,
+          Ok(n) =&gt; {
+            // Copy the data back to socket
+            if socket.write_all(&amp;buf[..n]).await.is_err() {
+              // Unexpected socket error. There isn't much we can
+              // do here so just stop processing.
+              return;
+            }
+          }
+          Err(_) =&gt; {
+            // Unexpected socket error. There isn't must we can do
+            // here so just stop processing.
+            return;
+          }
+        }
+      }
+    });
+  }
+}
+</code></pre></pre>
+<p>接下来逐步拆分说明，因为使用了 <code>AsyncRead</code> 跟 <code>AsyncWrite</code> 相关的东西，所以需要在当前代码中引入下面的两个 Trait</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
+#}</code></pre></pre>
+<a class="header" href="print.html#allocating-a-buffer" id="allocating-a-buffer"><h4>Allocating A Buffer</h4></a>
+<p>当前的实现方案需要将数据从套接字中读取到缓存，然后再将其从缓存中写回套接字</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut buf = vec![0; 1024];
+#}</code></pre></pre>
+<p>一个创建在栈中的缓存是需要明确避免的，正如早前提到的，所有的任务数据都需要保存到任务中，用来在 <code>.await</code> 调用之间使用。在我们的例子中， <code>buf</code> 会跨越 <code>.await</code> 调用使用，所有的任务数据都需要保存到单次申请中，你可以假定将使用 <code>enum</code> 来保存那些需要跨越 <code>.await</code> 调用的数据。</p>
+<p>如果将缓存表现为栈中的数组，在每次创建任务时产生的内部数据结构看起来会是这样：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Task {
+  // internal task fields here
+  task: enum {
+    AwaitingRead {
+      socket: TcpStream,
+      buf: [BufferType],
+    },
+    AwaitingWriteAll {
+      socket: TcpStream,
+      buf: [BufferType],
+    }
+  }
+}
+#}</code></pre></pre>
+<p>如果使用一个栈中的数组作为上面的缓存类型，他会被内联的保存到任务的数据结构中，这会让任务的数据结构变得非常庞大。而且，缓存的大小通常跟页的大小设为相同的，这会让任务的数据大小变成一个不是很合适的尺寸: <code>$page-size + a-few_bytes</code>。</p>
+<p>编译器会将异步代码块优化的比我们看到的基础的 <code>enum</code> 更好，在实际中，变量并不像枚举那样在不同的状态中移动，但是任务的数据结构大小仍然会像我们看到的那么大。</p>
+<p>因此，使用专用独立的内存分配来使用缓存会是更好的方式。</p>
+<a class="header" href="print.html#handling-eof" id="handling-eof"><h4>Handling EOF</h4></a>
+<p>当我们所读取的 TCP 流被关闭了，对其调用的 <code>read()</code> 会返回 <code>Ok(0)</code>，这意味着我们需要中断这个读取循环了，忘记中断这个读取的循环是很多常见 Bug 的来源</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+loop {
+  match socket.read(&amp;mut buf).await {
+    Ok(0) =&gt; return
+  }
+}
+#}</code></pre></pre>
+<p>没有中断这个读取的循环会导致 CPU 被占满 100%，当套接字关闭后，<code>socket.read()</code> 会马上返回，所以这个循环会无限循环下去。</p>
+<p>完整的代码可以在 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/io/src/echo-server.rs">这里</a> 找到。</p>
+<a class="header" href="print.html#framing" id="framing"><h1>Framing</h1></a>
 <a class="header" href="print.html#datastruct" id="datastruct"><h1>DataStruct</h1></a>
 <a class="header" href="print.html#simple-dynamic-string" id="simple-dynamic-string"><h1>Simple Dynamic String</h1></a>
 <p>[TOC]</p>
