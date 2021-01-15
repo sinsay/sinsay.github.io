@@ -1,7 +1,7 @@
 # Summary
 
 - [About Me](./about.md)
-- [Tokio Tutirial](./tokio.md)
+- [Tokio Tutirial (译)](./tokio.md)
   - [Hello](./tokio/tokio\ -\ tutorial\ -\ hello.md)
   - [Spawning](./tokio/tokio\ -\ tutorial\ -\ spawning.md)
   - [Shared State](./tokio/tokio\ -\ tutorial\ -\ shared\ state.md)
@@ -20,5 +20,5 @@
   - [3. 请求处理](./redis/3.\ Redis\ 请求处理.md)
   - [4. 执行命令](./redis/4.\ Redis\ 执行命令.md)
 - [Distributed](./distributed.md)
-  - [MapReduce](./distributed/mapreduce_note.md)
-  - [Raft](./distributed/raft_note.md)
+  - [MapReduce (译)](./distributed/mapreduce_note.md)
+  - [Raft (译)](./distributed/raft_note.md)
