@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth (TODO)</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -1573,6 +1573,110 @@ async fn write_frame(&amp;mut self, frame: &amp;Frame)
 </ul>
 <p>该函数最后还要调用 <code>self.stream.flush().await</code> ，因为对 <code>BufWriter</code> 会将写入的数据缓存起来， <code>write</code> 操作并不能保证数据会写入到套接字，在返回前，我们希望帧的所有数据都会被写入到套接字中，所以通过 <code>flush</code> 函数实现将所有的数据写入到套接字。</p>
 <p>另一个选择是不在 <code>write_frame()</code> 中调用 <code>flush()</code>，而是为 <code>Connection</code> 类型提供一个 <code>flush()</code> 函数，这将允许调用者将多个较小的帧缓存起来，最后使用一个 <code>write</code> 系统调用一次性将他们写入套接字。这个实现会让 <code>Connection</code> 变的复杂一些，简单是 Mini-Redis 的目标之一，所以我们选在直接将 <code>flush().await</code> 的调用直接写到了 <code>write_frame()</code> 里。</p>
+<a class="header" href="print.html#async-in-depth" id="async-in-depth"><h2>Async In Depth</h2></a>
+<p>现在，我们已经对 Rust 异步方式跟 Tokio 有了比较全面的了解，接着我们将继续更加深入的来挖掘 Rust 的异步运行时模型。在我们前面的教程中，我们提到了 Rust 使用了一种特殊的方式来实现异步的目标，现在我们来说说他到底是什么方式。</p>
+<a class="header" href="print.html#futures" id="futures"><h3>Futures</h3></a>
+<p>现在让我们来看一个非常简单的异步函数作为整体的概览，这个函数相对于我们已经完成的教程并没有任何新的东西</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use tokio::net::TcpStream;
+
+async fn my_async_fn() {
+  println!(&quot;hello from async&quot;);
+  let _socket = TcpStream::connect(&quot;127.0.0.1:3000&quot;).await.unwrap();
+  println!(&quot;async TCP operation complete&quot;);
+}
+#}</code></pre></pre>
+<p>然后我们来调用这个函数得到他的返回值，然后在返回值上调用 <code>.await</code></p>
+<pre><pre class="playpen"><code class="language-rust">#[tokio::main]
+async fn main() {
+  let waht_is_this = my_async_fn();
+  // Nothing has been printed yet.
+  what_is_this.await;
+  // Text has been printed and socket has been
+  // established and closed.
+}
+</code></pre></pre>
+<p><code>my_async_fn()</code> 的返回值是一个 <code>Future</code>, 每个 <code>Future</code> 都会实现标准库提供的 <code>std::future::Future Trait</code>，他们表示了一个值，该值包含了进程内的异步计算。</p>
+<p><code>std::future::Future Trait</code> 的定义如下：</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::pin::Pin;
+use std::task::{Context, Poll};
+
+pub trait Future {
+  type Output;
+  
+  fn poll(self: Pin&lt;&amp;mut Self&gt;, cx: &amp;mut Context )
+      -&gt; Poll&lt;Self::Output&gt;; 
+}
+#}</code></pre></pre>
+<p>在 Trait 中定义的关联类型 <code>Output</code> 表示该 Future 在完成时会产生的结果，而 <code>Pin</code> 类型则是 Rust 用来支持异步操作中借用机制的基础。具体的细节可以从标准库的 <a href="https://doc.rust-lang.org/std/pin/index.html">文档</a> 了解。</p>
+<p>跟其他编程语言实现 <code>Future</code> 的方式不同，Rust 的 <code>Future</code> 并不表示任何跟后台执行相关的含义，他只表示了该计算原本的过程。持有 <code>Future</code> 的人需要负责的是通过调用 <code>Future::poll</code> 函数，来让该计算能够继续推进，该推进的过程则称为 <code>Polling</code>。</p>
+<a class="header" href="print.html#implementing-future" id="implementing-future"><h3>Implementing <code>Future</code></h3></a>
+<p>现在让我们来实现一个包含下面功能的简单的 <code>Future</code></p>
+<ol>
+<li>等待指定的时间</li>
+<li>打印文本到标准输出</li>
+<li>返回一个字符串</li>
+</ol>
+<pre><pre class="playpen"><code class="language-rust">use std::future::Future;
+use std::pin::Pin;
+use std::task::{Context, Poll};
+use std::time::{Duration, Instant};
+
+struct Delay {
+  when: Instant,
+}
+
+impl Future for Delay {
+  type Output = &amp;'static str;
+  
+  fn poll(self: Pin&lt;&amp;mut Self&gt;, cx: &amp;mut Context&lt;'_&gt;)
+      -&gt; Pool&lt;&amp;'static str&gt; {
+        if Instant::now() &gt; self.when {
+          println!(&quot;Hello world&quot;);
+          Poll::Ready(&quot;done&quot;)
+        } else {
+          // Ignore this line for now
+          cx.waker().wake_by_ref();
+          Poll::Pending
+        }
+  }
+}
+
+#[tokio::main]
+async fn main() {
+  let when = Instant::now() + Duration::from_millis(10);
+  let future = Delay { when };
+  
+  let out = future.await;
+  asser_eq!(out, &quot;done&quot;);
+}
+</code></pre></pre>
+<a class="header" href="print.html#async-fn-as-a-future" id="async-fn-as-a-future"><h3>Async fn as a Future</h3></a>
+<p>在 <code>main</code> 函数中，我们初始化了一个 <code>Future</code> 并调用了其 <code>.await</code>，在异步的函数中，我们可以在任何实现了 <code>Future Trait</code> 的值上调用 <code>.await</code>。实际上，调用一个标记为 <code>async</code> 的函数会返回一个匿名的实现了 <code>Future</code> 的值，在 <code>async fn main()</code> 函数中，该调用生成的 <code>Future</code> 类似下面的代码段</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::future::Future;
+use std::pin::Pin;
+use std::task::{Context, Poll};
+use std::time::{Duration, Instant};
+
+enum MainFuture {
+  // Initialized, never polled
+  State0,
+  // Waiting on `Delay`, i.e. the `future.await` line
+  State1(Delay),
+  // The future has completed.
+  Terminater,
+}
+
+
+#}</code></pre></pre>
 <a class="header" href="print.html#datastruct" id="datastruct"><h1>DataStruct</h1></a>
 <a class="header" href="print.html#simple-dynamic-string" id="simple-dynamic-string"><h1>Simple Dynamic String</h1></a>
 <p>[TOC]</p>
