@@ -8,7 +8,7 @@
   - [Channel](./tokio/tokio\ -\ tutorial\ -\ channel.md)
   - [I/O](./tokio/tokio\ -\ tutorial\ -\ io.md)
   - [Framing](./tokio/tokio\ -\ tutorial\ -\ framing.md)
-  - [Async In Depth (TODO)](./tokio/tokio\ -\ tutorial\ -\ indepth.md)
+  - [Async In Depth](./tokio/tokio\ -\ tutorial\ -\ indepth.md)
 - [DataStruct](./data_struct.md)
   - [sds](./redis/sds.md)
   - [dict](./redis/dict.md)

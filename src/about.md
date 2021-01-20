@@ -7,6 +7,6 @@ I will fill it soon!
 
 for now, if you wanna discuss with me or have some issue for me, contact me with the following ways: <br/>
 
-wechat: SinSay 
+wechat: SinSay
 
 mail: SinSayChen@gmail.com
