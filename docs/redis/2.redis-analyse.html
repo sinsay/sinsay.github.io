@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html" class="active"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select (DOING)</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html" class="active"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,7 +133,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="redis/2. Redis 分析起步.html#redis-内容篇" id="redis-内容篇"><h1>Redis 内容篇</h1></a>
+                        <a class="header" href="redis/2.redis-analyse.html#redis-内容篇" id="redis-内容篇"><h1>Redis 内容篇</h1></a>
 <p>[TOC]</p>
 <p>在经过了之前对 Redis 的几个基础类型的分析后，我们开始查看其具体实现，首先嘛，任何程序跟应用总是需要启动的，所以我们从其 <code>redis.h/redis.c</code> 开始。</p>
 <pre><code class="language-c">#include &quot;ae.h&quot;        /* Event driven programming library */
@@ -164,7 +164,7 @@
 </li>
 </ul>
 <p>由上面的基本信息可知，核心流程基本是由 anet 来管理网络连接，在接收到客户端的请求后，将请求内容转发给 ae，ae 则根据请求的类型，调用相关的处理函数。</p>
-<a class="header" href="redis/2. Redis 分析起步.html#a启动服务器" id="a启动服务器"><h2>启动服务器</h2></a>
+<a class="header" href="redis/2.redis-analyse.html#a启动服务器" id="a启动服务器"><h2>启动服务器</h2></a>
 <p>接下来看看 Redis 是如何启动的, 以下是经过简单整理的启动函数</p>
 <pre><code class="language-c">int main (int argc, char **argv) {
     struct timeval tv;
@@ -347,7 +347,7 @@
 </code></pre>
 <p>在上面的初始化过程中，我们把当前应该关注的跟可以忽略的都写出来了，其实是为了留个印象，以后遇到的时候可以知道是用来干啥的。
 除去 <code>Cluster</code>、<code>AOF</code>、<code>RDB</code> 等，剩余的基本都是 Redis 基础服务的核心，如初始化时通过 <code>aeCreateTimeEvent</code> 注册的的 <code>serverCron</code> 事件，以及注册到监听端口的处理函数 <code>acceptTcpHandler</code>, 暂时可以把它理解为一切的开始：因为 Redis 的工作方式就是等待一条命令，处理命令然后返回结果。</p>
-<a class="header" href="redis/2. Redis 分析起步.html#a建立连接" id="a建立连接"><h2>建立连接</h2></a>
+<a class="header" href="redis/2.redis-analyse.html#a建立连接" id="a建立连接"><h2>建立连接</h2></a>
 <p>在这里我们先不管 ae 的实现，直接查看 <code>acceptTcpHandler</code>，这里是作为 Redis 接收客户端链接的入口：</p>
 <pre><code class="language-c">void acceptTcpHandler(aeEventLoop *el, int fd, void *privdata, int mask) {
     int cport, cfd, max = MAX_ACCEPTS_PER_CALL;
@@ -493,7 +493,7 @@ redisClient *createClient(int fd) {
 }
 </code></pre>
 <p>创建客户端的操作基本完成，在这个时候客户端已经与服务端建立连接，随时准备客户端发送请求。</p>
-<a class="header" href="redis/2. Redis 分析起步.html#redis-的类型定义" id="redis-的类型定义"><h2>Redis 的类型定义</h2></a>
+<a class="header" href="redis/2.redis-analyse.html#redis-的类型定义" id="redis-的类型定义"><h2>Redis 的类型定义</h2></a>
 <p>如何处理请求留到下一篇章进行分析，接下来看一下上面遇到的各种 redis 的内置类型定义。</p>
 <pre><code class="language-c">#define REDIS_LRU_BITS 24
 
@@ -526,13 +526,13 @@ typedef struct redisServer {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="redis/1. Redis 基本定义.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="redis/1.redis-basic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="redis/3. Redis 请求处理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="redis/3.redis-process.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -544,13 +544,13 @@ typedef struct redisServer {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="redis/1. Redis 基本定义.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="redis/1.redis-basic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="redis/3. Redis 请求处理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="redis/3.redis-process.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

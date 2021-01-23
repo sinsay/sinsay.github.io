@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html" class="active"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html" class="active"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select (DOING)</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,7 +133,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tokio - tutorial - framing.html#framing" id="framing"><h2>Framing</h2></a>
+                        <a class="header" href="tokio/tutorial-framing.html#framing" id="framing"><h2>Framing</h2></a>
 <p>我们现在来将我们上一章学到的 I/O 相关的知识用来实现 Mini-Redis 的帧模块。帧模块将字节流进行处理并转换为一个个的数据帧，每个帧表示了两端之间数据传输的命令单元。Redis 协议的帧如下所示</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -197,7 +197,7 @@ impl Connection {
 }
 #}</code></pre></pre>
 <p>对于具体的 Redis 协议可以参考 <a href="https://redis.io/topics/protocol">这里</a>， 完整的 <code>Connection</code> 代码可以从 <a href="https://github.com/tokio-rs/mini-redis/blob/tutorial/src/connection.rs">这里</a> 找到。</p>
-<a class="header" href="tokio/tokio - tutorial - framing.html#buffered-reads" id="buffered-reads"><h3>Buffered Reads</h3></a>
+<a class="header" href="tokio/tutorial-framing.html#buffered-reads" id="buffered-reads"><h3>Buffered Reads</h3></a>
 <p><code>read_frame</code> 函数会执行到从 <code>stream</code> 读取到一个完整的帧之后才返回，因为一个单独的 <code>TcpStream::read</code> 调用返回指定数量的数据，所以他可能返回一个完整的帧、部分的帧或者是多个帧，如果读取到了部分的帧，数据将被缓存起来，然后尝试继续从套接字中继续读取；如果收到了多个帧，第一个帧会马上返回并且剩余的数据会缓存起来，直到下一次的 <code>read_frame</code> 调用。</p>
 <p>为了实现 <code>Connection</code> 我们需要一个读取缓存的字段，数据从套接字中读取到缓存中，当数据能够组成一个帧时，该帧对应的数据会从缓存中删除。</p>
 <p>我们会使用 <code>BytesMut</code> 作为缓存类型，这是一个跟 <code>Bytes</code> 一样但允许修改的类型。</p>
@@ -234,7 +234,7 @@ pub async fn read_frame(&amp;mut self) -&gt; Result&lt;Option&lt;Frame&gt;&gt; {
 #}</code></pre></pre>
 <p>接着来逐步分解代码，<code>read_frame</code> 函数中的处理都处于 <code>loop</code> 循环内，第一步会尝试调用 <code>self.parse_frame()</code> 去从缓存 <code>self.buffer</code> 中解析出 Redis 的帧，如果缓存中的数据足够组成一个帧，则马上返回解析出来的帧。否则的话则尝试从套接字中读取更多的数据到缓存中，然后在下一个循环中继续尝试调用 <code>parse_frame</code>，如果这时数据足够了，则解析帧的操作就能够成功。</p>
 <p>当从数据流中读取数据时，返回值 <code>0</code> 用来确认是否已经没有数据可以继续从套接字中读取了，如果这时缓存中仍有数据，说明我们读取到了部分的帧并且连接已经被意外中断了，当出现这种情况时 <code>read_frame</code> 会返回一个 <code>Err</code> 错误。</p>
-<a class="header" href="tokio/tokio - tutorial - framing.html#the-buf-trait" id="the-buf-trait"><h3>The <code>Buf</code> Trait</h3></a>
+<a class="header" href="tokio/tutorial-framing.html#the-buf-trait" id="the-buf-trait"><h3>The <code>Buf</code> Trait</h3></a>
 <p>当从数据流中进行读取时会调用 <code>read_buf</code> ，当前版本的读取函数是由 <code>bytes</code> 包的 <code>BufMut</code> 类型实现的。</p>
 <p>现在来考虑一下怎么同时在循环中通过 <code>read()</code> 来实现一样的功能， 先用 <code>Vec&lt;u8&gt;</code> 来替换掉 <code>BytesMut</code>。</p>
 <pre><pre class="playpen"><code class="language-rust">
@@ -299,7 +299,7 @@ pub async fn read_frame(&amp;mut self) -&gt; Result&lt;Option&lt;Frame&gt;&gt; {
 <p>使用字节数组跟 <code>read</code> 来实现功能，我们需要自己管理游标来跟踪当前已经缓存的数据量，确保只把缓存中的未使用区域传递给 <code>read()</code>，否则的话会导致缓存被覆盖。如果缓存被填满了，我们需要扩充缓存的大小用来填充更多的数据。在 <code>parse_frame()</code> 中，我们需要用到缓存中 <code>self.buffer[..self.cursor]</code> 的区域。</p>
 <p>因为结对使用字节数组与游标是很常用的方式，<code>bytes</code> 包提供了对他们进行了抽象提取，最后以 <code>Buf Trait</code> 提供了数据读取及 <code>ByteMut Trait</code> 提供了数据写入的能力。当传递了一个 <code>T: BufMut</code> 类型给 <code>read_buf()</code> 函数时，该类型内部的游标会由 <code>read_buf</code> 更新。 因此在我们之前实现的 <code>read_frame</code> 版本中不需要自己来管理游标信息。</p>
 <p>另外，在使用 <code>Vec&lt;u8&gt;</code> 时我们还需要对其进行初始化， <code>vec![0; 4096]</code> 分配了 4096 个字节的数组并将每个字节使用了 0 来进行填充，当扩充缓存的大小时，扩充部分的数据也需要使用 0 来进行填充。这个初始化的过程并不是没有代价的，但在使用 <code>BytesMut</code> 跟 <code>BufMut</code> 时，缓存的容量是未初始化的， <code>BytesMut</code> 抽象能够防止我们读取未初始化的内存，因此得以让我们避免了初始化这一步。</p>
-<a class="header" href="tokio/tokio - tutorial - framing.html#parsing" id="parsing"><h3>Parsing</h3></a>
+<a class="header" href="tokio/tutorial-framing.html#parsing" id="parsing"><h3>Parsing</h3></a>
 <p>现在让我们来看一下 <code>parse_frame()</code> 函数，解析的操作分成了两步来实现</p>
 <ol>
 <li>确认缓存中包含了完整的帧并找到该帧所在最后一个字节的位置</li>
@@ -350,7 +350,7 @@ fn parse_frame(&amp;mut self) -&gt; Result&lt;Option&lt;Frame&gt;&gt; {
 <p>完整的 <code>Frame::check</code> 函数可以在 <a href="https://github.com/tokio-rs/mini-redis/blob/tutorial/src/frame.rs#L63-L100">这里</a> 找到，在这里我们不会讨论他的具体实现。</p>
 <p>这里要注意的是 <code>Buf</code> 被看为了一个 &quot;字节迭代器&quot; 风格的接口来使用，这些接口会获取其中的数据并往前移动其游标。比如解析帧时，第一个字节会被用来作为帧的类型进行检查，最后内部使用 <code>Buf::get_u8</code> 来获取数据及移动游标信息。</p>
 <p><code>Buf Trait</code> 还提供了其他许多有用的接口，具体的可以查阅其 <a href="https://docs.rs/bytes/1/bytes/buf/trait.Buf.html">接口文档</a>。</p>
-<a class="header" href="tokio/tokio - tutorial - framing.html#buffered-writes" id="buffered-writes"><h3>Buffered Writes</h3></a>
+<a class="header" href="tokio/tutorial-framing.html#buffered-writes" id="buffered-writes"><h3>Buffered Writes</h3></a>
 <p>另一部分处理帧的函数是 <code>write_frame(frame)</code>，这个函数将整个帧的数据写到套接字中，为了最小化 <code>write</code> 系统调用，写入的数据也会被缓存起来，写入的帧被编码后会缓存起来直到最后一起写入套接字，然而，不像 <code>read_frame</code> 函数，整个帧并不总是能够在写入套接字前缓存起来。</p>
 <p>考虑一个批量的数据流帧，他被写入的数据是 <code>Frame::Bulk(Bytes)</code> 类型。写入的数据类型是一个帧的头部，该头部以 <code>$</code> 字符开头，后接剩余的字节数据长度。该帧的主要部分是他的内容 <code>Bytes</code> 的值，如果数据太大，复制他们到中间的缓存区域将会是一个比较大的开销。</p>
 <p>为了实现缓存的写入，我们会使用 <code>BufWriter</code> 类型，该类型有一个实现了 <code>T: AsyncWrite</code> 的类型进行初始化，同时他自身也实现了 <code>AsyncWrite</code>。当他的 <code>write</code> 函数被调用时，该写入操作并不会直接的传递给内部的写入器，而是会写到缓存中。在缓存被填满时，缓存的内容才会被写入到其内部的写入器，然后缓存的内容会被清空，这里面还有一些允许绕过缓存区的优化。</p>
@@ -435,13 +435,13 @@ async fn write_frame(&amp;mut self, frame: &amp;Frame)
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio/tokio - tutorial - io.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tokio/tutorial-io.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="tokio/tokio - tutorial - indepth.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tokio/tutorial-indepth.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -453,13 +453,13 @@ async fn write_frame(&amp;mut self, frame: &amp;Frame)
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio/tokio - tutorial - io.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="tokio/tutorial-io.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="tokio/tokio - tutorial - indepth.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="tokio/tutorial-indepth.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

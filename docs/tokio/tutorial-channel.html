@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html" class="active"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html" class="active"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select (DOING)</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,7 +133,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tokio - tutorial - channel.html#channel" id="channel"><h1>Channel</h1></a>
+                        <a class="header" href="tokio/tutorial-channel.html#channel" id="channel"><h1>Channel</h1></a>
 <p>现在开始来学一些 Tokio 中的并发支持。开始把这些并发的东西应用到我们的客户端中，比如我们想要同时运行两个 Redis 的命令时，可以为每个命令创建一个任务，这样两个命令就能够并行的执行了。</p>
 <p>首先我们来简单的尝试一下</p>
 <pre><pre class="playpen"><code class="language-rust">use mini_redis::{client, Result};
@@ -155,10 +155,10 @@ async fn main() {
 }
 </code></pre></pre>
 <p>因为 <code>Client</code> 没有实现 <code>Copy</code>，并且两个任务都同时需要在其中使用到 <code>client</code> 变量，所以是编译不过的。并且，因为 <code>Client::set</code> 需要使用 <code>&amp;mut self</code> 也就是可变引用作为参数，因此该对象的使用实际上是排他的。我们可以为每个连接创建一个任务，但那并不是个好主意，我们不能够使用 <code>std::sync::Mutex</code> 因为会有持有锁跨越 <code>.await</code> 的情形；我们不能使用 <code>tokio::sync::Mutex</code>，那会导致在同一时刻只有一个请求在处理。如果 <code>client</code> 实现了 <a href="https://redis.io/topics/pipelining">pipelining</a>，那异步的 <code>Mutex</code> 就会无法充分的利用当前连接了。</p>
-<a class="header" href="tokio/tokio - tutorial - channel.html#message-passing" id="message-passing"><h2>Message Passing</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#message-passing" id="message-passing"><h2>Message Passing</h2></a>
 <p>最好的方式是使用消息传递，这种方式需要创建一个单独的任务来管理 <code>client</code> 资源，任何一个想要发送命令的任务都需要发送消息给管理 <code>client</code> 的任务，该任务会处理收到的命令然后将处理结果回复给请求的任务。</p>
 <p>使用这个策略，可以只创建一个连接，管理 <code>client</code> 的任务就可以有序的处理 <code>get</code> 跟 <code>set</code> 请求了，而 <code>Channel</code> 则相当于一个缓冲，就算 <code>client</code>处于繁忙状态其他的任务页可以发送命令到 <code>Channel</code>，当他能够处理新请求的时候，他会从 <code>Channel</code> 中获取下一个请求进行处理，这样的方式能够带来很好的吞吐量，还可以再将其扩展为使用连接池的方式。</p>
-<a class="header" href="tokio/tokio - tutorial - channel.html#tokios-channel-primitives" id="tokios-channel-primitives"><h2>Tokio's Channel Primitives</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#tokios-channel-primitives" id="tokios-channel-primitives"><h2>Tokio's Channel Primitives</h2></a>
 <p>Tokio 提供了数种用于处理不同场景的 <code>Channel</code></p>
 <ul>
 <li><code>mpsc</code>: 多生产者、单消费者的 <code>Channel</code>，能够发送多个信息</li>
@@ -168,7 +168,7 @@ async fn main() {
 </ul>
 <p>如果需要多生产者、多消费者的 <code>Channel</code>但希望每个信息只被一个消费者收到，可以使用 <a href="https://docs.rs/async-channel/">async-channel</a> 包。还有其他的一些不能用在 Rust 的异步编程中的 <code>Channel</code> 实现，比如 <code>std::sync::mpsc</code> 跟 <a href="https://docs.rs/crossbeam/latest/crossbeam/channel/index.html">crossbeam::channel</a>。这些 <code>Channel</code> 以堵塞线程的方式等待信息的到来，所以不能够在异步的代码中使用。</p>
 <p>在这一节中，我们会用到 <code>mpsc</code> 跟 <code>oneshot</code>，其他的 <code>Channel</code> 类型会在后续的章节中用到，然后，本章完整的代码可以在 [这里](https://github.com/tokio-rs/website/blob/master/tutorial-code/channels/src/main .rs) 找到。</p>
-<a class="header" href="tokio/tokio - tutorial - channel.html#define-the-message-type" id="define-the-message-type"><h2>Define The Message Type</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#define-the-message-type" id="define-the-message-type"><h2>Define The Message Type</h2></a>
 <p>在大部分使用消息传递的场景中，负责处理消息的任务都需要响应不止一种命令。在我们的案例中，该任务需要响应 <code>GET</code> 跟 <code>SET</code> 两种命令，因此我们首先会定义一个包含所有命令类型的 <code>Command</code> 枚举。</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -186,7 +186,7 @@ enum Command {
   }
 }
 #}</code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - channel.html#create-the-channel" id="create-the-channel"><h2>Create The Channel</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#create-the-channel" id="create-the-channel"><h2>Create The Channel</h2></a>
 <p>然后在 <code>main</code> 函数中创建一个 <code>mppsc</code> 类型的 <code>Channel</code></p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::sync::mpsc;
 
@@ -224,7 +224,7 @@ async fn main() -&gt; Result&lt;()&gt; {
 <p>每个消息最后都会发送给唯一的接收者，因为通过 <code>mpsc</code> 创建的接收者是不能 <code>clone</code> 的。</p>
 <p>当所有发送者出了自身的作用域或被 <code>drop</code> 后就不再允许发送消息了，在这个时候接收者会返回 <code>None</code>，意味着所有的发送者已经被销毁，所以 <code>Channel</code> 也已经被关闭了。</p>
 <p>在我们的示例中，Redis 的连接是管理任务所负责的，他知道可以在管理的 <code>Channel</code> 都关闭后，Redis 的连接就不会再有人使用了，因此可以关闭 Redis 的连接了。</p>
-<a class="header" href="tokio/tokio - tutorial - channel.html#spawn-manager-task" id="spawn-manager-task"><h2>Spawn Manager Task</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#spawn-manager-task" id="spawn-manager-task"><h2>Spawn Manager Task</h2></a>
 <p>接下来创建负责处理来自 <code>Channel</code> 的任务，首先创建连接到 Redis 的客户端对象，然后依次接收信息并调用 Redis 去处理。</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -268,7 +268,7 @@ let t2 = tokio::spawn(async move {
 });
 #}</code></pre></pre>
 <p>然后在 <code>main</code> 函数的最下面，在程序退出前我们调用前面定义的几个 JoinHandle (t1、t2、manager) 的 <code>.await</code>;</p>
-<a class="header" href="tokio/tokio - tutorial - channel.html#receive-responses" id="receive-responses"><h2>Receive Responses</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#receive-responses" id="receive-responses"><h2>Receive Responses</h2></a>
 <p>最后一步是需要接收 <code>manager</code> 任务对我们请求的响应。在操作成功的情形<code>GET</code> 命令需要返回我们之前调用 <code>SET</code> 的结果。</p>
 <p>我们将通过传递 <code>oneshot</code> 类型的 <code>Channel</code> 来获取响应，<code>oneshot</code> 是单生产者、单消费者的 <code>Channel</code>，他还为只传递单次消息做了优化，在我们的示例中，这个单次消息就是我们所需的响应。</p>
 <p>跟 <code>mpsc</code> 类似， <code>oneshot::channel()</code> 返回发送者跟接收者。</p>
@@ -359,7 +359,7 @@ let manager = tokio::spawn(async move {
 <p>调用 <code>oneshot::Sender</code> 的 <code>send</code> 会立即返回结果因此无需再调用 <code>.await</code>，这是因为 <code>send</code> 函数会在调用的时候立即返回成功或失败的结果。</p>
 <p>通过 <code>oneshot</code> 发送的消息只有在接收者已经被销毁时返回错误，这表示已经没有接受者期待我们的响应了，并且接收者不再等待响应是一种可以接受的结果。因此发送者返回的 <code>Err</code> 可以不进行处理。</p>
 <p>完整的代码可以在 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/channels/src/main.rs">这里</a> 找到。</p>
-<a class="header" href="tokio/tokio - tutorial - channel.html#backpressure-and-bounded-channels" id="backpressure-and-bounded-channels"><h2>Backpressure And Bounded Channels</h2></a>
+<a class="header" href="tokio/tutorial-channel.html#backpressure-and-bounded-channels" id="backpressure-and-bounded-channels"><h2>Backpressure And Bounded Channels</h2></a>
 <p>无论何时介绍并发或者队列，对其容量的限制都是很重要的，因为他能在系统优雅的处理负载，无限制的队列最终会把所有的可用内存都耗尽导致系统以不可预测的方式失效。</p>
 <p>Tokio 小心的避免绝对的队列，其中最重要的一部分就是所有的异步操作都是 <code>lazy</code> ，考虑下面的代码</p>
 <blockquote>
@@ -397,13 +397,13 @@ loop {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio/tokio - tutorial - shared state.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tokio/tutorial-shared state.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="tokio/tokio - tutorial - io.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tokio/tutorial-io.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -415,13 +415,13 @@ loop {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio/tokio - tutorial - shared state.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="tokio/tutorial-shared state.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="tokio/tokio - tutorial - io.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="tokio/tutorial-io.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

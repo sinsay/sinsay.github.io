@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html" class="active"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html" class="active"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select (DOING)</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,14 +133,14 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tokio - tutorial - spawning.html#spawning" id="spawning"><h1>Spawning</h1></a>
+                        <a class="header" href="tokio/tutorial-spawning.html#spawning" id="spawning"><h1>Spawning</h1></a>
 <p>我们要开始换挡加速开始学习 Redis 服务端了。</p>
 <p>首先，将我们上一节写的 <code>Set</code>/<code>Get</code> 代码移到示例目录 <code>examples</code> , 这样我们可以让他跟服务端代码一起运行。</p>
 <pre><code class="language-shell">mkdir -p examples
 mv src/main.rs examples/hello-redis.rs
 </code></pre>
 <p>接下来创建一个新的 <code>src/main.rs</code> 然后继续。</p>
-<a class="header" href="tokio/tokio - tutorial - spawning.html#accepting-sockets" id="accepting-sockets"><h2>Accepting Sockets</h2></a>
+<a class="header" href="tokio/tutorial-spawning.html#accepting-sockets" id="accepting-sockets"><h2>Accepting Sockets</h2></a>
 <p>我们的 Redis 服务端第一步需要做的是接收一个 TCP 套接字，这个操作通过 <code>tokio::net::TcpListener</code> 完成。</p>
 <blockquote>
 <p>Tokio 大部分的的类型名称都定义成跟 <code>Rust</code> 标准库中同步类型一样。在有必要的情况下，Tokio 会提供与标准库中该类型遗憾的函数，但是以 <code>async fn</code> 的形式。</p>
@@ -185,7 +185,7 @@ async fn process(socket: TcpStream) {
 <p>在服务端的终端输出如下：</p>
 <pre><code class="language-shell">GOT: Array([Bulk(b'set'), Bulk(b'hello'), Bulk(b'world')])
 </code></pre>
-<a class="header" href="tokio/tokio - tutorial - spawning.html#concurrency" id="concurrency"><h2>Concurrency</h2></a>
+<a class="header" href="tokio/tutorial-spawning.html#concurrency" id="concurrency"><h2>Concurrency</h2></a>
 <p>我们的服务端还有一个小问题*(除了返回错误)*，他每次只能处理一个请求。当接收了一个连接后，服务端会在当前循环中一直堵塞到完全把返回信息写到套接字中。</p>
 <p>我们希望 Redis 服务能够同时处理多个请求，所以我们需要让他并发 <em>(Concurrenty)</em> 起来。</p>
 <blockquote>
@@ -210,7 +210,7 @@ async fn main() {
   }
 }
 </code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - spawning.html#tasks" id="tasks"><h3>Tasks</h3></a>
+<a class="header" href="tokio/tutorial-spawning.html#tasks" id="tasks"><h3>Tasks</h3></a>
 <p>Tokio 的任务是异步的绿色线程，他通过传递给 <code>tokio::spawn</code> 的 <code>async</code> 语句块创建，这个函数接收 <code>async</code> 语句块后返回一个 <code>JoinHandle</code>，调用者则通过 <code>JoinHandle</code> 与创建的任务交互。有些传递的 <code>async</code> 语句块是具有返回值的，调用者通过 <code>JoinHandle</code> 的 <code>.await</code> 来获取其返回值，</p>
 <pre><pre class="playpen"><code class="language-rust">#[tokio::main]
 async fn main() {
@@ -226,7 +226,7 @@ async fn main() {
 </code></pre></pre>
 <p>在 <code>JoinHandle</code> 上执行 <code>.await</code> 等待会得到一个 <code>Result</code>。当任务在执行时遇到了错误时，<code>JoinHandle</code> 会返回 <code>Err</code> ，这会在任务发生错误，或是因为 <code>Runtime</code> 被强制关闭而导致任务被强制取消时产生。</p>
 <p>任务在 Tokio 中是非常轻量的，实际上他只会需要申请一次 64 个字节的内存。所以程序可以轻松的产生成千上万的任务。</p>
-<a class="header" href="tokio/tokio - tutorial - spawning.html#static-bound" id="static-bound"><h3><code>'static</code> bound</h3></a>
+<a class="header" href="tokio/tutorial-spawning.html#static-bound" id="static-bound"><h3><code>'static</code> bound</h3></a>
 <p>当你通过 Tokio 的 <code>Runtime</code> 创建一个任务时，这个任务的类型必须是 <code>'static'</code> 的。这意味着被创建的任务不能够包含对任务以外任何数据的引用。</p>
 <blockquote>
 <p>有一个常见的误解是 <code>'static</code>  始终代表着 &quot;lives forever&quot;, 一直存活。但在这个场景中并不是，标识为 <code>'static</code> 的值只是意味着他不会产生内存泄漏。具体的可以通过 <a href="https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md#2-if-t-static-then-t-must-be-valid-for-the-entire-program">Common Rust Lisetime Misconceptions</a> 进行了解。</p>
@@ -276,7 +276,7 @@ help: to force the async block to take ownership of `v` (and any other
 <p>同时我们也留意到错误信息提到参数类型的存活时间超过了 <code>'static'</code>，这个术语可能会造成困惑，因为 <code>'static</code>  的生命周期已经覆盖了整个程序了，如果参数的存活时间还超过了 <code>'static</code> 是不是意味着存在内存泄漏？对于这个疑惑的具体解释是，这里提到的超过 <code>'static</code> 生命周期的是参数的类型而不是参数的值，当参数的值被不再使用时他就会被销毁了。</p>
 <p>当我们提到一个值是 <code>'static</code> 时，说他会永远存活并不意味着不正确。这点非常重要，因为编译器无法确定这个新创建的任务会存活多久，所以他能做的确保这个任务不会存活太久的方式就是让他一直都存在。</p>
 <p>上面提供的链接中提到的术语 &quot;bounded by <code>'static</code>&quot; 或 &quot;its type outlives <code>'static</code>&quot; 或 &quot;the value is <code>'static</code> for <code>T: 'static</code>&quot; 都表达了同一个意思，但他们跟以 <code>&amp;'static T</code> 使用的标注是不一样的。</p>
-<a class="header" href="tokio/tokio - tutorial - spawning.html#send-bound" id="send-bound"><h3><code>Send</code> bound</h3></a>
+<a class="header" href="tokio/tutorial-spawning.html#send-bound" id="send-bound"><h3><code>Send</code> bound</h3></a>
 <p>通过 <code>tokio::spawn</code> 创建的任务<strong>必须</strong>实现了 <code>Send</code> 语义，这样 Tokio 的 <code>Runtime</code> 才能在他们因为执行 <code>.await</code> 被暂停时将他们切换到不同的线程中。</p>
 <p>任务在他调用 <code>.await</code> 时拥有的<strong>所有</strong>数据都是 <code>Send</code> 时满足 <code>Send</code> 的条件，这听起来有点微妙。当 <code>.await</code> 被调用时，任务会让出执行权给调度器，在他下一次被执行时则从上一次让出的位置开始。为了能实现这个机制，所有的状态信息都会在执行的线程间进行转移，这样任务才能在执行线程间转移。相反，如果他的状态不满足 <code>Send</code>，那他就不满足作为一个任务的条件。</p>
 <p>举个正常运行的例子</p>
@@ -344,7 +344,7 @@ note: future is not `Send` as this value is used across an await
     |     - `rc` is later dropped here
 </code></pre>
 <p>我们会在下一章讨论一个关于这个错误的特殊的例子。</p>
-<a class="header" href="tokio/tokio - tutorial - spawning.html#store-values" id="store-values"><h2>Store Values</h2></a>
+<a class="header" href="tokio/tutorial-spawning.html#store-values" id="store-values"><h2>Store Values</h2></a>
 <p>接下来继续实现 <code>process</code> 函数来处理接收的命令。我们将使用 <code>HashMap</code> 来存储收到的值，<code>SET</code> 操作会插入一条新的记录到 <code>HashMap</code> 中，而 <code>GET</code> 操作则从中读取。并且，我们还会使用一个循环来处理来自同个连接的多个命令。</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -401,13 +401,13 @@ async fn process(socket: TcpStream) {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio/tokio - tutorial - hello.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tokio/tutorial-hello.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="tokio/tokio - tutorial - shared state.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tokio/tutorial-shared state.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -419,13 +419,13 @@ async fn process(socket: TcpStream) {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio/tokio - tutorial - hello.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="tokio/tutorial-hello.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="tokio/tokio - tutorial - shared state.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="tokio/tutorial-shared state.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
