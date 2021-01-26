@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Select (DOING) - SinSay's Note Book</title>
+        <title>Select - SinSay's Note Book</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html" class="active"><strong aria-hidden="true">2.8.</strong> Select (DOING)</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html" class="active"><strong aria-hidden="true">2.8.</strong> Select</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -323,6 +323,305 @@ async fn main() io::Result&lt;()&gt; {
 }
 </code></pre></pre>
 <p>上面代码中接收 <code>socket</code> 的循环会一直运行到出错，又或者 <code>rx</code> 接收到了信息，<code>_</code> 符号用来表示我们并不在意异步表达式的返回值。</p>
+<a class="header" href="tokio/tutorial-select.html#return-value" id="return-value"><h2>Return Value</h2></a>
+<p><code>tokio::select</code> 宏会将以执行的 <code>&lt;handler</code> 的返回值作为其返回值，如</p>
+<pre><pre class="playpen"><code class="language-rust">async fn computation1() -&gt; String {
+  // ...
+}
+
+async fn computation2() -&gt; String {
+  // ...
+}
+
+#[tokio::main]
+async fn main() {
+  let out = tokio::select! {
+    res1 = computation1() =&gt; res1,
+    res2 = computation() =&gt; res2,
+  };
+  
+  println!(&quot;Got = {}&quot;, out);
+}
+</code></pre></pre>
+<p>因此，该宏会要求每一个分支的 <code>&lt;handler&gt;</code> 都返回相同的类型，如果不需要最终的执行结果，那明确的返回 <code>()</code> 是一个比较好的做法。</p>
+<a class="header" href="tokio/tutorial-select.html#errors" id="errors"><h2>Errors</h2></a>
+<p>通常情况下 <code>?</code> 操作符可以用来向上传播表达式的错误信息，接着我们看看 <code>?</code> 操作符在异步表达式中是如何工作的。在异步的表达式中我们同样可以使用 <code>?</code> 操作符来向上传播错误，这意味着异步表达式的返回结果需要是 <code>Result</code> 类型。在 <code>&lt;handler&gt;</code> 块中使用 <code>?</code> 语句能够让错误传播出 <code>select!</code> 表达式。让我们来看个例子</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::net::TcpListener;
+use tokio::sync::oneshot;
+use std::io;
+
+#[tokio::main]
+async fn main() -&gt; io::Result&lt;()&gt; {
+  // setup rx oneshot channel
+  
+  let listener = TcpListener::bind(&quot;localhost:3465&quot;).await?;
+  
+  tokio::select! {
+    res = async {
+      loop {
+        let (socket, _) = listener.accept().await?;
+        tokio::spawn(async move { process(sokcet) });
+      }
+      
+      Ok::&lt;_, io::Error&gt;(())
+    } =&gt; {
+      res?;
+    }
+    _ = rx =&gt; {
+      println!(&quot;terminating accept loop&quot;);
+    }
+  }
+  
+  Ok(())
+}
+</code></pre></pre>
+<p>我们看到示例中使用了 <code>listener.accept().await?</code>，这一句的 <code>?</code> 操作符能够将错误信息从表达式中传播给 <code>&lt;pattern&gt;</code> ，也就是 <code>res</code>，在发生错误的情况下 <code>res</code> 将被设置为 <code>Err(_)</code> ，紧接着在 <code>&lt;handler&gt;</code> 中再次对 <code>res</code> 使用了 <code>?</code> 操作符，因此对应的错误信息将被再次传播到 <code>main</code> 函数中。</p>
+<a class="header" href="tokio/tutorial-select.html#pattern-maching" id="pattern-maching"><h2>Pattern Maching</h2></a>
+<p>让我们回顾一下 <code>select!</code> 宏分支匹配的定义</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+&lt;pattern&gt; = &lt;async expression&gt; =&gt; &lt;handler&gt;,
+#}</code></pre></pre>
+<p>到目前为止，我们只在 <code>&lt;pattern&gt;</code> 中使用了变量绑定，实际上任意的 Rust 模式匹配都可以在 <code>&lt;pattern&gt;</code> 中使用，比如当我们在从 多个 MPSC Channel 中接收数据时，可能会这样写</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::sync::mpsc;
+
+#[tokio::main]
+async fn main() {
+  let (mut tx1, mut rx1) = mpsc::channel(128);
+  let (mut tx2, mut rx2) = mpsc::channel(128);
+  
+  tokio::spawn(async move {
+    // Do something w/ `tx1` and `tx2`
+  });
+  
+  tokio::select! {
+    Some(v) = rx1.recv() =&gt; {
+      println!(&quot;Got {:?} from rx1&quot;, v);
+    }
+    Some(v) = rx2.recv() =&gt; {
+      println!(&quot;Got {:?} from rx2&quot;, v);
+    }
+    else =&gt; {
+      println!(&quot;Both channels closed&quot;);
+    }
+  }
+}
+</code></pre></pre>
+<p>在这个示例中，<code>select!</code> 表达式同时在等待 <code>rx1</code> 及 <code>rx2</code> 的消息，在 Channel 关闭时对 <code>rect()</code> 的调用会返回 <code>None</code>，该返回值与 <code>&lt;pattern&gt;</code> 的定义不匹配，因此该对应的分支将被关闭，然后 <code>select!</code> 表达式会继续等待剩余的其他分支。</p>
+<p>我们还发现 <code>select!</code> 表达式包含了一个 <code>else</code> 分支，因为需要对 <code>select!</code> 表达式进行求值，但是在使用模式匹配时可能所有的模式都匹配不上，在这种情况下我们就需要使用 <code>else</code> 分支来帮助 <code>select!</code> 求值。</p>
+<a class="header" href="tokio/tutorial-select.html#borrowing" id="borrowing"><h3>Borrowing</h3></a>
+<p>在我们创建任务时，所创建任务的异步代码块必须持有他使用的数据，但 <code>select!</code> 并没有这个限制，每个分支的表达式可以对数据进行借用以及并发的进行操作，在 Rust 的借用规则中，多个异步表达式能够借用同一个不可变引用，或者一个一步表达式能够借用一个可变引用。</p>
+<p>下面来看一些例子，我们同时的发送同一份数据到两个不同的 TCP 终端。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use tokio::io::AsyncWriteExt;
+use tokio::net::TcpStream;
+use std::io;
+use std::net::SocketAddr;
+
+async fn race(
+    data: &amp;[u8],
+    addr1: SocketAddr,
+    addr2: SocketAddr
+) -&gt; io::Result&lt;()&gt; {
+    tokio::select! {
+        Ok(_) = async {
+            let mut socket = TcpStream::connect(addr1).await?;
+            socket.write_all(data).await?;
+            Ok::&lt;_, io::Error&gt;(())
+        } =&gt; {}
+        Ok(_) = async {
+            let mut socket = TcpStream::connect(addr2).await?;
+            socket.write_all(data).await?;
+            Ok::&lt;_, io::Error&gt;(())
+        } =&gt; {}
+        else =&gt; {}
+    };
+
+    Ok(())
+}
+#}</code></pre></pre>
+<p>示例中 <code>data</code> 这个变量以不可变的形式被不同的异步分支借用，当其中一个分支的操作成功执行后，另一个分支就会被丢弃。因为匹配的模式需要是 <code>Ok(_)</code>，所以当其中一个分支匹配失败，另一个会继续执行下去。</p>
+<p>当引用出现在了每个分支的 <code>&lt;handler&gt;</code> 中，<code>select!</code> 保证只会有一个 <code>handler</code> 会执行，因此各个不同的 <code>&lt;handler&gt;</code> 能够对同一份数据都持有可变的借用。</p>
+<p>比如下面在多个分支中对 <code>out</code> 变量进行了修改</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::sync::oneshot;
+
+#[tokio::main]
+async fn main() {
+    let (tx1, rx1) = oneshot::channel();
+    let (tx2, rx2) = oneshot::channel();
+
+    let mut out = String::new();
+
+    tokio::spawn(async move {
+        // Send values on `tx1` and `tx2`.
+    });
+
+    tokio::select! {
+        _ = rx1 =&gt; {
+            out.push_str(&quot;rx1 completed&quot;);
+        }
+        _ = rx2 =&gt; {
+            out.push_str(&quot;rx2 completed&quot;);
+        }
+    }
+
+    println!(&quot;{}&quot;, out);
+}
+</code></pre></pre>
+<a class="header" href="tokio/tutorial-select.html#loops" id="loops"><h2>Loops</h2></a>
+<p><code>select!</code> 宏常常会被在循环中使用，在这一小节我们来看一些将 <code>select!</code> 用在循环中的常见例子。首先从从多个不同的 Channel 读取数据开始</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio::sync::mpsc;
+
+#[tokio::main]
+async fn main() {
+    let (tx1, mut rx1) = mpsc::channel(128);
+    let (tx2, mut rx2) = mpsc::channel(128);
+    let (tx3, mut rx3) = mpsc::channel(128);
+
+    loop {
+        let msg = tokio::select! {
+            Some(msg) = rx1.recv() =&gt; msg,
+            Some(msg) = rx2.recv() =&gt; msg,
+            Some(msg) = rx3.recv() =&gt; msg,
+            else =&gt; { break }
+        };
+
+        println!(&quot;Got {}&quot;, msg);
+    }
+
+    println!(&quot;All channels have been closed.&quot;);
+}
+</code></pre></pre>
+<p>这个示例尝试从三个 Channel 中读取数据，只要任意一个 Channel 接收到了数据，就将他输出到 <code>STDOUT</code> 中，当 <code>rect()</code> 函数返回 <code>None</code> 时，因为有模式匹配的保护，这个循环会继续执行， <code>select!</code> 宏会继续等待剩余的 Channel。当所有的 Channel 都关闭后，<code>else</code> 分支会被执行然后循环被中止。</p>
+<p><code>select!</code> 宏会随机的选择可读的分支，在上例中当多个 Channel 中都有可读的数据时，将随机选择一个 Channel 来读取。这个实现是为了处理循环中消费消息的能力落后于生产消息这个场景所带来的问题，这个场景意味着 Channel 总会被填满，如果 <code>select!</code> 没有随机的选取分支，将导致循环中的 <code>rx1</code> 永远是第一个检查是否有数据可读的分支，如果 <code>rx1</code> 一直都有新的消息要处理，那其他分支中的 Channel 将永远不会被消费。</p>
+<blockquote>
+<p>如果 <code>select!</code> 被求值时，其中的多个 Channel 都存在排队中的消息，只有一个 Channel 的消息会被消费，其他所有的 Channel 都不会进行任何检查，他们的消息会被一直存在 Channel 中，直到循环的下一轮迭代，这些消息并不会丢失。</p>
+</blockquote>
+<a class="header" href="tokio/tutorial-select.html#resuming-an-async-operation" id="resuming-an-async-operation"><h3>Resuming an async operation</h3></a>
+<p>现在我们来展示如果在多次 <code>select!</code> 调用中执行同一个异步操作，在这个例子中，我们有一个类型是 <code>i32</code> 的 Channel，还有一个异步的函数，我们希望在这个异步函数完成或者是我们的 Channel 接收到偶数时推出循环。</p>
+<pre><pre class="playpen"><code class="language-rust">async fn action() {
+    // Some asynchronous logic
+}
+
+#[tokio::main]
+async fn main() {
+    let (mut tx, mut rx) = tokio::sync::mpsc::channel(128);    
+    
+    let operation = action();
+    tokio::pin!(operation);
+    
+    loop {
+        tokio::select! {
+            _ = &amp;mut operation =&gt; break,
+            Some(v) = rx.recv() =&gt; {
+                if v % 2 == 0 {
+                    break;
+                }
+            }
+        }
+    }
+}
+</code></pre></pre>
+<p>在示例中看到，我们并没有把对 <code>action()</code> 的调用放到 <code>select!</code> 的某个分支，相反，我们在循环前先调用了 <code>action()</code> 并将其返回值保存到了一个名为 <code>operation</code> 的变量中，<strong>并且</strong> 没有在他上面调用 <code>.await</code>，然后以 <code>operation</code> 作为参数调用了 <code>tokio::pin!</code> 宏。</p>
+<p>在 <code>select!</code> 循环中，我们使用了 <code>&amp;mut operation</code> 而不是直接使用 <code>operation</code>。这个 <code>operation</code> 变量在整个异步的操作中都存在，每次循环的迭代都会使用同一个 <code>operation</code> 而不是每次都调用一次 <code>action()</code>。</p>
+<p>另外一个 <code>select!</code> 的分支则会从 Channel 中接收消息，如果接收到的消息是偶数，则完成这个循环，否则进入下一次循环继续执行 <code>select!</code>。</p>
+<p>这是我们第一次使用 <code>tokio::pin!</code>，我们现在先不深入的去纠结 Pinning 的细节，唯一要了解的就是，想要在一个变量的引用上调用 <code>.await</code>，这个引用的变量必须是 <code>Pinned</code> 或者需要实现 <code>Unpin</code>。</p>
+<p>如果我们移除 <code>tokio::pin!</code> 这一行代码，将会得到下面的错误</p>
+<pre><code class="language-shell">error[E0599]: no method named `poll` found for struct
+     `std::pin::Pin&lt;&amp;mut &amp;mut impl std::future::Future&gt;`
+     in the current scope
+  --&gt; src/main.rs:16:9
+   |
+16 | /         tokio::select! {
+17 | |             _ = &amp;mut operation =&gt; break,
+18 | |             Some(v) = rx.recv() =&gt; {
+19 | |                 if v % 2 == 0 {
+...  |
+22 | |             }
+23 | |         }
+   | |_________^ method not found in
+   |             `std::pin::Pin&lt;&amp;mut &amp;mut impl std::future::Future&gt;`
+   |
+   = note: the method `poll` exists but the following trait bounds
+            were not satisfied:
+           `impl std::future::Future: std::marker::Unpin`
+           which is required by
+           `&amp;mut impl std::future::Future: std::future::Future`
+</code></pre>
+<p>这个错误信息并不是很清晰，当然也有我们还没深入了解 <code>Future</code> 的原因。当前的话只需要了解到，每个想要在其上调用 <code>.await</code> 的值都需要实现 <code>Future</code> ，如果你遇到提示说尝试在一个没有实现 <code>Future</code> 的引用中调用 <code>.await</code> 的错误的话，那大概率就是需要去 Pinned <em>(钉住)</em> 这个 <code>Future</code> 了。</p>
+<p>更多关于 Pin 的信息可以从 <a href="https://doc.rust-lang.org/std/pin/index.html">标准库</a> 文档中了解。</p>
+<a class="header" href="tokio/tutorial-select.html#monifiying-a-branch" id="monifiying-a-branch"><h3>Monifiying a branch</h3></a>
+<p>接下来看一个略微复杂一点的循环，我们有</p>
+<ol>
+<li>一个 <code>i32</code> 类型的 Channel</li>
+<li>一个用来使用这个 <code>i32</code> 值的异步函数</li>
+</ol>
+<p>我们想实现的逻辑是</p>
+<ol>
+<li>等待 Channel 中收到一个偶数</li>
+<li>使用这个偶数来调用这个异步函数</li>
+<li>等待这个异步函数，与此同时处理更多的来自于 Channel 的数字</li>
+<li>如果新的偶数在这个异步函数完成前收到，停止这个异步的函数，然后用新的偶数来启动这个异步函数</li>
+</ol>
+<pre><pre class="playpen"><code class="language-rust">async fn action(input: Option&lt;i32&gt;) -&gt; Option&lt;String&gt; {
+    // If the input is `None`, return `None`.
+    // This could also be written as `let i = input?;`
+    let i = match input {
+        Some(input) =&gt; input,
+        None =&gt; return None,
+    };
+    // async logic here
+}
+
+#[tokio::main]
+async fn main() {
+    let (mut tx, mut rx) = tokio::sync::mpsc::channel(128);
+    
+    let mut done = false;
+    let operation = action(None);
+    tokio::pin!(operation);
+    
+    tokio::spawn(async move {
+        let _ = tx.send(1).await;
+        let _ = tx.send(3).await;
+        let _ = tx.send(2).await;
+    });
+    
+    loop {
+        tokio::select! {
+            res = &amp;mut operation, if !done =&gt; {
+                done = true;
+
+                if let Some(v) = res {
+                    println!(&quot;GOT = {}&quot;, v);
+                    return;
+                }
+            }
+            Some(v) = rx.recv() =&gt; {
+                if v % 2 == 0 {
+                    // `.set` is a method on `Pin`.
+                    operation.set(action(Some(v)));
+                    done = false;
+                }
+            }
+        }
+    }
+}
+</code></pre></pre>
+<p>我们使用了跟上一个示例类似的策略，异步的函数在循环外调用并将返回值赋给 <code>operation</code> 变量，Pinned 这个变量。循环会从 <code>operation</code> 跟 Channel 中做 <code>select!</code>。</p>
+<p>我们看到 <code>action</code> 函数接收的是 <code>Option&lt;i32&gt;</code> 类型的参数，在从 Channel 收到偶数之前，我们需要初始化 <code>operation</code>，因此我们让 <code>action</code> 接收 <code>Option</code> 参数并以 <code>Option</code> 作为返回类型，如果传递的是 <code>None</code> 参数，他会直接返回 <code>None</code>，在循环的一开始 <code>operation</code> 会马上完成并返回 <code>None</code>。</p>
+<p>这个示例还使用了一些新的语法，在第一个分支中包含了 <code>, if !done</code> 语句，这称为分支的先决条件，在解释他用来干什么之前，我们看看移除这个先决条件会发生什么</p>
+<pre><code class="language-shell">thread 'main' panicked at '`async fn` resumed after completion', src/main.rs:1:55
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<p>这个错误发生在我们尝试对已完成的 <code>operation</code> 重复调用 <code>.await</code> 时，通常来说，在调用 <code>.await</code> 之后对应的值是已经被消费掉的。在我们的例子中，我们是对引用调用了 <code>.await</code> ，这意味着 <code>operation</code> 在完成后仍在循环中被调用。</p>
+<p>为了避免这个问题导致的崩溃，我们需要小心的避免当 <code>operation</code> 完成时再对其进行调用，因此使用了 <code>done</code> 变量来记录 <code>operation</code> 的完成状态。<code>select!</code> 分支提供了先决条件这个机制，先决条件在 <code>select!</code> 调用对应分支 <code>.await</code> 之前进行检查，如果先决条件的返回值是  <code>false</code> 则该分支在当前 <code>select!</code> 中被禁用。我们把 <code>done</code> 变量初始化为 <code>false</code>，只有当 <code>operation</code> 完成时他会被设置为 <code>true</code>。因此在接下来的循环中对 <code>operation</code> 进行检查的分支会被禁用，然后当从 Channel 中接收到新的偶数时，<code>operation</code> 会被重置，然后 <code>done</code> 会被设置为 <code>false</code>。</p>
+<a class="header" href="tokio/tutorial-select.html#per-task-concurrency" id="per-task-concurrency"><h2>Per-Task Concurrency</h2></a>
+<p><code>tokio::spawn</code> 跟 <code>select!</code> 都同样会并发的执行其中的异步操作，但是他们使用的策略是不同的。<code>tokio::spawn</code> 是接收异步的操作然后创建一个新的任务去运行他，任务是 Tokio 运行时调度的基本单位，两个不同的任务会被 Tokio 独立的进行调度，他们可能会同时被调度到不同的操作系统线程上执行，因此创建一个新任务跟创建新的线程有着相同的限制: 没有借用。</p>
+<p><code>select!</code> 使用同一个任务来运行所有的分支，因为所有在 <code>select!</code> 中的分支都在同一个任务中执行，所以他们永远不会同时的触发，<code>select!</code> 宏让单个任务能够多路复用多个异步的操作。</p>
 
                     </main>
 

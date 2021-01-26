@@ -9,7 +9,7 @@
   - [I/O](./tokio/tutorial-io.md)
   - [Framing](./tokio/tutorial-framing.md)
   - [Async In Depth](./tokio/tutorial-indepth.md)
-  - [Select (DOING)](./tokio/tutorial-select.md)
+  - [Select](./tokio/tutorial-select.md)
 - [DataStruct](./data_struct.md)
   - [sds](./redis/sds.md)
   - [dict](./redis/dict.md)
