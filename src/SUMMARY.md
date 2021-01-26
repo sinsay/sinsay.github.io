@@ -10,6 +10,7 @@
   - [Framing](./tokio/tutorial-framing.md)
   - [Async In Depth](./tokio/tutorial-indepth.md)
   - [Select](./tokio/tutorial-select.md)
+  - [Streams](./tokio/tutorial-streams.md)
 - [DataStruct](./data_struct.md)
   - [sds](./redis/sds.md)
   - [dict](./redis/dict.md)

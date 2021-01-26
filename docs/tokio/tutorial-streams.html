@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Streams - SinSay's Note Book</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html" class="active"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">SinSay's Note Book</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="tokio/tutorial-streams.html#streams" id="streams"><h1>Streams</h1></a>
+<p>Stream 表示一个异步的数据序列，我们用 <code>Stream Trait</code> 来表示跟标准库的 <code>std::iter::Iterator</code> 类似的概念，只是他是异步的。Stream 可以使用异步的函数来迭代，他们也可以使用其他的适配器来进行一些转换，Tokio 提供了一些常用的适配器，他们都实现在了 <code>StreamExt</code> Trait 上。</p>
+<p>Tokio 提供的 Stream 支持是通过一个独立的包来实现的，他就是 <code>tokio-stream</code></p>
+<pre><code class="language-toml">tokio-stream = &quot;0.1&quot;
+</code></pre>
+<blockquote>
+<p>当前 Tokio 的 Stream 工具库都在 <code>tokio-stream</code> 包中，只要 <code>Stream</code> Trait 在 Rust 的标准库中稳定发布了，Tokio 的 Stream 工具库就会移进 <code>tokio</code> 包中。</p>
+</blockquote>
+<a class="header" href="tokio/tutorial-streams.html#iteration" id="iteration"><h2>Iteration</h2></a>
+<p>到目前为止，Rust 这门编程语言尚未支持异步的循环，因此要对 Stream 进行迭代我们需要用到 <code>while let</code> 循环及 <code>StreamExt::next()</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">use tokio_stream::StreamExt;
+
+#[tokio::main]
+async fn main() {
+  let mut stream = tokio_stream::iter(&amp;[1, 2, 3]);
+  
+  while let Some(v) = stream.next().await {
+    println!(&quot;GOT = {:?}&quot;, v);
+  }
+}
+</code></pre></pre>
+<p>跟迭代器一样，<code>next()</code> 函数返回 <code>Option&lt;T&gt;</code> 类型，其中 <code>T</code> 是 Stream 类型迭代时返回值的类型，<code>None</code> 则表示该 Stream 的迭代已经终止。</p>
+<a class="header" href="tokio/tutorial-streams.html#mini-redis-broadcast" id="mini-redis-broadcast"><h3>Mini-Redis Broadcast</h3></a>
+<p>现在来看一个略微复杂的 Mini-Redis 客户端的例子。</p>
+<p>完整的代码可以看 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/streams/src/main.rs">这里</a></p>
+<pre><pre class="playpen"><code class="language-rust">use tokio_stream::StreamExt;
+use mini_redis::client;
+
+async fn publish() -&gt; mini_redis::Result&lt;()&gt; {
+  let mut client = client::connect(&quot;127.0.0.1:6379&quot;).await?;
+  
+  // Publish some data
+  client.publish(&quot;numbers&quot;, &quot;1&quot;.into()).await?l
+  client.publish(&quot;numbers&quot;, &quot;two&quot;.into()).await?l
+  client.publish(&quot;numbers&quot;, &quot;3&quot;.into()).await?l
+  client.publish(&quot;numbers&quot;, &quot;four&quot;.into()).await?l
+  client.publish(&quot;numbers&quot;, &quot;five&quot;.into()).await?l
+  client.publish(&quot;numbers&quot;, &quot;6&quot;.into()).await?l
+}
+
+async fn subscribe() -&gt; mini_redis::Result&lt;()&gt; {
+  let client = client::connect(&quot;127.0.0.1:6379&quot;).await?;
+  let subscriber = client::subscribe(vec![&quot;numbers&quot;.to_string()]).await?;
+  let messages = subscriber.into_stream();
+  
+  tokio::pin!(messages);
+  
+  while let Some(msg) = messages.next().await {
+    println!(&quot;Got = {:?}&quot;, msg);
+  }
+  
+  Ok(())
+}
+
+#[tokio::main]
+async fn main() -&gt; mini_redis::Result&lt;()&gt; {
+  tokio::spawn(async {
+    publish().await
+  });
+  
+  subscribe().await?;
+  println!(&quot;DONE&quot;);
+  
+  Ok(())
+}
+</code></pre></pre>
+<p>在上面的代码中我们创建了一个用 Mini-Redis 在 <code>numbers</code>频道中发布消息的任务，而在主任务中，我们订阅了 <code>number</code> 频道，并且每次在收到该频道的消息时将它打印了出来。</p>
+<p>在订阅之后，我们在订阅者上面调用了 <code>into_stream()</code> 函数，这个函数消费了 <code>Subscriber</code> 然后返回了一个 在接收到消息时迭代数据的 Stream，我们还看到代码中使用了 <code>tokio::pin!</code> 宏来将 Stream 钉到了栈中。调用 <code>next()</code> 函数需要这个 Stream 是被 <a href="https://doc.rust-lang.org/std/pin/index.html">Pinned <em>钉住</em></a> 的，而 <code>into_stream()</code> 函数所返回的 Stream 是未 <code>Pin</code> 的，因此我们必须将其 <code>Pin</code> 住才能进行迭代。</p>
+<blockquote>
+<p>一个 Rust 的值被 <code>Pin</code> 之后意味着他将不会在内存中被移动，一个被 Pin 的值所具有的一个核心属性是：调用者能够安全的获取其中的指针信息，并且其中的指针信息必定是有效的。这个特性是用来为 <code>async/await</code> 中跨多个 <code>.await</code> 调用的实现提供支持的。</p>
+</blockquote>
+<p>如果我们忘了将 Stream Pin 住，将得到类似下面的错误信息</p>
+<pre><code class="language-shell">error[E0277]: `from_generator::GenFuture&lt;[static generator@Subscriber::into_stream::{closure#0} for&lt;'r, 's, 't0, 't1, 't2, 't3, 't4, 't5, 't6&gt; {ResumeTy, &amp;'r mut Subscriber, Subscriber, impl Future, (), std::result::Result&lt;Option&lt;Message&gt;, Box&lt;(dyn std::error::Error + Send + Sync + 't0)&gt;&gt;, Box&lt;(dyn std::error::Error + Send + Sync + 't1)&gt;, &amp;'t2 mut async_stream::yielder::Sender&lt;std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 't3)&gt;&gt;&gt;, async_stream::yielder::Sender&lt;std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 't4)&gt;&gt;&gt;, std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 't5)&gt;&gt;, impl Future, Option&lt;Message&gt;, Message}]&gt;` cannot be unpinned
+  --&gt; streams/src/main.rs:29:36
+   |
+29 |     while let Some(msg) = messages.next().await {
+   |                                    ^^^^ within `tokio_stream::filter::_::__Origin&lt;'_, impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;`, the trait `Unpin` is not implemented for `from_generator::GenFuture&lt;[static generator@Subscriber::into_stream::{closure#0} for&lt;'r, 's, 't0, 't1, 't2, 't3, 't4, 't5, 't6&gt; {ResumeTy, &amp;'r mut Subscriber, Subscriber, impl Future, (), std::result::Result&lt;Option&lt;Message&gt;, Box&lt;(dyn std::error::Error + Send + Sync + 't0)&gt;&gt;, Box&lt;(dyn std::error::Error + Send + Sync + 't1)&gt;, &amp;'t2 mut async_stream::yielder::Sender&lt;std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 't3)&gt;&gt;&gt;, async_stream::yielder::Sender&lt;std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 't4)&gt;&gt;&gt;, std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 't5)&gt;&gt;, impl Future, Option&lt;Message&gt;, Message}]&gt;`
+   |
+   = note: required because it appears within the type `impl Future`
+   = note: required because it appears within the type `async_stream::async_stream::AsyncStream&lt;std::result::Result&lt;Message, Box&lt;(dyn std::error::Error + Send + Sync + 'static)&gt;&gt;, impl Future&gt;`
+   = note: required because it appears within the type `impl Stream`
+   = note: required because it appears within the type `tokio_stream::filter::_::__Origin&lt;'_, impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;`
+   = note: required because of the requirements on the impl of `Unpin` for `tokio_stream::filter::Filter&lt;impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;`
+   = note: required because it appears within the type `tokio_stream::map::_::__Origin&lt;'_, tokio_stream::filter::Filter&lt;impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;, [closure@streams/src/main.rs:26:14: 26:40]&gt;`
+   = note: required because of the requirements on the impl of `Unpin` for `tokio_stream::map::Map&lt;tokio_stream::filter::Filter&lt;impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;, [closure@streams/src/main.rs:26:14: 26:40]&gt;`
+   = note: required because it appears within the type `tokio_stream::take::_::__Origin&lt;'_, tokio_stream::map::Map&lt;tokio_stream::filter::Filter&lt;impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;, [closure@streams/src/main.rs:26:14: 26:40]&gt;&gt;`
+   = note: required because of the requirements on the impl of `Unpin` for `tokio_stream::take::Take&lt;tokio_stream::map::Map&lt;tokio_stream::filter::Filter&lt;impl Stream, [closure@streams/src/main.rs:22:17: 25:10]&gt;, [closure@streams/src/main.rs:26:14: 26:40]&gt;&gt;`
+</code></pre>
+<p>当你遇到这样的错误信息时，记得将所需的值 Pin 住！</p>
+<p>在我们尝试来运行这段代码前，先把 Mini-Redis 服务启动起来</p>
+<pre><code class="language-shell">$ mini-redis-server
+</code></pre>
+<p>然后运行我们的代码，将会得到如下的输出</p>
+<pre><code class="language-shell">got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;1&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;two&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;3&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;four&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;five&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;6&quot; })
+</code></pre>
+<p>在订阅跟发布之间产生竟态条件时，最前面的部分的数据可能会丢失，这是有 Pub/Sub 机制决定的。这个程序是不会退出的，因为在 Mini-Redis 的订阅中只要服务端没有退出，订阅的程序就会一直运行下去。</p>
+<p>下面我们来看看如何扩展我们的这个程序。</p>
+<a class="header" href="tokio/tutorial-streams.html#adapters" id="adapters"><h2>Adapters</h2></a>
+<p>一些接收 <code>Stream</code> 后返回另外一种 <code>Stream</code> 的函数我们将它成为 Stream 适配器，他们来自于称为 <strong>适配器模式</strong> 的设计模式，常见的适配器包括如 <code>map</code>、<code>take</code> 及 <code>filter</code> 等。</p>
+<p>接下来我们来更新我们的 Mini-Redis 客户端让他在收到三个消息后能够终止迭代，退出程序。我们使用 <code>take</code> 来完成这个功能，这个适配器限制了 Stream 能够返回最多 <code>n</code> 个消息</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let message = subscriber
+    .into_stream()
+    .take(3);
+#}</code></pre></pre>
+<p>然后再次执行程序，我们会得到下面的结果</p>
+<pre><code class="language-shell">got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;1&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;two&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;3&quot; })
+</code></pre>
+<p>这次程序能够自动退出了。</p>
+<p>接下来，我们来限制 Stream 只接收单个字符的数字，我们将通过检查消息的长度来实现这个目的，因此我们将使用 <code>filter</code> 适配器来过滤掉那些不满足条件的消息</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let messages = subscriber
+    .into_stream()
+    .filter(|msg| match msg {
+    Ok(msg) if msg.content.len() == 1 =&gt; true,
+    _ =&gt; false,
+    })
+    .take(3);
+#}</code></pre></pre>
+<p>再次运行程序我们将得到下面的输出</p>
+<pre><code class="language-shell">got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;1&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;3&quot; })
+got = Ok(Message { channel: &quot;numbers&quot;, content: b&quot;6&quot; })
+</code></pre>
+<p>在上面的代码还需要注意的是，适配器间不同的使用顺序是表示了不同意义的，先调用 <code>filter</code> 在调用 <code>take</code> 跟先调用 <code>take</code> 后调用 <code>filter</code> 是不同的。</p>
+<p>最后，我们来去掉最后输出信息的 <code>Ok(Message { ... })</code> 部分，只保留具体的值，这次我们会使用 <code>map</code>，因为他是应用在 <code>filter</code> 之后的，因此传递给 <code>map</code> 的数据都是 <code>Ok</code>，我们可以放心的调用 <code>unwrap()</code></p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let messager = subscriber
+    .into_stream()
+    .filter(|msg| match msg {
+    Ok(msg) if msg.content.len() == 1 =&gt; true,
+    _ =&gt; false
+    })
+    .map(|msg| msg.unwrap().content)
+    .take(3);
+#}</code></pre></pre>
+<p>然后得到下面的输出</p>
+<pre><code class="language-shell">got = b&quot;1&quot;
+got = b&quot;3&quot;
+got = b&quot;6&quot;
+</code></pre>
+<p>另外一个可供选择的方式是使用另一个组合了 <code>filter</code> 跟 <code>map</code> 的，一个叫 <code>filter_map</code> 的适配器。</p>
+<p>更多可用的适配器，可以在 <a href="https://docs.rs/tokio-stream/0.1/tokio_stream/trait.StreamExt.html">这里</a> 找到。</p>
+<a class="header" href="tokio/tutorial-streams.html#implementing-stream" id="implementing-stream"><h2>Implementing <code>Stream</code></h2></a>
+<p><code>Stream</code> Trait 跟 <code>Future</code> Trait 非常相似</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use std::pin::Pin;
+use std::task::{Context, Poll};
+
+pub trait Stream {
+  type Item;
+  
+  fn poll_next(
+    self: Pin&lt;&amp;mut self&gt;,
+    cx: &amp;mut Context&lt;'_&gt;
+  ) -&gt; Poll&lt;Option&lt;Self::Item&gt;&gt;;
+  
+  fn size_hint(&amp;self) -&gt; (usize, Option&lt;usize&gt;) {
+    (0, None)
+  }
+}
+#}</code></pre></pre>
+<p><code>Stream::poll_next()</code> 函数跟 <code>Future::poll</code> 很类似，区别在于 Stream 能够通过重复的调用来获取多个返回结果，正如我们在 <code>Async in depth</code> 中提到的，当 Stream 还未就绪时，他会返回 <code>Poll::Pending</code>，这时 任务的 <code>Waker</code> 会被注册起来，当 Stream 可以被再次 <code>Poll</code> 时，该 <code>Wake</code> 将会受到通知。</p>
+<p><code>size_hint()</code> 函数则是实现了跟迭代器的对应函数一样的功能。</p>
+<p>通常来说，手动的来实现一个 <code>Stream</code> ，基本都是使用组合其他的 <code>Future</code> 跟 Stream 的方式，作为一个示例，我们使用在 <code>Async in depth</code> 中实现的 <code>Delay</code> ，将他转换为一个 Stream, 该 Stream 每个 10 毫秒的间隔会返回一次 <code>()</code>，一共会返回三次。</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use tokio_stream::Steram;
+use std::pin::Pin;
+use std::task::{Context, Poll};
+use std::time::Duration;
+
+struct Interval {
+  rem: usize,
+  delay: Delay,
+}
+
+impl Stream for Interval {
+  type Item = ();
+  
+  fn poll_next(mut self: Pin&lt;&amp;mut Self&gt;, cx: &amp;mut Context&lt;'_&gt;)
+    -&gt; Poll&lt;Option&lt;()&gt;&gt; {
+      if self.rem == 0 {
+        return Poll::Ready(None);
+      }
+      
+      match Pin::new(&amp;mut self.delay).poll(cx) {
+        Poll::Ready(_) =&gt; {
+          let when = self.delay.when + Duration::from_millis(10);
+          self.delay = Delay { when };
+          self.rem -= 1;
+          Poll::Ready(Some(()))
+        }
+        Poll::Pending =&gt; Poll::Pending,
+      }
+  }
+}
+#}</code></pre></pre>
+<a class="header" href="tokio/tutorial-streams.html#async-stream" id="async-stream"><h3><code>async-stream</code></h3></a>
+<p>手动的来实现 <code>Stream</code> 是一件乏味的事，不幸的是 Rust 语言现在还不支持用 <code>async/await</code> 的语法来定义 Steram，这个特性正在实现中，但还没完成。</p>
+<p><code>async-stream</code> 包提供了一个临时的解决方案，这个包提供了一个 <code>async_stream!</code> 宏来将输入转换为 Stream, 使用这个包上面的 <code>Interval</code> 例子能够写成</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use async_stream::stream;
+use std::time::{Duration, Instant};
+
+stream! {
+  let mut when = Instant::new();
+  for _ in 0..3 {
+    let delay = Delay { when };
+    delay.await;
+    yield ();
+    when += Duration::from_millis(10);
+  }
+}
+#}</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="tokio/tutorial-select.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="data_struct.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="tokio/tutorial-select.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="data_struct.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
