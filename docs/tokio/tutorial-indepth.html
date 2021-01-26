@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html" class="active"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html" class="active"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,9 +133,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tokio - tutorial - indepth.html#async-in-depth" id="async-in-depth"><h1>Async In Depth</h1></a>
+                        <a class="header" href="tokio/tutorial-indepth.html#async-in-depth" id="async-in-depth"><h1>Async In Depth</h1></a>
 <p>现在，我们已经对 Rust 异步方式跟 Tokio 有了比较全面的了解，接着我们将继续更加深入的来挖掘 Rust 的异步运行时模型。在我们前面的教程中，我们提到了 Rust 使用了一种特殊的方式来实现异步的目标，现在我们来说说他到底是什么方式。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#futures" id="futures"><h2>Futures</h2></a>
+<a class="header" href="tokio/tutorial-indepth.html#futures" id="futures"><h2>Futures</h2></a>
 <p>现在让我们来看一个非常简单的异步函数作为整体的概览，这个函数相对于我们已经完成的教程并没有任何新的东西</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -175,7 +175,7 @@ pub trait Future {
 #}</code></pre></pre>
 <p>在 Trait 中定义的关联类型 <code>Output</code> 表示该 Future 在完成时会产生的结果，而 <code>Pin</code> 类型则是 Rust 用来支持异步操作中借用机制的基础。具体的细节可以从标准库的 <a href="https://doc.rust-lang.org/std/pin/index.html">文档</a> 了解。</p>
 <p>跟其他编程语言实现 <code>Future</code> 的方式不同，Rust 的 <code>Future</code> 并不表示任何跟后台执行相关的含义，他只表示了该计算原本的过程。持有 <code>Future</code> 的人需要负责的是通过调用 <code>Future::poll</code> 函数，来让该计算能够继续推进，该推进的过程则称为 <code>Polling</code>。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#implementing-future" id="implementing-future"><h3>Implementing <code>Future</code></h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#implementing-future" id="implementing-future"><h3>Implementing <code>Future</code></h3></a>
 <p>现在让我们来实现一个包含下面功能的简单的 <code>Future</code></p>
 <ol>
 <li>等待指定的时间</li>
@@ -216,7 +216,7 @@ async fn main() {
   asser_eq!(out, &quot;done&quot;);
 }
 </code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#async-fn-as-a-future" id="async-fn-as-a-future"><h3>Async fn as a Future</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#async-fn-as-a-future" id="async-fn-as-a-future"><h3>Async fn as a Future</h3></a>
 <p>在 <code>main</code> 函数中，我们初始化了一个 <code>Future</code> 并调用了其 <code>.await</code>，在异步的函数中，我们可以在任何实现了 <code>Future Trait</code> 的值上调用 <code>.await</code>。实际上，调用一个标记为 <code>async</code> 的函数会返回一个匿名的实现了 <code>Future</code> 的值，在 <code>async fn main()</code> 函数中，该调用生成的 <code>Future</code> 类似下面的代码段</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -271,10 +271,10 @@ impl Future for MainFuture {
 <p>Rust 的 <code>Futures</code> 被实现成了状态机，在上面的代码中 <code>MainFuture</code> 用一个枚举来表示该 <code>Future</code> 所具有的所有状态。一开始该 <code>Future</code> 被置为了 <code>State0</code>，当 <code>poll</code> 被调用时，该 <code>Future</code> 尝试让自己的状态进入下一步，即 <code>State1</code>，在这一状态中会继续尝试让自己内部的状态 <em>(Delay)</em> 也进入下一步。当该 <code>Future</code> 的异步操作完成时，他会将最终的返回结果与 <code>Poll::Ready</code> 一起返回。</p>
 <p>如果该 <code>Future</code> 现在无法完成，这一般取决于其内部所依赖的其他资源是否完成，他会返回 <code>Poll::Pending</code>，调用者收到 <code>Poll::Pending</code> 便能够确认该 <code>Future</code> 现在无法继续推进，因此调用者会在稍后继续尝试调用 <code>poll</code> 函数来推进其状态。</p>
 <p>我们通常会看到 <code>Future</code> 由其他的一些 <code>Future</code> 组成，调用最外层的 <code>Future</code> 会导致内部的 <code>Future</code> 的 <code>poll</code> 函数也被调用。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#executors" id="executors"><h2>Executors</h2></a>
+<a class="header" href="tokio/tutorial-indepth.html#executors" id="executors"><h2>Executors</h2></a>
 <p>异步的 Rust 函数会返回 <code>Future</code>，而 <code>Future</code> 需要有人来调用他的 <code>poll</code> 函数以推进他的状态，并且 <code>Future</code> 经常会由许多其他的 <code>Future</code> 组成，现在的问题就在于：谁来调用最外层 <code>Future</code> 的 <code>poll</code> 函数？</p>
 <p>回顾之前信息，为了运行一个异步的函数，我们要么把他传递给 <code>tokio::spawn</code> 要么就给 <code>main</code> 函数标注上 <code>#[tokio::main]</code> 宏。该宏会将最终生成的 <code>Future</code> 传递给 <code>Tokio</code> 的执行器 <em>(Executor)</em>。执行器会负责来调用最外层的 <code>Future::poll</code>函数，驱动整个异步操作的进行。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#mini-tokio" id="mini-tokio"><h3>Mini Tokio</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#mini-tokio" id="mini-tokio"><h3>Mini Tokio</h3></a>
 <p>为了更好的理解这些知识，并将他们都整合起来，我们来实现一个迷你的 Tokio。完整的代码可以从 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/mini-tokio/src/main.rs">这里</a> 找到。</p>
 <pre><pre class="playpen"><code class="language-rust">use std::collections::VecDeque;
 use std::future::Future;
@@ -333,7 +333,7 @@ impl MiniTokio {
 <p>上面会运行整个异步的代码， <code>Delay</code> 的实例会被创建并且等待其执行完成，只是现在的实现有一个很大的问题。当前的执行器在遇到未能完成的任务时不会挂起或进入睡眠，而是会不断的循环调用所有已创建的任务的 <code>poll</code>，但是在大部分的情况下，这些 <code>Future</code> 在返回 <code>Poll::Pending</code> 后并不会马上完成，继续的调用只会不断的返回 <code>Poll::Pending</code>，当前的实现会极大的消耗 CPU 资源。</p>
 <p>理想情况下，我们希望 mini-tokio 只在有 <code>Future</code> 能够继续推进其状态时进行 <code>Poll</code>，这种情况发生在任务内部的某些资源操作完成时，比如一个任务希望从 TCP 套接字中读取数据，那就应该只在 TCP 套接字接收到数据的时候才进行 <code>poll</code>，在我们的案例中任务会被 <code>Instant</code> 实例堵塞，理想情况下，我们希望 mini-tokio 只在 <code>Instant</code> 指定的时间过去后才对任务进行 <code>Poll</code>。</p>
 <p>为了实现这个目标，当一个资源在还没就绪的状态下被 <code>Poll</code> 时，他应该在自身就绪时发出通知。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#wakers" id="wakers"><h3>Wakers</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#wakers" id="wakers"><h3>Wakers</h3></a>
 <p>到现在我们还没讨论到 <code>Waker</code>，他是资源在可用时用来通知那些等待中的任务的系统，接收到通知的任务意味着他们能够继续进行后续的操作。</p>
 <p>让我们再来看一次 <code>Future::poll</code> 的定义</p>
 <pre><pre class="playpen"><code class="language-rust">
@@ -342,7 +342,7 @@ impl MiniTokio {
 fn poll(self: Pin&lt;&amp;mut Self&gt;, cx: &amp;mut Context) -&gt; Poll&lt;Self::Output&gt;;
 #}</code></pre></pre>
 <p><code>poll</code> 函数的 <code>Context</code> 类型参数中有个 <code>waker()</code> 函数，该函数会返回一个跟当前任务绑定的 <code>Waker</code>，这个 <code>Waker</code> 有一个 <code>wake()</code> 函数，调用这个函数就能够通知执行器，执行器会调度与该 <code>Wakier</code> 关联的任务，让他继续执行。资源在他就绪的时候就会调用 <code>wake()</code> 通知执行器让他继续对这个任务调用 <code>poll</code>。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#update-delay" id="update-delay"><h3>Update <code>Delay</code></h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#update-delay" id="update-delay"><h3>Update <code>Delay</code></h3></a>
 <p>现在将 <code>Delay</code> 更新为使用 <code>Waker</code> 的方式</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -414,7 +414,7 @@ impl Future for Delay {
 #}</code></pre></pre>
 <p>在返回 <code>Poll::Pending</code> 之前，我们调用了 <code>cx.waker().wake_by_ref()</code>，这是为了满足实现 <code>Future</code> 的约定，因为我们需要负责向 <code>Waker</code> 发送通知。又因为我们没有专门实现一个定时器的管理线程，所以才直接在 <code>Poll::Pending</code> 前直接发送通知。调用之后的结果就是，我们的 <code>Future</code> 能够马上被重新调度，重新执行，虽然不代表能够马上完成任务、结束等待。</p>
 <p>从上面的例子能够发现，不是只有在资源就绪的时候才能发送通知给 <code>Waker</code>，我们在不能够继续执行下去的状态仍然发送了通知给 <code>Wakter</code>，除了消耗更多的 CPU 以外这并不会造成什么问题，因为他只是导致了更多的循环调用。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#updating-mini-tokio" id="updating-mini-tokio"><h3>Updating Mini Tokio</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#updating-mini-tokio" id="updating-mini-tokio"><h3>Updating Mini Tokio</h3></a>
 <p>接下来我们要更新 Mini Tokio 的实现，让他能够接收到消息通知，我们希望执行器只有在任务就绪的情况才去执行他，因此 Mini Tokio 将会提供自己的 <code>Waker</code> 实现。当 <code>Waker</code> 被唤醒时，需要被执行的任务会被先排到队列中等待，然后 Mini Tokio 在 <code>Poll</code> 这个任务的时候会把对应的 <code>Waker</code> 传递给他。</p>
 <p>更新后的 Mini Tokio 会使用 Channel 来存储调度的任务，Channel 可以让来自不同线程的任务在其中排队，因此 <code>Waker</code> 必须要实现 <code>Send</code> 跟 <code>Sync</code> 才能够在不同的线程中传递，才能够在我们即将使用的 <code>crossbeam</code> 包中的 Channel 中使用，不使用标准库的是因为标准库中的 Channel 是非 <code>Sync</code> 的。</p>
 <blockquote>
@@ -545,7 +545,7 @@ impl Task {
 <p>上面的代码修改了许多的东西，首先 <code>MiniTokio::run</code> 的实现方式变更为使用一个循环不停的从 Channel 中接收已调度的任务。当任务能被唤醒时将会被放到 Channel，这样能够让 <code>MiniTokio::run</code> 能够让他继续的推进执行进度。</p>
 <p>然后 <code>MiniTokio::new</code> 以及 <code>MiniTokio::spawn</code> 函数调整为使用 Channel 来替换 <code>VecDeque</code>。当新的任务被创建时，Channel 的 Sender 部分传递给任务保存，因此当任务能够继续推进时，能用它来将自己调度给运行时去执行。</p>
 <p><code>Task::poll</code> 函数使用 <code>futures::task::ArcWake</code> 来便捷的创建 <code>Waker</code>，该 <code>Waker</code> 会被用来创建任务的上下文，该上下文信息会在之后调用 <code>poll</code> 的时候作为参数传递。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#summary" id="summary"><h3>Summary</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#summary" id="summary"><h3>Summary</h3></a>
 <p>到现在为止我们看到了一个用来说明 Rust 的异步系统是如何运行的完整例子，Rust 的 <code>async/await</code> 是通过 <code>Trait</code> 来进行支持实现的，如 <code>Future</code> 等，这让第三方的包，如 Tokio，能够通过他们来实现具体的细节。</p>
 <ul>
 <li>Rust 的异步操作是需要调用者通过 Poll 去推进的惰性操作</li>
@@ -555,7 +555,7 @@ impl Task {
 <li>执行器接收到通知后会将对应的任务调度执行</li>
 <li>任务被再次 <code>Poll</code>，因为资源此时已就绪所以这次执行能够推进任务的状态</li>
 </ul>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#a一些零散的信息" id="a一些零散的信息"><h3>一些零散的信息</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#a一些零散的信息" id="a一些零散的信息"><h3>一些零散的信息</h3></a>
 <p>回顾一下我们早前说的，<code>Delay</code> 还有一些问题需要修复，主要的问题在于 Rust 的异步模型允许一个 <code>Future</code> 在不同的任务中传递，我们来看看下面的代码</p>
 <pre><pre class="playpen"><code class="language-rust">use futures::future::poll_fn;
 use std::future::Future;
@@ -658,7 +658,7 @@ impl Future for Delay {
 }
 #}</code></pre></pre>
 <p>这个改动并不大，主要的想法是，在每次调用 <code>Future::poll</code> 时检查参数的 <code>Waker</code> 是否与之前保存的一致，如果一致则不需要做任何处理，否则的话则需要将保存的 <code>Waker</code> 替换为新的那个。</p>
-<a class="header" href="tokio/tokio - tutorial - indepth.html#notify-utility" id="notify-utility"><h3>Notify Utility</h3></a>
+<a class="header" href="tokio/tutorial-indepth.html#notify-utility" id="notify-utility"><h3>Notify Utility</h3></a>
 <p>我们示范了如何手动的使用 <code>Waker</code> 来实现 <code>Delay Future</code>，<code>Waker</code> 是 Rust 的异步机制实现的基础支撑，但一般情况下我们并不需要深入到如此底层的东西，比如说在实现 <code>Delay</code> 时可以使用 <code>async/await</code> 并借助 <code>tokio::sync::Notify</code> 工具来避免复杂的底层信息。该工具提供了基础的任务通知机制，该机制处理了关于 <code>Waker</code> 的细节，包括如何保障当前记录的 <code>Waker</code> 跟最新的一致。</p>
 <p>使用 <code>Notify</code> 后我们的 <code>Delay</code> 实现看起来成了这样</p>
 <pre><pre class="playpen"><code class="language-rust">
@@ -693,13 +693,13 @@ async fn delay(dur: Duration) {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio/tokio - tutorial - framing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tokio/tutorial-framing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="data_struct.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tokio/tutorial-select.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -711,13 +711,13 @@ async fn delay(dur: Duration) {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio/tokio - tutorial - framing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="tokio/tutorial-framing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="data_struct.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="tokio/tutorial-select.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

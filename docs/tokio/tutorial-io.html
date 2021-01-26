@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tokio - tutorial - shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tokio - tutorial - channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tokio - tutorial - io.html" class="active"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tokio - tutorial - framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tokio - tutorial - indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html" class="active"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">3.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">3.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">3.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">3.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">3.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">3.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">4.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">4.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">4.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">4.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">4.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">5.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">5.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">5.2.</strong> Raft (译)</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,14 +133,14 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tokio - tutorial - io.html#io" id="io"><h1>I/O</h1></a>
+                        <a class="header" href="tokio/tutorial-io.html#io" id="io"><h1>I/O</h1></a>
 <p>1610591062</p>
 <p>Tokio 中的 <code>I/O</code> 操作跟标准库 <code>std</code>的保持一致，只是他是异步的。他提供了用于读取数据的 <code>AsyncRead Trait</code> 及用于写入操作的 <code>AayncWrite Trait</code>，很多类型都实现了他们，比如 <code>TcpStream</code>、<code>File</code>、<code>Stdout</code> 等，还有很多其他的基础类型如 <code>Vec&lt;u8&gt;</code>、 <code>&amp;[u8]</code> ，他们让我们能够像使用 <code>Writer</code> 跟 <code>Reader</code> 一般使用字节数组。</p>
 <p>本页面会使用 Tokio 来实现包含基础 <code>I/O</code> 的读取跟写入的一些示例。下一节我们则将会来探索更高级的示例。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#asyncread-and-asyncwrite" id="asyncread-and-asyncwrite"><h2><code>AsyncRead</code> And <code>AsyncWrite</code></h2></a>
+<a class="header" href="tokio/tutorial-io.html#asyncread-and-asyncwrite" id="asyncread-and-asyncwrite"><h2><code>AsyncRead</code> And <code>AsyncWrite</code></h2></a>
 <p>这两个 <code>Trait</code> 基础设施为字节流提供了异步的读取跟写入能力，事实上这两个 <code>Trait</code> 的函数并不会被直接调用，就像你不会手动的去调用 <code>Future</code> 的 <code>poll</code> 函数，他们更多的是会被其他的使用 <code>Trait</code> 来调用，如 <code>AsyncReadExt</code> 跟 <code>AsyncWriteExt</code>。</p>
 <p>接下来让我们来稍微看其中几个函数，所有的这些函数都是 <code>async</code> 并且必须使用 <code>.await</code> 来调用。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#async-fn-read" id="async-fn-read"><h3><code>async fn read()</code></h3></a>
+<a class="header" href="tokio/tutorial-io.html#async-fn-read" id="async-fn-read"><h3><code>async fn read()</code></h3></a>
 <p><code>AsyncReadExt::read()</code> 提供了用来读取数据到缓存然后返回读取字节数的异步函数。</p>
 <p><strong>Note</strong>： 当 <code>read()</code> 返回 <code>Ok(0)</code> 时，意味着读取的数据流已经关闭，后续再进行的 <code>read()</code> 调用都会马上返回 <code>Ok(0)</code>。对于 <code>TcpStream</code> 来说则意味着套接字的读取部分已经关闭。</p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::fs::File;
@@ -158,7 +158,7 @@ async fn main() -&gt; io::Result&lt;()&gt; {
   Ok(())
 }
 </code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - io.html#async-fn-read_to_end" id="async-fn-read_to_end"><h3><code>async fn read_to_end()</code></h3></a>
+<a class="header" href="tokio/tutorial-io.html#async-fn-read_to_end" id="async-fn-read_to_end"><h3><code>async fn read_to_end()</code></h3></a>
 <p><code>AsyncReadExt::read_to_end()</code> 从数据流中读取所有的数据直到读完。</p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncReadExt};
 use tokio::fs::File;
@@ -188,7 +188,7 @@ async fn main() -&gt; io::Result&lt;()&gt; {
   Ok(())
 }
 </code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - io.html#async-fn-write_all" id="async-fn-write_all"><h3><code>async fn write_all()</code></h3></a>
+<a class="header" href="tokio/tutorial-io.html#async-fn-write_all" id="async-fn-write_all"><h3><code>async fn write_all()</code></h3></a>
 <p><code>AsyncWriteExt::write_all</code> 写入缓存中所有的数据到写入者中。</p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncWriteExt};
 use tokio::fs::File;
@@ -202,7 +202,7 @@ async fn main() -&gt; io::Result&lt;()&gt; {
 }
 </code></pre></pre>
 <p>每个 <code>Trait</code> 都包含了一些其他的函数，可以查看文档来全面的了解可用的函数。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#helper-functions" id="helper-functions"><h2>Helper Functions</h2></a>
+<a class="header" href="tokio/tutorial-io.html#helper-functions" id="helper-functions"><h2>Helper Functions</h2></a>
 <p>跟标准库 <code>std</code> 一样，<code>tokio::io</code> 模块也包含了许多适用于标准输入、标准输出及标准错误的实用函数，比如 <code>tokio::io::copy</code> 异步复制函数可用于从读取对象中读取所有数据到写入对象中。</p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::fs::File;
 use tokio::io;
@@ -217,11 +217,11 @@ async fn main() -&gt; io::Result&lt;()&gt; {
 }
 </code></pre></pre>
 <p>我们知道这里能够复制是因为字节数组同样实现了 <code>AsyncRead</code>。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#echo-server" id="echo-server"><h2>Echo Server</h2></a>
+<a class="header" href="tokio/tutorial-io.html#echo-server" id="echo-server"><h2>Echo Server</h2></a>
 <p>接下来会通过一个 Echo 服务来熟悉异步 IO。</p>
 <p>该 Echo 服务会绑定一个 <code>TcpListener</code> 并用他在循环中接收进来的连接，都会该套接字中读取所有的数据，然后马上将数据写回该套接字。对于客户端来说，则是发送数据给服务端然后会接收到一模一样的回复。</p>
 <p>我们会以两种不同的策略来实现 Echo 服务两次。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#using-iocopy" id="using-iocopy"><h3>Using <code>io::copy()</code></h3></a>
+<a class="header" href="tokio/tutorial-io.html#using-iocopy" id="using-iocopy"><h3>Using <code>io::copy()</code></h3></a>
 <p>第一步我们先使用一个实用的 <code>io::copy</code> 函数来实现。</p>
 <p>这是个 TCP 服务所以我们首先需要一个接收连接的循环，在每次接收到一个套接字时则会创建一个任务对其进行处理。</p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::io;
@@ -247,7 +247,7 @@ async fn main() -&gt; io::Result&lt;()&gt; {
 // This fails to cpmpile
 io::copy(&amp;mut socket, &amp;,ut socket).await
 #}</code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - io.html#spliting-a-reader--writer" id="spliting-a-reader--writer"><h3>Spliting A Reader + Writer</h3></a>
+<a class="header" href="tokio/tutorial-io.html#spliting-a-reader--writer" id="spliting-a-reader--writer"><h3>Spliting A Reader + Writer</h3></a>
 <p>为了解决这个问题，我们需要将套接字拆分为 <code>Reader</code> 跟 <code>Writer</code>，而拆分的最佳方法取决于我们所需要拆分的具体类型。</p>
 <p>任何一个 <code>Reader</code> + <code>Writer</code> 都可以通过 <code>io::split</code> 来拆分，这个函数获取一个参数然后将其拆分为 <code>Reader</code> 跟 <code>Writer</code> 返回，返回的这两个句柄现在可以独立的使用，比如将他们用到不同的任务中。</p>
 <p>举个例子，Echo 服务可以像这样来使用 <code>Writer</code> 跟 <code>Reader</code></p>
@@ -297,7 +297,7 @@ tokio::spawn(async move {
 });
 #}</code></pre></pre>
 <p>完整的代码可以在 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/io/src/echo-server.rs">这里</a> 找到。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#manual-copying" id="manual-copying"><h3>Manual Copying</h3></a>
+<a class="header" href="tokio/tutorial-io.html#manual-copying" id="manual-copying"><h3>Manual Copying</h3></a>
 <p>接下来我们来实现一个手动复制数据的 Echo 服务，这里面我们使用了 <code>AsyncReadExt::read</code> 跟 <code>AsyncWriteExt::write_all</code>。</p>
 <p>完整的代码如下:</p>
 <pre><pre class="playpen"><code class="language-rust">use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
@@ -342,7 +342,7 @@ async fn main() -&gt; io::Result&lt;()&gt; {
 #fn main() {
 use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
 #}</code></pre></pre>
-<a class="header" href="tokio/tokio - tutorial - io.html#allocating-a-buffer" id="allocating-a-buffer"><h4>Allocating A Buffer</h4></a>
+<a class="header" href="tokio/tutorial-io.html#allocating-a-buffer" id="allocating-a-buffer"><h4>Allocating A Buffer</h4></a>
 <p>当前的实现方案需要将数据从套接字中读取到缓存，然后再将其从缓存中写回套接字</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -371,7 +371,7 @@ struct Task {
 <p>如果使用一个栈中的数组作为上面的缓存类型，他会被内联的保存到任务的数据结构中，这会让任务的数据结构变得非常庞大。而且，缓存的大小通常跟页的大小设为相同的，这会让任务的数据大小变成一个不是很合适的尺寸: <code>$page-size + a-few_bytes</code>。</p>
 <p>编译器会将异步代码块优化的比我们看到的基础的 <code>enum</code> 更好，在实际中，变量并不像枚举那样在不同的状态中移动，但是任务的数据结构大小仍然会像我们看到的那么大。</p>
 <p>因此，使用专用独立的内存分配来使用缓存会是更好的方式。</p>
-<a class="header" href="tokio/tokio - tutorial - io.html#handling-eof" id="handling-eof"><h4>Handling EOF</h4></a>
+<a class="header" href="tokio/tutorial-io.html#handling-eof" id="handling-eof"><h4>Handling EOF</h4></a>
 <p>当我们所读取的 TCP 流被关闭了，对其调用的 <code>read()</code> 会返回 <code>Ok(0)</code>，这意味着我们需要中断这个读取循环了，忘记中断这个读取的循环是很多常见 Bug 的来源</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
@@ -390,13 +390,13 @@ loop {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio/tokio - tutorial - channel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tokio/tutorial-channel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="tokio/tokio - tutorial - framing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tokio/tutorial-framing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -408,13 +408,13 @@ loop {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio/tokio - tutorial - channel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="tokio/tutorial-channel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="tokio/tokio - tutorial - framing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="tokio/tutorial-framing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
