@@ -136,7 +136,7 @@
                         <p>[TOC]</p>
 <a class="header" href="distributed/raft_note.html#a对易于理解的一致性算法的研究扩展版" id="a对易于理解的一致性算法的研究扩展版"><h1>对易于理解的一致性算法的研究(扩展版)</h1></a>
 <a class="header" href="distributed/raft_note.html#a0-摘要-abstract" id="a0-摘要-abstract"><h2>0. 摘要 Abstract</h2></a>
-<p>Raft 是一个用来管理 复制日志 的一致性算法。他产出的结果与 (Multi-)Paxos 是一样的，同时也保持跟 Paxos 一样高效，但他们是基于不同的数据结构的。不一样的数据结构让 Raft 更易于理解且更易于构建实际的系统。为了提高礼节性，Raft 将一致性切分为几个不同的元素，比如 Leader Election (领导者选举)，Log Replication (日志复制) 跟 Safety (安全性)，他还使用了更高级别的内聚来减少需要考虑的状态数量。从一些用户的学习结果观察得出 Raft 相较于 Paxos 更易于学生学习。Raft 同时还包含了一个新的机制来处理集群成员的变更，这是一个通过覆盖大多数节点(Overlapping Majorities) 来保证安全的机制。</p>
+<p>Raft 是一个用来管理 复制日志 的一致性算法。他产出的结果与 (Multi-)Paxos 是一样的，同时也保持跟 Paxos 一样高效，但他们是基于不同的数据结构的。不一样的数据结构让 Raft 更易于理解且更易于构建实际的系统。为了更易于理解，Raft 将一致性切分为几个不同的元素，比如 Leader Election (领导者选举)，Log Replication (日志复制) 跟 Safety (安全性)，他还使用了更高级别的内聚来减少需要考虑的状态数量。从一些用户的学习结果观察得出 Raft 相较于 Paxos 更易于学生学习。Raft 同时还包含了一个新的机制来处理集群成员的变更，这是一个通过覆盖大多数节点(Overlapping Majorities) 来保证安全的机制。</p>
 <a class="header" href="distributed/raft_note.html#a1-介绍-introduction" id="a1-介绍-introduction"><h2>1. 介绍 Introduction</h2></a>
 <p>一致性算法让一组机器在部分成员失效时仍能够保持整体正常运行。正因如此，他扮演者一个用来构建可靠的大规模软件系统的关键角色。Paxos 在上一个十年一直主导着关于一致性算法的讨论：大多数的一致性算法都是基于 Paxos 或是受其影响的，并且 Paxos 也成为了一致性知识教学的主导工具。</p>
 <p>遗憾的是，尽管已经有大量的努力，Paxos 还是是太难以理解，并且他本身的结构也需要经过大量的调整才能应用到现实的系统中。这些让系统的构建者及学生都感到头痛。</p>

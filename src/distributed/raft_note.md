@@ -4,7 +4,7 @@
 
 ## 0. 摘要 Abstract
 
-Raft 是一个用来管理 复制日志 的一致性算法。他产出的结果与 (Multi-)Paxos 是一样的，同时也保持跟 Paxos 一样高效，但他们是基于不同的数据结构的。不一样的数据结构让 Raft 更易于理解且更易于构建实际的系统。为了提高礼节性，Raft 将一致性切分为几个不同的元素，比如 Leader Election (领导者选举)，Log Replication (日志复制) 跟 Safety (安全性)，他还使用了更高级别的内聚来减少需要考虑的状态数量。从一些用户的学习结果观察得出 Raft 相较于 Paxos 更易于学生学习。Raft 同时还包含了一个新的机制来处理集群成员的变更，这是一个通过覆盖大多数节点(Overlapping Majorities) 来保证安全的机制。
+Raft 是一个用来管理 复制日志 的一致性算法。他产出的结果与 (Multi-)Paxos 是一样的，同时也保持跟 Paxos 一样高效，但他们是基于不同的数据结构的。不一样的数据结构让 Raft 更易于理解且更易于构建实际的系统。为了更易于理解，Raft 将一致性切分为几个不同的元素，比如 Leader Election (领导者选举)，Log Replication (日志复制) 跟 Safety (安全性)，他还使用了更高级别的内聚来减少需要考虑的状态数量。从一些用户的学习结果观察得出 Raft 相较于 Paxos 更易于学生学习。Raft 同时还包含了一个新的机制来处理集群成员的变更，这是一个通过覆盖大多数节点(Overlapping Majorities) 来保证安全的机制。
 
 ## 1. 介绍 Introduction
 
