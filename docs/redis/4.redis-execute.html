@@ -1,36 +1,58 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>4. 执行命令 - SinSay's Note Book</title>
+        <title>4. 执行命令 - SinSay&#x27;s Note Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -50,10 +72,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -69,43 +94,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="https://sinsay.github.io/db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li><a href="data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">4.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html" class="active"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">4.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html" class="active"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">SinSay's Note Book</h1> 
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -133,10 +163,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="redis/4.redis-execute.html#redis-内容篇" id="redis-内容篇"><h1>Redis 内容篇</h1></a>
+                        <h1><a class="header" href="#redis-内容篇" id="redis-内容篇">Redis 内容篇</a></h1>
 <p>[TOC]</p>
-<a class="header" href="redis/4.redis-execute.html#a执行命令" id="a执行命令"><h2>执行命令</h2></a>
-<a class="header" href="redis/4.redis-execute.html#a上文回顾--执行逻辑" id="a上文回顾--执行逻辑"><h3>上文回顾 &amp;&amp; 执行逻辑</h3></a>
+<h2><a class="header" href="#执行命令" id="执行命令">执行命令</a></h2>
+<h3><a class="header" href="#上文回顾--执行逻辑" id="上文回顾--执行逻辑">上文回顾 &amp;&amp; 执行逻辑</a></h3>
 <p>在前面我们分析了解析部分的内容，解析完所有的信息后，最终我们来到了 <code>processCommand</code> 这个函数的最后，</p>
 <pre><code class="language-c">void processCommand(redisClient *c) {
     // ...
@@ -200,8 +230,8 @@
 </ul>
 </li>
 </ul>
-<a class="header" href="redis/4.redis-execute.html#a命令指针列表" id="a命令指针列表"><h3>命令指针列表</h3></a>
-<p>上述分析完毕，我们开始进入具体的 Redis 命令，因为上文的 <code>c-&gt;cmd-&gt;proc()</code> 已经正式执行了 <code>client</code> 发送过来的命令。
+<h3><a class="header" href="#命令指针列表" id="命令指针列表">命令指针列表</a></h3>
+<p>上述分析完毕，我们开始进入具体的 Redis 命令，因为上文的 <code>c-&gt;cmd-&gt;proc() </code> 已经正式执行了 <code>client</code> 发送过来的命令。
 首先我们看看共有哪些命令, 这些命令分别包含了些什么信息，从之前的分析我们首先可以得到，命令会说明自己的参数个数、函数指针等信息。</p>
 <pre><code class="language-c">struct redisCommand redisCommandTable[] = {
     {&quot;get&quot;,getCommand,2,&quot;rF&quot;,0,NULL,1,1,1,0,0},
@@ -295,8 +325,8 @@
  *    are not fast commands.
  */
 </code></pre>
-<a class="header" href="redis/4.redis-execute.html#getset" id="getset"><h2>GET/SET</h2></a>
-<a class="header" href="redis/4.redis-execute.html#get" id="get"><h3>GET</h3></a>
+<h2><a class="header" href="#getset" id="getset">GET/SET</a></h2>
+<h3><a class="header" href="#get" id="get">GET</a></h3>
 <blockquote>
 <p><code>{ &quot;get&quot;, getCommand, 2, &quot;rF&quot;, 0, NULL, 1, 1, 1, 0, 0 }</code>
 名称: get
@@ -382,9 +412,9 @@ robj *lookupKeyRead(redisDb *db, robj *key) {
 </code></pre>
 <p>最终的查找动作落在了 <code>dictFind</code> 身上，也就是直接进行了一次 Hash 查找，具体的实现在 <code>dict.h</code> 我们已经详细说明过了。
 在查到目标 value 后，如果当前没有在后台处理 rdb 或 aof 机制，则更新 value 对应的 lru，可用于内存满载时的调整机制。</p>
-<a class="header" href="redis/4.redis-execute.html#reply-preview" id="reply-preview"><h4>REPLY Preview</h4></a>
+<h4><a class="header" href="#reply-preview" id="reply-preview">REPLY Preview</a></h4>
 <p>在上面我们看到了 <code>addReply</code> 调用，这是 redis 用来回复信息给客户端使用的接口，在这里我们先简单的理解为，调用这个接口后，相应的数据就会回复给客户端即可，因为这里面涉及的东西较多，也跟具体的 get 逻辑无关，所以后面再另开篇章描述。</p>
-<a class="header" href="redis/4.redis-execute.html#mget" id="mget"><h3>MGET</h3></a>
+<h3><a class="header" href="#mget" id="mget">MGET</a></h3>
 <blockquote>
 <p>{ &quot;mget&quot;, mgetCommand, -2, &quot;r&quot;, 0, NULL, 1, -1, 1, 0, 0 }</p>
 </blockquote>
@@ -408,7 +438,7 @@ robj *lookupKeyRead(redisDb *db, robj *key) {
     }
 }
 </code></pre>
-<a class="header" href="redis/4.redis-execute.html#set" id="set"><h3>SET</h3></a>
+<h3><a class="header" href="#set" id="set">SET</a></h3>
 <blockquote>
 <p>{ &quot;set&quot;, setCommand, -3, &quot;wm&quot;, 0, NULL, 1, 1, 1, 0, 0 }</p>
 </blockquote>
@@ -537,21 +567,21 @@ void dbAdd(redisDb *db, robj *key, robj *val) {
 }
 </code></pre>
 <p>也只是简单的调用了 dict 的接口，并做了一些 assert。</p>
-<a class="header" href="redis/4.redis-execute.html#setnx" id="setnx"><h3>SETNX</h3></a>
+<h3><a class="header" href="#setnx" id="setnx">SETNX</a></h3>
 <p>跟 set 同效，但只有当对应的 key 不存在时，才会 set 成功，具体的实现跟 set 并无二致，只是在调用前设置了对应的 flag: <code>REDIS_SET_NX</code></p>
 <pre><code class="language-c">void setnxCommand(redisClient *c) {
     c-&gt;argv[2] = tryObjectEncoding(c-&gt;argv[2]);
     setGenericCommand(c, REDIS_SET_NX, c-&gt;argv[1], c-&gt;argv[2], NULL, 0, shared.cone, shared.czero);
 }
 </code></pre>
-<a class="header" href="redis/4.redis-execute.html#setex" id="setex"><h3>SETEX</h3></a>
+<h3><a class="header" href="#setex" id="setex">SETEX</a></h3>
 <p>跟 set 同效，在设置 key 对应的 value 时，同时还会设置过期时间。</p>
 <pre><code class="language-c">void setexCommand(redisClient *c) {
     c-&gt;argv[3] = tryObjectEncoding(c-&gt;argv[3]);
     setGenericCommand(c, REDIS_NO_FLAGS, c-&gt;argv[1], c-&gt;argv[3, c-&gt;argv[2], UNIT_SECONDS, NULL, NULL);
 }
 </code></pre>
-<a class="header" href="redis/4.redis-execute.html#mset--msetnx" id="mset--msetnx"><h3>MSET / MSETNX</h3></a>
+<h3><a class="header" href="#mset--msetnx" id="mset--msetnx">MSET / MSETNX</a></h3>
 <p>批量设置新的键值对</p>
 <pre><code class="language-c">void msetCommand(redisClient *c) {
     msetGenericCommand(c, 0);
@@ -594,9 +624,9 @@ void msetGenericCommand(redisClient *c, int nx) {
 </code></pre>
 <p>上面的 <code>msetCommand</code> 转调的是 <code>msetGenericCommand</code>，同时传递了 0 作为 nx 参数，而在 <code>msetGenericCommand</code> 中 nx 是作为一个标识符，用于指示即将插入的键值对能否已存在 redis 之中。 0 则表示不做限制。</p>
 <p>而对于 <code>msetnxCommand</code> 来说则需要限制，所以传递了 1。</p>
-<a class="header" href="redis/4.redis-execute.html#basic" id="basic"><h2>BASIC</h2></a>
+<h2><a class="header" href="#basic" id="basic">BASIC</a></h2>
 <p>下面列出的是跟类型无关的基础指令</p>
-<a class="header" href="redis/4.redis-execute.html#del" id="del"><h3>DEL</h3></a>
+<h3><a class="header" href="#del" id="del">DEL</a></h3>
 <p>删除 key 对应的 value，主要的实现为，接收变长的参数列表，列表中都为 redis 中的 key, 把所有的 key 都从 redis 中删掉，然后提醒订阅了这些 key 状态的客户端</p>
 <pre><code class="language-c">void delCommand(redisClient *c) {
     int deleted = 0, j;
@@ -615,7 +645,7 @@ void msetGenericCommand(redisClient *c, int nx) {
     addReplyLongLong(c, deleted);
 }
 </code></pre>
-<a class="header" href="redis/4.redis-execute.html#exists" id="exists"><h3>EXISTS</h3></a>
+<h3><a class="header" href="#exists" id="exists">EXISTS</a></h3>
 <p>判断对应的 key 是否存在于 redis 中。</p>
 <pre><code class="language-c">void existsCommand(redisClient *c) {
     long long count = 0;
@@ -629,35 +659,35 @@ void msetGenericCommand(redisClient *c, int nx) {
     addReplyLongLong(c, count);
 }
 </code></pre>
-<a class="header" href="redis/4.redis-execute.html#ping" id="ping"><h3>PING</h3></a>
-<a class="header" href="redis/4.redis-execute.html#echo" id="echo"><h3>ECHO</h3></a>
-<a class="header" href="redis/4.redis-execute.html#auto" id="auto"><h3>AUTO</h3></a>
-<a class="header" href="redis/4.redis-execute.html#shutdown" id="shutdown"><h3>SHUTDOWN</h3></a>
-<a class="header" href="redis/4.redis-execute.html#bgsave" id="bgsave"><h3>BGSAVE</h3></a>
-<a class="header" href="redis/4.redis-execute.html#list" id="list"><h2>LIST</h2></a>
-<a class="header" href="redis/4.redis-execute.html#lpushlpop-lpushxlpopx" id="lpushlpop-lpushxlpopx"><h3>LPUSH/LPOP <em>(LPUSHX/LPOPX)</em></h3></a>
-<a class="header" href="redis/4.redis-execute.html#rpushrpop-rpushxrpopx" id="rpushrpop-rpushxrpopx"><h3>RPUSH/RPOP <em>(RPUSHX/RPOPX)</em></h3></a>
-<a class="header" href="redis/4.redis-execute.html#linsert" id="linsert"><h3>LINSERT</h3></a>
-<a class="header" href="redis/4.redis-execute.html#llen" id="llen"><h3>LLEN</h3></a>
-<a class="header" href="redis/4.redis-execute.html#lindex" id="lindex"><h3>LINDEX</h3></a>
-<a class="header" href="redis/4.redis-execute.html#lrange" id="lrange"><h3>LRANGE</h3></a>
-<a class="header" href="redis/4.redis-execute.html#ltrim" id="ltrim"><h3>LTRIM</h3></a>
-<a class="header" href="redis/4.redis-execute.html#lset" id="lset"><h3>LSET</h3></a>
-<a class="header" href="redis/4.redis-execute.html#string" id="string"><h2>STRING</h2></a>
-<a class="header" href="redis/4.redis-execute.html#set-1" id="set-1"><h2>SET</h2></a>
+<h3><a class="header" href="#ping" id="ping">PING</a></h3>
+<h3><a class="header" href="#echo" id="echo">ECHO</a></h3>
+<h3><a class="header" href="#auto" id="auto">AUTO</a></h3>
+<h3><a class="header" href="#shutdown" id="shutdown">SHUTDOWN</a></h3>
+<h3><a class="header" href="#bgsave" id="bgsave">BGSAVE</a></h3>
+<h2><a class="header" href="#list" id="list">LIST</a></h2>
+<h3><a class="header" href="#lpushlpop-lpushxlpopx" id="lpushlpop-lpushxlpopx">LPUSH/LPOP <em>(LPUSHX/LPOPX)</em></a></h3>
+<h3><a class="header" href="#rpushrpop-rpushxrpopx" id="rpushrpop-rpushxrpopx">RPUSH/RPOP <em>(RPUSHX/RPOPX)</em></a></h3>
+<h3><a class="header" href="#linsert" id="linsert">LINSERT</a></h3>
+<h3><a class="header" href="#llen" id="llen">LLEN</a></h3>
+<h3><a class="header" href="#lindex" id="lindex">LINDEX</a></h3>
+<h3><a class="header" href="#lrange" id="lrange">LRANGE</a></h3>
+<h3><a class="header" href="#ltrim" id="ltrim">LTRIM</a></h3>
+<h3><a class="header" href="#lset" id="lset">LSET</a></h3>
+<h2><a class="header" href="#string" id="string">STRING</a></h2>
+<h2><a class="header" href="#set-1" id="set-1">SET</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="redis/3.redis-process.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../redis/3.redis-process.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="distributed.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../distributed.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -669,13 +699,13 @@ void msetGenericCommand(redisClient *c, int nx) {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="redis/3.redis-process.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../redis/3.redis-process.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="distributed.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../distributed.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -690,17 +720,22 @@ void msetGenericCommand(redisClient *c, int nx) {
         
 
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

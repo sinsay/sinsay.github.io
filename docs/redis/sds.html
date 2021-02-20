@@ -1,36 +1,58 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>sds - SinSay's Note Book</title>
+        <title>sds - SinSay&#x27;s Note Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -50,10 +72,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -69,43 +94,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="https://sinsay.github.io/db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li><a href="data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html" class="active"><strong aria-hidden="true">4.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html" class="active"><strong aria-hidden="true">4.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">SinSay's Note Book</h1> 
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -133,9 +163,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="redis/sds.html#simple-dynamic-string" id="simple-dynamic-string"><h1>Simple Dynamic String</h1></a>
+                        <h1><a class="header" href="#simple-dynamic-string" id="simple-dynamic-string">Simple Dynamic String</a></h1>
 <p>[TOC]</p>
-<a class="header" href="redis/sds.html#a简介" id="a简介"><h2>简介</h2></a>
+<h2><a class="header" href="#简介" id="简介">简介</a></h2>
 <p>鉴于 c 没有提供一般的字符串处理方式，导致对字符串的各种处理都很麻烦，所以 redis 自身实现了一个 <code>简单动态字符串</code> 对象，用于操作所有的字符串，同时为了跟 c 兼容，所以 sds 在实现的时候保证了它能直接适用于 <em>标准库</em> 提供的各种 <code>strxxx</code> 函数。</p>
 <p>因为这个实现本身不是很复杂，所以这里不会每个细节都介绍，而是选择主要的实现进行简单的说明。</p>
 <pre><code class="language-c">typedef char *sds;
@@ -146,8 +176,8 @@ struct sdshdr {
 };
 </code></pre>
 <p>把 <code>char*</code> 定义成 sds 好处是，sds 其实就是 c 语言的字符串，能够兼容 c 标准库的 strXXX 函数。而上面定义的 sdshdr 事实上并不会直接返回给调用者，那它是如何做到兼容标准库的呢，答案就在于 sdshdr 的最后一个字段 buf。</p>
-<a class="header" href="redis/sds.html#a实现" id="a实现"><h2>实现</h2></a>
-<a class="header" href="redis/sds.html#a新建-sds-与如何兼容标准-c-字符串" id="a新建-sds-与如何兼容标准-c-字符串"><h3>新建 sds 与如何兼容标准 C 字符串</h3></a>
+<h2><a class="header" href="#实现" id="实现">实现</a></h2>
+<h3><a class="header" href="#新建-sds-与如何兼容标准-c-字符串" id="新建-sds-与如何兼容标准-c-字符串">新建 sds 与如何兼容标准 C 字符串</a></h3>
 <p>我们先来说明每个字段的作用，然后在通过新建一个 sds 实例来说明实际的实现。</p>
 <pre><code class="language-c">sds sdsnew(const char *init) {
     size_t initlen = (init == NULL) ? 0 : strlen(init);
@@ -175,21 +205,21 @@ sds sdsnewlen(const char *init, size_t initlen) {
 }
 </code></pre>
 <p>接着开始分析以上的实现，首先要创建一个新的 sds 实例，就要调用 <code>sdsnew</code>, 并传递一个初始内容 <code>init</code>, 并且算出初始内容 init 的长度 initlen, 接着调用 <code>sdsnewlen</code>，这里就是真正初始化 sds 实例的地方了。</p>
-<p>首先会判断 init 是否为空，如果不为空，则调用 <code>zmalloc</code>，否则调用 <code>zcalloc</code>，这里是一个比较低层次的优化，如果 init 不为空的话，那稍后会以 init 的内容来填充 <code>sdshdr</code> 的 buf，所以就没必要再使用 <code>zcalloc</code> 来为他填充 0
+<p>首先会判断 init 是否为空，如果不为空，则调用 <code>zmalloc</code>，否则调用 <code>zcalloc</code>，这里是一个比较低层次的优化，如果 init 不为空的话，那稍后会以 init 的内容来填充 <code>sdshdr</code> 的 buf，所以就没必要再使用 <code>zcalloc</code> 来为他填充 0 
 了。
 另一点需要注意的是我们看到，在申请内存时，申请的是实际大小再 +1, 这是因为，sds 的字符串都会以 <code>'\0'</code> 空字符为结束符，所以需要申请多一个字节大小的空间。
-接下来的就都是常规的初始化，包括初始化长度、剩余空间(为 0, 因为申请的空间刚好可用于存放 init)、跟 buf。最后的 <strong><em>重点</em></strong> 就是，<em>返回的是 sh-&gt;buf 而不是 sh。所以实际上返回的是一个指向 sh-&gt;buf 的指针，这也是 sds 能兼容 c 标准库的重点</em>，我们这里提前说明，由于返回的是 sh-&gt;buf，所以之后所有的 sds 接口，在拿到参数 <code>sds xxx</code> 后，都会使用</p>
+接下来的就都是常规的初始化，包括初始化长度、剩余空间(为 0, 因为申请的空间刚好可用于存放 init)、跟 buf。最后的 <em><strong>重点</strong></em> 就是，<em>返回的是 sh-&gt;buf 而不是 sh。所以实际上返回的是一个指向 sh-&gt;buf 的指针，这也是 sds 能兼容 c 标准库的重点</em>，我们这里提前说明，由于返回的是 sh-&gt;buf，所以之后所有的 sds 接口，在拿到参数 <code>sds xxx</code> 后，都会使用</p>
 <pre><code class="language-c">struct sdshdr *sh = (void *)(s - (sizeof(struct sdshdr)));    
 </code></pre>
 <p>来得到指向 <code>sdshdr</code> 的正确指针。</p>
-<a class="header" href="redis/sds.html#a获取-sds-长度-sdslen" id="a获取-sds-长度-sdslen"><h3>获取 sds 长度 (sdslen)</h3></a>
+<h3><a class="header" href="#获取-sds-长度-sdslen" id="获取-sds-长度-sdslen">获取 sds 长度 (sdslen)</a></h3>
 <p>因为 sdshdr 本身已经保存了当前字符串的长度，所以可以在 O(1) 的时间内获取到 sds 的长度，而不是类似 strlen，需要使用 O(n) 的时间来遍历字符串获取长度。唯一需要注意的是 长度是不包括 <code>'\0'</code> 字符的。</p>
 <pre><code class="language-c">size_t sdslen(sds s) {
     struct sdshdr *sh = (void *)(s - (sizeof(struct sdshdr)));
     return sh-&gt;len;
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a连接字符串-sdscatsdscatsds" id="a连接字符串-sdscatsdscatsds"><h3>连接字符串 (sdscat、sdscatsds)</h3></a>
+<h3><a class="header" href="#连接字符串-sdscatsdscatsds" id="连接字符串-sdscatsdscatsds">连接字符串 (sdscat、sdscatsds)</a></h3>
 <p>sds 提供的连接字符串函数，同时支持 C 字符串跟 sds 字符串，并且能在 O(n) 的时间内完成字符串的连接，下面我们来看看他的实现，连接 C 字符串跟连接 sds 虽然接口不同，但最终调用的实现都是一样的。</p>
 <pre><code class="language-c">sds sdscat(sds s, const char *t) {
     return sdscatlen(s, t, strlen(t));
@@ -215,7 +245,7 @@ sds sdscatsds(sds s, const sds t) {
 }
 </code></pre>
 <p>整个实现除了 <code>sdsMakeRoomFor</code> 其他的都是常规操作，获取原始字符串的长度，用 <code>sdsMakeRoomFor</code> 申请内存，然后复制新的字符串到原始字符串后面，更新长度信息，更新剩余内存信息，在拼接后的字符串末尾添加 <code>'\0'</code>。</p>
-<a class="header" href="redis/sds.html#a扩展-sds-存储空间" id="a扩展-sds-存储空间"><h4>扩展 sds 存储空间</h4></a>
+<h4><a class="header" href="#扩展-sds-存储空间" id="扩展-sds-存储空间">扩展 sds 存储空间</a></h4>
 <p>所以我们来看看 <code>sdsMakeRoomFor</code> 到底做了啥</p>
 <pre><code class="language-c">// 扩展 s 的内存空间，以存放额外的 addlen 个长度的字符
 sds sdsMakeRoomFor(sds s, size_t addlen) {
@@ -251,7 +281,7 @@ sds sdsMakeRoomFor(sds s, size_t addlen) {
 <li>另外一种情况是，如果所需内存已经超过阀值了，则返回申请的大小再加上阀值大小的内存块，这里是为了避免申请过于庞大的内存，造成内存使用压力激增。</li>
 <li>这个大小一般定义为 2MB.</li>
 </ul>
-<a class="header" href="redis/sds.html#a连接字符串-sdscat-sdscatlen" id="a连接字符串-sdscat-sdscatlen"><h3>连接字符串 (sdscat, sdscatlen)</h3></a>
+<h3><a class="header" href="#连接字符串-sdscat-sdscatlen" id="连接字符串-sdscat-sdscatlen">连接字符串 (sdscat, sdscatlen)</a></h3>
 <p>对于大部分的函数，都支持对 C 字符串跟 sds 的互操作，各个函数大致都命名为 sdsxxx 跟 sdsxxxsds，对于 cat 也是，所以之后的各个函数都不会每个都解释。
 sdscat 是将 sds 跟其他的字符串连接起来，如果是传递的 C 字符串，那字符串必须以空字符结尾，另一点要注意的是，连接之后原本的 sds 指针会失效，需要使用的是由该函数返回的新的 sds 指针，以下是代码</p>
 <pre><code class="language-c">sds sdscat(sds s, const char *t) {
@@ -272,7 +302,7 @@ sds sdscatlen(sds s, const char *t, size_t len) {
     return s;
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a复制新的字符串覆盖现有-sds-sdscpy-sdscpylen" id="a复制新的字符串覆盖现有-sds-sdscpy-sdscpylen"><h3>复制新的字符串覆盖现有 sds (sdscpy, sdscpylen)</h3></a>
+<h3><a class="header" href="#复制新的字符串覆盖现有-sds-sdscpy-sdscpylen" id="复制新的字符串覆盖现有-sds-sdscpy-sdscpylen">复制新的字符串覆盖现有 sds (sdscpy, sdscpylen)</a></h3>
 <p>将新的 C 字符串或者 sds 复制到指定的 sds 中，并会覆盖源 sds。</p>
 <pre><code class="language-c">sds sdscpy(sds s, const char *t) {
     return sdscpylen(s, t, strlen(t));
@@ -298,7 +328,7 @@ sds sdscpylen(sds s, const char *t, size_t len) {
     return s;
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a格式化输出字符串-拼接到-sds--sdscattprint-" id="a格式化输出字符串-拼接到-sds--sdscattprint-"><h3>格式化输出字符串 拼接到 sds ( sdscattprint )</h3></a>
+<h3><a class="header" href="#格式化输出字符串-拼接到-sds--sdscattprint-" id="格式化输出字符串-拼接到-sds--sdscattprint-">格式化输出字符串 拼接到 sds ( sdscattprint )</a></h3>
 <p>这个便捷的接口支持以 C 字符串相同的格式化方式来拼接新的字符串到现有的 sds, 当然，也可以直接提供一个空的 sds，用格式化字符串的方式来新建一个 sds。
 使用这个接口的好处在于， sds 会帮使用者管理内存，而无需自己再尝试分配内存来格式化字符串，降低了使用的复杂度。</p>
 <pre><code class="language-c">sds sdscatprintf(sds s, const char *fmt, ...) {
@@ -359,7 +389,7 @@ sds sdscpylen(sds s, const char *t, size_t len) {
 </li>
 <li>最终调用 sdscat 把格式化好的字符串连接到 s 中并返回。</li>
 </ul>
-<a class="header" href="redis/sds.html#a效率更高的格式化输出--sdscatfmt-" id="a效率更高的格式化输出--sdscatfmt-"><h3>效率更高的格式化输出 ( sdscatfmt )</h3></a>
+<h3><a class="header" href="#效率更高的格式化输出--sdscatfmt-" id="效率更高的格式化输出--sdscatfmt-">效率更高的格式化输出 ( sdscatfmt )</a></h3>
 <p>前面的 sdscatprint 主要是使用了标准库内置的格式化输出再加上了自身的一些内存管理，而 sdscatfmt 则是连格式化输出都是自己来实现，主要的区别就是处理各个内置的符号，如 <code>%s、%d</code> 等，同时也添加了对于 sds 字符串的支持 (<code>%S</code>)，并且如果字符串的处理是使用 %S 时，可以得到相较于标准库来说非常高的效率。下面我们来看看他的具体实现。</p>
 <pre><code class="language-c">sds sdscatfmt(sds s, const char *fmt, ...) {
     struct sdshdr *sh = (void *)(s - (sizeof(struct sdshdr)));
@@ -482,7 +512,7 @@ sds sdscpylen(sds s, const char *t, size_t len) {
     return l;
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a删除-sds-前后端的指定字符--sdstrim-" id="a删除-sds-前后端的指定字符--sdstrim-"><h3>删除 sds 前后端的指定字符 ( sdstrim )</h3></a>
+<h3><a class="header" href="#删除-sds-前后端的指定字符--sdstrim-" id="删除-sds-前后端的指定字符--sdstrim-">删除 sds 前后端的指定字符 ( sdstrim )</a></h3>
 <p>类似于其他语言里字符串的 string.trim 等处理，删除前后端的空格，而这个函数则是删除前后指定的字符串。
 比如可以指定</p>
 <pre><code class="language-c">sds s = sdsnew(&quot;AA..a.aaHelloWorld   :::&quot;);
@@ -507,13 +537,13 @@ printf(&quot;%s\n&quot;, s); // 输出 HelloWorld
     return s;    
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a复制-sds-字符串--sdsdup-" id="a复制-sds-字符串--sdsdup-"><h3>复制 sds 字符串 ( sdsdup )</h3></a>
+<h3><a class="header" href="#复制-sds-字符串--sdsdup-" id="复制-sds-字符串--sdsdup-">复制 sds 字符串 ( sdsdup )</a></h3>
 <p>有时候复制一个字符串也是很有用的，比如在测试的会使用一个测试字符串，不断的使用它的 copy 去测试。具体的实现可以为简单的调用 <code>sdsnewlen</code>,</p>
 <pre><code class="language-c">sds sdsdup(sds s) {
     return sdsnewlen(s, sdslen(s));
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a截断-sds-字符串--sdsrange-" id="a截断-sds-字符串--sdsrange-"><h3>截断 sds 字符串 ( sdsrange )</h3></a>
+<h3><a class="header" href="#截断-sds-字符串--sdsrange-" id="截断-sds-字符串--sdsrange-">截断 sds 字符串 ( sdsrange )</a></h3>
 <p>跟其他语言内置的 String.SubString 类似，sds 也提供了截断字符串的函数，而对比于其他的实现，sds 还提供了更便捷的使用方式：使用 -1 来表示字符串的最后一个字符, 然后用 -2 表示导数第二个字符，以此类推。如</p>
 <pre><code class="language-c">sds s = sdsnew(&quot;Hello World&quot;);
 sdsrange(s, 1, -2);
@@ -556,7 +586,7 @@ printf(&quot;%s\n&quot;, s); // 输出 ello Worl
     sh-&gt;len = newlen;
 }
 </code></pre>
-<a class="header" href="redis/sds.html#a其他函数" id="a其他函数"><h3>其他函数</h3></a>
+<h3><a class="header" href="#其他函数" id="其他函数">其他函数</a></h3>
 <p>以下是其他的便捷函数列表</p>
 <pre><code class="language-c">// 从数字初始化 sds
 sdsfromlonglong(long long value);
@@ -578,13 +608,13 @@ sds sdsgrowzero(sds s, size_t len);
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="data_struct.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../data_struct.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="redis/dict.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../redis/dict.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -596,13 +626,13 @@ sds sdsgrowzero(sds s, size_t len);
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="data_struct.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../data_struct.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="redis/dict.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../redis/dict.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -617,17 +647,22 @@ sds sdsgrowzero(sds s, size_t len);
         
 
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

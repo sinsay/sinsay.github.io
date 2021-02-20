@@ -3,11 +3,13 @@
 
 import os
 import subprocess as sp
+import shutil
 
 
 def copy_dir(source, target):
     #  print(f"copying {source} to {target}")
-    sp.run(["cp", "-r", source, target])
+    shutil.copytree(source, target, dirs_exist_ok=True)
+    #  sp.run(["cp", "-rf", source, target])
 
 
 def walk_dir(r):
@@ -32,6 +34,13 @@ def run():
 
     walk_dir("./src/")
     copy_dir("./src/redis/image", "./docs/image")
+    shutil.rmtree("./docs/db", ignore_errors=True)
+    os.mkdir("./docs/db")
+    copy_dir("../../database/book/database_internals/docs", "./docs/db")
+    copy_dir("./style", "./docs/css")
+    copy_dir("./style", "./docs/db/css")
+    shutil.rmtree("./docs/https:", ignore_errors=True)
+    shutil.rmtree("./src/https:", ignore_errors=True)
 
 
 if __name__ == '__main__':

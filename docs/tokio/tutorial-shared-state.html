@@ -1,36 +1,58 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Shared State - SinSay's Note Book</title>
+        <title>Shared State - SinSay&#x27;s Note Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -50,10 +72,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -69,43 +94,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html" class="active"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="https://sinsay.github.io/db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li><a href="data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">4.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html" class="active"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">4.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">SinSay's Note Book</h1> 
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -133,34 +163,35 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tutorial-shared state.html#shared-state" id="shared-state"><h2>Shared State</h2></a>
+                        <h2><a class="header" href="#shared-state" id="shared-state">Shared State</a></h2>
 <p>现在我们有一个可以运行的键值对服务端了，但是还有一个明显的瑕疵：状态不能跨多个连接共享，在这篇文章中我们来解决这个问题。</p>
-<a class="header" href="tokio/tutorial-shared state.html#strategies" id="strategies"><h3>Strategies</h3></a>
+<h3><a class="header" href="#strategies" id="strategies">Strategies</a></h3>
 <p>在 Tokio 中有几种不同的方式来实现共享状态。</p>
 <ol>
 <li>通过 <code>Mutex</code> 保护共享的状态</li>
 <li>创建一个新的任务管理状态并通过消息传递来处理状态</li>
 </ol>
 <p>通常你会希望使用第一种方式来处理简单的数据，第二种方式一般用来处理那些需要异步处理的 <strong>I/O</strong> 设施。 在当前章节，共享的状态是一个提供了 <code>insert</code> 跟 <code>get</code> 操作的 <code>HashMap</code>，这两个操作都不是异步的，所以我们选择使用 <code>Mutex</code>。</p>
-<a class="header" href="tokio/tutorial-shared state.html#add-bytes-dependency" id="add-bytes-dependency"><h3>Add <code>bytes</code> dependency</h3></a>
+<h3><a class="header" href="#add-bytes-dependency" id="add-bytes-dependency">Add <code>bytes</code> dependency</a></h3>
 <p>Mini-Redis 包使用了包 <code>bytes</code> 中的 <code>Bytes</code> 类型替代了 <code>Vec&lt;u8&gt;</code> 。<code>Bytes</code> 的目标是为网络编程提供健壮的字节数组结构，他在 <code>Vec&lt;u8&gt;</code> 之上提供的最大的特性就是浅拷贝。换一种说法就是，调用 <code>Bytes</code> 的 <code>clone</code> 函数并不会复制底层的任何数据，取而代之的是，<code>Bytes</code> 使用了引用计数的方式来处理底层的数据，它类似于 <code>Arc&lt;Vec&lt;u8&gt;&gt;</code> 但提供了一些其他的能力。</p>
 <p>为了添加对他的依赖，我们需要早 <code>Cargo.toml</code> 中的 <code>[denpendencies]</code> 中添加下面的信息</p>
 <pre><code class="language-toml">bytes = &quot;1&quot;
 </code></pre>
-<a class="header" href="tokio/tutorial-shared state.html#initialize-the-hashmap" id="initialize-the-hashmap"><h3>Initialize the <code>HashMap</code></h3></a>
+<h3><a class="header" href="#initialize-the-hashmap" id="initialize-the-hashmap">Initialize the <code>HashMap</code></a></h3>
 <p><code>HashMap</code> 将被用来在不同的线程间进行共享，为了实现这个目的我们使用 <code>Arc&lt;Mutex&lt;_&gt;&gt;</code> 进行包装。</p>
 <p>第一步，为了后续方便使用，先使用 <code>use</code> 引入下面的类型；</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use bytes::Bytes;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use bytes::Bytes;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
 type db = Arc&lt;Mutex&lt;HashMap&lt;String, Bytes&gt;&gt;&gt;;
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>接着更新 <code>main</code> 函数来初始化 <code>HashMap</code> ，然后将它作为一个 <code>Arc</code> 的句柄*(Handle)*传递给 <code>process</code> 函数。使用 <code>Arc</code> 将允许我们将 <code>HashMap</code> 当成一个引用传递多个任务，而这些任务可能会运行在不同的线程上。在 Tokio 中 <strong>Handle</strong> 一般表示为用来访问一个共享状态的值的引用。</p>
-<pre><pre class="playpen"><code class="language-rust">use tokio::net::TcpListener;
+<pre><pre class="playground"><code class="language-rust">use tokio::net::TcpListener;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
@@ -184,16 +215,16 @@ async fn main() {
     }
 }
 </code></pre></pre>
-<a class="header" href="tokio/tutorial-shared state.html#on-using-stdsyncmutex" id="on-using-stdsyncmutex"><h3>On using <code>std::sync::Mutex</code></h3></a>
+<h3><a class="header" href="#on-using-stdsyncmutex" id="on-using-stdsyncmutex">On using <code>std::sync::Mutex</code></a></h3>
 <p>注意，使用 <code>std::sync::Mutex</code> 而不是 <code>tokio::sync::Mutex</code> 来保护 <code>HashMap</code>。一个常见的误用就是在异步的代码中使用 <code>tokio::sync::Mutex</code>，异步的 <code>Mutex</code> 是用来保护多个 <code>.await</code> 之间的调用的。</p>
 <p>同步的 <code>Mutex</code> 在尝试获取锁时会堵塞当前线程，意味着他同时也会堵塞其他的任务。然而，切换为 <code>tokio::sync::Mutex</code> 通常不会带来什么帮助，因为异步的 <code>Mutext</code> 在内部也是使用同步的 <code>Mutext</code>。</p>
 <p>作为一个指导规则，在异步的代码中使用同步的 <code>Mutex</code> 不会有什么问题，只要操作评率保持较低，并且持有锁的操作不跨越多个 <code>.await</code>。 除此之外，使用 <code>parking_log::Mutex</code> 是个更快的替换 <code>std::sync::Mutex</code> 的方案。</p>
-<a class="header" href="tokio/tutorial-shared state.html#update-process" id="update-process"><h3>Update <code>process()</code></h3></a>
+<h3><a class="header" href="#update-process" id="update-process">Update <code>process()</code></a></h3>
 <p><code>process</code> 函数不再初始化 <code>HashMap</code>，而是通过参数获取一个 <code>HashMap</code> 的句柄，并且在使用之前要对其进行加锁。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use tokio::net::TcpStream;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use tokio::net::TcpStream;
 use mini_redis::{Connection, Frame};
 
 async fn process(socket: TcpStream, db: Db) {
@@ -228,8 +259,9 @@ async fn process(socket: TcpStream, db: Db) {
         connection.write_frame(&amp;response).await.unwrap();
     }
 }
-#}</code></pre></pre>
-<a class="header" href="tokio/tutorial-shared state.html#tasks-threads-and-contention" id="tasks-threads-and-contention"><h3>Tasks, threads, and contention</h3></a>
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#tasks-threads-and-contention" id="tasks-threads-and-contention">Tasks, threads, and contention</a></h3>
 <p>在竞争比较小的情况中使用堵塞的 <code>Mutex</code> 来保护一个短小的临界区是一个可以接收的策略，当获取锁产生竞争时，执行当前任务的线程会因为等待这个 <code>Mutex</code> 而被堵塞住，而且他并不是只堵塞当前任务，而是堵塞所有被调度到这个线程的任务。</p>
 <p>在默认的情况下， Tokio 的 <code>Runtime</code> 使用基于多线程的调度器，任务可能会被调度到 <code>Runtime</code> 所管理的任意一个线程中。如果大量调度中的任务都需要访问同一个 <code>Mutex</code>，那他将会成为一个瓶颈。换种说法，如果使用了 <code>Runtime</code> 的 <code>current_thread</code>模式 ，那这 <code>Mutex</code> 永远都不可能被获取到。</p>
 <blockquote>
@@ -242,25 +274,27 @@ async fn process(socket: TcpStream, db: Db) {
 <li>重构代码避免使用 <code>Mutex</code></li>
 </ul>
 <p>在我们的例子中，因为每个 <code>Key</code> 都是独立的，使用共享的 <code>Mutex</code> 会是一个较好的方式，为了实现这个目标，我们将单个 <code>Mutex&lt;HashMap&lt;_, _&gt;&gt;</code> 替换为 <code>N</code> 个不同的实例。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-type ShardedDb = Arc&lt;Vec&lt;Mutex&lt;HashMap&lt;String, Vec&lt;u8&gt;&gt;&gt;&gt;&gt;;
-#}</code></pre></pre>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>type ShardedDb = Arc&lt;Vec&lt;Mutex&lt;HashMap&lt;String, Vec&lt;u8&gt;&gt;&gt;&gt;&gt;;
+<span class="boring">}
+</span></code></pre></pre>
 <p>所以获取某个 <code>Key</code> 对应的存储则变为两步操作，第一步使用 <code>Key</code> 来确认使用哪个共享的元素，第二步才是获取该元素中所使用的 <code>HashMap</code>。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-let shard = db[hash(key) % db.len()].lock().unwrap();
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let shard = db[hash(key) % db.len()].lock().unwrap();
 shard.insert(key, value);
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>有一个 <a href="https://docs.rs/dashmap">dashmap</a> 包提供已经实现好的分区 <code>HashMap</code>。</p>
-<a class="header" href="tokio/tutorial-shared state.html#holding-a-mutexguard-across-an-await" id="holding-a-mutexguard-across-an-await"><h3>Holding a <code>MutexGuard</code> across an <code>.await</code></h3></a>
+<h3><a class="header" href="#holding-a-mutexguard-across-an-await" id="holding-a-mutexguard-across-an-await">Holding a <code>MutexGuard</code> across an <code>.await</code></a></h3>
 <p>你可能会写出类似下面的代码</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use std::sync::Mutex;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::sync::Mutex;
 
 async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
   let mut lock = mutex.lock().unwrap();
@@ -268,7 +302,8 @@ async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
   
   do_somthing_async().await;
 } // lock goes out of scope here
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>当你尝试用这个代码来创建任务时，会得到如下的错误信息</p>
 <pre><code class="language-shell">error: future cannot be sent between threads safely
    --&gt; src/lib.rs:13:5
@@ -294,10 +329,10 @@ note: future is not `Send` as this value is used across an await
     | - `mut lock` is later dropped here
 </code></pre>
 <p>这是因为 <code>std::sync::MutexGuard</code> 这个类型并非 <code>Send</code> 的。这意味着你不能将 <code>Mutex</code> 锁传递给其他的线程，这个错误会出现则是因为 Tokio 会在每次 <code>.await</code> 时在线程间移动这个任务。为了避免这个问题，应该重构代码，让 <code>Mutex</code> 的锁在调用 <code>.await</code> 前销毁。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-// This works!
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// This works!
 async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
   {
     let mut lock = mutex.lock().unwrap();
@@ -305,12 +340,13 @@ async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
   }
   do_something_async().await;
 }
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>要注意的是，下面的方式并不能正常运行</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use std::sync::Mutex;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::sync::Mutex;
 
 // This fails too.
 async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
@@ -320,17 +356,18 @@ async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
 
     do_something_async().await;
 }
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>这是因为编译器当前只会使用当前作用域的信息来判断一个 <code>Future</code> 是否满足 <code>Send</code>。在将来的某个时候编译器可能会升级来实现分析 <code>drop</code> 操作，但现在你必须自己明确的指定作用域。</p>
 <p>关于这个错误的讨论也可以在 <a href="https://tokio.rs/tokio/tutorial/spawning#send-bound">Send bound section from the spawning chapter</a> 中找到。</p>
 <p>你不该使用某种不要求 <code>Send</code> 的方式来创建任务，去尝试避免这个问题。因为 Tokio 在执行 <code>.await</code> 时将持有着锁的任务暂定，然后其他的任务会被调度到当前的线程，如果这个任务也尝试去获取这个锁，就会导致这个任务因为获取不到锁被堵塞，同时前一个持有锁的任务可能会因为没有线程可用而无法重新启用，所以无法释放他持有的锁，从而造成死锁。</p>
 <p>我们会在后续继续讨论如果解决这个问题。</p>
-<a class="header" href="tokio/tutorial-shared state.html#restructure-you-code-to-not-hold-the-lock-across-an-await" id="restructure-you-code-to-not-hold-the-lock-across-an-await"><h4>Restructure you code to not hold the lock across an <code>.await</code></h4></a>
+<h4><a class="header" href="#restructure-you-code-to-not-hold-the-lock-across-an-await" id="restructure-you-code-to-not-hold-the-lock-across-an-await">Restructure you code to not hold the lock across an <code>.await</code></a></h4>
 <p>我们已经在上面看过一个解决问题的代码示例了，在这里我们提供一种更健壮的方式来实现。比如我们可以将 <code>Mutex</code> 包装到一个结构体里面，并且只会在同步的函数中对其进行加锁。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use std::sync::Mutex;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::sync::Mutex;
 
 struct CanIncrement {
   mutex: Mutex&lt;i32&gt;,
@@ -348,16 +385,17 @@ async fn increment_and_do_stuff(can_incr: &amp;CanIncrement) {
   ca_incr.increment();
   do_something_async().await;
 }
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p>这种方式保证了不会触发 <code>Send</code> 错误，因为 <code>MutexGuard</code>  并没有出现在异步函数中。</p>
-<a class="header" href="tokio/tutorial-shared state.html#spawn-a-task-to-manage-the-state-and-use-message-passing-to-operate-on-it" id="spawn-a-task-to-manage-the-state-and-use-message-passing-to-operate-on-it"><h4>Spawn a task to manage the state and use message passing to operate on it</h4></a>
+<h4><a class="header" href="#spawn-a-task-to-manage-the-state-and-use-message-passing-to-operate-on-it" id="spawn-a-task-to-manage-the-state-and-use-message-passing-to-operate-on-it">Spawn a task to manage the state and use message passing to operate on it</a></h4>
 <p>我们之前提到的第二种方式通常使用在共享的 <strong>IO</strong> 资源的情况，在下一章会详细介绍。</p>
-<a class="header" href="tokio/tutorial-shared state.html#use-tokios-asynchronous-mutex" id="use-tokios-asynchronous-mutex"><h4>Use Tokio's asynchronous mutex</h4></a>
+<h4><a class="header" href="#use-tokios-asynchronous-mutex" id="use-tokios-asynchronous-mutex">Use Tokio's asynchronous mutex</a></h4>
 <p>也可以是用 Tokio 提供的 <code>tokio::sync::Mutex</code> 类型，他主要的特点是允许只有锁跨越多个 <code>.await</code> 调用。但同时，异步的 <code>Mutex</code> 也需要花费比普通 <code>Mutex</code> 更多的代价，所以更多是使用另外的两个方式。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use tokio::sync::Mutex; // Note! This uses the Tokio mutex
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use tokio::sync::Mutex; // Note! This uses the Tokio mutex
 
 // This compiles!
 // (but restructuring the code would be better in this case)
@@ -367,20 +405,21 @@ async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
   
   do_something_async().await;
 } // lock goes out of scope here
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio/tutorial-spawning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../tokio/tutorial-spawning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="tokio/tutorial-channel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../tokio/tutorial-channel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -392,13 +431,13 @@ async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio/tutorial-spawning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../tokio/tutorial-spawning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="tokio/tutorial-channel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../tokio/tutorial-channel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -413,17 +452,22 @@ async fn increment_and_do_stuff(mutex: &amp;Mutex&lt;i32&gt;) {
         
 
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

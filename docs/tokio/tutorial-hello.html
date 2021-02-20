@@ -1,36 +1,58 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Hello - SinSay's Note Book</title>
+        <title>Hello - SinSay&#x27;s Note Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -50,10 +72,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -69,43 +94,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li><a href="tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li><a href="tokio/tutorial-hello.html" class="active"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li><a href="tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li><a href="tokio/tutorial-shared state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li><a href="tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li><a href="tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li><a href="tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li><a href="tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li><a href="tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li><a href="tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li><a href="https://sinsay.github.io/db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li><a href="data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">4.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li><a href="redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li><a href="redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li><a href="redis/4.redis-execute.html"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html" class="active"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">4.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">4.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">4.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">4.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">4.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">4.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">5.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">5.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">5.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">5.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">5.4.</strong> 执行命令</a></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">6.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">6.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">6.2.</strong> Raft (译)</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">SinSay's Note Book</h1> 
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -133,22 +163,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="tokio/tutorial-hello.html#hello-tokio" id="hello-tokio"><h1>Hello Tokio</h1></a>
+                        <h1><a class="header" href="#hello-tokio" id="hello-tokio">Hello Tokio</a></h1>
 <p>我们从写一个最基础的的 <code>Tokio</code> 程序开始，这个程序会连接到 <code>MiniRedis</code> 的服务端，然后设置一个 <code>key</code> 为 <code>hello</code>，<code>value</code> 为 <code>world</code> 的键值对，然后再把这个键值对读取回来。这些操作我们会使用名为 <code>Mini-Redis</code> 的客户端库来完成。</p>
-<a class="header" href="tokio/tutorial-hello.html#the-code" id="the-code"><h2>The Code</h2></a>
-<a class="header" href="tokio/tutorial-hello.html#a创建一个新程序-generate-a-new-crate" id="a创建一个新程序-generate-a-new-crate"><h3>创建一个新程序 Generate a new crate</h3></a>
+<h2><a class="header" href="#the-code" id="the-code">The Code</a></h2>
+<h3><a class="header" href="#创建一个新程序-generate-a-new-crate" id="创建一个新程序-generate-a-new-crate">创建一个新程序 Generate a new crate</a></h3>
 <p>我们从创建一个新的 <code>Rust</code> 程序开始</p>
 <pre><code class="language-shell">cargo new my-redis
 cd my-redis
 </code></pre>
-<a class="header" href="tokio/tutorial-hello.html#a添加依赖-add-dependencies" id="a添加依赖-add-dependencies"><h3>添加依赖 Add dependencies</h3></a>
+<h3><a class="header" href="#添加依赖-add-dependencies" id="添加依赖-add-dependencies">添加依赖 Add dependencies</a></h3>
 <p>接下来，打开 <code>Cargo.toml</code> ，并在 <code>[dependencies]</code> 后添加下面的代码</p>
 <pre><code class="language-toml">tokio = { version = &quot;1&quot;, features = [&quot;full&quot;] }
 mini-redis = &quot;0.4&quot;
 </code></pre>
-<a class="header" href="tokio/tutorial-hello.html#a开始写代码-write-the-code" id="a开始写代码-write-the-code"><h3>开始写代码 Write the code</h3></a>
+<h3><a class="header" href="#开始写代码-write-the-code" id="开始写代码-write-the-code">开始写代码 Write the code</a></h3>
 <p>然后，打开 <code>main.rs</code> 并用下面的代码替换文件的内容</p>
-<pre><pre class="playpen"><code class="language-rust">use mini_redis::{client, Result};
+<pre><pre class="playground"><code class="language-rust">use mini_redis::{client, Result};
 
 #[tokil::main]
 pub async fn main() -&gt; Result&lt;()&gt; {
@@ -177,40 +207,42 @@ got value from the server; result=Some(b&quot;world)
 <blockquote>
 <p>你可以从 <a href="https://github.com/tokio-rs/website/blob/master/tutorial-code/hello-tokio/src/main.rs">这里</a> 找到完整的源码.</p>
 </blockquote>
-<a class="header" href="tokio/tutorial-hello.html#break-it-down" id="break-it-down"><h2>Break it down</h2></a>
+<h2><a class="header" href="#break-it-down" id="break-it-down">Break it down</a></h2>
 <p>接下来花点时间梳理下我们刚才做的事情。代码并不多，但其中却触发了许多的事情。</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-let mut client = client::connect(&quot;127.0.0.1:6379&quot;).await?;
-#}</code></pre></pre>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut client = client::connect(&quot;127.0.0.1:6379&quot;).await?;
+<span class="boring">}
+</span></code></pre></pre>
 <p>函数 <code>client::connect</code> 是 <code>mini-redis</code> 这个包所提供的，他会使用指定的地址来异步的创建一个 <strong>TCP</strong> 连接，当这个连接建立成功时， <code>client</code> 则保存了该函数返回的结果。尽管这个操作是异步发生的，但代码 <strong>看起来</strong> 却是同步的。其中唯一指示了该操作为异步的只有 <code>.await</code> 操作符。</p>
-<a class="header" href="tokio/tutorial-hello.html#a什么是异步编程-what-is-asynchronous-programming" id="a什么是异步编程-what-is-asynchronous-programming"><h3>什么是异步编程 What is asynchronous programming?</h3></a>
+<h3><a class="header" href="#什么是异步编程-what-is-asynchronous-programming" id="什么是异步编程-what-is-asynchronous-programming">什么是异步编程 What is asynchronous programming?</a></h3>
 <p>大部分的电脑程序都按照他们代码所写的顺序执行，最前面的先执行，然后是下一行，然后一直执行下去。在同步编程中，当程序遇到了一个无法立即完成的操作时，他会堵塞在该位置一直到操作完成，举个例子，在创建 <strong>TCP</strong> 连接时连接双方需要在网络中交换一些信息，交换信息的操作需要花费相当的时间，而运行这段代码的线程在这个时间内将被阻塞。</p>
 <p>在异步编程中，如果一个操作不能马上完成的话，他将被暂停然后切换到后台等待，执行的线程不会被阻塞，因此他可以继续执行其他的事情。当这个操作完成时，他又会被切换至前台并从之前中断的地方继续执行。我们刚刚实现的示例只启动了一个任务，所以在这个任务的操作被暂停时并没有发生任何其他的事情，但通常异步的编程会同时运行许多的任务。</p>
 <p>尽管异步编程能够给我们带来更快的程序，与此同时他也为程序带来了更高的复杂度。开发人员为了能够在异步操作完成时将任务重新恢复执行，需要去跟进任务的运行状态。从历史经验上来看，这是一个乏味并且非常容易出错的工作。</p>
-<a class="header" href="tokio/tutorial-hello.html#a编译时的绿色线程-compile-time-green-threading" id="a编译时的绿色线程-compile-time-green-threading"><h3>编译时的绿色线程 Compile-time green-threading</h3></a>
+<h3><a class="header" href="#编译时的绿色线程-compile-time-green-threading" id="编译时的绿色线程-compile-time-green-threading">编译时的绿色线程 Compile-time green-threading</a></h3>
 <p><strong>Rust</strong> 使用了 <code>async/await</code> 特性来实现了异步编程的功能。会执行异步操作的函数通过 <code>async</code> 关键字进行标识，在我们的示例中， <code>connect</code> 函数进行了如下的定义：</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use mini_redis::Result;
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use mini_redis::Result;
 use mini_redis::client:Client;
 use tokio::net::ToSocketAddrs;
 
 pub async fn connect&lt;T: ToSocketAddrs&gt;(addr: T) -&gt; Result&lt;Client&gt; {
   // ...
 }
-#}</code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <p><code>async fn</code> 的定义跟同步函数很类似，但他以异步的方式执行。<code>Rust</code> 在<strong>编译时</strong>将代码转换为异步的操作，所有使用 <code>.await</code> 调用并定义为 <code>async fn</code> 的操作将让出线程的执行权。这样该线程就能在异步操作被放到后台的期间做其他的事情。</p>
 <blockquote>
 <p>尽管也有一些其他的编程语言实现 <code>async/await</code> 的特性，但 <code>Rust</code> 使用了一个独立的方式，最主要的一点是 <code>Rust</code> 的异步操作是 <code>lazy</code> 的。这导致了运行时的语义跟其他编程语言的产生了区别。</p>
 </blockquote>
 <p>如果到现在还没弄得很明白，不用担心，我们还会继续在接下来的篇幅中探讨 <code>async/await</code>。</p>
-<a class="header" href="tokio/tutorial-hello.html#a使用-asyncawait-using-asyncawait" id="a使用-asyncawait-using-asyncawait"><h3>使用 <code>async/await</code> Using <code>async/await</code></h3></a>
+<h3><a class="header" href="#使用-asyncawait-using-asyncawait" id="使用-asyncawait-using-asyncawait">使用 <code>async/await</code> Using <code>async/await</code></a></h3>
 <p>异步函数能够与普通的 <code>Rust</code> 函数一样使用。但是，调用这些函数不意味着执行这些函数，调用 <code>async fn</code> 类型的函数返回的是一个代表该操作的标识。在概念上他跟一个无参的闭包函数类型。为了能够真正的执行它，你需要在函数返回的标识上使用 <code>.await</code> 操作。</p>
 <p>我们来看看下面的例子</p>
-<pre><pre class="playpen"><code class="language-rust">async fn say_world() {
+<pre><pre class="playground"><code class="language-rust">async fn say_world() {
   println!(&quot;world&quot;);
 }
 
@@ -234,7 +266,7 @@ world
 <blockquote>
 <p>所以这里到底是怎么执行的，还得看 <code>Rust</code> 最终转换出的代码及 <code>Future</code> 的定义，后续我会单独细讲</p>
 </blockquote>
-<a class="header" href="tokio/tutorial-hello.html#a异步的-main-函数-async-main-function" id="a异步的-main-函数-async-main-function"><h3>异步的 <code>main</code> 函数 Async <code>main</code> function</h3></a>
+<h3><a class="header" href="#异步的-main-函数-async-main-function" id="异步的-main-函数-async-main-function">异步的 <code>main</code> 函数 Async <code>main</code> function</a></h3>
 <p>用来启动程序的 <code>main</code> 函数其他普通的 <code>Rust</code> 程序的有所不同：</p>
 <ol>
 <li>被定义为 <code>async fn</code></li>
@@ -243,13 +275,13 @@ world
 <p><code>async fn</code> 函数在我们需要执行异步操作的上下文中被使用。然而，异步函数需要通过 <code>runtime</code> 来运行，<code>runtime</code> 中包含异步任务的调度器，他提供了事件驱动的 <strong>I/O</strong>、定时器等。<code>runtime</code> 并不会自动的运行，所以需要在主函数中运行它。</p>
 <p>我们在 <code>async fn main()</code> 函数中添加的 <code>#[tokio::main]</code> 宏会将其转换为同步的 <code>fn main()</code> 函数，该函数会初始化 <code>runtime</code> 并执行我们定义的异步的 <code>main</code> 函数。</p>
 <p>比如</p>
-<pre><pre class="playpen"><code class="language-rust">#[tokio::main]
+<pre><pre class="playground"><code class="language-rust">#[tokio::main]
 async fn main() {
   println!(&quot;hello&quot;);
 }
 </code></pre></pre>
 <p>会被转换为</p>
-<pre><pre class="playpen"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
   let mut rt = tokio::runtime::Runtime::new().unwrap();
   rt.block_on(async {
     println!(&quot;hello&quot;);
@@ -257,7 +289,7 @@ async fn main() {
 }
 </code></pre></pre>
 <p>Tokio 中具体的 <code>runtime</code> 的细节在后续的章节中会补充。</p>
-<a class="header" href="tokio/tutorial-hello.html#cargo-特性-cargo-features" id="cargo-特性-cargo-features"><h3>Cargo 特性 Cargo features</h3></a>
+<h3><a class="header" href="#cargo-特性-cargo-features" id="cargo-特性-cargo-features">Cargo 特性 Cargo features</a></h3>
 <p>我们在定义对 Tokio 的依赖时使用 <code>full</code> 特性。</p>
 <pre><code class="language-toml">tokio = { version = &quot;1&quot;, features = [&quot;full&quot;] }
 </code></pre>
@@ -269,13 +301,13 @@ async fn main() {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="tokio.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../tokio.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="tokio/tutorial-spawning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../tokio/tutorial-spawning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -287,13 +319,13 @@ async fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="tokio.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../tokio.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="tokio/tutorial-spawning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../tokio/tutorial-spawning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -308,17 +340,22 @@ async fn main() {
         
 
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

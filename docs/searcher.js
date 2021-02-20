@@ -9,7 +9,14 @@ window.search = window.search || {};
     if (!Mark || !elasticlunr) {
         return;
     }
-    
+
+    //IE 11 Compatibility from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+    if (!String.prototype.startsWith) {
+        String.prototype.startsWith = function(search, pos) {
+            return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
+        };
+    }
+
     var search_wrap = document.getElementById('search-wrapper'),
         searchbar = document.getElementById('searchbar'),
         searchbar_outer = document.getElementById('searchbar-outer'),
@@ -20,11 +27,12 @@ window.search = window.search || {};
         content = document.getElementById('content'),
 
         searchindex = null,
-        resultsoptions = {
+        doc_urls = [],
+        results_options = {
             teaser_word_count: 30,
             limit_results: 30,
         },
-        searchoptions = {
+        search_options = {
             bool: "AND",
             expand: true,
             fields: {
@@ -132,12 +140,17 @@ window.search = window.search || {};
         teaser_count++;
 
         // The ?URL_MARK_PARAM= parameter belongs inbetween the page and the #heading-anchor
-        var url = result.ref.split("#");
+        var url = doc_urls[result.ref].split("#");
         if (url.length == 1) { // no anchor found
             url.push("");
         }
 
-        return '<a href="' + url[0] + '?' + URL_MARK_PARAM + '=' + searchterms + '#' + url[1]
+        // encodeURIComponent escapes all chars that could allow an XSS except
+        // for '. Due to that we also manually replace ' with its url-encoded
+        // representation (%27).
+        var searchterms = encodeURIComponent(searchterms.join(" ")).replace(/\'/g, "%27");
+
+        return '<a href="' + path_to_root + url[0] + '?' + URL_MARK_PARAM + '=' + searchterms + '#' + url[1]
             + '" aria-details="teaser_' + teaser_count + '">' + result.doc.breadcrumbs + '</a>'
             + '<span class="teaser" id="teaser_' + teaser_count + '" aria-label="Search Result Teaser">' 
             + teaser + '</span>';
@@ -189,7 +202,7 @@ window.search = window.search || {};
         }
 
         var window_weight = [];
-        var window_size = Math.min(weighted.length, resultsoptions.teaser_word_count);
+        var window_size = Math.min(weighted.length, results_options.teaser_word_count);
 
         var cur_sum = 0;
         for (var wordindex = 0; wordindex < window_size; wordindex++) {
@@ -239,11 +252,12 @@ window.search = window.search || {};
         return teaser_split.join('');
     }
 
-    function init() {
-        resultsoptions = window.search.resultsoptions;
-        searchoptions = window.search.searchoptions;
-        searchbar_outer = window.search.searchbar_outer;
-        searchindex = elasticlunr.Index.load(window.search.index);
+    function init(config) {
+        results_options = config.results_options;
+        search_options = config.search_options;
+        searchbar_outer = config.searchbar_outer;
+        doc_urls = config.doc_urls;
+        searchindex = elasticlunr.Index.load(config.index);
 
         // Set up events
         searchicon.addEventListener('click', function(e) { searchIconClickHandler(); }, false);
@@ -282,7 +296,7 @@ window.search = window.search || {};
         }
 
         if (url.params.hasOwnProperty(URL_MARK_PARAM)) {
-            var words = url.params[URL_MARK_PARAM].split(' ');
+            var words = decodeURIComponent(url.params[URL_MARK_PARAM]).split(' ');
             marker.mark(words, {
                 exclude: mark_exclude
             });
@@ -302,7 +316,7 @@ window.search = window.search || {};
     
     // Eventhandler for keyevents on `document`
     function globalKeyHandler(e) {
-        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.target.type === 'textarea') { return; }
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.target.type === 'textarea' || e.target.type === 'text') { return; }
 
         if (e.keyCode === ESCAPE_KEYCODE) {
             e.preventDefault();
@@ -413,6 +427,7 @@ window.search = window.search || {};
             delete url.params[URL_MARK_PARAM];
             url.hash = "";
         } else {
+            delete url.params[URL_MARK_PARAM];
             delete url.params[URL_SEARCH_PARAM];
         }
         // A new search will also add a new history item, so the user can go back
@@ -434,8 +449,8 @@ window.search = window.search || {};
         if (searchindex == null) { return; }
 
         // Do the actual search
-        var results = searchindex.search(searchterm, searchoptions);
-        var resultcount = Math.min(results.length, resultsoptions.limit_results);
+        var results = searchindex.search(searchterm, search_options);
+        var resultcount = Math.min(results.length, results_options.limit_results);
 
         // Display search metrics
         searchresults_header.innerText = formatSearchMetric(resultcount, searchterm);
@@ -453,7 +468,16 @@ window.search = window.search || {};
         showResults(true);
     }
 
-    init();
+    fetch(path_to_root + 'searchindex.json')
+        .then(response => response.json())
+        .then(json => init(json))        
+        .catch(error => { // Try to load searchindex.js if fetch failed
+            var script = document.createElement('script');
+            script.src = path_to_root + 'searchindex.js';
+            script.onload = () => init(window.search);
+            document.head.appendChild(script);
+        });
+
     // Exported functions
     search.hasFocus = hasFocus;
 })(window.search);
