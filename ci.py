@@ -36,7 +36,7 @@ def run():
     copy_dir("./src/redis/image", "./docs/image")
     shutil.rmtree("./docs/db", ignore_errors=True)
     os.mkdir("./docs/db")
-    copy_dir("../../database/book/database_internals/docs", "./docs/db")
+    copy_dir("./src/db_src/docs", "./docs/db")
     copy_dir("./style", "./docs/css")
     copy_dir("./style", "./docs/db/css")
     shutil.rmtree("./docs/https:", ignore_errors=True)
