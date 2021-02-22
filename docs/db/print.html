@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="part_1_storage_engine.html"><strong aria-hidden="true">1.</strong> Storage Engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">1.1.</strong> Introduction and Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item expanded "><a href="chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item expanded "><a href="chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item expanded "><a href="chapter_1_7_summary.html"><strong aria-hidden="true">1.1.6.</strong> Summary</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="part_1_storage_engine.html"><strong aria-hidden="true">1.</strong> Storage Engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">1.1.</strong> Introduction and Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item expanded "><a href="chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item expanded "><a href="chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item expanded "><a href="chapter_1_7_summary.html"><strong aria-hidden="true">1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2_1_btree_basic.html"><strong aria-hidden="true">1.2.</strong> BTree Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item expanded "><a href="chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item expanded "><a href="chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">1.2.3.</strong> Ubiquitous B-Trees</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -353,7 +353,7 @@
 </code></pre>
 <p>数据按照多个维度存储到一个具有层次结构的有序的字典内：我们能够通过网页的反转 URL 来定位到特定页面的内容或者锚点的指定时间戳版本。每一行都使用称之为 <em>row key</em> 的键建立了索引。相关联的列则按照列族进行了分组 -- 如示例中的 contents 跟 anchor 列族，因此不同列族的数据会在磁盘上分开存储。每一个列族内的列都以称为 <code>column key</code> 的键作为标识符，他们是以列族名跟列名 <em>(如示例中的 html, cnnsi.com, my.look.ca)</em> 所组合而成。列族会按照时间戳存储数据的多个版本。这个布局允许我们快速的定位高层级的实体 <em>(如本例中的网页)</em> 跟他们的参数信息 <em>(如网页中的内容及其他页面的链接的各个版本)</em>。</p>
 <p>对理解 <code>Wide Column Store</code> 的各个概念是非常有用的，他们的物理布局相对其他的有很大不同。对列族的一个略为粗略的结构图在 Figure 1-4 展示：每个列族被独立的进行存储，但同一个列族内的数据是集中存储的。</p>
-<img src="./chapter_1_4_column_row_oriented.assets/image-20210219173935889.png" style="witdh: 80%" ><h3><a class="header" href="#data-files-and-index-files" id="data-files-and-index-files">Data Files and Index Files</a></h3>
+<img src="./chapter_1_4_column_row_oriented.assets/image-20210219173935889.png" style="witdh: 80%" ><h2><a class="header" href="#data-files-and-index-files" id="data-files-and-index-files">Data Files and Index Files</a></h2>
 <p>数据库系统的主要目标就是能够存储数据然后在需要的时候能够快速的进行读取。但数据应该如何组织呢？为什么我们需要使用数据库管理系统而不是直接管理一大堆的文件？文件要如何组织才能高效的使用呢？</p>
 <p>数据库确实使用文件来存储我们的数据，但他并不是直接使用了文件系统的目录跟文件的结构来定位数据记录，他实现了自定义的文件存储格式来组织文件。在扁平文件上使用自定义文件格式来组织的主要原因有：</p>
 <ul>
@@ -406,7 +406,7 @@
 </ul>
 <img src="./chapter_1_5_data_files_and_index_files.assets/image-20210220031346358.png" style="witdh: 85%">
 <p>还有另外一种混合使用数据文件偏移量跟主键的方式。首先，需要检查文件的偏移量是否有效，如果偏移量失效了则需要付出额外的开销到使用主键到主索引查询，最后在找到新的偏移量时去更新二级索引。</p>
-<h3><a class="header" href="#buffering-immutability-and-ordering" id="buffering-immutability-and-ordering">Buffering, Immutability, and Ordering</a></h3>
+<h2><a class="header" href="#buffering-immutability-and-ordering" id="buffering-immutability-and-ordering">Buffering, Immutability, and Ordering</a></h2>
 <p>存储引擎都需要基于某些特定的数据结构，但是这些数据结构并没有对缓存、状态回复、事务这些存储引擎底层的组件有明确的语义定义。</p>
 <p>在下一章节中，我们会开始讨论 B-Tree 以及试着理解为什么会有这么多的 B-Tree 变种，以及为什么一直持续不断的有新的数据存储结构出现。</p>
 <p>存储数据结构有三个通用的变量：他们会使用 <code>buffering</code> 缓冲 <em>(或避免使用)</em>，使用 <code>immutable</code> 不可变 <em>(或 mutable 可变)</em> 的文件，按照 <code>order</code> 顺序来存储数据 <em>(或不按顺序)</em>。大部分的存储数据结构的区别跟优化都跟这三点相关。</p>
@@ -425,12 +425,12 @@
 </li>
 </ul>
 <p>当然，对这三个概念的粗略讨论是无法展示他们的能力的，我们将会继续在本书后续的章节中对其进行讨论。</p>
-<h3><a class="header" href="#summary" id="summary">Summary</a></h3>
+<h2><a class="header" href="#summary" id="summary">Summary</a></h2>
 <p>在本章我们讨论了数据库管理系统的架构以及主要的几个组件。</p>
 <p>还重点讨论了基于磁盘的数据结构的重要性，以及他跟基于内存的数据结构的区别。对此我们总结基于磁盘的数据结构对两种类型的存储都是非常重要的，只是他们会用来达成不同的目标。</p>
 <p>为了理解访问模式对数据库系统设计的影响，我们讨论了基于行跟基于列的数据库管理系统以及导致他们之间有所区别的因素。还从数据文件跟索引文件作为起点，开始了对数据是如何进行存储的讨论。</p>
 <p>最后我们介绍了三个核心的概念：<em>Buffering</em> 、<em>Immutability</em> 跟 <em>Ordering</em>。我们使用他们来贯穿整本书的核心属性跟使用他们的存储引擎。</p>
-<h4><a class="header" href="#更多的阅读" id="更多的阅读">更多的阅读</a></h4>
+<h3><a class="header" href="#更多的阅读" id="更多的阅读">更多的阅读</a></h3>
 <p>如果你想对我们本章中讨论的概念有更多的了解，可以通过下面的引用获取相关信息</p>
 <ul>
 <li>
@@ -446,6 +446,114 @@
 <p>Faerber, Frans, Alfons Kemper, and Per-Åke Alfons. 2017. Main Memory Data‐ base Systems. Hanover, MA: Now Publishers Inc.</p>
 </li>
 </ul>
+<h1><a class="header" href="#chapter-2" id="chapter-2">Chapter 2</a></h1>
+<h2><a class="header" href="#b-tree-basics" id="b-tree-basics">B-Tree Basics</a></h2>
+<p>在前面的章节我们将存储的数据结构分成了类：<em>mutable</em> 可变的跟 <em>immutable</em> 不可变的，并且确认了不可变性是其中一个会影响到具体设计与实现的核心概念。大部分的可变数据存储结构都使用了就地更新的机制。在发生插入、删除或更新操作时，数据记录会在目标文件的原位置上直接更新。</p>
+<p>存储引擎通常允许在数据库中存在一条数据记录的多个版本；比如在使用了 <em>Multiversion Concurrency Control</em> <em>(MVCC 多版本并发控制)</em> 或 <em>Slotted Page</em> 组织时。为了简化的目的，现在我们先假定每个 Key 只会关联到唯一的一条数据记录，并且只有一个唯一的位置信息。</p>
+<p>现在最流程的存储数据结构之一就是 B-Tree。许多开源的数据库都是基于 B-Tree 的，并且经过了多年的验证，他确实适用于大部分的场景。</p>
+<p>B-Tree 并不是近期才发明的：他在 1971 年时已经被 Rudolph Bayer 及 Edward M. McCreight 进行了介绍并一直流行到现在。在 1979 年时已经出现了不少 B-Tree 的变种。Douglas Comer 在 <a href="https://lwn.net/Articles/752063">Douglas Comer</a> 中对其进行了系统性的整理。</p>
+<p>在深入 B-Tree 之前，先来讨论为什么我们要用他来替代传统的搜索树，比如 <code>Binary search tree</code> 二叉搜索树、2-3-Trees 跟 <code>AVL Tree</code> 平衡搜索树。现在我们先来回顾下什么是二叉搜索树。</p>
+<h2><a class="header" href="#binary-search-trees" id="binary-search-trees">Binary Search Trees</a></h2>
+<p>二叉搜索树 <em>(BST)</em> 是有序的内存数据结构，被用来提供高效的基于键值对的查找。BST 包含了许多的节点，每个树的节点都呈现为一个 Key 及跟该 Key 相关联的数据，每个节点有两个子节点 <em>(因此取名二叉)</em>。BST 从一个单独的名为 <em>root</em> 的节点开始，并且一棵树只允许有一个 <em>root</em> 节点。Figure 2-1 中我们展示了个二叉搜索树的例子</p>
+<img src="./chapter_2_1_btree_basic.assets/image-20210220152913396.png" style="width: 85%">
+<p>每个节点将搜索空间分割为左子树 <code>subtrees</code> 跟右子树，正如 Figure 2-2 展示的，一个节点的 Key 会大于其左子树的所有节点，并且会小于其右子树的所有节点。</p>
+<img src="./chapter_2_1_btree_basic.assets/image-20210220153157215.png" style="width:85%">
+<p>从 root 开始沿着左子树一直遍历到最左的叶子节点 <em>(叶子意味着他不具有子节点)</em> 就能定位到树中最小的 Key 以及其关联的数据。同样的，沿着右子树一直遍历到最右的叶子节点能够定位到树中最大的 Key 及其关联的数据。关联的数据允许存储在树中的任意节点中，然后查找会从 root 节点开始，但可能会在非叶子节点就被中断或返回，比如已经在较高的层级中找到了对应的 Key。</p>
+<h3><a class="header" href="#tree-balancing" id="tree-balancing">Tree Balancing</a></h3>
+<p>插入的操作并不会遵循哪种指定的方式，元素的插入可能会导致树失去平衡 <em>(比如其中一个分支比其他的分支要长)</em>。在 Figure 2-3 中展示了最严重的场景，其中展示了一颗看起来更像是链表的病态的树，作为一个设计目标是对数复杂度的树 <em>(如 Figure 2-3 )</em>，最后演变成了线性复杂度。</p>
+<img src="./chapter_2_1_btree_basic.assets/image-20210220161914899.png" style="width:85%">
+<p>这个例子可能将问题描述的略微极端了，但他说明了为什么树需要平衡性: 尽管不是所有的节点最后都会往一边倾斜，但毫无疑问的是这种情形会显著的降低查询效率。</p>
+<p>一个平衡的树的高度是被定义为了 Log2N，N 是指树中所有节点的总数，并且左右两颗子树的高度只差不会超过一。在失去平衡时，我们会失去二叉搜索树的结构给我们的性能优势，并且插入跟删除操作也会影响树的形状 <em>(平衡)</em>。</p>
+<p>在一颗平衡的树中，在平均情况下每次进入左子树或右子树都能够减少一半的查找空间，所以查找的复杂度为 O(log2 N)。如果树是失衡的，最差的情况下复杂度会增长为 O(N)，因为我们最终可能会遇到树的所有节点都在同一侧的情况。</p>
+<p>为了不产生在添加新元素后其中一侧分支越来越长，另一侧却还是空的情况 <em>(如 Figure 2-3 (b))</em>，让树继续保持平衡。可以通过重新组织树的节点来降低树的高度，并让两侧分支的差距保持一定的边界。后</p>
+<p>其中一种保持树平衡的方法是在添加或删除树的节点对其进行翻转。如果插入的操作导致让当前分支失衡 <em>(分支里两个连续的节点只有一个子节点)</em>，我们就可以 <em>rorate</em> 旋转中间的节点，如 Figure 2-4 中展示的，对 <code>node(3)</code> 进行旋转，我们称它为 <em>pivot</em> 节点，旋转后将它提高几个层级，并且将它的父节点设为右子节点。</p>
+<img src="./chapter_2_1_btree_basic.assets/image-20210220170923443.png" style="width:85%">
+<h3><a class="header" href="#trees-for-disk-based-storage" id="trees-for-disk-based-storage">Trees for Disk-Based Storage</a></h3>
+<p>如前面提到的，失衡的树有着糟糕的 O(N) 的复杂度。平衡树给我们的平均复杂度应该是 O(log2 N)。在这个时候下，由于扇出量很低 <em>(扇出量是我们允许的节点所能拥有的最大子节点数)</em>，我们需要频繁的去维持树的平衡，旋转节点，并更新对应的指针等信息。高昂的管理成本让 BST 作为基于磁盘的数据结构成了不现实的选择。</p>
+<p>如果我们希望在磁盘中管理 BST，需要面对几个问题。其中一个是局部性：数据是以随机的顺序添加的，没办法保证新增的节点会写到其父节点附近，这意味着节点的子节点可能会在多个磁盘页中保存。我们可以通过调整树的布局跟使用基于页的二叉树来改善这种情况。</p>
+<p>另外一个问题跟子节点也是紧密相关的，就是树的高度。因为二叉树的扇出量只有二，因此高度是树节点总数的以二为底的对数，因此我们需要花费 O(log2 N) 次寻址来定位需要查找的元素，并导致相同次数的磁盘数据传输。2-3-Tree 跟其他扇出量低的树都具有相同的限制：他们可以高效的在内存中使用，但较少的节点数意味着将他们应用到外部存储器时变得不现实。</p>
+<p>一个拙劣的基于磁盘的 BST 实现需要许多的磁盘寻址来做比较，因为他没有建立起局部性的概念。这让我们踏上了寻找具有这种特性的数据结构的路。</p>
+<p>考虑到这些因素，一个能够适配磁盘的树的实现需要满足下面两个特性：</p>
+<ul>
+<li><em>Hight fanout</em> 高扇出能够提高邻接节点的局部性</li>
+<li><em>Low height</em> 低高度能够减少查找过程所需的次数</li>
+</ul>
+<blockquote>
+<p>扇出跟高度有着一个相反的关系：更高的扇出量意味着更低的高度。如果扇出很高，每个节点能够持有的子节点数会更多，这减少了整体的节点数，因此也会产生更低的高度。</p>
+</blockquote>
+<h2><a class="header" href="#disk-based-structures" id="disk-based-structures">Disk-Based Structures</a></h2>
+<p>我们已经在比较通用的层面上讨论过基于内存及基于磁盘的存储了。现在可以来具体的描绘一下具体数据结构之间的差异：有一些适合使用在磁盘，有一些则更适合使用于内存中。</p>
+<p>就像我们讨论过的，不是所有满足空间跟复杂度的数据结构都能够高效的应用在基于磁盘的存储上。数据库中的数据结构需要能够适配持久化介质所带来的限制。</p>
+<p>保存在磁盘中的数据结构通常用于处理那些数据量巨大，没办法将整个数据集存放到内存的情形。只有一部分的数据能够缓存在内存中，然后其他的则以能够高效访问的形式存储在磁盘中。</p>
+<h3><a class="header" href="#hard-disk-drives" id="hard-disk-drives">Hard Disk Drives</a></h3>
+<p>大部分传统的算法都是在流行以机械硬盘作为持久化存储介质时期开发的，他们的设计深受那个时代的影响。在之后新的存储介质被开发出来了，如闪存，这又启发了一系列新的算法的产生，也促使旧的算法进行了很多的调整，来适配这些新的硬件。到了现在，又出现了许多新的、优化来支持新的非易失性、字节寻址的存储设备的数据结构。<em>(比如 XIA17 跟 KANNAN18)</em></p>
+<p>对于机械硬盘来说，随机读取会因为寻址而提高性能开销，因为他们需要硬盘进行转动好让机械磁头能够移动到对应的位置来进行读写。然而，在这部分昂贵的操作完成之后，进行的顺序读取跟写入相对来说都是开销比较小的。</p>
+<p>在机械硬盘中最小的传输单位是 <em>sector</em> 扇区，所以当对其进行操作时，最少会对一个扇区进行读或者写。扇区的尺寸一般会在 512 个字节跟 4Kb 之间。</p>
+<p>磁头的定位是 HDD 硬盘操作中最为昂贵的一步。这也是为什么我们一直听到 <em>Sequential I/O</em> 顺序性 I/O 操作更好的原因: 连续性的从磁盘读取跟写入数据。</p>
+<h3><a class="header" href="#solid-state-drives" id="solid-state-drives">Solid State Drives</a></h3>
+<p>固态硬盘 <em>(SSD)</em> 没有需要移动的部分: 那里没有磁盘的转动，也没有磁头需要因为读取产生的定位操作。通常的 SSD 是使用 <em>memory cells</em> 内存单元组成的，他们连接成 <em>strings</em> <em>(通常是 32 到 64 个内存单元构成一个 string)</em>，<em>strings</em> 又会组成 <em>arrays</em> 数组，数组再组成 <code>pages</code> 页面，最后由页面组成 <em>blocks</em> 块。</p>
+<p>取决于具体使用的技术，一个内存单元可以存储一个或多个位的数据。设备之间的页面大小也可能是不同的，但一般来说他们的大小都会在 2 到 16Kb 之间，块则通常包含 64 到 512 个页面。块会组成 <em>planes</em> 平面，然后最后平面会被存放在 <em>die</em> 中。一个 SSD 可以有一个或多个的 die。Figure 2-5 展示了他们之间的层次关系</p>
+<img src="./chapter_2_3_disk_based_structures.assets/image-20210220192545745.png" style="width: 85%">
+<p>在 SSD 中进行读写的最小单位是页。但是，我们只能改变空的内存单元 <em>(比如在写之前要先清除某个区域)</em>。最小 <em>erase</em> 清除的单位不是页，而是包含了多个页的块，所以经常会将其称为 <em>erase block</em> 清除块。在一个空的块中可以对其页面进行顺序的写入。</p>
+<p>其中有个内存控制器负责将页 ID 映射为物理位置，跟踪空白的区域，写入跟丢弃页面，这个控制器称为 <em>Flash Translation Layer</em> <em>(FTL)</em> 闪存翻译层。当 FTL 发现一个块可以安全的清除时，他还会负责进行垃圾回收的工作。有些块可能会有部分存活的页，在这种情况下，他会将这些块中存活的页面分配到新的位置，然后为他的页 ID 重新进行映射到新的位置。在这之后，他会清除那些现在已经没在使用的块，让他们可以支持后续新的写入操作。</p>
+<p>因为两种设备类型 <em>(HDD 跟 SSD)</em> 都是使用地址来操作大块的数据，而不是操作独立的字节 <em>(比如按块来访问数据)</em>，所以当今大部分的操作系统都为基于块设备进行了抽象。他们隐藏了内部的磁盘结构跟缓冲 I/O 操作，所以当我们从基于块的设备中读取单个 <em>word</em> 字时，其实整个块都会被包含在当次读取中。这是一个我们在使用磁盘数据结构是需要时刻考虑的限制。</p>
+<p>在使用 SSD 时我们不需要像使用 HDD 一样将随机 I/O 跟 顺序 I/O 的区别看得那么重，因为随机跟顺序的读取延迟并没有太大的差别。但其中仍有一些由预读取、读取连续页面跟内部并行性引起的区别。</p>
+<p>尽管垃圾回收通常在后台运行，但他仍然可能会对写操作造成负面的影响，特别是处理随机跟未对齐的写负载。</p>
+<p>写入只会按照整个块来进行，并会将连续的写操作合并写到同一个块，这能够减少所需的 I/O 操作。我们会在后续的章节中讨论使用缓冲跟不变性会用来达到这个目标。</p>
+<h3><a class="header" href="#on-disk-structures" id="on-disk-structures">On-Disk Structures</a></h3>
+<p>除了磁盘访问本身的代价之外，构建高效的基于磁盘的数据结构的主要限制跟设计的条件主要来自于对磁盘的最小操作单位是块。要根据指针定位到具体某个块中的位置，我们需要将整个块都读出来。因为无论如何我们都需要这样做，因此可以通过调整数据结构的布局来利用这个特性。</p>
+<p>我们已经在之前的章节中数次提到过指针，但这个词在基于磁盘的数据结构中的语义与之前稍有不同。在磁盘中，大部分时间我们都需要手动管理数据的布局 <em>(除了使用 Memory Mapped File 技术时不需要)</em>。这依然跟普通的指针操作类似，但我们需要自己来计算目标指针的地址并显式的跟随指针。</p>
+<p>大部分时间磁盘上的偏移量是预先计算好的 *(避免指针所指向的区域在指针被写入磁盘之后还未写入磁盘)*又或者会缓存在内存中直到指向的区域都被写入磁盘。创建一个有长依赖链条的磁盘数据结构会大幅提高代码跟数据结构本身的复杂度，因此会倾向于将指针的数量跟其指向的范围控制到最小。</p>
+<p>总而言之，基于磁盘的数据结构的设计会考虑其目标存储的细节，并将磁盘的访问次数优化到最少。我们可以通过提高局部性、优化数据结构内部的表现形式跟减少页外指针的数量来得到优化效果。</p>
+<p>在 <em>Binary Search Trees</em> 一节中，我们总结出了高扇出跟低高度是设计基于磁盘的数据结构时达成优化的重要属性。我们还额外的空间开支来自于指针，以及为了保持树平衡而带来的管理这些指针的开支。B-Trees 组合了这些想法：提高节点的扇出量，降低树的高度、节点的指针数以及维持树平衡操作的频率。</p>
+<blockquote>
+<h4><a class="header" href="#paged-binary-trees" id="paged-binary-trees">Paged Binary Trees</a></h4>
+<p>下图我们将二叉树的布局调整为将多个节点组合到同一个页上，如 Figure 2-6 所示，提高了数据的局部性。在需要查找下一个节点时，只需要在已经读取到内存的页中查找即可。但是任由一些额外的开销来自于节点跟指针之间。对存储在磁盘上的数据结构进行管理不是容易的事情，尤其是在 Key 跟 Value 不是以有序的方式添加的。平衡需要对页进行重建，这也会导致需要更新指针的信息。</p>
+</blockquote>
+<img src="./chapter_2_3_disk_based_structures.assets/image-20210221012142506.png" style="width:85%"><h2><a class="header" href="#ubiquitous-b-trees" id="ubiquitous-b-trees">Ubiquitous B-Trees</a></h2>
+<p>可以将 B-Trees 想象成一个图书馆中的巨大目录：首先你要找到正确的陈列柜，然后在这个柜上找到正确的书架，然后在这个书架上找到正确的抽屉，然后在抽屉中找到你正在寻找的那个卡片。类似的， B-Tree 构建了一个帮助使用者快速定位他想找的数据的层次结构。</p>
+<p>如我们之前讨论过的二叉查找树，B-Tree 构建为一个平衡搜索树，但跟普通的搜索树的区别在于具有更大的扇出量 <em>(拥有更多的子节点)</em> 跟更小的高度。</p>
+<p>在大部分的介绍里面，二叉树的节点都被描绘为一个圆。因为每个节点唯一的职责就是保存对应的键跟将对应的区间分为两部分，这个细节水平基本是很直观的。而 B-Tree 的节点一般会被描绘为一个矩形，还重点指出了指针块来描述子节点跟分隔键之间的关系。Figure 2-7 依次展示了二叉树、2-3-Tree 跟 B-Tree 的节点，这能够帮助我们了解他们之间的相同点及差别</p>
+<p><img src="./chapter_2_4_ubiquitous_btrees.assets/image-20210222004759987.png" alt="image-20210222004759987" /></p>
+<p>没有什么能够阻止我们以相同的方式画出二叉树。这些数据结构都具有类似的使用指针的语义，他们的区别则是从如果管理其中的平衡开始。Figure 2-8 展示了 BST 跟 B-Tree 之间的类似的点：Key 会将树分割成子树，并会用他来作为搜索目标的导航，你可以将它跟 Figure 2-1 做一下比较。</p>
+<img src="./chapter_2_4_ubiquitous_btrees.assets/image-20210222005314854.png" style="width:85">
+<p>B-Tree 是有序的：在 B-Tree 中的 Key 都会按照顺序来存储。因此为了定位到需要查找的 Key 我们可以使用类似二分查找的算法。这同时也暗示了 B-Tree 的查找具有对数级别的复杂度。举例来说，为了在 40 亿个元素中查找某个目标需要进行 32 次比较，如果每次比较都需要在磁盘中进行寻址的话，会明显的拖慢整个过程，但因为 B-Tree 的节点存储了成打或上百个元素，我们可以只在每个层级上只执行一次磁盘寻址。查找算法更具体的细节会在本章的后面详细讨论。</p>
+<p>使用 B-Tre，我们可以高效的执行点跟区间的查询。点查一般在查询语言中使用相等表达式表示，用来定义单条记录。另一种区间查询在查询语言中则一般使用比较表达式 <em>(如 &lt;、&gt;、≤、≥)</em> 来按查询一批有序的数据。</p>
+<h3><a class="header" href="#b-tree-hierarchy" id="b-tree-hierarchy">B-Tree Hierarchy</a></h3>
+<p>B-Tree 由许多的节点组成，每个节点或保存最多 N 个 Key 跟 N+1 个指向子节点的指针。这些节点在逻辑上我们可以将他们分成三组：</p>
+<ul>
+<li>
+<p><em>Root node</em></p>
+<p>没有父节点、位于树顶端的节点</p>
+</li>
+<li>
+<p><em>Leaf nodes</em></p>
+<p>位于树的底端、没有子节点的节点</p>
+</li>
+<li>
+<p><em>Internal nodes</em></p>
+<p>除了以上两种节点，剩下的就只有这种节点了，通过他们将树的根及叶子连接起来。这类节点一般会存在多个不同的级别 <em>(深度)</em> 中。</p>
+</li>
+</ul>
+<p>这个层级关系展示在 Figure 2-9 中</p>
+<img src="./chapter_2_4_ubiquitous_btrees.assets/image-20210222010938444.png" style="width: 85" >
+<p>因为 B-Tree 是按照 <em>页</em> 来进行组织的 <em>(他们通常使用固定大小的页面尺寸)</em>，因此我们将 节点跟页 作为相同的概念交替着使用。</p>
+<p>节点的 <em>capacity</em> 容量跟其中真实存储的 Key 的数量的关系我们称之为 <em>occupancy</em> 使用率。</p>
+<p>B-Tree 的特点是他的扇出量: 即每个节点存储的 Key 的数量。更高的扇出量让节点中存储的 Key 跟指针能够集中保存在单个块或多个连续的块中，因此能够分摊为了保持树平衡所所需对做的修改成本以及减少对磁盘的访问量。保持平衡的操作 <em>(称为 splits 分割跟 merges 合并)</em> 会在节点写满或接近空时触发。</p>
+<blockquote>
+<h3><a class="header" href="#b-trees" id="b-trees">B^+^-Trees</a></h3>
+<p>我们介绍具有类似属性的树时都使用了 B-Tree 这个词。在前面所介绍的数据结构的更具体的名字其实是 B^+^-Tree。[KNUTH98] 将具有高扇出的树称为多路树进行了介绍。</p>
+<p>B-Tree 允许在树中任意层级的节点中存储数据：包括根、内部节点跟叶子节点。B^+^-Tree 则只允许将数据存储在叶子节点中。内部节点只存储了 <em>separator keys</em> 分割键，他用来告诉查询算法对应的键会出现在哪个叶子中。</p>
+<p>因为 B^+^-Tree 只会在叶子节点存储数据，所有的操作 <em>(插入、更新、删除跟查找)</em> 都只会对叶子节点产生修改，并在需要进行分割跟合并时传播到更高的层级。</p>
+<p>B^+^-Tree 使用的非常广，我们跟其他的介绍一样将它称为 B-Tree，比如 [GRAEEE11] 中将 B^+^-Tree 作为默认的设计，在 MySQL 的 InnoDB 实现的 B^+^-Tree 也被称为 B-Tree。</p>
+</blockquote>
+<h3><a class="header" href="#separator-keys" id="separator-keys">Separator Keys</a></h3>
+<p>保存在 B-Tree 节点中的 Key 一般称为 <em>index entries</em> 索引实体、<em>separator keys</em> 分割键或 <em>divider cells</em> 分隔单元。他们将树分割成了对应区间的多个子树 <em>(也成为 branches 分支或 subrange 子区间)</em>。这些 Key 会被有序的保存，因此能够对其使用二分查找。通过高层级的节点的 Key 及对应的指针能够找到对应的子树。</p>
+<p>在节点中的第一个指针指向小于其第一个 Key 的子树，节点中的最后一个指针指向大于等于其最后一个 Key 的子树。其他指针所指向的子树中的 Key 都表达式 K~i-1~ ≤ K~S~ &lt; K~i~ ，其中 K 是指所有 Key 的集合， K~S~ 在其子树中的 Key 集合。Figure 2-10 描述了这些特性</p>
+<img src="./chapter_2_4_ubiquitous_btrees.assets/image-20210222015419480.png" style="width:85%">
+<p>有一些 B-Tree 还保存了指向相邻节点的指针，不过他们一般存在于叶子节点，用于简化区间扫描操作。这些指针能够避免通过父节点来才能找到其相邻节点。有一些实现还使用了类似双向链表的两个指针来指向其前后两个相邻节点，这让他们可以实现对叶子节点进行反向的迭代。</p>
+<p>让 B-Tree 与别不同的还有，不同于自顶向下 <em>(如二叉查找树)</em> 来构建树，他使用了另外一种自底向上的方式。当叶子节点增长时才会导致内部节点跟树的高度增高。</p>
+<p>因为 B-Tree 为每个节点申请了额外的空间来供以后的插入跟更新使用，树的存储利用度可能会低于 50%，不过大部分情况下利用度会高得多。而更高的利用度并不用对 B-Tree 的性能产生负面的影响。</p>
 
                     </main>
 
