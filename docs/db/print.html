@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="part_1_storage_engine.html"><strong aria-hidden="true">1.</strong> Storage Engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">1.1.</strong> Introduction and Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item expanded "><a href="chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item expanded "><a href="chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item expanded "><a href="chapter_1_7_summary.html"><strong aria-hidden="true">1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2_1_btree_basic.html"><strong aria-hidden="true">1.2.</strong> BTree Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item expanded "><a href="chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item expanded "><a href="chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">1.2.3.</strong> Ubiquitous B-Trees</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_1_file_format.html"><strong aria-hidden="true">1.3.</strong> File Format</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_2_motivation.html"><strong aria-hidden="true">1.3.1.</strong> Motivation</a></li><li class="chapter-item expanded "><a href="chapter_3_3_binary_encoding.html"><strong aria-hidden="true">1.3.2.</strong> Binary Encoding</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="part_1_storage_engine.html"><strong aria-hidden="true">1.</strong> Storage Engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">1.1.</strong> Introduction and Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item expanded "><a href="chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item expanded "><a href="chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item expanded "><a href="chapter_1_7_summary.html"><strong aria-hidden="true">1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2_1_btree_basic.html"><strong aria-hidden="true">1.2.</strong> BTree Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item expanded "><a href="chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item expanded "><a href="chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">1.2.3.</strong> Ubiquitous B-Trees</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_1_file_format.html"><strong aria-hidden="true">1.3.</strong> File Format</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_2_motivation.html"><strong aria-hidden="true">1.3.1.</strong> Motivation</a></li><li class="chapter-item expanded "><a href="chapter_3_3_binary_encoding.html"><strong aria-hidden="true">1.3.2.</strong> Binary Encoding</a></li><li class="chapter-item expanded "><a href="chapter_3_4_general_principles.html"><strong aria-hidden="true">1.3.3.</strong> General Principles</a></li><li class="chapter-item expanded "><a href="chapter_3_5_page_structure.html"><strong aria-hidden="true">1.3.4.</strong> Page Structure</a></li><li class="chapter-item expanded "><a href="chapter_3_6_slotted_pages.html"><strong aria-hidden="true">1.3.5.</strong> Slotted Pages</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -690,9 +690,9 @@
 }
 </code></pre>
 <p>另一种类似的概念是 <em>flags</em> 标记，一种用来组合跟打包布尔值跟枚举的类型。标记可以用来表示非互斥的命名布尔参数。比如，我们可以使用标记来表示页面是否包含值的单元，该值是固定长度的还是可变长度的，表示一个页面是否有关联的节点。因为每个位都可以表示一个标记的值，我们可以只使用 2 的倍数作为掩码 <em>(因为 2 的倍数只会有一个位是被设置为 1 的，如 $2^3 == 8 == 1000b, 2^4 == 16 == 0001 0000b$)</em>。</p>
-<pre><code class="language-c">int IS_LEAF_MASK         = 0x1h;  // bit #1
+<pre><code class="language-c">int IS_LEAF_MASK         = 0x01h;  // bit #1
 int VARIABLE_SIZE_VALUES = 0x02h; // bit #2
-int HAS_OVERFLOW_PAGES   = 0x4h;  // bit #3
+int HAS_OVERFLOW_PAGES   = 0x04h;  // bit #3
 </code></pre>
 <p>就像打包后的布尔值，标志使用 <em>bitmasks</em> 位的掩码跟位操作符来执行读取跟写入操作。比如为了打开某个位的设置，我们会使用位操作 OR <em>(|)</em> 跟位掩码来进行操作。也可以使用 <em>bitshift</em> <em>(&lt;&lt;)</em> 移位操作来实现。为了取消某个位，我们可以使用位操作 AND <em>(&amp;)</em> 跟位的取反操作符 <em>(~)</em>。为了测试某个位是否被设置了，我们还可以在指定位跟 0 来执行比较位操作 AND 。</p>
 <pre><code class="language-c">// Set the bit
@@ -707,6 +707,57 @@ flasg &amp;= ~(1 &lt;&lt; 2);
 is_set = (flags &amp; HAS_OVERFLOW_PAGES) != 0;
 is_set = (flags &amp; (1 &lt;&lt; 2)) != 0;
 </code></pre>
+<h2><a class="header" href="#general-principles" id="general-principles">General Principles</a></h2>
+<p>通常来说，设计文件格式考虑的第一个问题就是怎么实现地址的定位：文件会被拆分为相同大小的不同页，这些也可能会用一个单独的块或是多个连续的块来表示。大部分实现就地更新的存储数据结构的页都会使用相同的尺寸，这样能够明显的简化对数据的读取跟写入。只进行添加的存储数据结构已经常会基于页来进行写入：记录被添加到内存的末端，在内存中的页被填满时才会刷到磁盘上。</p>
+<p>这个文件通常会以固定大小的 <em>header</em> 头部信息开始，然后再以固定大小的 <em>trailer</em> 尾部信息结束，他们保存了一些能够快速访问的元信息又或者是用来支持对文件其他部分数据进行解码所需的信息。文件的其他部分会按页进行分割，Figure 3-3 展示了文件的整体结构。</p>
+<p><img src="./chapter_3_4_general_principles.assets/image-20210223105507150.png" alt="image-20210223105507150" /></p>
+<p>大部分存储数据的表都会有固定的结构、长度、顺序跟字段类型，一个紧凑的结构能节省大量的磁盘空间：我们可以使用字段固定的定位信息来来定位数据，而不是在每条数据中保存每个字段的名称。</p>
+<p>如果我们想要设计一个企业员工的记录的格式，用来保存其名称、生日、税号跟性别等信息。实现的方式有许多种，在这里我们将具有固定长度的字段 *(如生日跟税号)*信息保存到数据结构的头部，然后在头部之后保存可变长度的数据。</p>
+<pre><code>Fixed-size fields:
+| (4 bytes) employee_id                |
+| (4 bytes) tax_number                 |
+| (3 bytes) date                       |
+| (1 byte)  gender                     |
+| (2 bytes) first_name_length          |
+| (2 bytes) last_name_length           |
+
+Variable-size fields:
+| (first_name_length bytes) first_name |
+| (last_name_length_bytes)  last_name  |
+</code></pre>
+<p>现在我们可以通过访问头部固定数据之后的 <em>first_name_length</em> 个字节来得到 <em>first_name</em> 字段。 我们可以通过累加 <em>last_name</em> 之前的可变长度字段的大小来得到其地址。为了避免计算过多的字段，我们可以将偏移量跟长度都编码到头部的固定长度区。这样的话就可以单独的定位每个可变长度字段了。</p>
+<p>构建更复杂的数据结构通常会需要更多的层次结构: 字段通过基础类型组成，单元由字段组合成，页面由单元组成，扇区由页面组成，区域有扇区组成等等。在这里并没有什么严格的规则是必须要遵守的，所有的定义只取决于你所需的数据结构是怎么样的。</p>
+<p>数据库文件通常会分成多个部分，他会通过一个查询表来帮助定位跟指向这些部分在文件头、文件尾或独立文件中的偏移量。</p>
+<h2><a class="header" href="#page-structure" id="page-structure">Page Structure</a></h2>
+<p>数据库系统将数据记录存储在数据文件跟索引文件中，这些文件被分割成多个具有固定大小的页，这些页的尺寸一般是多个文件系统块的大小，一般来说会在 4 到 16Kb 之间。</p>
+<p>接下来我们看一个 B-Tree 节点 节点的例子。从数据结构的角度看，B-Tree 的叶子节点会保存 Key 跟具体的数据记录作为键值对，而非叶子节点则保存 Key 跟指向其他节点的指针信息。每个 B-Tree 的节点都会占用一个或多个连续的页，因此在 B-Tree 的上下文中我们会交替的使用节点、页 <em>(或者还有块)</em> 来表示同一个概念。</p>
+<p>原始的 B-Tree 论文描述了一个简单的页结构来保存固定长度的数据记录，这个结构保存一连串的元祖，就如 Figure 3-4 中展示的：Key 缩写为 $k$，关联的 Value 缩写为 $v$，以及指向子页面的指针缩写为 $p$ 。</p>
+<p><img src="./chapter_3_5_page_structure.assets/image-20210223143306093.png" alt="image-20210223143306093" /></p>
+<p>这种方式很容易理解，但存在一些缺陷：</p>
+<ul>
+<li>在右侧之外的位置添加数据需要对元素进行定位</li>
+<li>不允许高效的管理或访问可变长度的记录，只能处理固定长度的数据</li>
+</ul>
+<h2><a class="header" href="#slotted-pages" id="slotted-pages">Slotted Pages</a></h2>
+<p>在存储可变长度的记录时主要的问题来自于对空闲空间的管理：回收已经被删除数据的记录所占用的空间。如果我们尝试将新的大小为 n 的记录放到之前占用空间大小为 m 的位置，除非 $m == n$ 或者可以找到其他大小等于 $m - n$ 的记录，否则部分的空间就被闲置了。类似的，一个大小为 m 的数据段不能够用来保存一个比他还大的尺寸 k，所以最后会选择插入新的数据而不是回收未使用的空间。</p>
+<p>为了简化可变长度记录的空间管理，我们将页切分为固定长度的段，但是这样做同时也导致我们也浪费了一部分的空间。加入我们使用大小为 64 个字节的段，除非记录的大小都是 64 的倍数，不然在插入大小为 $n$ 的记录时我们就会浪费 $64 - (n \mod 64)$ 个字节，话句话说，除非记录的大小都是 64 的倍数，否则有些块的大小就只有部分填充了。</p>
+<p>空间回收可以使用重新页跟迁移数据记录来实现，但这样我们就需要去维护记录的偏移量了，因为有一些不在本页内的指针可能会使用到这些偏移量。当然，尽量去减少空间的浪费是非常值得的。</p>
+<p>总结，我们需要页格式能够支持我们：</p>
+<ul>
+<li>保存长度可变的记录，以最小化开销</li>
+<li>在删除记录时能够回收占用的空间</li>
+<li>对页面中记录的引用不需要去考虑他们具体的位置 <em>(即偏移量？)</em></li>
+</ul>
+<p>为了能够高效的存储如字符串、二进制数据这些长度可变的庞大的对象，我们可以使用称为 <code>slotted page</code> 分槽页 <em>(即页面中有许多的 slot 槽)</em> 或 <em>slot directory</em> 分槽目录 的技术。这项技术被用在了许多数据库中，比如 PostgreSQL。</p>
+<p>我们将页组织成一个 <em>slot</em> 或 <em>cell</em> 的集合并且将指针跟 <em>cell</em> 以相反的方向独立的存储在页中不同的存储区。这意味着我们可以通过重新组织指针指向的 <em>cell</em> 来维持其顺序，而且删除记录可以通过将删除指针或将其设为空来实现了。</p>
+<p>分槽页有一个固定长度的头部，其中保存了页跟 <code>Cell</code> 相关的重要信息。<em>Cell</em> 可以不同的大小，用来保存与其匹配的数据：键、指针、数据记录。Figure 3-5 展示了分槽页的结构，每个页都会有个成为头部的管理区域，以及 Cell 跟指针。</p>
+<p><img src="./chapter_3_6_slotted_pages.assets/image-20210223155632014.png" alt="image-20210223155632014" /></p>
+<p>现在来看看这个方法是如何解决我们开头提到的问题的：</p>
+<ul>
+<li>最小化开销：带来的唯一的开销是指针数组管理的数据记录的具体位置信息</li>
+<li>空间回收：空间可以通过对页进行碎片整理跟重写来完成</li>
+<li>动态布局：对于外部的页来说，通过 Slot 对应的 ID 来建立引用，因此内部具体的偏移量对外部页来说是无感知的</li>
+</ul>
 
                     </main>
 
