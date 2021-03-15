@@ -72,7 +72,7 @@ Raft 类似于一些其他现存的一致性算法 (如 Oki 及 Liskov's Viewsta
 
 正如 Section 2 所介绍的，Raft 是一个用来管理复制日志的算法。Figure 2 总结了该算法以供备查，Figure 3 则列出了该算法的关键属性；Figure 中所列出的各种元素将会在后续的章节中讨论。
 
-Raft 一致性的实现通过下列的能力能提供，首先他会选举出权威的 Leader, 并赋予该 Leader 绝对的权力来管理日志的复制。Leader 从客户中接收日志条目，将它们复制到其他的服务中，并在安全的时候，通知其他的服务将这些日志应用到他们的状态机中。通过 Leader 我们简化了复制日志的管理，举例来说，Leader 不需要跟其他的服务进行商议即可决定日志的存放位置，数据的流向也被简化成从 Leader 流向其他的服务。Leader 失效或者断线时，将在集群中选举出新的 Leader。
+Raft 一致性的实现通过下列的能力提供，首先他会选举出权威的 Leader, 并赋予该 Leader 绝对的权力来管理日志的复制。Leader 从客户端接收日志条目，将它们复制到其他的服务中，并在安全的时候，通知其他的服务将这些日志应用到他们的状态机中。通过 Leader 我们简化了复制日志的管理，举例来说，Leader 不需要跟其他的服务进行商议即可决定日志的存放位置，数据的流向也被简化成从 Leader 流向其他的服务。Leader 失效或者断线时，将在集群中选举出新的 Leader。
 
 通过选举出 Leader，Raft 将一致性问题分解为三个相对独立的子问题，这些问题都将在接下来的章节中进行讨论：
 
@@ -160,7 +160,7 @@ Raft 一致性的实现通过下列的能力能提供，首先他会选举出权
   **所有服务**
 
   - 如果 **commitIndex** > **lastApplied**，递增 **lastApplied** 然后将索引为 **lastApplied** 的日志应用到状态机
-  - 如果 *RPC* 请求会返回结果的 **Term** > **currentTerm**，将 currentTerm 设为 **Term**, 然后装换为 Follwer
+  - 如果 *RPC* 请求会返回结果的 **Term** > **currentTerm**，将 **currentTerm** 设为 **Term**, 然后装换为 Follwer
 
   **Followers**
 
@@ -245,7 +245,7 @@ Raft 使用心跳的机制来触发 *Leader* 的选举。当服务启动时他�
 
 要开始一轮选举，*Follower* 首先会递增自身的 **currentTerm** 并将自己转换为 *Candidate*；接着该服务会先把选票投给自己，然后以并行的方式给集群中的其他服务发送 *RequestVote* 请求。*Candidate* 会一直保持自己的状态，直到以下的三种情形之一发生：(a) 赢得选举， (b) 其他的服务宣布自己成为了 *Leader*，(c) 指定的间隔时间过去，但没有人成为新的 *Leader*。这些不同的结果我们在下面的段落分别介绍。
 
-当一个 *Candidate* 在当前 Term 中得到了大多数服务的选票时便可赢得本次选举。每个服务在同一个 Term 中会按照先来先处理的原则投票给一个 *Candidate*，并且在同一个 Term 中只会投一次。*(5.4 节中会为选票添加多一个限制)*。**大多数** 这个规则保证了在一个 Term *最多只会有一个服务赢得选举 *(符合 Election Safety 属性)*。当一个 *Candidate* 赢得选举了，他会将状态转换为 *Leader*，接着发送心跳请求给所有的服务来确认自己的管理权，同时也为了防止出现新一轮的选举。
+当一个 *Candidate* 在当前 Term 中得到了大多数服务的选票时便可赢得本次选举。每个服务在同一个 Term 中会按照先来先处理的原则投票给一个 *Candidate*，并且在同一个 Term 中只会投一次。*(5.4 节中会为选票添加多一个限制)*。**大多数** 这个规则保证了在一个 Term *最多*只会有一个服务赢得选举 *(符合 Election Safety 属性)*。当一个 *Candidate* 赢得选举了，他会将状态转换为 *Leader*，接着发送心跳请求给所有的服务来确认自己的管理权，同时也为了防止出现新一轮的选举。
 
 *Candidate* 在等待选票的同时可能会收到来自其他服务的、表明自己成为 *Leader* 的 *AppendEntries* 请求。如果请求中 *Leader* 的 *Term* *(会在请求中包含)* 大于或等于本服务的 **currentTerm**，则 *Candidate* 能够确认该 *Leader* 是合法的，他会将自身从 *Candidate* 状态转换回 *Follower*。相反，如果请求中的 Term 小于 *Candidate* 自身的 **currentTerm**，则 *Candidate* 会拒绝该 RPC 请求，并继续保持 *Candidate* 状态。
 

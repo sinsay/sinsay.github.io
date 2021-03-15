@@ -206,7 +206,7 @@
 <p>我们的第二个目标是通过减少需要考虑的状态类型来简化状态空间，以尽可能的来保持算法的清晰度及减少不确定性。具体点说，日志是不允许有空洞的（也就是必须是连续的），并且 Raft 限制了那些会导致日志不一致的可能。尽管在大多数情况下我们倾向于减少不确定性，但在某些特定的情形中不确定性却能够提高可理解性。尤其是，随机化会提高不确定性，但通过对各种可能的选择做类似的操作，能够减少状态空间处理的复杂度。我们使用了随机化来简化 Raft 的 Leader Election 算法。</p>
 <h2><a class="header" href="#5-raft-的一致性算法-the-raft-consensus-algorithm" id="5-raft-的一致性算法-the-raft-consensus-algorithm">5. Raft 的一致性算法 The Raft Consensus Algorithm</a></h2>
 <p>正如 Section 2 所介绍的，Raft 是一个用来管理复制日志的算法。Figure 2 总结了该算法以供备查，Figure 3 则列出了该算法的关键属性；Figure 中所列出的各种元素将会在后续的章节中讨论。</p>
-<p>Raft 一致性的实现通过下列的能力能提供，首先他会选举出权威的 Leader, 并赋予该 Leader 绝对的权力来管理日志的复制。Leader 从客户中接收日志条目，将它们复制到其他的服务中，并在安全的时候，通知其他的服务将这些日志应用到他们的状态机中。通过 Leader 我们简化了复制日志的管理，举例来说，Leader 不需要跟其他的服务进行商议即可决定日志的存放位置，数据的流向也被简化成从 Leader 流向其他的服务。Leader 失效或者断线时，将在集群中选举出新的 Leader。</p>
+<p>Raft 一致性的实现通过下列的能力提供，首先他会选举出权威的 Leader, 并赋予该 Leader 绝对的权力来管理日志的复制。Leader 从客户端接收日志条目，将它们复制到其他的服务中，并在安全的时候，通知其他的服务将这些日志应用到他们的状态机中。通过 Leader 我们简化了复制日志的管理，举例来说，Leader 不需要跟其他的服务进行商议即可决定日志的存放位置，数据的流向也被简化成从 Leader 流向其他的服务。Leader 失效或者断线时，将在集群中选举出新的 Leader。</p>
 <p>通过选举出 Leader，Raft 将一致性问题分解为三个相对独立的子问题，这些问题都将在接下来的章节中进行讨论：</p>
 <ul>
 <li><strong>Leader Election</strong>: 在现有的 Leader 失效时，必须选举出新的 Leader (Section 5.2).</li>
@@ -288,7 +288,7 @@
 <p><strong>所有服务</strong></p>
 <ul>
 <li>如果 <strong>commitIndex</strong> &gt; <strong>lastApplied</strong>，递增 <strong>lastApplied</strong> 然后将索引为 <strong>lastApplied</strong> 的日志应用到状态机</li>
-<li>如果 <em>RPC</em> 请求会返回结果的 <strong>Term</strong> &gt; <strong>currentTerm</strong>，将 currentTerm 设为 <strong>Term</strong>, 然后装换为 Follwer</li>
+<li>如果 <em>RPC</em> 请求会返回结果的 <strong>Term</strong> &gt; <strong>currentTerm</strong>，将 <strong>currentTerm</strong> 设为 <strong>Term</strong>, 然后装换为 Follwer</li>
 </ul>
 <p><strong>Followers</strong></p>
 <ul>
@@ -364,7 +364,7 @@
 <h3><a class="header" href="#52-leader-选举-leader-election" id="52-leader-选举-leader-election">5.2 Leader 选举 Leader Election</a></h3>
 <p>Raft 使用心跳的机制来触发 <em>Leader</em> 的选举。当服务启动时他们都处于 <em>Follower</em> 的状态，他们只要能一直收到 <em>Leader</em> 或者 <em>Candidate</em> 的合法的信息，就会一直保持 <em>Follower</em> 的状态。<em>Leader</em>  则通过周期性的发送心跳 <em>(不带日志信息的 AppendEntries 调用)</em> 给所有的 <em>Follower</em> 来保持自己的管理权。如果一个 <em>Follower</em> 在一个被称为 <em>Election Timeout</em> 的间隔中没有收到通信请求，他会假设这个时候已经没有可用的 <em>Leader</em> ，从而会发起一次新的选举来尝试成为 <em>Leader</em>。</p>
 <p>要开始一轮选举，<em>Follower</em> 首先会递增自身的 <strong>currentTerm</strong> 并将自己转换为 <em>Candidate</em>；接着该服务会先把选票投给自己，然后以并行的方式给集群中的其他服务发送 <em>RequestVote</em> 请求。<em>Candidate</em> 会一直保持自己的状态，直到以下的三种情形之一发生：(a) 赢得选举， (b) 其他的服务宣布自己成为了 <em>Leader</em>，(c) 指定的间隔时间过去，但没有人成为新的 <em>Leader</em>。这些不同的结果我们在下面的段落分别介绍。</p>
-<p>当一个 <em>Candidate</em> 在当前 Term 中得到了大多数服务的选票时便可赢得本次选举。每个服务在同一个 Term 中会按照先来先处理的原则投票给一个 <em>Candidate</em>，并且在同一个 Term 中只会投一次。<em>(5.4 节中会为选票添加多一个限制)</em>。<strong>大多数</strong> 这个规则保证了在一个 Term *最多只会有一个服务赢得选举 <em>(符合 Election Safety 属性)</em>。当一个 <em>Candidate</em> 赢得选举了，他会将状态转换为 <em>Leader</em>，接着发送心跳请求给所有的服务来确认自己的管理权，同时也为了防止出现新一轮的选举。</p>
+<p>当一个 <em>Candidate</em> 在当前 Term 中得到了大多数服务的选票时便可赢得本次选举。每个服务在同一个 Term 中会按照先来先处理的原则投票给一个 <em>Candidate</em>，并且在同一个 Term 中只会投一次。<em>(5.4 节中会为选票添加多一个限制)</em>。<strong>大多数</strong> 这个规则保证了在一个 Term <em>最多</em>只会有一个服务赢得选举 <em>(符合 Election Safety 属性)</em>。当一个 <em>Candidate</em> 赢得选举了，他会将状态转换为 <em>Leader</em>，接着发送心跳请求给所有的服务来确认自己的管理权，同时也为了防止出现新一轮的选举。</p>
 <p><em>Candidate</em> 在等待选票的同时可能会收到来自其他服务的、表明自己成为 <em>Leader</em> 的 <em>AppendEntries</em> 请求。如果请求中 <em>Leader</em> 的 <em>Term</em> <em>(会在请求中包含)</em> 大于或等于本服务的 <strong>currentTerm</strong>，则 <em>Candidate</em> 能够确认该 <em>Leader</em> 是合法的，他会将自身从 <em>Candidate</em> 状态转换回 <em>Follower</em>。相反，如果请求中的 Term 小于 <em>Candidate</em> 自身的 <strong>currentTerm</strong>，则 <em>Candidate</em> 会拒绝该 RPC 请求，并继续保持 <em>Candidate</em> 状态。</p>
 <p>第三种可能出现的结果是 <em>Candidate</em> 没有赢得或输了选举：如果有多个 <em>Follower</em> 同时成为 <em>Candidate</em>，选票有可能被瓜分导致没有 <em>Candidate</em> 能够获得大多数的选票。当发生这种状况时每个 <em>Candidate</em> 都会在到达超时时间后提升自己的 Term 并发送 <em>RequestVote</em> 开始新一轮的选举，如果没有其他的限制这个瓜分选票的情况可能会无限重复下去。</p>
 <p>Raft 使用一个随机的选举超时时间来降低选票瓜分的可能性并让选举能快速完成。为了从一开始就防止选票瓜分，一开始触发选举的超时时间会在固定的区间中选择一个随机值 <em>(比如 150 - 300ms)</em>。这区别开了每个服务的超时时间，使得在大多数情况下在某个时刻只会有一个服务到达超时时间，这样他在赢得选举时就能够在其他服务超时前发送出心跳请求。相同的机制还用在了处理选票瓜分的状况，每个 <em>Candidate</em> 会在重试发起新一轮选举前选择一个随机的延迟，在延迟时间之后才触发新一轮的选举，这也减少了新一轮选举产生瓜分选票的可能性。在 9.3 章展示了该机制所达到的快速完成选举的效果。</p>
