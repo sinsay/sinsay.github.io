@@ -5519,7 +5519,8 @@ while (0);                                                  \
         memcpy(&amp;(prevlen), ((char *)(ptr) + 1, 4);         \
         memrev32ifbe(&amp;prevlen);                            \
     }                                                      \
-} while (0);                                               \
+} while (0);                                               
+
 
 static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsigned char *s, unsigned int slen) {
     size_t curlen = intrev32ifbe(ZIPLIST_BYTES(zl)), reqlen;
@@ -6096,31 +6097,6 @@ static void zipPrevEncodeLengthForceLarge(unsigned char *p, unsigned int len) {
 </code></pre>
 <h2><a class="header" href="#遍历列表" id="遍历列表">遍历列表</a></h2>
 <p><code>TODO</code></p>
-<h1><a class="header" href="#级联表单实用类" id="级联表单实用类">级联表单实用类</a></h1>
-<pre><code class="language-javascript">// A -&gt; B 是一对多的关联
-
-// 在 对象 A 中的方法
-var context = getContext(this);
-var data = {} // 根据当前模块获取要添加的对象信息
-
-
-var or = ObjRel(&quot;ab&quot;) // 通过唯一的 key 来获取 or
-or.setMaster(context, data);
-
-// 在对象 B 的方法
-var context = getContext(this);
-var data = {} // 根据当前模块获取要添加的对象信息
-
-var or = ObjRel(&quot;ab&quot;); // key 一样，那对象 A 中获取到的 or 跟当前的 or 就应该是同一个
-or.setSubObj(context, data);
-
-var ob2 = ObjRel(&quot;bc&quot;);
-
-// 最终添加个按钮，点击时只要调用
-// 就能把之前设好的各个对象进行关联
-var or = ObjRel(&quot;ab&quot;);
-or.save();
-</code></pre>
 <h1><a class="header" href="#redis" id="redis">Redis</a></h1>
 <h1><a class="header" href="#redis-源码分析-一-基本定义" id="redis-源码分析-一-基本定义">Redis 源码分析 (一) 基本定义</a></h1>
 <p>[TOC]</p>
