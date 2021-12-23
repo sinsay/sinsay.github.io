@@ -1,36 +1,58 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Raft - SinSay's Note Book</title>
+        <title>Raft (译) - SinSay&#x27;s Note Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -50,10 +72,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -69,43 +94,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="tokio.html"><strong aria-hidden="true">1.</strong> Tokio Tutirial</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">1.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">1.2.</strong> Spawning</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">2.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">2.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">2.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">2.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">2.4.</strong> intset</a></li><li><a href="redis/ziplist.html"><strong aria-hidden="true">2.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">3.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">3.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">3.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">3.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">3.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce</a></li><li><a href="distributed/raft_note.html" class="active"><strong aria-hidden="true">4.2.</strong> Raft</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html" class="active"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/index.html"><strong aria-hidden="true">5.</strong> Tracing</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 执行命令</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">SinSay's Note Book</h1> 
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -134,10 +164,10 @@
                 <div id="content" class="content">
                     <main>
                         <p>[TOC]</p>
-<a class="header" href="distributed/raft_note.html#a对易于理解的一致性算法的研究扩展版" id="a对易于理解的一致性算法的研究扩展版"><h1>对易于理解的一致性算法的研究(扩展版)</h1></a>
-<a class="header" href="distributed/raft_note.html#a0-摘要-abstract" id="a0-摘要-abstract"><h2>0. 摘要 Abstract</h2></a>
-<p>Raft 是一个用来管理 复制日志 的一致性算法。他产出的结果与 (Multi-)Paxos 是一样的，同时也保持跟 Paxos 一样高效，但他们是基于不同的数据结构的。不一样的数据结构让 Raft 更易于理解且更易于构建实际的系统。为了提高礼节性，Raft 将一致性切分为几个不同的元素，比如 Leader Election (领导者选举)，Log Replication (日志复制) 跟 Safety (安全性)，他还使用了更高级别的内聚来减少需要考虑的状态数量。从一些用户的学习结果观察得出 Raft 相较于 Paxos 更易于学生学习。Raft 同时还包含了一个新的机制来处理集群成员的变更，这是一个通过覆盖大多数节点(Overlapping Majorities) 来保证安全的机制。</p>
-<a class="header" href="distributed/raft_note.html#a1-介绍-introduction" id="a1-介绍-introduction"><h2>1. 介绍 Introduction</h2></a>
+<h1><a class="header" href="#对易于理解的一致性算法的研究扩展版" id="对易于理解的一致性算法的研究扩展版">对易于理解的一致性算法的研究(扩展版)</a></h1>
+<h2><a class="header" href="#0-摘要-abstract" id="0-摘要-abstract">0. 摘要 Abstract</a></h2>
+<p>Raft 是一个用来管理 复制日志 的一致性算法。他产出的结果与 (Multi-)Paxos 是一样的，同时也保持跟 Paxos 一样高效，但他们是基于不同的数据结构的。不一样的数据结构让 Raft 更易于理解且更易于构建实际的系统。为了更易于理解，Raft 将一致性切分为几个不同的元素，比如 Leader Election (领导者选举)，Log Replication (日志复制) 跟 Safety (安全性)，他还使用了更高级别的内聚来减少需要考虑的状态数量。从一些用户的学习结果观察得出 Raft 相较于 Paxos 更易于学生学习。Raft 同时还包含了一个新的机制来处理集群成员的变更，这是一个通过覆盖大多数节点(Overlapping Majorities) 来保证安全的机制。</p>
+<h2><a class="header" href="#1-介绍-introduction" id="1-介绍-introduction">1. 介绍 Introduction</a></h2>
 <p>一致性算法让一组机器在部分成员失效时仍能够保持整体正常运行。正因如此，他扮演者一个用来构建可靠的大规模软件系统的关键角色。Paxos 在上一个十年一直主导着关于一致性算法的讨论：大多数的一致性算法都是基于 Paxos 或是受其影响的，并且 Paxos 也成为了一致性知识教学的主导工具。</p>
 <p>遗憾的是，尽管已经有大量的努力，Paxos 还是是太难以理解，并且他本身的结构也需要经过大量的调整才能应用到现实的系统中。这些让系统的构建者及学生都感到头痛。</p>
 <p>在亲身经历了 Paxos 的折磨后，我们开始寻找一种能够在支持系统构建及教学上都能表现得更好的一致性算法。我们的目标不同于其他的一致性算法点在于，我们的首要目标是易于理解：我们能否定义一种相对于 Paxos 来说，更适合用来构建现实系统及教导学生的一致性算法？并且，我们希望这个算法对于系统开发者来说，仅凭直觉就能够明白。相较于让算法能够正常执行，更重要的是能够理解他为什么能够执行。</p>
@@ -150,12 +180,12 @@
 </ul>
 <p>我们相信 Raft 对于 Paxos 跟其他的一致性算法都是上好的，不管是以教学为目的还是以系统构建为目的。他比起其他算法来说更简单跟易于理解；他提供完整的描述给其他那些需要构建系统的人；他也有很多开源的实现；他的安全属性已经被证明了；他的运行效率相较于其他算法也是很好的。</p>
 <p>在本篇论文的其他部分会介绍 复制状态机问题 (Replicated state machine problem)(第二节)；还介绍了 Paxos 的优劣 (第三节)；描述了该算法的可理解性（第四节), 完整的 Raft 一支性算法(第 5-8 节)； 运行 Raft (9 节); 以及一些其他的相关工作 (Section 10).</p>
-<a class="header" href="distributed/raft_note.html#a2-复制状态机-replicated-state-machines" id="a2-复制状态机-replicated-state-machines"><h2>2. 复制状态机 Replicated State Machines</h2></a>
+<h2><a class="header" href="#2-复制状态机-replicated-state-machines" id="2-复制状态机-replicated-state-machines">2. 复制状态机 Replicated State Machines</a></h2>
 <p>一致性算法是在复制状态机的背景中提出的。在这个背景中，一组服务器中的状态机计算出相同状态的副本，并以此得到了在某些服务器宕机情况下，依旧能保持正常服务的能力。复制状态机用来解决在分布式系统中的各种容错问题，比如一个大规模的系统的计算机集群中有只有一个 领导者(Leader)，就像 GFS、HDFS 跟 RAMCloud，使用了复制状态机来管理 领导者 的选举及存储配置信息来应对领导者的崩溃。使用复制状态机的例子还包括了 Chubby 跟 ZooKeeper。</p>
 <blockquote>
 <p>Figure 1: 复制状态机架构。</p>
 <p>一致性算法管理着复制日志(Replicated Log), 日志中包含记录了来自客户端请求的状态机命令。状态机顺序的执行日志中的命令，所以每个状态机都能得到同样的输出。</p>
-<p><img src="./Raft Note.assets/image-20200608131913561.png" style="width: 60%" ></p>
+<img src="./Raft Note.assets/image-20200608131913561.png" style="width: 60%" >
 </blockquote>
 <p>复制状态机典型的实现是使用如 <em>Figure 1</em> 中展示的 复制日志 (Replicated Log) 方式。每台服务器的日志中都包含了一系列将被他的状态机顺序执行的命令。所有的日志都以一样的顺序保存了相同的命令，所以所有的状态机会以相同的顺序去执行这一系列命令。因为每台状态机都是不可逆的，所以每一台相同状态的状态机按相同的顺序执行命令后会有相同的输出。</p>
 <p>保持复制日志一致性是一致性算法的工作，服务器上的一致性模块从客户端接收命令并将其添加到自己的日志中。它和其他服务器上的一一致性模块通过通信来确保，就算有部分服务器失效，每个日志条目最终也会以相同的顺序保存。在命令被正确的复制后每台服务器会按照日志的顺序来处理他们，并且会将其输出返回给客户端。最终呈现出来的是，这些服务器看起来就像是一台可靠的状态机。</p>
@@ -166,17 +196,17 @@
 <li>他们不会依赖于时序来保证日志的一致性：错误的时钟跟极端严重的消息延迟会才会导致集群不可用。</li>
 <li>正常情况下，日志中的指令能够在大多数服务器响应后。在一轮 RPC 中被完成；少量的缓慢的服务器必须不会对整个系统的性能造成影响。</li>
 </ul>
-<a class="header" href="distributed/raft_note.html#a3-paxos-的不足-whats-wrong-with-paxos-" id="a3-paxos-的不足-whats-wrong-with-paxos-"><h2>3. Paxos 的不足 What's Wrong With Paxos ?</h2></a>
+<h2><a class="header" href="#3-paxos-的不足-whats-wrong-with-paxos-" id="3-paxos-的不足-whats-wrong-with-paxos-">3. Paxos 的不足 What's Wrong With Paxos ?</a></h2>
 <p>在过去的 10 年里，Leslie Lamport 的 Paxos 协议几乎就代表着一致性: 他是在教学中最常见的算法，同时也是许多其他一致性算法实现时的起点。</p>
 <p>==TODO== 略过对 Paxos 的评论</p>
-<a class="header" href="distributed/raft_note.html#a4-可理解的设计-designing-for-understandability" id="a4-可理解的设计-designing-for-understandability"><h2>4. 可理解的设计 Designing For Understandability</h2></a>
+<h2><a class="header" href="#4-可理解的设计-designing-for-understandability" id="4-可理解的设计-designing-for-understandability">4. 可理解的设计 Designing For Understandability</a></h2>
 <p>我们在设计 Raft 时有好些目标：它必须为系统构建提供完整且实际的基础，这让开发人员能够显著的减少设计工作；它必须在任何条件下都是安全的，对于常规操作条件下它都必须都是可用的；对于常规的操作它必须是高效的；但我们最大的目标，并且最困难的挑战是 -- 它必须是易于理解的。需要让大部分的读者都能较轻松的理解这个算法。此外，必须让开发人员对这个算法有直观的理解，这样在开发人员才能在具体的实现中对其进行扩展。</p>
 <p>在设计 Raft 的过程中，我们做了许多设计上的取舍来达到现在的目标。在面对这些条件时，如何以可理解性作为基础条件来评估：解释这些评估有多难（例如，它的状态控件有多复杂，他们之间是否有微妙的区别），以及如何容易的让读者来完整的理解这些目标以及那些微妙的变化。</p>
 <p>我们发现对可理解性的分析其实带了很大的主观性；尽管如此，我们使用了两种比较适当且通用的技术，第一种是众所周知的，称为问题分解：我们尽可能的将问题分解为许多能够独立解决、说明跟理解的小问题。比如将 Raft 分解为 Leader Election、Log Replication、Safty 跟 Membership Changes。</p>
 <p>我们的第二个目标是通过减少需要考虑的状态类型来简化状态空间，以尽可能的来保持算法的清晰度及减少不确定性。具体点说，日志是不允许有空洞的（也就是必须是连续的），并且 Raft 限制了那些会导致日志不一致的可能。尽管在大多数情况下我们倾向于减少不确定性，但在某些特定的情形中不确定性却能够提高可理解性。尤其是，随机化会提高不确定性，但通过对各种可能的选择做类似的操作，能够减少状态空间处理的复杂度。我们使用了随机化来简化 Raft 的 Leader Election 算法。</p>
-<a class="header" href="distributed/raft_note.html#a5-raft-的一致性算法-the-raft-consensus-algorithm" id="a5-raft-的一致性算法-the-raft-consensus-algorithm"><h2>5. Raft 的一致性算法 The Raft Consensus Algorithm</h2></a>
+<h2><a class="header" href="#5-raft-的一致性算法-the-raft-consensus-algorithm" id="5-raft-的一致性算法-the-raft-consensus-algorithm">5. Raft 的一致性算法 The Raft Consensus Algorithm</a></h2>
 <p>正如 Section 2 所介绍的，Raft 是一个用来管理复制日志的算法。Figure 2 总结了该算法以供备查，Figure 3 则列出了该算法的关键属性；Figure 中所列出的各种元素将会在后续的章节中讨论。</p>
-<p>Raft 一致性的实现通过下列的能力能提供，首先他会选举出权威的 Leader, 并赋予该 Leader 绝对的权力来管理日志的复制。Leader 从客户中接收日志条目，将它们复制到其他的服务中，并在安全的时候，通知其他的服务将这些日志应用到他们的状态机中。通过 Leader 我们简化了复制日志的管理，举例来说，Leader 不需要跟其他的服务进行商议即可决定日志的存放位置，数据的流向也被简化成从 Leader 流向其他的服务。Leader 失效或者断线时，将在集群中选举出新的 Leader。</p>
+<p>Raft 一致性的实现通过下列的能力提供，首先他会选举出权威的 Leader, 并赋予该 Leader 绝对的权力来管理日志的复制。Leader 从客户端接收日志条目，将它们复制到其他的服务中，并在安全的时候，通知其他的服务将这些日志应用到他们的状态机中。通过 Leader 我们简化了复制日志的管理，举例来说，Leader 不需要跟其他的服务进行商议即可决定日志的存放位置，数据的流向也被简化成从 Leader 流向其他的服务。Leader 失效或者断线时，将在集群中选举出新的 Leader。</p>
 <p>通过选举出 Leader，Raft 将一致性问题分解为三个相对独立的子问题，这些问题都将在接下来的章节中进行讨论：</p>
 <ul>
 <li><strong>Leader Election</strong>: 在现有的 Leader 失效时，必须选举出新的 Leader (Section 5.2).</li>
@@ -184,8 +214,8 @@
 <li><strong>Safety</strong>: Raft 中的 Safety 属性是指在 FIgure 3 中所说的：如果如果一个服务应用了一条日志到他的状态机中，其他的服务必然不会在相同的日志位置中应用其他不同的条目。Section 5.4 介绍了 Raft 是如何保障这个属性的，保障这个属性需要选举机制添加附加的限制，这些内容将在 Section 5.2 中介绍。</li>
 </ul>
 <p>介绍完该一致性算法后，本章将继续讨论关于系统中关于可用性的问题。</p>
-<a class="header" href="distributed/raft_note.html#a50-figure" id="a50-figure"><h3>5.0 Figure</h3></a>
-<a class="header" href="distributed/raft_note.html#figure2---state-and-rpc" id="figure2---state-and-rpc"><h4>Figure2 - State And RPC</h4></a>
+<h3><a class="header" href="#50-figure" id="50-figure">5.0 Figure</a></h3>
+<h4><a class="header" href="#figure2---state-and-rpc" id="figure2---state-and-rpc">Figure2 - State And RPC</a></h4>
 <ul>
 <li>
 <p><strong>State</strong></p>
@@ -193,7 +223,7 @@
 <ul>
 <li><strong>currentTerm</strong> 该服务所看到的最新的 Term <em>(以 0 进行初始化，并单调的递增)</em></li>
 <li><strong>votedFor</strong> 在当前 Term 中收到的 CandidateId(候选人 ID)</li>
-<li><strong>log[]</strong> 日志条目数组，每个条目都存储了要应用到状态机的命令以及 Leader 接收到该条目时的 Term</li>
+<li><strong>log[]</strong> 日志条目数组，每个条目都存储了要应用到状态机的命令以及 Leader 接收到该条目时的 Term </li>
 </ul>
 <p><strong>所有服务都有的动态状态</strong></p>
 <ul>
@@ -258,7 +288,7 @@
 <p><strong>所有服务</strong></p>
 <ul>
 <li>如果 <strong>commitIndex</strong> &gt; <strong>lastApplied</strong>，递增 <strong>lastApplied</strong> 然后将索引为 <strong>lastApplied</strong> 的日志应用到状态机</li>
-<li>如果 <em>RPC</em> 请求会返回结果的 <strong>Term</strong> &gt; <strong>currentTerm</strong>，将 currentTerm 设为 <strong>Term</strong>, 然后装换为 Follwer</li>
+<li>如果 <em>RPC</em> 请求会返回结果的 <strong>Term</strong> &gt; <strong>currentTerm</strong>，将 <strong>currentTerm</strong> 设为 <strong>Term</strong>, 然后装换为 Follwer</li>
 </ul>
 <p><strong>Followers</strong></p>
 <ul>
@@ -293,7 +323,7 @@
 </ul>
 </li>
 </ul>
-<a class="header" href="distributed/raft_note.html#figure3-raft-property" id="figure3-raft-property"><h4>Figure3 Raft Property</h4></a>
+<h4><a class="header" href="#figure3-raft-property" id="figure3-raft-property">Figure3 Raft Property</a></h4>
 <ul>
 <li>
 <p><strong>Election Safety</strong></p>
@@ -316,36 +346,36 @@
 <p>如果一个服务将一个日志应用到了日志的一个索引位置后，其他的服务不会在相同的位置应用不同的日志条目。</p>
 </li>
 </ul>
-<a class="header" href="distributed/raft_note.html#a51-raft-基础-raft-basics" id="a51-raft-基础-raft-basics"><h3>5.1 Raft 基础 Raft basics</h3></a>
+<h3><a class="header" href="#51-raft-基础-raft-basics" id="51-raft-基础-raft-basics">5.1 Raft 基础 Raft basics</a></h3>
 <p>一个 Raft 集群包含多个服务器；一个典型的数值是五，他允许我们的系统能够容许两台服务器失效。在任意的时刻集群中的每台服务器都应当处于下面三种状态之一: <em>Leader</em>、<em>Follower</em>、<em>Candidate</em>。一个常见的场景是，其中一个处于 <em>Leader</em> 状态，其他的都是 <em>Follower</em>。<em>Follower</em> 是被动的：他们并不会处理客户端的请求，只会对来自 <em>Leader</em> 及 <em>Candidate</em> 的请求做出响应。来自客户端的请求全都会交给 <code>Leader</code> 进行处理（如果客户端将请求发送给了 <code>Follower</code>， 则 <code>Follower</code> 会将请求转达给 <code>Leader</code>）。第三个 <code>Condidate</code> 状态是用来进行选举新 <em>Leader</em> 的，我们将在 5.2 节中进行介绍。Fiture 4 给我们展示了每个状态之间的转换，具体的转换细节，我们将在下面进行讨论。</p>
 <blockquote>
 <p><strong>Figure 4</strong></p>
 <p>服务的状态，<em>Followers</em> 只会响应其他服务的请求。如果 <em>Follower</em> 没有收到请求，他会将自己转换为 <em>Candidate</em> 然后触发一次选举。当一个 <em>Candidate</em> 收到大多数服务器的选票时会转换为 <em>Leader</em>，<em>Leader</em> 则保持自己的状态，直到自己失效。</p>
-<p><img src="./Raft Note.assets/image-20200905154253092.png" style="width: 80%"></p>
+<img src="./Raft Note.assets/image-20200905154253092.png" style="width: 80%">
 </blockquote>
 <p>Raft 将时间严格的使用 Term 进行了切分，如 Figure 5。 Terms 是有序且连续的数值。如 5.2 节将介绍的，每次有一个或多个 <em>Candidate</em> 尝试转换为 <code>Leader</code> 时，都会产生一个新的 Term。如果一个 <em>Candidate</em> 赢得了某次选举，那他在这个 Term 期间都将作为集群的 <em>Leader</em>。在某些条件下，选举可能会产生选票瓜分的情况，这时将不会产生新的 <em>Leader</em>，因此一次新的选举将带着一个新的 Term 在短时间内重新举行。</p>
 <blockquote>
 <p><strong>Figure 5</strong></p>
 <p>将时间切分为 Term，每个 Term 都是从一次选举中产生的。每次成功选举之后，一个 Leader 在他的 Term 期间会负责管理整个集群。当在一个 Term 期间没有选举出新的 Leader 时，则该次选举是失败的。每个服务观察到 Term 的转换时间可能都是不同的。</p>
-<p><img src="./Raft Note.assets/image-20200905155025993.png" style="width: 70%" ></p>
+<img src="./Raft Note.assets/image-20200905155025993.png" style="width: 70%" >
 </blockquote>
 <p>不同的服务可能会在不同的时刻观察到 Term 的变化，在某些情况下一个服务可能没法观察到某次选举的过程，甚至是所有 Term 的变化。Terms 在 Raft 中扮演者逻辑时钟的角色，这为服务们提供了检查过期信息的能力，如判别过期的 Leader。每个服务都会保存一个严格递增的代表当前的 Term 的数值 <em>（current term number)</em>，我们将它命名为 <strong>CurrentTerm</strong>， CurrentTerm 会在服务之间的每次通讯中进行交换；如果一个服务的 <strong>CurrentTerm</strong> 比另外一个服务的小，则他会将自身的 <strong>CurrentTerm</strong> 转换为较大的那个。如果一个 <em>Candidate</em> 或者一个 <em>Leader</em> 发现自己的  <strong>CurrentTerm</strong> 已经过期了，他们会马上将自己转换为 <em>Follower</em>。如果一个服务接收到的请求是来自于一个过期的 Term，则他们会拒绝这个请求。</p>
 <p>Raft 的服务之间通过远程过程调用 <em>(RPC)</em> 来进行通信，而且基础的一致性算法实现部分只需要两种类型的 RPC 调用，他们分别是 <em>Candidate</em>  用来发起一个选举的 <em>RequestVote</em> 调用，以及 <em>Leader</em> 用来复制日志及发送心跳的 <em>AppendEntries</em> 调用。在第 7 章时我们将会增加一种用来发送快照 <em>(snapshots)</em> 的调用。服务在没有收到调用的响应时会以定时的方式进行重试，并且每个服务都会以并行的方式来处理 RPC 请求以获得更好的性能。</p>
-<a class="header" href="distributed/raft_note.html#a52-leader-选举-leader-election" id="a52-leader-选举-leader-election"><h3>5.2 Leader 选举 Leader Election</h3></a>
+<h3><a class="header" href="#52-leader-选举-leader-election" id="52-leader-选举-leader-election">5.2 Leader 选举 Leader Election</a></h3>
 <p>Raft 使用心跳的机制来触发 <em>Leader</em> 的选举。当服务启动时他们都处于 <em>Follower</em> 的状态，他们只要能一直收到 <em>Leader</em> 或者 <em>Candidate</em> 的合法的信息，就会一直保持 <em>Follower</em> 的状态。<em>Leader</em>  则通过周期性的发送心跳 <em>(不带日志信息的 AppendEntries 调用)</em> 给所有的 <em>Follower</em> 来保持自己的管理权。如果一个 <em>Follower</em> 在一个被称为 <em>Election Timeout</em> 的间隔中没有收到通信请求，他会假设这个时候已经没有可用的 <em>Leader</em> ，从而会发起一次新的选举来尝试成为 <em>Leader</em>。</p>
 <p>要开始一轮选举，<em>Follower</em> 首先会递增自身的 <strong>currentTerm</strong> 并将自己转换为 <em>Candidate</em>；接着该服务会先把选票投给自己，然后以并行的方式给集群中的其他服务发送 <em>RequestVote</em> 请求。<em>Candidate</em> 会一直保持自己的状态，直到以下的三种情形之一发生：(a) 赢得选举， (b) 其他的服务宣布自己成为了 <em>Leader</em>，(c) 指定的间隔时间过去，但没有人成为新的 <em>Leader</em>。这些不同的结果我们在下面的段落分别介绍。</p>
-<p>当一个 <em>Candidate</em> 在当前 Term 中得到了大多数服务的选票时便可赢得本次选举。每个服务在同一个 Term 中会按照先来先处理的原则投票给一个 <em>Candidate</em>，并且在同一个 Term 中只会投一次。<em>(5.4 节中会为选票添加多一个限制)</em>。<strong>大多数</strong> 这个规则保证了在一个 Term *最多只会有一个服务赢得选举 <em>(符合 Election Safety 属性)</em>。当一个 <em>Candidate</em> 赢得选举了，他会将状态转换为 <em>Leader</em>，接着发送心跳请求给所有的服务来确认自己的管理权，同时也为了防止出现新一轮的选举。</p>
+<p>当一个 <em>Candidate</em> 在当前 Term 中得到了大多数服务的选票时便可赢得本次选举。每个服务在同一个 Term 中会按照先来先处理的原则投票给一个 <em>Candidate</em>，并且在同一个 Term 中只会投一次。<em>(5.4 节中会为选票添加多一个限制)</em>。<strong>大多数</strong> 这个规则保证了在一个 Term <em>最多</em>只会有一个服务赢得选举 <em>(符合 Election Safety 属性)</em>。当一个 <em>Candidate</em> 赢得选举了，他会将状态转换为 <em>Leader</em>，接着发送心跳请求给所有的服务来确认自己的管理权，同时也为了防止出现新一轮的选举。</p>
 <p><em>Candidate</em> 在等待选票的同时可能会收到来自其他服务的、表明自己成为 <em>Leader</em> 的 <em>AppendEntries</em> 请求。如果请求中 <em>Leader</em> 的 <em>Term</em> <em>(会在请求中包含)</em> 大于或等于本服务的 <strong>currentTerm</strong>，则 <em>Candidate</em> 能够确认该 <em>Leader</em> 是合法的，他会将自身从 <em>Candidate</em> 状态转换回 <em>Follower</em>。相反，如果请求中的 Term 小于 <em>Candidate</em> 自身的 <strong>currentTerm</strong>，则 <em>Candidate</em> 会拒绝该 RPC 请求，并继续保持 <em>Candidate</em> 状态。</p>
 <p>第三种可能出现的结果是 <em>Candidate</em> 没有赢得或输了选举：如果有多个 <em>Follower</em> 同时成为 <em>Candidate</em>，选票有可能被瓜分导致没有 <em>Candidate</em> 能够获得大多数的选票。当发生这种状况时每个 <em>Candidate</em> 都会在到达超时时间后提升自己的 Term 并发送 <em>RequestVote</em> 开始新一轮的选举，如果没有其他的限制这个瓜分选票的情况可能会无限重复下去。</p>
 <p>Raft 使用一个随机的选举超时时间来降低选票瓜分的可能性并让选举能快速完成。为了从一开始就防止选票瓜分，一开始触发选举的超时时间会在固定的区间中选择一个随机值 <em>(比如 150 - 300ms)</em>。这区别开了每个服务的超时时间，使得在大多数情况下在某个时刻只会有一个服务到达超时时间，这样他在赢得选举时就能够在其他服务超时前发送出心跳请求。相同的机制还用在了处理选票瓜分的状况，每个 <em>Candidate</em> 会在重试发起新一轮选举前选择一个随机的延迟，在延迟时间之后才触发新一轮的选举，这也减少了新一轮选举产生瓜分选票的可能性。在 9.3 章展示了该机制所达到的快速完成选举的效果。</p>
 <p>选举是一个可理解性是如何指导我们进行设计选择的例子。在最开始，我们计划使用一种排名系统：每个 <em>Candidate</em> 会被赋予一个唯一的名次，这个名次将用来在竞争的 <em>Candidate</em> 中进行选择的依据。如果一个 <em>Candidate</em> 发现其他的 <em>Candidate</em> 的名次比自身高，他就会转换至 <em>Follower</em> 状态，这样的话名次较高的 <em>Candidate</em> 就能够比较容易的赢得下一次的选举。我们发现这个处理产生一个关于可用性的微妙问题 <em>(名次较低的服务在名次较高的服务失效时经过超时时间后会重新成为 Candidate, 但如果他处理的太快，可能会导致选举的过程被重置)</em>，我们对算法进行了多次的调整，但每次调整后都会产生新的边界状况。最终我们总结出随机的重试机制更加直观跟容易理解。</p>
-<a class="header" href="distributed/raft_note.html#a53-日志复制-log-replication" id="a53-日志复制-log-replication"><h3>5.3 日志复制 Log Replication</h3></a>
+<h3><a class="header" href="#53-日志复制-log-replication" id="53-日志复制-log-replication">5.3 日志复制 Log Replication</a></h3>
 <p><em>Leader</em> 在被选举出来后才能够处理来自客户端的请求，每个请求都包含了需要被每个状态机副本执行的命令。<em>Leader</em> 将命令作为一条新的日志条目添加到日志中，然后并行的向其他服务发起 <strong>AppendEntries</strong> RPC请求，当条目被 <em>安全的复 制</em> 后 <em>(下面会说明说明是安全的复制)</em> ，<em>Leader</em> 将该条目中的命令应用到自身的状态机中，然后将该命令的执行结果返回给客户端。如果 <em>Follower</em> 崩溃或者很慢，又或者网络中的信息丢失了，<em>Leader</em> 会无限的发送出 <strong>AppendEntries</strong> 请求 <em>(就算在他已经将结果返回给客户端之后也是)</em> ，直到所有的 <em>Follower</em> 将所有的日志条目都存储到其本机的日志中。</p>
 <p>日志被组织为 <em>Figure 6</em> 所<u>展示的那样。每个日志</u>条目都保存了状态机的命令以及接收该日志的 <em>Leader</em> 的 Term。该 Term 在日志中的作用是用于检测日志之间的不一致以及保证 <em>Figure 3</em> 中所列的属性。每个日志条目还包含了他在日志列表中的索引值。</p>
 <blockquote>
 <p><strong>Figure 6</strong></p>
 <p>日志由带序号的顺序的日志条目组成。每个条目都包含了创建该条目的 Term 及要应用到状态机的命令。一个条目在能够安全的应用到状态机时，会被设置为已提交 <em>(committed)</em> 的状态。</p>
-<p><img src="./Raft Note.assets/image-20200906232448282.png" style="width: 70%" ></p>
+<img src="./Raft Note.assets/image-20200906232448282.png" style="width: 70%" >
 </blockquote>
 <p><em>Leader</em> 决定何时能够安全的将日志条目应用到状态机中，这个被应用的日志条目被称为 <em>Commited</em> <em>已提交</em> 的。Raft 保证了已提交的日志是持久化的并且最终也会被所有其他服务应用到他们的状态机上。一个日志条目会在 <em>Leader</em> 将它复制到集群中的大多数服务之后提交 <em>(如 Figure 6 的 Entry 7)</em>。此时同时会把 <em>Leader</em> 中之前尚未提交的日志都处理为 <em>已提交</em>。 在 5.4 节会讨论 <em>Leader</em> 变更之后提交日志时的一些微妙之处，同时也说明了 Raft 提交日志的方式是安全的。 <em>Leader</em> 会记录他已提交的最高的日志索引位置，并在后续发送出的 <strong>AppendEntries</strong> 调用中包含该信息 <em>(包括心跳信息)</em>， 所以其他的服务也能够知道该提交状态。当 <em>Follower</em> 发现某些日志已被 <em>Leader</em> 提交后，他也会将对应的日志按顺序应用到自身的状态机中。</p>
 <p>我们设计的 Raft 的日志机制为不同服务间的日志提供了高度一致性。这个机制不只用来简化了系统的行为及提供可预测性，同时也是保证安全性的重要元素。Raft 维持着下面的一些属性，这些属性提供组成了我们在 <em>Figure 3</em> 中列的 <em>Log Matching</em> 属性：</p>
@@ -359,7 +389,7 @@
 <p><strong>Figure 7</strong></p>
 <p>当一个 <em>Leader</em> 得到他的管理权时，他可能会面临几种 <em>(a-f)</em> 处于不同状态的 <em>Follower</em> 。每个方框代表一个日志条目，其中的数字代表添加该日志时的 Term。<em>Follower</em> 可能会缺失某些日志条目 <em>(a-b)</em>，可能会多出一些未提交的日志条目 <em>(c-d)</em>，或者两者都有 <em>(e-f)</em>。</p>
 <p>比如造成场景 <em>(f)</em> 的原因可以是在他成为 Term 2 的 <em>Leader</em> 时添加了一些日志，但在还没来得及提交之前就崩溃了；接着他马上重启又成为了 Term 3 的 <em>Leader</em>, 接着在 Term 3 期间又添加了一些日志，但是在 Term 2 跟 Term 3 的日志提交之前又崩溃，然后一直保持宕机状态。</p>
-<p><img src="./Raft Note.assets/image-20200908210905429.png" style="width: 60%" ></p>
+<img src="./Raft Note.assets/image-20200908210905429.png" style="width: 60%" >
 </blockquote>
 <p>在 Raft 中，<em>Leader</em> 通过强制要求 <em>Follower</em> 的日志跟自身保持一致来处理不一致的状态。这意味着与 <em>Leader</em> 有冲突的 <em>Follower</em> 的日志会被强制重写为 与 <em>Leader</em> 一样。5.4 节会说明这种做法在添加多一个限制后是安全可靠的。</p>
 <p>为了让 <em>Follower</em> 保持跟自身的一致性，<em>Leader</em> 需要找到他与 <em>Follower</em> 之间的最后一个一致的时间点，然后删除 <em>Follower</em> 在该时间点之后的所有日志。所有的这些操作由 <em>Follower</em> 在响应来自 <em>Leader</em> 的 <strong>AppendEntries</strong> 请求时发生。<em>Leader</em> 管理者每个 <em>Follower</em> 的 <strong>nextIndex</strong>，该字段代表了 <em>Leader</em> 应该发给该 <em>Follower</em> 的下一个日志条目的索引。当一个服务刚成为 <em>Leader</em> 时，他会将所有 <em>Follower</em> 的 <strong>nextIndex</strong> 初始化为自身日志中最新条目的索引 <em>(在 Figure 7 中体现为 11)</em>。如果一个 <em>Follower</em> 的日志跟 <em>Leader</em> 的并不一致，这时 <strong>AppendEntries</strong> 的一致性检查将在发出 <strong>AppendEntries</strong> 时失败。在失败之后，<em>Leader</em> 会降低该 <em>Follower</em> 对应的 <strong>nextIndex</strong> 然后继续发送 <strong>AppendEntries</strong> 进行重试，直到找到一个能让 <em>Leader</em> 跟该 <em>Follower</em> 保持一致的 <strong>nextIndex</strong>，这时 <strong>AppendEntries</strong> 请求会返回成功，<em>Follower</em> 会删除 <strong>nextIndex</strong> 之后的所有冲突的日志并将该次请求包含的日志条目附加到自身的日志中 <em>(如果有包含日志的话)</em>。在调用 <strong>AppendEntries</strong> 成功后，该 <em>Follower</em> 与 <em>Leader</em> 的日志就一致了，在当前 Term 中他们将一致保持一致。</p>
@@ -368,14 +398,17 @@
 </blockquote>
 <p>在这个机制中，<em>Leader</em> 不需要在刚刚取得管理权时执行特殊的操作来保持日志的一致性。他只需要执行通用的操作，然后日志就会在 <strong>AppendEntries</strong> 的一致性检查造成的一次次失败中回到正确的状态。<em>Leader</em> 也从来不会覆盖会删除自身的日志条目 <em>(保证了 Leader Append-Only 属性)</em> 。</p>
 <p>这个日志复制机制展现出了我们在第二章中所涉及的一致性属性：Raft 能够保证在大多数服务正常的情况下接收、复制以及应用日志条目；在常见的情况下一个新的日志条目能够在对完成对集群中大多数服务的一次 <em>RPC</em> 调用后复制成功；一个单独的运行缓慢的 <em>Follower</em> 也不会对整体的性能造成影响。</p>
-<a class="header" href="distributed/raft_note.html#a54-安全性-safety" id="a54-安全性-safety"><h3>5.4 安全性 Safety</h3></a>
+<h3><a class="header" href="#54-安全性-safety" id="54-安全性-safety">5.4 安全性 Safety</a></h3>
 <p>前面的章节中说明了 Raft 是如何进行选举及进行日志复制的，然而，前面这些机制的解释还远远不足于确保状态机每个状态机都会以相同的顺序来执行日志条目中的命令。举例来说，<em>Follower</em> 可能在 <em>Leader</em> 提交一些日志时处于宕机状态，紧接着他通过选举成为了新的 <em>Leader</em>，那他就可能会用新的日志覆盖那些原 <em>Leader</em> 已经提交的日志；这就会导致不同的状态机应用了不同的命令序列。</p>
-<p>本节通过为 Raft 算法添加一个节点成为 <em>Leader</em> 的限制来完善这个缺陷。这个限制确保了 每个 Term 的 <em>Leader</em> 都会完整的包含前一个 <em>Term</em> 的所有已提交的日志 <em>(即保持 Leader Completeness 属性)</em> 。通过这个限制，我们让提交的规则更加的完善。最后，我们提供了一个证明 <em>Leader Completeness</em> 属性的证据并展示了他是怎么让状态机保持正确行为的。  </p>
-<a class="header" href="distributed/raft_note.html#a541-选举的限制-election-restriction" id="a541-选举的限制-election-restriction"><h4>5.4.1 选举的限制 Election Restriction</h4></a>
+<p>本节通过为 Raft 算法添加一个节点成为 <em>Leader</em> 的限制来完善这个缺陷。这个限制确保了 每个 Term 的 <em>Leader</em> 都会完整的包含前一个 <em>Term</em> 的所有已提交的日志 <em>(即保持 Leader Completeness 属性)</em> 。通过这个限制，我们让提交的规则更加的完善。最后，我们提供了一个证明 <em>Leader Completeness</em> 属性的证据并展示了他是怎么让状态机保持正确行为的。	</p>
+<h4><a class="header" href="#541-选举的限制-election-restriction" id="541-选举的限制-election-restriction">5.4.1 选举的限制 Election Restriction</a></h4>
 <p>在所有的基于 <em>Leader</em> 的共识算法中，<em>Leader</em> 最终必须存储所有已提交的日志条目。在部分共识算法中，比如 <em>Viewstamped Replication</em>，一个节点可以在不包含所有已提交日志的状态下被选为 <em>Leader</em> 。这些算法通过额外的机制来找到缺失的日志条目并将其发送给新的 <em>Leader</em>, 比如在选举过程以及完成选举之后。不过这需要额外的重大机制及很高的复杂度。Raft 使用了一种较为简单的方式来保障所有当前 Term 之前已提交的日志都会在新的 <em>Leader</em> 中存在，避免了传输这些日志给 <em>Leader</em> 的操作。这意味着所有的日志条目都是单向流转的，只会从 <em>Leader</em> 流向 <em>Follower</em>，并且 <em>Leader</em> 永远不会覆盖日志中已经存在的日志条目。</p>
 <p>Raft 通过投票处理防止那些未包含所有已提交日志的 <em>Candidate</em> 赢得选举。<em>Candidate</em> 必须获得集群中大多数的选票才能被选为 <em>Leader</em>，这意味着每个已提交的日志条目必须存在于在集群中的至少一个服务中。如果 <em>Candidate</em> 的日志相对于大多数的服务都 <strong>足够新</strong> <em>(足够新的定义在下面)</em>，那他就会包含所有已提交的日志。<strong>RequestVote</strong> 调用实现了该限制：该调用包含了该 <em>Candidate</em> 的日志信息，投票的服务如果比 <em>Candidate</em> 的日志更新，那他就会拒绝为其投票。</p>
+<blockquote>
+<p><strong>如何定义较新的日志</strong></p>
+</blockquote>
 <p>Raft 使用比较日志中最后一个日志条目的索引值及 Term 来判断两个日志的新旧程度。如果两个日志的最后一个日志条目具有不同的 Term，则具有较高 Term 的日志更新。如果两个日志的最后一个日志条目具有相同的 Term，则长度更长 <em>(索引值更大)</em> 的日志更新。</p>
-<a class="header" href="distributed/raft_note.html#a542-提交前任-term-的日志-comitting-entries-from-previous-terms" id="a542-提交前任-term-的日志-comitting-entries-from-previous-terms"><h4>5.4.2 提交前任 Term 的日志 Comitting Entries From Previous Terms</h4></a>
+<h4><a class="header" href="#542-提交前任-term-的日志-comitting-entries-from-previous-terms" id="542-提交前任-term-的日志-comitting-entries-from-previous-terms">5.4.2 提交前任 Term 的日志 Comitting Entries From Previous Terms</a></h4>
 <p>如 5.3 节的说明，<em>Leader</em> 在确认大多数的服务都成功复制之后就能够提交其日志。如果这个时候 <em>Leader</em> 在提交日志之前宕机了，接下来的 <em>Leader</em> 会继续完成复制该日志的操作。然而，<em>Leader</em> 没办法马上推断出该这个来自于前一个 Term 已经复制到大多数服务中的日志条目是否已经被提交了。<em>Figure 8</em> 说明了这种情况中，一个已经被复制到大多数服务中的日志，还是可能会被新的 <em>Leader</em> 覆盖。</p>
 <blockquote>
 <p><strong>Figure 8</strong></p>
@@ -390,11 +423,11 @@
 </ul>
 </li>
 </ul>
-<p><img src="./Raft Note.assets/image-20200909160839866.png" style="width: 80%" ></p>
+<img src="./Raft Note.assets/image-20200909160839866.png" style="width: 80%" >
 </blockquote>
 <p>为了避免类似 <em>Figure 8</em> 中的问题，对于当前 Term 之前的日志条目，Raft 不会根据日志条目是否复制到大多数服务来判断他是否能提交。只会提交当前任期中产生的并且已复制到大多数服务中的日志。这样所有之前的日志只会根据 <em>Log Matching</em> 属性被间接的提交。这里有一些情况是其实 <em>Leader</em> 是能够安全的将旧日志进行提交的（比如某条日志条目已经被复制到了所有的服务中），但 Raft 选择了一种更保守的方式来保持简单性。</p>
 <p>Raft 日志的提交规则的复杂性是由于 <em>Leader</em> 在复制前任 Term 的日志到其他服务时保留了日志条目的原始 Term。在一些其他的共识算法中，一个新的 <em>Leader</em> 会使用他的新 Term 来复制其前任 Term 的日志。Raft 的做法保持了日志条目的条理性，因为他们在整个过程中都保持着一致的 Term 信息。而且 Raft 中的新 <em>Leader</em> 相较于其他的算法能够传递更少的来自前任的日志信息 <em>(其他的算法需要发送那些冗余的日志来保证日志在提交时能保持正确的顺序)</em>。</p>
-<a class="header" href="distributed/raft_note.html#a543-安全性的讨论-safety-argument" id="a543-安全性的讨论-safety-argument"><h4>5.4.3 安全性的讨论 Safety Argument</h4></a>
+<h4><a class="header" href="#543-安全性的讨论-safety-argument" id="543-安全性的讨论-safety-argument">5.4.3 安全性的讨论 Safety Argument</a></h4>
 <p>通过完整的 Raft 算法描述，我们现在能够更精确的证明 <em>Leader Completeness</em>  属性 <em>(这个讨论基于 9.2 节的安全性证明)</em>。我们假设 <em>Leader Completeness</em> 属性是不成立的，然后再推导出其中的矛盾。假设处于 Term T 的 <em>Leader~T~</em>  在他的任期期间提交了一个日志条目。但该条目并不存在于其他后续的 <em>Leader</em> 中。考虑有一个最小的 Term U &gt; T，<em>Leader~U~</em> 的日志中不存在这个日志条目。</p>
 <ol>
 <li>被提交的条目在 <em>Leader~U~</em> 的的选举过程中必须是缺失的，因为 <em>Leader</em> 从来不会删除会重写自身的日志</li>
@@ -409,9 +442,9 @@
 </ol>
 <p>根据 <em>Figure 3</em> 所示，我们通过 <em>Leader Completeness</em> 属性，可以证明 <em>State Machine Safety</em> 属性。如果一个服务已经将指定索引位置的日志条目应用到了自身的状态机中，则不会再有其他的服务会在相同的索引位置应用不同的日志条目。当一个服务将日志应用到自己的状态机时，他自身的日志必须是跟 <em>Leader</em> 的日志中，到该日志条目之前的日志都是一致且已提交的。现在考虑有一个服务将一个较低的 Term 中的某个索引位置的日志条目应用到了状态机中；则 <em>Log Completeness</em> 属性保证了具有更高 Term 的 <em>Leader</em> 的日志中会在该索引位置包含相同的日志条目，所以后续 Term 的服务在应用该日志条目时，能够得到相同的结果。因此，<em>State Machine Sfatety</em> 属性成立。</p>
 <p>最后，Raft 需要服务们按顺序来应用日志条目。结合 <em>State Machine Sfaety</em> 属性，这意味着所有的服务都将以相同的顺序应用同样的日志到自身的状态机中。</p>
-<a class="header" href="distributed/raft_note.html#a55-follower-跟-candidate-宕机-follower-and-candidate-crashes" id="a55-follower-跟-candidate-宕机-follower-and-candidate-crashes"><h3>5.5 Follower 跟 Candidate 宕机 Follower And Candidate Crashes</h3></a>
+<h3><a class="header" href="#55-follower-跟-candidate-宕机-follower-and-candidate-crashes" id="55-follower-跟-candidate-宕机-follower-and-candidate-crashes">5.5 Follower 跟 Candidate 宕机 Follower And Candidate Crashes</a></h3>
 <p>到目前为止我们关注的都是 <em>Leader</em> 的失效。 <em>Follower</em> 及 <em>Candidate</em> 的失效处理相对于 <em>Leader</em> 则要简单得多，并且他们的失效都是以相同的方式来处理的。在 <em>Follower</em> 或 <em>Candidate</em> 宕机时，发送给他们的 <strong>RequestVote</strong> 或 <strong>AppendEntries</strong> 都会失败。Raft 处理该失败的方式是无限的进行重试；如果宕机的服务重启了，那后续的 RPC 调用会返回成功。如果一个服务在处理完 RPC 请求并且返回响应之前宕机了，那他在重启之后会收到跟之前相同的请求。Raft 的 RPC 调用是具有幂等性的，所以收到相同的请求并不会造成任何问题。比如如果一个 <em>Follower</em> 收到的 <strong>AppendEntries</strong> 请求中包含了他已经存在的的日志，那他将会忽略这些重复的日志信息。</p>
-<a class="header" href="distributed/raft_note.html#a56-时序与可用性-timing-and-availability" id="a56-时序与可用性-timing-and-availability"><h3>5.6 时序与可用性 Timing And Availability</h3></a>
+<h3><a class="header" href="#56-时序与可用性-timing-and-availability" id="56-时序与可用性-timing-and-availability">5.6 时序与可用性 Timing And Availability</a></h3>
 <p>Raft 对安全性的一个要求是不依赖于时序: 系统不能在某些事件发生的时机比预期的快或慢时产生错误的结果。然而，可用性 <em>(系统及时响应客户请求的能力)</em> 必然会依赖于时序。比如，就算消息在传递时遭遇了服务宕机导致占用比常见情况更多的时间，<em>Candidate</em> 也不会停下来太久等待选举；在没有可用 <em>Leader</em> 的情况下，Raft 将停滞不前。</p>
 <p>时序在 Raft 的 <em>Leader</em> 选举中是最重要的部分。Raft 是通过下面的时序要求来满足选举及保持 <em>Leader</em> 的管理权的：
 $$
@@ -419,13 +452,13 @@ broadcastTime &lt; electionTimeout &lt; MTBF
 $$
 在这个不等式中 $broadcastTime$ 是取了服务之间发送 RPC 请求到得到响应的平均时间；$electionTimeout$ 则是我们在 5.2 节所介绍的选举的超时时间；最后的 $MTBF$ 是单个服务失效间隔的平均时长。$broadcastTime$ 应当远小于 $electionTimeout$ ，这样 <em>Leader</em> 在赢得选举后才能比较可靠的发送心跳消息来管理其他 <em>Follower</em>；通过给予 $electionTimeout$ 一个随机的波动范围，可以降低瓜分选票的概率。而 $electionTimeout$ 应当远小于 $MTFB$ 来让系统趋于稳定。当 <em>Leader</em> 宕机时，整个系统会在 $electionTimeout$ 的这段期间处于不可用状态；我们会期望这种情况只占系统运行期间的绝小部分。</p>
 <p>$broadcastTime$ 以及 $MTBF$ 是根据系统的属性所决定的，而 $electionTimeout$ 则是我们需要自己决定的。Raft 的 RPC 需要接收方能够将信息持久化到稳定的存储介质中，所以 $broadcastTime$ 可能会是在 0.5ms 到 20ms 之间，这取决于具体的存储技术。最终的结果是，$electionTimeout$ 一般会设置在 10ms 到 500ms 之间。而服务器的 $MTBF$ 则可能会在数个月甚至更长，这让我们能够很容易的满足上述的时序要求公式。</p>
-<a class="header" href="distributed/raft_note.html#a6-集群的成员变更-cluster-membership-changes" id="a6-集群的成员变更-cluster-membership-changes"><h2>6. 集群的成员变更 Cluster Membership Changes</h2></a>
+<h2><a class="header" href="#6-集群的成员变更-cluster-membership-changes" id="6-集群的成员变更-cluster-membership-changes">6. 集群的成员变更 Cluster Membership Changes</a></h2>
 <p>到现在为止我们都假设集群的配置 <em>(参与到共识算法的服务集合)</em> 是固定的。但是在实践中，这个配置信息偶尔是会产生变动的。比如某台服务器宕机了又或者我们需要改变副本的个数。尽管这能够通过下线集群的服务，更新配置文件，然后重启集群来实现，但在这期间整个集群都将处于不可用的状态。更进一步，那些需要人手动去完成的操作都会导致更高的风险。为了避免这些问题，我们选择将自动更新配置文件的机制纳入到 Raft 共识算法中。</p>
 <p>为了保证变更配置文件的机制是安全的，在配置变更期间不能够出现有两个 <em>Leader</em> 共存且使用同一个 Term 的状态。不幸的是，在服务从旧配置文件转换成新配置文件的过程中是有可能产生这种不安全状态的。因为不可能在同一个时刻更新所有服务的配置，所以集群有可能在同一时刻被分割成两个包含 <em>大多数</em>  服务的小集群 <em>(如 Figure 10 所展示)</em> 。</p>
 <blockquote>
 <p><strong>Figure 10</strong></p>
 <p>将配置文件直接切换成新的是不安全的，因为不同的服务可能会在不同的时刻进行切换。在这个例子中，集群的服务器从 3 个切换为 5 个。不幸的是在某个时刻有两个不同的服务被同时选举 为 Term 一样 <em>Leader</em> 了。其中一个的选票来自于使用旧配置 <em>(C~old~)</em> 的大多数服务 ，另外一个则来自于使用了新配置 <em>(C~new~)</em> 的大多数服务。</p>
-<p><img src="./Raft Note.assets/image-20200911214140115.png" style="width: 60%"></p>
+<img src="./Raft Note.assets/image-20200911214140115.png" style="width: 60%">
 </blockquote>
 <p>为了确保安全性，配置的切换需要被分成两步来实现。有多种不同的方式来实现两步完成的目标，比如有的系统会在第一步把使用旧配置的服务禁用来防止他们继续处理客户端的请求；第二步则让所有服务启用新的配置。在 Raft 中，集群中的服务首先会转换到一个我们称为 <em>Joint Consensus</em>  的过渡配置；当 <em>Joint Consensus</em> 被提交后整个系统才会转换为新的配置。 <em>Joint Consensus</em> 会同时包含旧的跟新的配置信息：</p>
 <ul>
@@ -437,7 +470,7 @@ $$
 <blockquote>
 <p><strong>Figure 11</strong></p>
 <p>下图是关于配置变更的时间线。虚线表示了配置信息创建但未被提交，实线表示最新的配置信息被提交。 <em>Leader</em> 一开始会创建 <em>C~old,new~</em> 配置并提交到 <em>C~old~</em> 及 <em>C~new~</em> 的大多数中。在这期间不存在一个 <em>C~old~</em> 跟 <em>C~new~</em> 的能够独自做抉择的时间点。</p>
-<p><img src="./Raft Note.assets/image-20200914212837616.png" style="width: 80%" ></p>
+<img src="./Raft Note.assets/image-20200914212837616.png" style="width: 80%" >
 </blockquote>
 <p>集群的配置信息是通过一种特殊的日志条目来保存跟传输的；<em>Figure 11</em> 说明了整个配置切换的过程。当 <em>Leader</em> 接收到要求将配置从 <em>C~old~</em> 切换到 <em>C~new~</em> 的请求时，会将配置信息保存为一个配置日志条目并使用我们前面提过的复制日志的机制将其复制到其他的服务中 <em>(即图中的 C~old,new~)</em> 。当一个服务将给配置日志条目添加到自身的日志中后，他就会使用新的配置信息来作为后续所有抉择的依据 <em>(一个服务总是使用他日志中最新的配置，无论他是否被提交)</em> 。这意味着 <em>Leader</em> 可以使用这个 <em>C~old,new~</em> 的规则去决定该日志条目何时需要被提交。如果 <em>Leader</em> 宕机，新 <em>Leader</em> 的配置会是 <em>C~old~</em> 及 <em>C~old,new~</em> 之一，这取决于赢得选举的 <em>Candidate</em> 是否接收到了 <em>C~old,new~</em> 。但不管是哪个配置，<em>C~new~</em> 在这个阶段都无法单独的做出任何抉择。</p>
 <p>当 <em>C~old,new~</em> 被提交后，<em>C~old~</em> 跟 <em>C~new~</em> 都不能够单独的在得到其他人同意时做任何决定，并且 <em>Leader Completeness</em> 属性确保了只有收到了 <em>C~old,new~</em> 的服务能够被选举为 <em>Leader</em>。这时 <em>Leader</em> 就能够安全的创建一个新的 <em>C~new~</em> 日志配置条目并将其复制到集群。同样的，该日志配置会在服务接收到他的那一刻生效。当新的配置按照 <em>C~new~</em> 的规则提交后，旧的配置已经变的无关紧要了，而那些不在新配置中的服务则能够被关机了。如 <em>Figure 11</em> 所展示的，整个过程中不存在 <em>C~new~</em> 跟 <em>C~old~</em> 能够单独做抉择的时间点；这保证了整个过程的安全性。</p>
@@ -445,14 +478,14 @@ $$
 <p>第二个问题是集群当前的 <em>Leader</em> 不一定存在于新的配置中。这种情况，<em>Leader</em> 会在提交了 <em>C~new~</em> 后将自己转换为 <em>Follower</em>。这意味着这期间 <em>(提交了 C~new~ 时)</em>   <em>Leader</em> 管理着一个不包含他自身的集群； 他复制日志条目但不会把自己当成大多数之一。<em>Leader</em> 将提交 <em>C~new~</em> 前作为过渡，因为 <em>C~new~</em> 提交是新配置信息能够独立做抉择的首个时间点 <em>(之后的选举都会在 C~new~ 中产生)</em>。在这个时间点之前，可能只会从 <em>C~old~</em> 中选出新的 <em>Leader</em>。</p>
 <p>第三个问题是移除服务 <em>(即移除不在 C~new~ 中的服务)</em>。这些服务将不再受到心跳，所以他们会到达超时时间并发起新一轮的选举。他们会使用新的 Term 发送 <strong>RequestVote</strong> 请求，这会导致当前的 <em>Leader</em> 被转换为 <em>Follower</em> 状态。一个新的 <em>Leader</em> 最终会被选出来，但那些被移除的服务会继续超时然后不断的重复上述的状况，造成集群处于低可用的状态。</p>
 <p>为了防止这个问题，服务们会在确认当前 <em>Leader</em> 可用时忽视 <strong>RequestVote</strong> 请求。特别的，如果一个服务在接收到 <em>Leader</em> 后的最小的超时时限接收到新的 <strong>RequestVote</strong>请求时，他不会更新 Term 跟进行投票。这不会影响正常的选举，因为每个服务在进行新一轮选举前都最少会等待最小的选举超时时间 <em>(Election Timeout)</em>。然而，他帮助集群避免被那些移除服务打断正常的服务: 如果 <em>Leader</em> 能够正常的发送心跳给集群中的服务，那他就不会被更大的 Term 废除。</p>
-<a class="header" href="distributed/raft_note.html#a7-日志压缩-log-compaction" id="a7-日志压缩-log-compaction"><h2>7. 日志压缩 Log Compaction</h2></a>
+<h2><a class="header" href="#7-日志压缩-log-compaction" id="7-日志压缩-log-compaction">7. 日志压缩 Log Compaction</a></h2>
 <p>Raft 的日志在处理来自客户端请求的常规的操作中会不断的增长，但在实际的系统中，我们不可能让他无止境的增长下去。当日志越来越多，他会占据更多的磁盘空间，也将需要使用更长的时间来进行恢复。如果没有一个可以用来丢弃过期/废弃日志的机制，最终会导致系统的可用性出现问题。</p>
 <p>快照是一个实现日志压缩最简单的方式。使用快照，整个系统的当前状态能够被存储到存储器中，然后在这个状态之前的所有日志就可以被丢弃了。<em>Chubby</em> 及 <em>Zookeeper</em> 都使用了快照机制，接下来的章节我们将介绍 Raft 的快照实现方式。</p>
 <p>增量化的日志压缩方式，如使用 日志清理 <em>([Log Clean][LogClean])</em> 或 结构化日志合并树 ([Log-Structured Merge Tree][LSM]) 的方式都是可行的。这些方式每次都只对一部分数据进行处理，所以他们能够将压缩的负载分散到各个时间段中。他们首先会挑选一个包含了很多已删除、被覆盖对象的数据区域，接着重写该区域还存活的对象使之存储的更加紧凑，接着释放该数据区域。和直接对比整个数据集相比，这需要一些新的重要的机制及用于对比日志的复杂的比较方法。日志清理可能会需要对 Raft 进行修改，状态机则可以使用 [LSM][LSM] 以同样的接口来实现快照。</p>
 <blockquote>
 <p><strong>Figure 12</strong></p>
 <p>服务将日志中已提交的日志条目 <em>(索引值为 1 到 5 的)</em> 替换为一个新的快照。该快照保存了当前状态 <em>(示例中的变量 $x$ 及 $y$ )</em>，该快照包含的最新条目的索引值及 Term，用来表示该快照包含了日志条目索引 6 之前的日志信息。</p>
-<p><img src="./Raft Note.assets/image-20200915140946977.png" style="width:70%"></p>
+<img src="./Raft Note.assets/image-20200915140946977.png" style="width:70%">
 </blockquote>
 <p><em>Figure 12</em> 展示了 Raft 快照的基本想法。每个服务都会独立，将已提交的日志条目转换为快照。大部分的工作在于如何将状态机的当前状态写入快照中。Raft 同样也包含了少量的元数据在快照中：包含的<em>最新索引值</em> <em>(last included inxex</em>) 是指快照所替换的那部分日志中的最新日志条目的索引 <em>(指最后一条应用到状态机的日志条目)</em> ；最后包含的 Term <em>(Last Included Term)</em> 即该日志条目的 Term。这些信息将用来支撑 <strong>AppendEntries</strong> 的快照之后第一条日志的一致性检查，因为该操作需要待处理日志的前置的日志条目及 Term 信息。为了能够支持 集群成员变更 <em>(第六章)</em> ，快照也会保存与 <em>最新索引值</em> 所对应的最新的一份配置信息。当服务将完成快照的构建后，他们应该删除所有在 <em>最新索引值</em> 之前的所有日志条目，当然也包括了之前的快照信息。</p>
 <p>尽管服务在通常的情况下都会独立的构建快照，但 <em>Leader</em> 偶尔也会需要将快照发送给延迟较严重的 <em>Follower</em> 上。这个情况一般发生在 <em>Leader</em> 丢弃了下一条需要发送给 <em>Follower</em> 的日志时。幸运的是这种情况并不常见：<em>Follower</em> 通常会紧跟着 <em>Leader</em> 去添加日志条目。但是一个异常缓慢的 <em>Follower</em> 或者是新加入集群的服务则没办法跟上 <em>Leader</em>，<em>Leader</em> 通过在网络中发送快照的方式将这种类型的 <em>Follower</em> 状态同步上来。</p>
@@ -494,34 +527,34 @@ $$
 <p>我们考虑过一种基于 <em>Leader</em> 的方案 - 只有 <em>Leader</em> 可以创建快照，但他会要求 <em>Leader</em> 向所有的 <em>Follwer</em> 发送快照，这种做法会产生两种缺点。第一，发送快照给每个 <em>Follower</em> 会浪费网络的带宽并且拖慢处理快照的进度。每个 <em>Follower</em> 已经有了足够的信息来构建自己的快照了，相较于通过网络发送的方式，在本地构建快照的成本是远远更低的。第二，由 <em>Leader</em> 来实现是更为复杂的，比方说， <em>Leader</em> 需要发送快照给 <em>Follower</em> 的同时又并行的复制新的日志条目，以避免堵塞客户端的请求。</p>
 <p>这里还存在两个会对快照的性能产生冲击的问题。第一，服务需要决定何时建立快照，如果服务建立的频率太过频繁，将浪费大量的磁盘带宽及能源；如果快照建立的频率太低，则可能对消耗大量的磁盘容量，同时也会显著的增加重启服务时重新应用日志所需的时间。一个简单的策略是在日志的尺寸到达某个固定的大小时触发快照。如果所设的这个尺寸的大小显著的大于快照期望的快照的大小，那快照对磁盘带宽的影响就会很小了。</p>
 <p>第二个会影响性能的问题就是创建快照需要耗费显著的时间，但我们不希望这会造成常规的操作的延时。解决的方案是使用类似 写时复制 <em>(Copy On Write)</em> 的机制，让后续的更新操作不会影响快照的写入操作。比如说，一些使用函数式数据结构的状态机本身就支持这种特性。又或者使用操作系统提供的 写时复制机制 <em>(比如 Linux 的 Fork)</em>，能够为状态机创建一份保存在内存中的副本 <em>(我们的实现就使用了这个机制)</em> 。</p>
-<a class="header" href="distributed/raft_note.html#a8-与客户端的交互-client-interaction" id="a8-与客户端的交互-client-interaction"><h2>8. 与客户端的交互 Client Interaction</h2></a>
+<h2><a class="header" href="#8-与客户端的交互-client-interaction" id="8-与客户端的交互-client-interaction">8. 与客户端的交互 Client Interaction</a></h2>
 <p>本章将介绍客户端是如何跟 Raft 进行交互的，包括了客户端是如何确认 <em>Leader</em> 及如何支持可线性化语义 <em>([Linearizable Semantics](Linearizable Semantics))</em> 的。 这个问题是所有的一致性系统都需要面对的，Raft 的方案跟其他的系统基本类似。</p>
 <p>Raft 的客户端会将所有的请求都发送给 <em>Leader</em>。当一个客户端首次启动时，他会尝试随机的连接到所有服务的其中一个，如果客户端选择的服务不是 <em>Leader</em>，该服务会拒绝客户端的请求并且返回他所知道的 <em>Leader</em> 的信息 <em>( AppendEntries 请求中就包含了 Leader 的地址信息)</em>。如果 <em>Leader</em> 宕机了，客户端的连接就会超时，这时客户端会重新随机选一个服务。</p>
 <p>Raft 的目标就是实现线性一致性语义 <em>(每个操作在发出请求到响应之间只会严格的执行一次)</em>。然而，就如我们前面说的，Raft 允许执行同一个命令多次：比如一个 <em>Leader</em> 在提交日志后、响应客户端前宕机了，客户端会在新的 <em>Leader</em> 上重试该命令，导致该命令被执行多次。解决方案是客户端会给每个命令一个序列号，这样状态机记能通录最后执行命令的序列号，并将其关联到对应的响应中。如果接受的命令的序列号已经被执行了，他可以直接根据序列号找到响应并返回给客户端，从而避免重复执行该命令。</p>
 <p>状态机在处理只读的操作时不需要产生任何新的日志。然而，如果不加上一些其他的保证，这些操作可能会有返回脏数据的风险，如果一个 <em>Leader</em> 在响应客户端的请求时没发现自己已经被新的 <em>Leader</em> 取代了。线性一致性的读操作不能够返回脏数据，所以 Raft 需要两个措施做到在不修改日志的前提下达到目标。第一，<em>Leader</em> 必须持有最新提交日志条目的信息，<em>Leader COmpleteness</em> 属性保证了 <em>Leader</em> 包含所有已提交的日志，但在他自己的 Term 开始时，他无法确认哪些是已提交的，为了确认这个信息，他需要在自己的 Term 中提交一条日志。Raft 的做法是在每个 <em>Leader</em> 开始他的 Term 时提交一条空白的不进行任何操作 <em>(no-op)</em> 的日志条目。第二，<em>Leader</em> 需要在处理只读的请求前先确认自己是否已被罢免 <em>(如果有新的 Leader 被选举出来，那该 Leader 的信息可能已经不是最新的了。)</em>。Raft 在响应客户端之前，通过向大多数服务发送心跳的方式来确认自己是否最新。又或者 <em>Leader</em> 可以依靠心跳机制来提供一个租约，但这又会导致一个时序上的安全问题 <em>(因为他假定时钟的误差是有限的)</em> 。</p>
-<a class="header" href="distributed/raft_note.html#a9-实现与评估-implementation-and-evaluation" id="a9-实现与评估-implementation-and-evaluation"><h2>9. 实现与评估 Implementation And Evaluation</h2></a>
+<h2><a class="header" href="#9-实现与评估-implementation-and-evaluation" id="9-实现与评估-implementation-and-evaluation">9. 实现与评估 Implementation And Evaluation</a></h2>
 <p>我们实现了  Raft  作为 RAMCloud 用来保存配置信息的复制状态机，用来帮助 RAMCloud 实现故障协调。这个 Raft 的实现包含了大约 2000 行 <em>C++</em> 代码，其中不包含测试、注释跟空行。这些代码是可以[免费获取][RaftCode]的。而且大约还有 25 个独立的开源的基于本篇论文的 Raft 实现。还有很多的公司也开发了[基于 Raft 的系统][RaftBasedSystem]。</p>
 <p>本章后续的内容从三个方面来评估 Raft, 包括: 可理解性、正确性 以及 性能。</p>
-<a class="header" href="distributed/raft_note.html#a91-可理解性-understandability" id="a91-可理解性-understandability"><h3>9.1 可理解性 Understandability</h3></a>
+<h3><a class="header" href="#91-可理解性-understandability" id="91-可理解性-understandability">9.1 可理解性 Understandability</a></h3>
 <p>我们将 Raft 与 Paxos 作为对比来确认他的可理解性，我们在斯坦福的高级操作系统及 伯克利的 分布式计算课程的高年级及将毕业的学生中做了测试。并分别录制了 Raft 跟 Paxos 课程的视频，然后开展相同的测试。Raft 的课程包含了出了日志压缩部分的内容；Paxos 也覆盖了足够的知识来创建一个相同的复制状态机，包含了 <em>Sigle-decree Paxos</em> 跟 <em>Multi-decree Paxos</em>，更新配置及现实所需的少量优化 <em>(如 Leader 选举)</em>。这个测试了对算法的基本理解及对算法的各种边界情况进行说明。每个学生都会先看一个一个视频，做对应的测试；然后再看第二个视频做第二个测试。大约参与的一半学生先做了 Paxos 的测试，另一半则先做 Raft 的测试，这是为了避免前面第一个学习内容的经验会影响后面第二个学习内容的效果。我们比较了每个测试参与者的成绩，并以此来确认他们对 Raft 的理解是否更好。</p>
 <p>我们尽可能的让 Paxos 跟 Raft 的比较更公平。这个实验用两种方式来让 Paxos 的学生有更多的优势：43 个参与的学生中有 15 个是有一些关于 Paxos 的经验的；Paxos 的视频比 Raft 的要长 14%。正如 Table 1 总结的，我们在努力降低对两者之间的倾向性。所有的材料都可供审查。</p>
 <p>平均来说，参与学生的 Raft 分数要高于 Paxos 4.9 分 <em>(总分是 60 分，Raft 的是 25.7 分，Paxos 的是 20.8 分)</em>；<em>Figure 14</em> 展示了各自的分数。通过 <em>$t$-test</em> 表明这个测试的可信度有 95%，真实的 Raft 分数的分布比真实的 Paxos 的分数分数要高至少 2.5 分。</p>
 <p>我们还建立了一个线性回归模型，该模型基于以下三个因素：进行的测试，学习前对 Paxos 的熟悉程度，以及学习这两个算法的顺序。该模型预测了两者之间的分数差距有 12.5 分，这要远高于之前的 4.9 分，因为有大部分的学生是在已经有 Paxos 经验的前提下参加测试的，这造成了他们具有对 Paxos 的更大优势。这个模型同时预测了对于先进行了 Paxos 测验的人来说，他们的 Raft 的得分会低于 Paxos 6.3 分。我们也无法解释，但这确实是个统计结果。</p>
 <p>我们同样对进行了测试的学生进行了调查，去了解他们觉得哪个算法更易于实现跟解释；这个结果在 <em>Figure 15</em> 上展示了，具有压倒性的结果是大部分的参与者都觉得 Raft 更易于实现及解释 <em>(41 个人中有 33 个)</em>。然而，这些主观性的回答可能不比参与者的分数可靠，而且参与者可能因为我们对 Raft 更容易理解的假设而产生偏见。</p>
 <p>更详细的对学习 Raft 的讨论可以在 [这里][StudyRafu] 找到。</p>
-<a class="header" href="distributed/raft_note.html#a92-正确性-correctness" id="a92-正确性-correctness"><h3>9.2 正确性 Correctness</h3></a>
+<h3><a class="header" href="#92-正确性-correctness" id="92-正确性-correctness">9.2 正确性 Correctness</a></h3>
 <p>我们建立了一个正式的规格说明并且在第五章已经证明了其共识机制的安全性。该正式的规格将 <em>Figure 2</em> 中的总结完整清晰的用 <em>TLA+</em> 语言进行了描述。它大概有 400 行且充分的证明了相关的主题。它对于那些需要自己来实现 Raft 的人来说也是非常参考价值的。并且已经机械化的使用 <em>TLA</em> 证明了 <em>Log Completeness</em> 属性。然而这个证明所依赖的前提还没使用机械的方式进行证明 <em>(比如我们没有证明规格中的类型安全)</em>。同时我们还证明了 <em>State Machine Safe</em> 属性 及其所依赖的前提 <em>(大约用了 3500 个字)</em>。</p>
-<a class="header" href="distributed/raft_note.html#a93-性能-performance" id="a93-性能-performance"><h3>9.3 性能 Performance</h3></a>
+<h3><a class="header" href="#93-性能-performance" id="93-性能-performance">9.3 性能 Performance</a></h3>
 <p>Raft 的性能跟其他如 Paxos 等一致性算法是类似的。其中 <em>Leader</em> 分发新的日志条目给其他服务是最重要的一个评测场景。Raft 通过最小化消息的传递来达成这个目标 <em>(只通过一轮消息传递给集群中的一半服务)</em>。当然，其实还能有更多的优化性能的方案。比如，可以通过支持批量及管道的方式来实现更高的吞吐量及延迟。有很多的优化方案在其他的各种算法中已经提出过；其中的大部分方案也适用于 Raft，但我们将这些都留到了以后的工作去做。</p>
 <p>我们使用自己的 Raft 实现去确认 Raft 的 <em>Leader</em> 选举算法，并回答了两个问题。第一是这个选举的过程是否足够高效？第二是 <em>Leader</em> 宕机时集群能实现的最小失效时间是多长？</p>
 <p>为了确认 <em>Leader</em> 的选举算法，我们不断的使集群中的 <em>Leader</em> 宕机然后统计在每次宕机跟选出新的 <em>Leader</em> 之间的间隔 <em>(在 Figure 16 中)</em>。为了制造出最糟糕的情况，可以让每个服务都具有不同长度的日志长度，让每个 <em>Candidate</em> 都没办法成为 <em>Leader</em>。更进一步的，为了鼓励脑裂的情况发生，我们的测试脚本在退出之前会用同步的方式以 <em>Leader</em> 的身份发送心跳广播 <em>(这跟 Leader 复制了一个新的日志条目后崩溃的情况是类似的)</em>。<em>Leader</em> 会均匀的在心跳的间隔中宕机，在所有的测试中这个间隔都是最小选举超时时间的一半。因此，该最小宕机时间将是最小选举超时时间的一半。</p>
 <blockquote>
 <p><strong>Figure 16</strong></p>
 <p>The time to detect and replace a crashed leader. The top graph varies the amount of randomness in election timeouts, and the bottom graph scales the minimum election timeout. Each line represents 1000 trials (except for 100 tri- als for “150–150ms”) and corresponds to a particular choice of election timeouts; for example, “150–155ms” means that election timeouts were chosen randomly and uniformly be- tween 150ms and 155ms. The measurements were taken on a cluster of five servers with a broadcast time of roughly 15ms. Results for a cluster of nine servers are similar. ==TODO==</p>
-<p><img src="./Raft Note.assets/image-20200919235458228.png" style="width: 70%" ></p>
+<img src="./Raft Note.assets/image-20200919235458228.png" style="width: 70%" >
 </blockquote>
 <p>在 <em>Figure 16</em> 的下半部分图表中展示了宕机的时间可以通过降低减少的耗时来实现。在超时时间为 12-24ms 时，他只花费了平均 35ms 来选出新的 <em>Leader</em> <em>(最长的一次花费了 152ms)</em>。然而，设置超过了这个点的太低的超时时间违背了 Raft 的时序要求：<em>Leader</em> 很困难在选举的超时时间内完成心跳广播。这可能导致不必要的 <em>Leader</em> 更换并降低了系统的可用性。我们建议使用较为保守的超时时间，如 150-300ms；这个超时时间能尽可能的不造成无谓的 <em>Leader</em> 更换及提供较好的可用性。</p>
-<a class="header" href="distributed/raft_note.html#a10-相关工作-related-work" id="a10-相关工作-related-work"><h2>10. 相关工作 Related Work</h2></a>
+<h2><a class="header" href="#10-相关工作-related-work" id="10-相关工作-related-work">10. 相关工作 Related Work</a></h2>
 <p>我们研读了许多的关于一致性算法的公开论文，其中的大部分我们都将其归类到下面的列表中：</p>
 <ul>
 <li>Lamport's 对 Paxos 原始的说明 [15], 以及其他一下尝试将其解释得更清晰的论文 [16. 20, 21]</li>
@@ -537,10 +570,10 @@ $$
 <p>Raft 的强 <em>Leader</em> 机制目的是为了简化算法，但同时也让他排除了一些性能优化方案。比如平等主义的 Paxos  <em>(EPaxos)</em> 实现能够在某些没有 <em>Leader</em> 的条件下得到更高的性能。EPaxos 充分的发挥了状态机指令的可交换性。任意的服务可以在处理其他提议的同时，在单轮通信中完成命令的提交。但是，如果在同时刻没有其他被提议的命令，EPaxos 则需要额外的一轮通信来处理命令。因为每个服务都可能会提交命令，EPaxos 可以在 WAN 网络中实现比 Raft 更好的负载均衡以达到更低的延迟性。但是这为 Paxos 的实现带来很高的复杂性。</p>
 </blockquote>
 <p>有许多不同的集群成员变更的提议跟实现已经在其他的算法中完成了，包括 Lamport 原本的提议，VR 及 SMART。我们在 Raft 中选择了 <em>Joint Consensus</em> ，因为他对其他一致性协议的其他部分的要求跟影响是更小。Lamport 的 $a$-based 不在 Raft 的选择中是因为他假设一致性能够在没有 <em>Leader</em> 的前提下实现。相较于 VR 跟 SMART， Raft 变更配置算法的有点在于能够在不影响常规操作的前提下完成；他们的差异在于，VR 在配置变更是需要停止所有常规的处理，SMART 则因为了 $a$-like 的方式，限制了能够处理请求的成员数量。Raft 对额外机制的要求也是低于 VR 跟 SMART。</p>
-<a class="header" href="distributed/raft_note.html#a11-总结-conclution" id="a11-总结-conclution"><h2>11. 总结 Conclution</h2></a>
+<h2><a class="header" href="#11-总结-conclution" id="11-总结-conclution">11. 总结 Conclution</a></h2>
 <p>算法的设计总是会把正确、高效 以及/或者 简洁性作为主要的目标。虽然这些都是有价值的目标，但我们相信可理解性同样重要。其他的目标在开发人员将算法实际实现出来之前都是不现实的，而且他们在实现时必然会跟理论有所偏离。除非开发者对算法有很深入的理解跟很直观的感觉，不然在开发中实现所描述的各个属性是非常困难的。</p>
 <p>在本论文中我们介绍了在分布式的一致性算法中被广为接受但让人费解的算法 Paxos，已经有无数的学生跟开发者的经历了它挑战。我们开发了一个新的算法 Raft，并且已经展示了它相较于 Paxos 具有更高的可理解性。我们还相信 Raft 为系统的构建提供了更好的基础。将可理解性作为设计的主要目标改变了我们设计 Raft 的方式；在设计期间我们发现我们复用了一些方法，比如问题分解跟简化状态控件。这些方法不只提高了 Raft 的可理解性，还让我们更容易的说服自己这些设计是正确的。</p>
-<a class="header" href="distributed/raft_note.html#a12-致谢-acknowledgments" id="a12-致谢-acknowledgments"><h2>12. 致谢 Acknowledgments</h2></a>
+<h2><a class="header" href="#12-致谢-acknowledgments" id="12-致谢-acknowledgments">12. 致谢 Acknowledgments</a></h2>
 <p>这项学习计划需要感谢 Ali Ghodsi, David Mazie`res 跟 伯克利 CS 294-91 及 斯坦福 CS 240 同学们的支持。Scott Klemmer 帮助我们设计了学习计划。Nelson Ray 建议我们使用了一些统计分析的方法。用于学习计划的 Paxos 的幻灯片大量的参考了Lorenzo Alvisi 的成果。特别感谢 DavidMazie 'res and EzraHoch 为我们找出了 Raft 中的隐秘Bug。还有许多的人在论文跟学习计划中给予了非常有用的反馈，包括了 Ed Bugnion, Michael Chan, Hugues Evrard, Daniel Giffin, Arjun Gopalan, Jon Howell, Vimalkumar Jeyakumar, Ankita Kejriwal, Aleksandar Kracun, Amit Levy, Joel Martin, Satoshi Matsushita, Oleg Pesok, David Ramos, Robbert van Renesse, Mendel Rosenblum, Nico- las Schiper, Deian Stefan, Andrew Stone, Ryan Stutsman, David Terei, Stephen Yang, Matei Zaharia, 以及 24 位未公开名字的校对人员。特别感谢我们的引导人 Eddie Kohler。Werner Vogels 在 Twitter 上发布了早期的草稿，给予了 Raft 重要的一次展示机会。This work was supported by the Gigascale Sys- tems Research Center and the Multiscale Systems Cen- ter, two of six research centers funded under the Fo- cus Center Research Program, a Semiconductor Research Corporation program, by STARnet, a Semiconductor Re- search Corporation program sponsored by MARCO and DARPA, by the National Science Foundation under Grant No. 0963859, and by grants from Facebook, Google, Mel- lanox, NEC, NetApp, SAP, and Samsung. Diego Ongaro is supported by The Junglee Corporation Stanford Gradu- ate Fellowship。</p>
 
                     </main>
@@ -548,11 +581,15 @@ $$
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="distributed/mapreduce_note.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../distributed/mapreduce_note.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
+                        
+                            <a rel="next" href="../tracing/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -562,49 +599,43 @@ $$
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="distributed/mapreduce_note.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../distributed/mapreduce_note.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
+                
+                    <a rel="next" href="../tracing/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
         </div>
 
         
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
 
-            window.onbeforeunload = function() {
-                socket.close();
-            }
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
         </script>
         
 
         
 
         
-
-        
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

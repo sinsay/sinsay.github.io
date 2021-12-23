@@ -15,6 +15,7 @@
 - [Distributed](./distributed.md)
   - [MapReduce (译)](./distributed/mapreduce_note.md)
   - [Raft (译)](./distributed/raft_note.md)
+- [Tracing](./tracing/index.html)
 - [DataStruct](./data_struct.md)
   - [sds](./redis/sds.md)
   - [dict](./redis/dict.md)

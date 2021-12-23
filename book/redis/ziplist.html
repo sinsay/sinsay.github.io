@@ -1,36 +1,58 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>ziplist - SinSay's Note Book</title>
+        <title>ziplist - SinSay&#x27;s Note Book</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <base href="../">
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
 
         
-
     </head>
-    <body class="light">
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
@@ -50,10 +72,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -69,43 +94,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="tokio.html"><strong aria-hidden="true">1.</strong> Tokio Tutirial</a></li><li><ol class="section"><li><a href="tokio/tokio - tutorial - hello.html"><strong aria-hidden="true">1.1.</strong> Hello</a></li><li><a href="tokio/tokio - tutorial - spawning.html"><strong aria-hidden="true">1.2.</strong> Spawning</a></li></ol></li><li><a href="data_struct.html"><strong aria-hidden="true">2.</strong> DataStruct</a></li><li><ol class="section"><li><a href="redis/sds.html"><strong aria-hidden="true">2.1.</strong> sds</a></li><li><a href="redis/dict.html"><strong aria-hidden="true">2.2.</strong> dict</a></li><li><a href="redis/skiplist.html"><strong aria-hidden="true">2.3.</strong> skiplist</a></li><li><a href="redis/intset.html"><strong aria-hidden="true">2.4.</strong> intset</a></li><li><a href="redis/ziplist.html" class="active"><strong aria-hidden="true">2.5.</strong> ziplist</a></li></ol></li><li><a href="redis.html"><strong aria-hidden="true">3.</strong> Redis</a></li><li><ol class="section"><li><a href="redis/1. Redis 基本定义.html"><strong aria-hidden="true">3.1.</strong> 基本定义</a></li><li><a href="redis/2. Redis 分析起步.html"><strong aria-hidden="true">3.2.</strong> 分析起步</a></li><li><a href="redis/3. Redis 请求处理.html"><strong aria-hidden="true">3.3.</strong> 请求处理</a></li><li><a href="redis/4. Redis 执行命令.html"><strong aria-hidden="true">3.4.</strong> 执行命令</a></li></ol></li><li><a href="distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a></li><li><ol class="section"><li><a href="distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce</a></li><li><a href="distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/index.html"><strong aria-hidden="true">5.</strong> Tracing</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html" class="active"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 执行命令</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">SinSay's Note Book</h1> 
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -133,16 +163,16 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="redis/ziplist.html#a压缩列表-ziplist" id="a压缩列表-ziplist"><h1>压缩列表 <code>ziplist</code></h1></a>
+                        <h1><a class="header" href="#压缩列表-ziplist" id="压缩列表-ziplist">压缩列表 <code>ziplist</code></a></h1>
 <p>[TOC]</p>
-<a class="header" href="redis/ziplist.html#a简介" id="a简介"><h2>简介</h2></a>
+<h2><a class="header" href="#简介" id="简介">简介</a></h2>
 <p>压缩列表是一个通用的线性列表，主要的用途是压缩内存的使用，不像其他的各种通用列表，其中的所有元素都只能用指针来表示，压缩列表为各种类型及各种尺寸的元素提供了不同的保存形式，以尽量节约各种元素占用的内存。
 最便捷的使用方式应该是，针对自己的不同类型，将 <code>ziplist</code> 再进行一层简单的封装，以提高使用上的便捷跟内存的节约。
 而作为一个列表，他的操作基本都是以 <code>O(n)</code> 的方式存在，所以对于有效率要求的，应该使用 <code>skiplist</code> 或者 <code>vector</code> 等类型。</p>
-<a class="header" href="redis/ziplist.html#a实现" id="a实现"><h2>实现</h2></a>
-<a class="header" href="redis/ziplist.html#ziplist-的定义" id="ziplist-的定义"><h3><code>ziplist</code> 的定义</h3></a>
+<h2><a class="header" href="#实现" id="实现">实现</a></h2>
+<h3><a class="header" href="#ziplist-的定义" id="ziplist-的定义"><code>ziplist</code> 的定义</a></h3>
 <p>压缩列表在表现形式上只是一个字节数组，所以无需多余的类型定义，所有的操作都基于分配的内存块以及操作接口即可。</p>
-<a class="header" href="redis/ziplist.html#a创建一个-ziplist" id="a创建一个-ziplist"><h3>创建一个 <code>ziplist</code></h3></a>
+<h3><a class="header" href="#创建一个-ziplist" id="创建一个-ziplist">创建一个 <code>ziplist</code></a></h3>
 <p>因为没有确切的结构定义，所以这次我们只能从 <code>ziplist</code> 的初始化函数中来推敲其内存结构，先从代码开始</p>
 <pre><code class="language-c">#define ZIPLIST_BYTES(zl)       (*((uint32_t *)(zl)))
 #define ZIPLIST_TAIL_OFFSET(zl) (*((uint32_t *)((zl) + sizeof(uint32_t))))
@@ -170,7 +200,7 @@ unsigned char *ziplistNew(void) {
 </code></pre>
 <p>经过这一步，可以大致确定空的 ziplist 结构为：</p>
 <p><img src="./image/ziplist_header.jpg" alt="" /></p>
-<a class="header" href="redis/ziplist.html#a往-ziplist-中插入新数据" id="a往-ziplist-中插入新数据"><h3>往 ziplist 中插入新数据</h3></a>
+<h3><a class="header" href="#往-ziplist-中插入新数据" id="往-ziplist-中插入新数据">往 ziplist 中插入新数据</a></h3>
 <p>接下来尝试往 <code>ziplist</code> 中加入新的元素，加入元素前先看看具体的添加元素的接口定义。</p>
 <pre><code class="language-c">#define ZIPLIST_HEAD 0
 #define ZIPLIST_TAIL 1
@@ -225,7 +255,8 @@ while (0);                                                  \
         memcpy(&amp;(prevlen), ((char *)(ptr) + 1, 4);         \
         memrev32ifbe(&amp;prevlen);                            \
     }                                                      \
-} while (0);                                               \
+} while (0);                                               
+
 
 static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsigned char *s, unsigned int slen) {
     size_t curlen = intrev32ifbe(ZIPLIST_BYTES(zl)), reqlen;
@@ -257,7 +288,7 @@ static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsig
 }
 </code></pre>
 <p>上文中的省略号是即将处理的插入逻辑，我们先停下来，看看 <code>zipRawEntryLength</code> 的具体实现，他是为了获取指定节点所占用的内存大小，所以在这里，我们可以大概的探索一下节点的具体结构。</p>
-<a class="header" href="redis/ziplist.html#a探索-ziplist-中存储元素的结构" id="a探索-ziplist-中存储元素的结构"><h4>探索 ziplist 中存储元素的结构</h4></a>
+<h4><a class="header" href="#探索-ziplist-中存储元素的结构" id="探索-ziplist-中存储元素的结构">探索 ziplist 中存储元素的结构</a></h4>
 <pre><code class="language-c">statuc unsigned int zipRawEntryLength(unsigned char *p) {
     unsigned int prevlensize, encoding, lensize, len;
     // 解码上一个节点的长度表示，1 或 5 个字节
@@ -340,7 +371,7 @@ static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsig
 所以在 <code>ZIP_DECODE_LENGTH</code> 的实现中，也是以 <code>ZIP_STR_MASK</code> 为边界，处理各种不同的编码。</p>
 <p><strong>以下是 <code>STR</code> 编码的计算方式</strong></p>
 <blockquote>
-<p>ZIP_STR_06B 编码，以一个字节保存长度，并且总长度小于等于 63</p>
+<p>ZIP_STR_06B 编码，以一个字节保存长度，并且总长度小于等于 63 </p>
 <blockquote>
 <p><code>MAX = 63</code></p>
 </blockquote>
@@ -354,7 +385,7 @@ static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsig
 <blockquote>
 <p>ZIP_STR_32B 编码，以四个字节保存长度，长度计算方式为</p>
 <blockquote>
-<p><code>byte1 * 16777216 + byte2 * 65536 + byte3 * 256 + byte4</code></p>
+<p><code>byte1 * 16777216 + byte2 * 65536 + byte3 * 256 + byte4   </code></p>
 </blockquote>
 </blockquote>
 <p>最后还有 <code>Int</code> 类型的处理方式，他被实现在 <code>zipIntSize</code> 中，我们来看看具体的实现</p>
@@ -375,7 +406,7 @@ static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsig
 通过以上的定义，我们可以得出 entry 的大致定义：
 <img src="./image/zip_entry_encoding.jpg" alt="" /></p>
 <p>整个 entry 的大小取决于使用什么 <code>encoding</code>，当使用 <code>STR</code> 编码时，按照不同的类型来设置 <code>lensize</code> 跟 <code>len</code>，当使用 <code>INT</code> 编码时，则 lensize 始终为 1，len 则取决于使用整型的长度.</p>
-<a class="header" href="redis/ziplist.html#a继续插入逻辑" id="a继续插入逻辑"><h3>继续插入逻辑</h3></a>
+<h3><a class="header" href="#继续插入逻辑" id="继续插入逻辑">继续插入逻辑</a></h3>
 <p>经过上面一大坨的分析 <code>entry</code> 结构跟获取前一个节点的长度之后，我们继续上文插入新元素的逻辑。</p>
 <pre><code class="language-c">static unsigned char *__ziplistInsert(unsigned char *zl, unsigned char *p, unsigned char *s, unsigned int slen) {
     // ....
@@ -635,7 +666,7 @@ static void zipPrevEncodeLengthForceLarge(unsigned char *p, unsigned int len) {
 <ul>
 <li>通过 <code>ZIP_DECODE_PREVLEN</code> 得到
 <ul>
-<li>前置节点的长度所使用的字节数 <code>e.prevrawlensize</code></li>
+<li>前置节点的长度所使用的字节数 <code>e.prevrawlensize</code> </li>
 <li>前置节点的长度 <code>e.prevrawlen</code></li>
 <li>当前节点的编码 <code>e.encoding</code></li>
 <li>当前节点的长度所使用的字节数 <code>e.lensize</code></li>
@@ -648,9 +679,9 @@ static void zipPrevEncodeLengthForceLarge(unsigned char *p, unsigned int len) {
 <blockquote>
 <p>早知道先看这个函数了 <strong>~T.T~</strong></p>
 </blockquote>
-<a class="header" href="redis/ziplist.html#a查找" id="a查找"><h2>查找</h2></a>
+<h2><a class="header" href="#查找" id="查找">查找</a></h2>
 <p><code>ziplist</code> 提供了许多的查找接口，按索引位置查找，按内容查找等，我们下面来分析几个主要的接口。</p>
-<a class="header" href="redis/ziplist.html#a查找元素" id="a查找元素"><h3>查找元素</h3></a>
+<h3><a class="header" href="#查找元素" id="查找元素">查找元素</a></h3>
 <p>首先查看函数原型</p>
 <pre><code class="language-c">unsigned char *ziplistFind(unsigned char *p, unsigned char *vstr, unsigned int vlen, unsigned int skip);
 </code></pre>
@@ -742,7 +773,7 @@ static void zipPrevEncodeLengthForceLarge(unsigned char *p, unsigned int len) {
 </li>
 <li>如果之前的比较都不成功，则指向下一个节点，重新开始上面的流程</li>
 </ul>
-<a class="header" href="redis/ziplist.html#a获取指定索引的元素-ziplistindex" id="a获取指定索引的元素-ziplistindex"><h3>获取指定索引的元素 <code>ziplistIndex</code></h3></a>
+<h3><a class="header" href="#获取指定索引的元素-ziplistindex" id="获取指定索引的元素-ziplistindex">获取指定索引的元素 <code>ziplistIndex</code></a></h3>
 <p>同样的 <code>ziplist</code> 也支持按索引查找元素，只是这个操作的复杂度是线性的。
 因为 <code>ziplist</code> 保存总体的长度，所以可以直接获取最后一个节点，并且每个节点保存了上一个节点的长度，所以支持逆序的遍历，在这两个特性的支持下， <code>ziplist</code> 的索引支持负数，-1 表示最后一个节点，以此类推。</p>
 <pre><code class="language-c">unsigned char *ziplistIndex(unsigned char *zl, int index) {
@@ -777,7 +808,7 @@ static void zipPrevEncodeLengthForceLarge(unsigned char *p, unsigned int len) {
     return (p[0] == ZIP_END || index &gt; 0) ? NULL : p;
 }
 </code></pre>
-<a class="header" href="redis/ziplist.html#a提取节点内容-ziplistget" id="a提取节点内容-ziplistget"><h3>提取节点内容 <code>ziplistGet</code></h3></a>
+<h3><a class="header" href="#提取节点内容-ziplistget" id="提取节点内容-ziplistget">提取节点内容 <code>ziplistGet</code></a></h3>
 <p>得到一个节点的指针后，可以得到其指向的内容，这个操作由 <code>ziplistGet</code> 来完成</p>
 <pre><code class="language-c">unsigned int ziplistGet(unsigned char *p, unsigned char **str, unsigned int *slen, long long *sval) {
     zlentry entry;
@@ -800,46 +831,21 @@ static void zipPrevEncodeLengthForceLarge(unsigned char *p, unsigned int len) {
     return 1;
 }
 </code></pre>
-<a class="header" href="redis/ziplist.html#a遍历列表" id="a遍历列表"><h2>遍历列表</h2></a>
+<h2><a class="header" href="#遍历列表" id="遍历列表">遍历列表</a></h2>
 <p><code>TODO</code></p>
-<a class="header" href="redis/ziplist.html#a级联表单实用类" id="a级联表单实用类"><h1>级联表单实用类</h1></a>
-<pre><code class="language-javascript">// A -&gt; B 是一对多的关联
-
-// 在 对象 A 中的方法
-var context = getContext(this);
-var data = {} // 根据当前模块获取要添加的对象信息
-
-
-var or = ObjRel(&quot;ab&quot;) // 通过唯一的 key 来获取 or
-or.setMaster(context, data);
-
-// 在对象 B 的方法
-var context = getContext(this);
-var data = {} // 根据当前模块获取要添加的对象信息
-
-var or = ObjRel(&quot;ab&quot;); // key 一样，那对象 A 中获取到的 or 跟当前的 or 就应该是同一个
-or.setSubObj(context, data);
-
-var ob2 = ObjRel(&quot;bc&quot;);
-
-// 最终添加个按钮，点击时只要调用
-// 就能把之前设好的各个对象进行关联
-var or = ObjRel(&quot;ab&quot;);
-or.save();
-</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="redis/intset.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../redis/intset.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="redis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../redis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -851,13 +857,13 @@ or.save();
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="redis/intset.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../redis/intset.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="redis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../redis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -866,38 +872,28 @@ or.save();
         </div>
 
         
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
 
-            window.onbeforeunload = function() {
-                socket.close();
-            }
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
         </script>
         
 
         
 
         
-
-        
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
-        
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

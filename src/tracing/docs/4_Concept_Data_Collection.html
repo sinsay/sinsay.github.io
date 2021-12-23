@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Concept - Data Collection - OpenTelemetry</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="1_Concept_Data_Sources.html"><strong aria-hidden="true">1.</strong> Concept - Data Source</a></li><li class="chapter-item expanded "><a href="2_Concepts_Instrumenting.html"><strong aria-hidden="true">2.</strong> Concept - Instrumenting</a></li><li class="chapter-item expanded "><a href="3_Concept_Instrumenting_Libraries.html"><strong aria-hidden="true">3.</strong> Concept - Instrumenting Libraries</a></li><li class="chapter-item expanded "><a href="4_Concept_Data_Collection.html" class="active"><strong aria-hidden="true">4.</strong> Concept - Data Collection</a></li><li class="chapter-item expanded "><a href="5_Concept_Distributions.html"><strong aria-hidden="true">5.</strong> Concept - Distributions</a></li><li class="chapter-item expanded "><a href="6_Collector_Getting_Started.html"><strong aria-hidden="true">6.</strong> Collector - Getting Started</a></li><li class="chapter-item expanded "><a href="7_Metrics_API.html"><strong aria-hidden="true">7.</strong> Metrics - API</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">OpenTelemetry</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#4-concept---data-collection" id="4-concept---data-collection">4. Concept - Data Collection</a></h1>
+<p><code>OpenTelemetry</code> 项目通过 <code>OpenTelemetry Collector</code> 提供了便捷的收集遥测数据的能力。<code>OpenTelemetry Collector</code> 提供了一个与具体厂商无关的实现，描述应该如何接收、处理跟导出遥测数据。为了能够支持将开源的可观测数据格式 <em>(如 Jaeger 跟 Prometheus 等)</em> 发送到一个或多个开源的或商业的后端，他移除了运行、操作跟管理多个 Agent 或 Collector 的功能。另外，<code>Collector</code>允许终端用户能够控制他们的数据。默认的情况下 <code>Collector</code> 是接收仪表库的遥测数据的默认选择。</p>
+<blockquote>
+<p><code>Collector</code> 还能提供分布式的支持，具体的可以查看 <a href="https://opentelemetry.io/docs/concepts/distributions">这里</a> 来获取更多的信息</p>
+</blockquote>
+<h2><a class="header" href="#deployment" id="deployment">Deployment</a></h2>
+<p><code>OpenTelemetry Collector</code> 提供了一个独立的二进制程序以及两种部署的方式：</p>
+<ul>
+<li><strong>Agent</strong>: <code>Collector</code> 的实例跟应用一起运行，或者是在同一个机器上作为一个程序来运行 <em>(比如二进制文件、SideCar 或 Daemonset)</em></li>
+<li><strong>Gateway</strong>: 一个或多个 <code>Collector</code> 实例作为独立的服务 <em>(比如作为一个 Container 或 Deployment)</em> ，比如每个集群、数据中心、区域都有一个</li>
+</ul>
+<p>更多的如何使用 <code>Collector</code> 的信息可以参考 <a href="https://opentelemetry.io/docs/collector/getting-started">Getting Started Documention</a>。</p>
+<h2><a class="header" href="#components" id="components">Components</a></h2>
+<p><code>Collector</code> 由下面的几个组件组成</p>
+<ul>
+<li><strong>Receiver</strong> 定义了如何将消息接收到 <code>Collector</code>，他们可以是基于 Push 或是 Pull 模式的</li>
+<li><strong>Processor</strong> 定义了需要对接收的数据进行何种处理</li>
+<li><strong>Exporter</strong> 定义了要将接收到的数据发送到什么地方，他们也可以是基于 Push 或是 Pull 模式的</li>
+</ul>
+<p>这些组件是通过 <code>PipeLines</code> 启用的，这些组件可以通过 YAML 同时定义多个实例。</p>
+<p>关于这些组件的更多信息可以参考 <a href="https://opentelemetry.io/docs/collector/configuration">Configuration Documentation</a>。</p>
+<h2><a class="header" href="#repositories" id="repositories">Repositories</a></h2>
+<p><code>OpenTelemetry</code> 项目提供了两种版本的 <code>Collector</code>:</p>
+<ul>
+<li><strong><a href="https://github.com/open-telemetry/opentelemetry-collector/releases">Core</a></strong> 基础组件，如配置跟通用的可适配的 <code>Receiver</code>、<em>Processor</em>、<code>Exporter</code> 跟其他的扩展。为流行的开源项目如 Jaeger、Prometheus 跟 Fluent 等项目提供了支持。</li>
+<li><strong><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/releases">Contrib</a></strong> 所有的组件都在 Core 版本上面做了增强或者是提供了其他实验性的组件。包括了更为特化了的适配特定厂商的 <code>Receiver</code>、<code>Processor</code>、<code>Exporter</code> 跟扩展。</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="3_Concept_Instrumenting_Libraries.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="5_Concept_Distributions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="3_Concept_Instrumenting_Libraries.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="5_Concept_Distributions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
