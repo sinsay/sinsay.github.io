@@ -34,14 +34,24 @@ def run():
 
     walk_dir("./src/")
     copy_dir("./src/redis/image", "./docs/image")
-    shutil.rmtree("./docs/db", ignore_errors=True)
-    os.mkdir("./docs/db")
-    copy_dir("./src/db_src/docs", "./docs/db")
-    copy_dir("./style", "./docs/css")
-    copy_dir("./style", "./docs/db/css")
-    shutil.rmtree("./docs/https:", ignore_errors=True)
-    shutil.rmtree("./src/https:", ignore_errors=True)
+
+#      # database internal
+    #  shutil.rmtree("./docs/db", ignore_errors=True)
+    #  os.mkdir("./docs/db")
+    #  copy_dir("./src/db_src/docs", "./docs/db")
+    #  copy_dir("./style", "./docs/css")
+    #  copy_dir("./style", "./docs/db/css")
+
+    #  shutil.rmtree("./docs/tracing", ignore_errors=True)
+    #  os.mkdir("./docs/tracing")
+    #  copy_dir("./src/tracing/docs", "./docs/tracing")
+    #  copy_dir("./style", "./docs/css")
+    #  copy_dir("./style", "./docs/tracing/css")
+
+    #  shutil.rmtree("./docs/https:", ignore_errors=True)
+    #  shutil.rmtree("./src/https:", ignore_errors=True)
 
 
 if __name__ == '__main__':
     run()
+

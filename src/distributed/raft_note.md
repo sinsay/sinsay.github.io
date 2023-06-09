@@ -314,6 +314,10 @@ Raft 使用一个随机的选举超时时间来降低选票瓜分的可能性并
 
 Raft 通过投票处理防止那些未包含所有已提交日志的 *Candidate* 赢得选举。*Candidate* 必须获得集群中大多数的选票才能被选为 *Leader*，这意味着每个已提交的日志条目必须存在于在集群中的至少一个服务中。如果 *Candidate* 的日志相对于大多数的服务都 **足够新** *(足够新的定义在下面)*，那他就会包含所有已提交的日志。**RequestVote** 调用实现了该限制：该调用包含了该 *Candidate* 的日志信息，投票的服务如果比 *Candidate* 的日志更新，那他就会拒绝为其投票。
 
+
+
+> **如何定义较新的日志**
+
 Raft 使用比较日志中最后一个日志条目的索引值及 Term 来判断两个日志的新旧程度。如果两个日志的最后一个日志条目具有不同的 Term，则具有较高 Term 的日志更新。如果两个日志的最后一个日志条目具有相同的 Term，则长度更长 *(索引值更大)* 的日志更新。
 
 
@@ -544,62 +548,4 @@ Paxos 与 Raft 最大的区别在于 Raft 使用的是强 *Leader* 职位: Raft 
 ## 12. 致谢 Acknowledgments
 
 这项学习计划需要感谢 Ali Ghodsi, David Mazie`res 跟 伯克利 CS 294-91 及 斯坦福 CS 240 同学们的支持。Scott Klemmer 帮助我们设计了学习计划。Nelson Ray 建议我们使用了一些统计分析的方法。用于学习计划的 Paxos 的幻灯片大量的参考了Lorenzo Alvisi 的成果。特别感谢 DavidMazie 'res and EzraHoch 为我们找出了 Raft 中的隐秘Bug。还有许多的人在论文跟学习计划中给予了非常有用的反馈，包括了 Ed Bugnion, Michael Chan, Hugues Evrard, Daniel Giffin, Arjun Gopalan, Jon Howell, Vimalkumar Jeyakumar, Ankita Kejriwal, Aleksandar Kracun, Amit Levy, Joel Martin, Satoshi Matsushita, Oleg Pesok, David Ramos, Robbert van Renesse, Mendel Rosenblum, Nico- las Schiper, Deian Stefan, Andrew Stone, Ryan Stutsman, David Terei, Stephen Yang, Matei Zaharia, 以及 24 位未公开名字的校对人员。特别感谢我们的引导人 Eddie Kohler。Werner Vogels 在 Twitter 上发布了早期的草稿，给予了 Raft 重要的一次展示机会。This work was supported by the Gigascale Sys- tems Research Center and the Multiscale Systems Cen- ter, two of six research centers funded under the Fo- cus Center Research Program, a Semiconductor Research Corporation program, by STARnet, a Semiconductor Re- search Corporation program sponsored by MARCO and DARPA, by the National Science Foundation under Grant No. 0963859, and by grants from Facebook, Google, Mel- lanox, NEC, NetApp, SAP, and Samsung. Diego Ongaro is supported by The Junglee Corporation Stanford Gradu- ate Fellowship。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
