@@ -3,3 +3,7 @@ authors = ["sinsay"]
 multilingual = false
 src = "src"
 title = "SinSay's Note Book"
+
+[output.html.fold]
+enable = true    # whether or not to enable section folding
+level = 1         # the depth to start folding

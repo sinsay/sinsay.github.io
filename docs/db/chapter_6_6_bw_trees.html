@@ -3,58 +3,44 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Bw-Trees - Database Internals</title>
-        
-        
+        <title>Bw-Trees - SinSay&#x27;s Note Book</title>
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
-        <link rel="icon" href="favicon.svg">
-        
-        
-        <link rel="shortcut icon" href="favicon.png">
-        
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        
-        <link rel="stylesheet" href="css/print.css" media="print">
-        
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
-        <link rel="stylesheet" href="fonts/fonts.css">
-        
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
+        <script>
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -70,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -82,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -95,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="part_1_storage_engine.html"><strong aria-hidden="true">1.</strong> Storage Engine</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">1.1.</strong> Introduction and Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item expanded "><a href="chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item expanded "><a href="chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item expanded "><a href="chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item expanded "><a href="chapter_1_7_summary.html"><strong aria-hidden="true">1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2_1_btree_basic.html"><strong aria-hidden="true">1.2.</strong> BTree Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item expanded "><a href="chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item expanded "><a href="chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">1.2.3.</strong> Ubiquitous B-Trees</a></li><li class="chapter-item expanded "><a href="chapter_2_5_summary.html"><strong aria-hidden="true">1.2.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3_1_file_format.html"><strong aria-hidden="true">1.3.</strong> File Format</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_2_motivation.html"><strong aria-hidden="true">1.3.1.</strong> Motivation</a></li><li class="chapter-item expanded "><a href="chapter_3_3_binary_encoding.html"><strong aria-hidden="true">1.3.2.</strong> Binary Encoding</a></li><li class="chapter-item expanded "><a href="chapter_3_4_general_principles.html"><strong aria-hidden="true">1.3.3.</strong> General Principles</a></li><li class="chapter-item expanded "><a href="chapter_3_5_page_structure.html"><strong aria-hidden="true">1.3.4.</strong> Page Structure</a></li><li class="chapter-item expanded "><a href="chapter_3_6_slotted_pages.html"><strong aria-hidden="true">1.3.5.</strong> Slotted Pages</a></li><li class="chapter-item expanded "><a href="chapter_3_7_cell_layout.html"><strong aria-hidden="true">1.3.6.</strong> Cell Layout</a></li><li class="chapter-item expanded "><a href="chapter_3_8_combining_cell_into_slotted_pages.html"><strong aria-hidden="true">1.3.7.</strong> Combining Cell into Slotted Pages</a></li><li class="chapter-item expanded "><a href="chapter_3_9_managing_variable_size_data.html"><strong aria-hidden="true">1.3.8.</strong> Managing Variable Size Data</a></li><li class="chapter-item expanded "><a href="chapter_3_10_versioning.html"><strong aria-hidden="true">1.3.9.</strong> Versioning</a></li><li class="chapter-item expanded "><a href="chapter_3_11_checksumming.html"><strong aria-hidden="true">1.3.10.</strong> Checksumming</a></li><li class="chapter-item expanded "><a href="chapter_3_12_summary.html"><strong aria-hidden="true">1.3.11.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_4_1_implementing_btrees.html"><strong aria-hidden="true">1.4.</strong> Implementing BTrees</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_4_2_page_header.html"><strong aria-hidden="true">1.4.1.</strong> Page Header</a></li><li class="chapter-item expanded "><a href="chapter_4_3_binary_search.html"><strong aria-hidden="true">1.4.2.</strong> Binary Search</a></li><li class="chapter-item expanded "><a href="chapter_4_4_propagating_spits_and_merges.html"><strong aria-hidden="true">1.4.3.</strong> Propagating Splits and Merges</a></li><li class="chapter-item expanded "><a href="chapter_4_5_rebalacing.html"><strong aria-hidden="true">1.4.4.</strong> Rebalacing</a></li><li class="chapter-item expanded "><a href="chapter_4_6_right_only_appends.html"><strong aria-hidden="true">1.4.5.</strong> Right-Only Appends</a></li><li class="chapter-item expanded "><a href="chapter_4_7_compression.html"><strong aria-hidden="true">1.4.6.</strong> Compression</a></li><li class="chapter-item expanded "><a href="chapter_4_8_vacuum_and_maintenance.html"><strong aria-hidden="true">1.4.7.</strong> Vacuum and Maintenance</a></li><li class="chapter-item expanded "><a href="chapter_4_9_summary.html"><strong aria-hidden="true">1.4.8.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_5_1_transaction_processing_and_recovery.html"><strong aria-hidden="true">1.5.</strong> Transaction Processing and Recovery</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_5_2_buffer_management.html"><strong aria-hidden="true">1.5.1.</strong> Buffer Management</a></li><li class="chapter-item expanded "><a href="chapter_5_3_recovery.html"><strong aria-hidden="true">1.5.2.</strong> Recovery</a></li><li class="chapter-item expanded "><a href="chapter_5_4_concurrency_control.html"><strong aria-hidden="true">1.5.3.</strong> Concurrenty Control</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_6_1_btree_variants.html"><strong aria-hidden="true">1.6.</strong> B-Trees Variant</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_6_2_copy_on_write.html"><strong aria-hidden="true">1.6.1.</strong> Copy-on-Write</a></li><li class="chapter-item expanded "><a href="chapter_6_3_abstracting_node_updates.html"><strong aria-hidden="true">1.6.2.</strong> Abstracting Node Updates</a></li><li class="chapter-item expanded "><a href="chapter_6_4_lary_btrees.html"><strong aria-hidden="true">1.6.3.</strong> Lazy B-Trees</a></li><li class="chapter-item expanded "><a href="chapter_6_5_fd_trees.html"><strong aria-hidden="true">1.6.4.</strong> FD-Trees</a></li><li class="chapter-item expanded "><a href="chapter_6_6_bw_trees.html" class="active"><strong aria-hidden="true">1.6.5.</strong> Bw-Trees</a></li><li class="chapter-item expanded "><a href="chapter_6_7_cache_oblivious_trees.html"><strong aria-hidden="true">1.6.6.</strong> Cache-Oblivious B-Trees</a></li><li class="chapter-item expanded "><a href="chapter_6_8_summary.html"><strong aria-hidden="true">1.6.7.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_7_1_log_structured_storage.html"><strong aria-hidden="true">1.7.</strong> Log-Structure Storage</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_7_2_lsm_trees.html"><strong aria-hidden="true">1.7.1.</strong> LSM Trees</a></li><li class="chapter-item expanded "><a href="chapter_7_3_read_write_space_amplification.html"><strong aria-hidden="true">1.7.2.</strong> Read, Write, and Space Amplification</a></li><li class="chapter-item expanded "><a href="chapter_7_4_implementation_details.html"><strong aria-hidden="true">1.7.3.</strong> Implemetation Details</a></li><li class="chapter-item expanded "><a href="chapter_7_5_unordered_lsm_storage.html"><strong aria-hidden="true">1.7.4.</strong> Unordered LSM Storage</a></li><li class="chapter-item expanded "><a href="chapter_7_6_concurrency_in_lsm_trees.html"><strong aria-hidden="true">1.7.5.</strong> Concurrency in LSM Trees</a></li><li class="chapter-item expanded "><a href="chapter_7_7_log_stacking.html"><strong aria-hidden="true">1.7.6.</strong> Log Stacking</a></li><li class="chapter-item expanded "><a href="chapter_7_8_llama_and_mindful_stacking.html"><strong aria-hidden="true">1.7.7.</strong> LLAMA and Mindful Stacking</a></li><li class="chapter-item expanded "><a href="chapter_7_9_summary.html"><strong aria-hidden="true">1.7.8.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="part_i_conclusion.html"><strong aria-hidden="true">1.8.</strong> Conclusion</a></li></ol></li><li class="chapter-item expanded "><a href="part_ii_distributed_systems.html"><strong aria-hidden="true">2.</strong> Distributed Systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_1_introduction_and_overview.html"><strong aria-hidden="true">2.1.</strong> Introduction and Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_2_concurrent_execution.html"><strong aria-hidden="true">2.1.1.</strong> Concurrent Execution</a></li><li class="chapter-item expanded "><a href="chapter_8_3_fallacies_of_distributed_computing.html"><strong aria-hidden="true">2.1.2.</strong> Fallacies of Distributed Computing</a></li><li class="chapter-item expanded "><a href="chapter_8_4_distributed_systems_abstrictions.html"><strong aria-hidden="true">2.1.3.</strong> Distributed Systems Abstriction</a></li><li class="chapter-item expanded "><a href="chapter_8_5_two_generals_problem.html"><strong aria-hidden="true">2.1.4.</strong> Two Generals Problem</a></li><li class="chapter-item expanded "><a href="chapter_8_6_flp_impossibility.html"><strong aria-hidden="true">2.1.5.</strong> FLP Impossibility)</a></li><li class="chapter-item expanded "><a href="chapter_8_7_system_synchrony.html"><strong aria-hidden="true">2.1.6.</strong> System Synchrony</a></li><li class="chapter-item expanded "><a href="chapter_8_8_failure_models.html"><strong aria-hidden="true">2.1.7.</strong> Failure Models</a></li><li class="chapter-item expanded "><a href="chapter_8_9_summary.html"><strong aria-hidden="true">2.1.8.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_9_1_failure_dection.html"><strong aria-hidden="true">2.2.</strong> Failure Dectection</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_9_2_heartbeats_and_pings.html"><strong aria-hidden="true">2.2.1.</strong> Heartbeats and Pinga</a></li><li class="chapter-item expanded "><a href="chapter_9_3_phi_accural_failure_detector.html"><strong aria-hidden="true">2.2.2.</strong> Phi-Accural Failure Dector</a></li><li class="chapter-item expanded "><a href="chapter_9_4_gossip_and_failure_detection.html"><strong aria-hidden="true">2.2.3.</strong> Gossip and Failure Detection</a></li><li class="chapter-item expanded "><a href="chapter_9_5_reversing_failure_detection.html"><strong aria-hidden="true">2.2.4.</strong> Reversing Failure Detection</a></li><li class="chapter-item expanded "><a href="chapter_9_6_summary.html"><strong aria-hidden="true">2.2.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_10_1_leader_election.html"><strong aria-hidden="true">2.3.</strong> Leader Election</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_10_2_bully_algorithm.html"><strong aria-hidden="true">2.3.1.</strong> Bully Algorithm</a></li><li class="chapter-item expanded "><a href="chapter_10_3_next_in_line_failover.html"><strong aria-hidden="true">2.3.2.</strong> Next-in-Line Failover</a></li><li class="chapter-item expanded "><a href="chapter_10_4_candidate_ordinary_optimization.html"><strong aria-hidden="true">2.3.3.</strong> Candidate/Ordinary Optimization</a></li><li class="chapter-item expanded "><a href="chapter_10_5_invitation_algorithm.html"><strong aria-hidden="true">2.3.4.</strong> Invitation Algorithm</a></li><li class="chapter-item expanded "><a href="chapter_10_6_ring_algorithm.html"><strong aria-hidden="true">2.3.5.</strong> Ring Algorithm</a></li><li class="chapter-item expanded "><a href="chapter_10_7_summary.html"><strong aria-hidden="true">2.3.6.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_11_1_overview.html"><strong aria-hidden="true">2.4.</strong> Replication and Consistency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_11_2_achieving_availability.html"><strong aria-hidden="true">2.4.1.</strong> Achieving Availability</a></li><li class="chapter-item expanded "><a href="chapter_11_3_infamous_cap.html"><strong aria-hidden="true">2.4.2.</strong> Infamous CAP</a></li><li class="chapter-item expanded "><a href="chapter_11_4_shared_memory.html"><strong aria-hidden="true">2.4.3.</strong> Shared Memory</a></li><li class="chapter-item expanded "><a href="chapter_11_5_ordering.html"><strong aria-hidden="true">2.4.4.</strong> Ordering</a></li><li class="chapter-item expanded "><a href="chapter_11_6_consistency_models.html"><strong aria-hidden="true">2.4.5.</strong> Consistency Models</a></li><li class="chapter-item expanded "><a href="chapter_11_7_eventual_consistency.html"><strong aria-hidden="true">2.4.6.</strong> Eventual Consistency</a></li><li class="chapter-item expanded "><a href="chapter_11_8_tunable_consistency.html"><strong aria-hidden="true">2.4.7.</strong> Tunable Consistency</a></li><li class="chapter-item expanded "><a href="chapter_11_9_witness_replicas.html"><strong aria-hidden="true">2.4.8.</strong> Witness Replicas</a></li><li class="chapter-item expanded "><a href="chapter_11_10_strong_eventual_consistency_and_crdts.html"><strong aria-hidden="true">2.4.9.</strong> Strong Eventual Consistency and CRDTs</a></li><li class="chapter-item expanded "><a href="chapter_11_11_summary.html"><strong aria-hidden="true">2.4.10.</strong> Summary</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../db/part_1_storage_engine.html"><strong aria-hidden="true">3.1.</strong> Storage Engine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">3.1.1.</strong> Introduction and Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">3.1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item "><a href="../db/chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">3.1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item "><a href="../db/chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">3.1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item "><a href="../db/chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">3.1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item "><a href="../db/chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">3.1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item "><a href="../db/chapter_1_7_summary.html"><strong aria-hidden="true">3.1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_2_1_btree_basic.html"><strong aria-hidden="true">3.1.2.</strong> BTree Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">3.1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item "><a href="../db/chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">3.1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item "><a href="../db/chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">3.1.2.3.</strong> Ubiquitous B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_2_5_summary.html"><strong aria-hidden="true">3.1.2.4.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_3_1_file_format.html"><strong aria-hidden="true">3.1.3.</strong> File Format</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_3_2_motivation.html"><strong aria-hidden="true">3.1.3.1.</strong> Motivation</a></li><li class="chapter-item "><a href="../db/chapter_3_3_binary_encoding.html"><strong aria-hidden="true">3.1.3.2.</strong> Binary Encoding</a></li><li class="chapter-item "><a href="../db/chapter_3_4_general_principles.html"><strong aria-hidden="true">3.1.3.3.</strong> General Principles</a></li><li class="chapter-item "><a href="../db/chapter_3_5_page_structure.html"><strong aria-hidden="true">3.1.3.4.</strong> Page Structure</a></li><li class="chapter-item "><a href="../db/chapter_3_6_slotted_pages.html"><strong aria-hidden="true">3.1.3.5.</strong> Slotted Pages</a></li><li class="chapter-item "><a href="../db/chapter_3_7_cell_layout.html"><strong aria-hidden="true">3.1.3.6.</strong> Cell Layout</a></li><li class="chapter-item "><a href="../db/chapter_3_8_combining_cell_into_slotted_pages.html"><strong aria-hidden="true">3.1.3.7.</strong> Combining Cell into Slotted Pages</a></li><li class="chapter-item "><a href="../db/chapter_3_9_managing_variable_size_data.html"><strong aria-hidden="true">3.1.3.8.</strong> Managing Variable Size Data</a></li><li class="chapter-item "><a href="../db/chapter_3_10_versioning.html"><strong aria-hidden="true">3.1.3.9.</strong> Versioning</a></li><li class="chapter-item "><a href="../db/chapter_3_11_checksumming.html"><strong aria-hidden="true">3.1.3.10.</strong> Checksumming</a></li><li class="chapter-item "><a href="../db/chapter_3_12_summary.html"><strong aria-hidden="true">3.1.3.11.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_4_1_implementing_btrees.html"><strong aria-hidden="true">3.1.4.</strong> Implementing BTrees</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_4_2_page_header.html"><strong aria-hidden="true">3.1.4.1.</strong> Page Header</a></li><li class="chapter-item "><a href="../db/chapter_4_3_binary_search.html"><strong aria-hidden="true">3.1.4.2.</strong> Binary Search</a></li><li class="chapter-item "><a href="../db/chapter_4_4_propagating_spits_and_merges.html"><strong aria-hidden="true">3.1.4.3.</strong> Propagating Splits and Merges</a></li><li class="chapter-item "><a href="../db/chapter_4_5_rebalacing.html"><strong aria-hidden="true">3.1.4.4.</strong> Rebalacing</a></li><li class="chapter-item "><a href="../db/chapter_4_6_right_only_appends.html"><strong aria-hidden="true">3.1.4.5.</strong> Right-Only Appends</a></li><li class="chapter-item "><a href="../db/chapter_4_7_compression.html"><strong aria-hidden="true">3.1.4.6.</strong> Compression</a></li><li class="chapter-item "><a href="../db/chapter_4_8_vacuum_and_maintenance.html"><strong aria-hidden="true">3.1.4.7.</strong> Vacuum and Maintenance</a></li><li class="chapter-item "><a href="../db/chapter_4_9_summary.html"><strong aria-hidden="true">3.1.4.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_5_1_transaction_processing_and_recovery.html"><strong aria-hidden="true">3.1.5.</strong> Transaction Processing and Recovery</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_5_2_buffer_management.html"><strong aria-hidden="true">3.1.5.1.</strong> Buffer Management</a></li><li class="chapter-item "><a href="../db/chapter_5_3_recovery.html"><strong aria-hidden="true">3.1.5.2.</strong> Recovery</a></li><li class="chapter-item "><a href="../db/chapter_5_4_concurrency_control.html"><strong aria-hidden="true">3.1.5.3.</strong> Concurrenty Control</a></li></ol></li><li class="chapter-item expanded "><a href="../db/chapter_6_1_btree_variants.html"><strong aria-hidden="true">3.1.6.</strong> B-Trees Variant</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_6_2_copy_on_write.html"><strong aria-hidden="true">3.1.6.1.</strong> Copy-on-Write</a></li><li class="chapter-item "><a href="../db/chapter_6_3_abstracting_node_updates.html"><strong aria-hidden="true">3.1.6.2.</strong> Abstracting Node Updates</a></li><li class="chapter-item "><a href="../db/chapter_6_4_lary_btrees.html"><strong aria-hidden="true">3.1.6.3.</strong> Lazy B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_5_fd_trees.html"><strong aria-hidden="true">3.1.6.4.</strong> FD-Trees</a></li><li class="chapter-item expanded "><a href="../db/chapter_6_6_bw_trees.html" class="active"><strong aria-hidden="true">3.1.6.5.</strong> Bw-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_7_cache_oblivious_trees.html"><strong aria-hidden="true">3.1.6.6.</strong> Cache-Oblivious B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_8_summary.html"><strong aria-hidden="true">3.1.6.7.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_7_1_log_structured_storage.html"><strong aria-hidden="true">3.1.7.</strong> Log-Structure Storage</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_7_2_lsm_trees.html"><strong aria-hidden="true">3.1.7.1.</strong> LSM Trees</a></li><li class="chapter-item "><a href="../db/chapter_7_3_read_write_space_amplification.html"><strong aria-hidden="true">3.1.7.2.</strong> Read, Write, and Space Amplification</a></li><li class="chapter-item "><a href="../db/chapter_7_4_implementation_details.html"><strong aria-hidden="true">3.1.7.3.</strong> Implemetation Details</a></li><li class="chapter-item "><a href="../db/chapter_7_5_unordered_lsm_storage.html"><strong aria-hidden="true">3.1.7.4.</strong> Unordered LSM Storage</a></li><li class="chapter-item "><a href="../db/chapter_7_6_concurrency_in_lsm_trees.html"><strong aria-hidden="true">3.1.7.5.</strong> Concurrency in LSM Trees</a></li><li class="chapter-item "><a href="../db/chapter_7_7_log_stacking.html"><strong aria-hidden="true">3.1.7.6.</strong> Log Stacking</a></li><li class="chapter-item "><a href="../db/chapter_7_8_llama_and_mindful_stacking.html"><strong aria-hidden="true">3.1.7.7.</strong> LLAMA and Mindful Stacking</a></li><li class="chapter-item "><a href="../db/chapter_7_9_summary.html"><strong aria-hidden="true">3.1.7.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/part_i_conclusion.html"><strong aria-hidden="true">3.1.8.</strong> Conclusion</a></li></ol></li><li class="chapter-item "><a href="../db/part_ii_distributed_systems.html"><strong aria-hidden="true">3.2.</strong> Distributed Systems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_8_1_introduction_and_overview.html"><strong aria-hidden="true">3.2.1.</strong> Introduction and Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_8_2_concurrent_execution.html"><strong aria-hidden="true">3.2.1.1.</strong> Concurrent Execution</a></li><li class="chapter-item "><a href="../db/chapter_8_3_fallacies_of_distributed_computing.html"><strong aria-hidden="true">3.2.1.2.</strong> Fallacies of Distributed Computing</a></li><li class="chapter-item "><a href="../db/chapter_8_4_distributed_systems_abstrictions.html"><strong aria-hidden="true">3.2.1.3.</strong> Distributed Systems Abstriction</a></li><li class="chapter-item "><a href="../db/chapter_8_5_two_generals_problem.html"><strong aria-hidden="true">3.2.1.4.</strong> Two Generals Problem</a></li><li class="chapter-item "><a href="../db/chapter_8_6_flp_impossibility.html"><strong aria-hidden="true">3.2.1.5.</strong> FLP Impossibility)</a></li><li class="chapter-item "><a href="../db/chapter_8_7_system_synchrony.html"><strong aria-hidden="true">3.2.1.6.</strong> System Synchrony</a></li><li class="chapter-item "><a href="../db/chapter_8_8_failure_models.html"><strong aria-hidden="true">3.2.1.7.</strong> Failure Models</a></li><li class="chapter-item "><a href="../db/chapter_8_9_summary.html"><strong aria-hidden="true">3.2.1.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_9_1_failure_dection.html"><strong aria-hidden="true">3.2.2.</strong> Failure Dectection</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_9_2_heartbeats_and_pings.html"><strong aria-hidden="true">3.2.2.1.</strong> Heartbeats and Pinga</a></li><li class="chapter-item "><a href="../db/chapter_9_3_phi_accural_failure_detector.html"><strong aria-hidden="true">3.2.2.2.</strong> Phi-Accural Failure Dector</a></li><li class="chapter-item "><a href="../db/chapter_9_4_gossip_and_failure_detection.html"><strong aria-hidden="true">3.2.2.3.</strong> Gossip and Failure Detection</a></li><li class="chapter-item "><a href="../db/chapter_9_5_reversing_failure_detection.html"><strong aria-hidden="true">3.2.2.4.</strong> Reversing Failure Detection</a></li><li class="chapter-item "><a href="../db/chapter_9_6_summary.html"><strong aria-hidden="true">3.2.2.5.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_10_1_leader_election.html"><strong aria-hidden="true">3.2.3.</strong> Leader Election</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_10_2_bully_algorithm.html"><strong aria-hidden="true">3.2.3.1.</strong> Bully Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_3_next_in_line_failover.html"><strong aria-hidden="true">3.2.3.2.</strong> Next-in-Line Failover</a></li><li class="chapter-item "><a href="../db/chapter_10_4_candidate_ordinary_optimization.html"><strong aria-hidden="true">3.2.3.3.</strong> Candidate/Ordinary Optimization</a></li><li class="chapter-item "><a href="../db/chapter_10_5_invitation_algorithm.html"><strong aria-hidden="true">3.2.3.4.</strong> Invitation Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_6_ring_algorithm.html"><strong aria-hidden="true">3.2.3.5.</strong> Ring Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_7_summary.html"><strong aria-hidden="true">3.2.3.6.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_11_1_overview.html"><strong aria-hidden="true">3.2.4.</strong> Replication and Consistency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_11_2_achieving_availability.html"><strong aria-hidden="true">3.2.4.1.</strong> Achieving Availability</a></li><li class="chapter-item "><a href="../db/chapter_11_3_infamous_cap.html"><strong aria-hidden="true">3.2.4.2.</strong> Infamous CAP</a></li><li class="chapter-item "><a href="../db/chapter_11_4_shared_memory.html"><strong aria-hidden="true">3.2.4.3.</strong> Shared Memory</a></li><li class="chapter-item "><a href="../db/chapter_11_5_ordering.html"><strong aria-hidden="true">3.2.4.4.</strong> Ordering</a></li><li class="chapter-item "><a href="../db/chapter_11_6_consistency_models.html"><strong aria-hidden="true">3.2.4.5.</strong> Consistency Models</a></li><li class="chapter-item "><a href="../db/chapter_11_7_eventual_consistency.html"><strong aria-hidden="true">3.2.4.6.</strong> Eventual Consistency</a></li><li class="chapter-item "><a href="../db/chapter_11_8_tunable_consistency.html"><strong aria-hidden="true">3.2.4.7.</strong> Tunable Consistency</a></li><li class="chapter-item "><a href="../db/chapter_11_9_witness_replicas.html"><strong aria-hidden="true">3.2.4.8.</strong> Witness Replicas</a></li><li class="chapter-item "><a href="../db/chapter_11_10_strong_eventual_consistency_and_crdts.html"><strong aria-hidden="true">3.2.4.9.</strong> Strong Eventual Consistency and CRDTs</a></li><li class="chapter-item "><a href="../db/chapter_11_11_summary.html"><strong aria-hidden="true">3.2.4.10.</strong> Summary</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item "><a href="../distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/src/index.html"><strong aria-hidden="true">5.</strong> Tracing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tracing/src/1_Concept_Data_Sources.html"><strong aria-hidden="true">5.1.</strong> Concept - Data Source</a></li><li class="chapter-item "><a href="../tracing/src/2_Concepts_Instrumenting.html"><strong aria-hidden="true">5.2.</strong> Concept - Instrumenting</a></li><li class="chapter-item "><a href="../tracing/src/3_Concept_Instrumenting_Libraries.html"><strong aria-hidden="true">5.3.</strong> Concept - Instrumenting Libraries</a></li><li class="chapter-item "><a href="../tracing/src/4_Concept_Data_Collection.html"><strong aria-hidden="true">5.4.</strong> Concept - Data Collection</a></li><li class="chapter-item "><a href="../tracing/src/5_Concept_Distributions.html"><strong aria-hidden="true">5.5.</strong> Concept - Distributions</a></li><li class="chapter-item "><a href="../tracing/src/6_Collector_Getting_Started.html"><strong aria-hidden="true">5.6.</strong> Collector - Getting Started</a></li><li class="chapter-item "><a href="../tracing/src/7_Metrics_API.html"><strong aria-hidden="true">5.7.</strong> Metrics - API</a></li></ol></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item "><a href="../redis/ziplist.html"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 1. 基本定义</a></li><li class="chapter-item "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 2. 分析起步</a></li><li class="chapter-item "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 3. 请求处理</a></li><li class="chapter-item "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 4. 执行命令</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -103,8 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -114,35 +101,30 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
-                    <h1 class="menu-title">Database Internals</h1>
+                    <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
                     <div class="right-buttons">
-                        
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -150,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -163,15 +144,15 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#bw-trees" id="bw-trees">Bw-Trees</a></h2>
+                        <h2 id="bw-trees"><a class="header" href="#bw-trees">Bw-Trees</a></h2>
 <p><em>Write amplification</em> 写放大是实现了就地更新的 B-Tree 最大的问题之一：接连的对 B-Tree 页的更新可能会需要每次都对磁盘中该页的副本进行更新。第二个问题是 <em>space amplification</em> 空间放大：我们申请了额外的空间来实现更新。这意味着每次传输数据时，除了必要的字节，还需要传输一些空的字节跟页的其他信息。第三个问题是解决并发问题跟处理 Latche 的复杂度很高。</p>
 <p>为了同时解决这三个问题，我们需要一种不同于我们之前讨论的实现方式。缓冲更新能够帮助我们优化写入跟空间的放大问题，但对于并发问题没有什么帮助。</p>
 <p>我们可以使用只附加的存储引擎来批量处理多个节点的更新，将节点连接成一条链，然后使用基于内存的数据结构，这个结构使用 <em>compare-and-swap</em> 来为每个节点添加关联的指针，从而使树实现 <em>lock-free</em>。这种方式被称为 <em>Buzzword-Tree (Bw-Tree)</em>。</p>
-<h3><a class="header" href="#update-chains" id="update-chains">Update Chains</a></h3>
+<h3 id="update-chains"><a class="header" href="#update-chains">Update Chains</a></h3>
 <p>Bw-Tree 单独的写入每个基础节点的修改。在链中保存修改 <em>(delta nodes)</em> 信息：一个链表，从最新修改一直连接到较旧的修改，最后是其基础节点。每个更新可以单独的进行存储，而无需重写已经存在于磁盘中的节点。这些增加的节点可以表示插入、更新或是删除。</p>
 <p>因为基础跟增加的节点不一定会基于页的大小对齐，所以可以将他们连续的保存到一起，又因为基础跟增量的节点都不是在更新时直接进行修改的 <em>(所有的修改都只会添加到链表的头部)</em>，我们不需要申请任何额外的空间。</p>
 <p>将一个节点视为逻辑性而不是物理性的实体是一个很有趣的变化：我们不在需要为他预分配空间，不再要求节点需要有固定的大小，或不需要将他们保存在连续的内存段中。这当然也有缺点：在读取的时候，所有的增量节点需要重新应用到基础节点上，来构建出这个节点的真实状态。中跟 LA-Tree 有些类似：将变化跟主结构独立进行保存，并在读取的时候重新应用变更操作。</p>
-<h3><a class="header" href="#taming-concurrency-with-compare-and-swap" id="taming-concurrency-with-compare-and-swap">Taming Concurrency with Compare-and-Swap</a></h3>
+<h3 id="taming-concurrency-with-compare-and-swap"><a class="header" href="#taming-concurrency-with-compare-and-swap">Taming Concurrency with Compare-and-Swap</a></h3>
 <p>允许在基于磁盘的树结构的子节点前添加元素的开销会非常大：他会需要我们不断的去更新父节点让他指向最新的增量元素。这也是为什么 Bw-Tree 节点包含的增量跟基础节点使用了逻辑标识符，并使用内存映射表来进行标识符跟具体磁盘位置转换的原因。使用这个映射还能让我们不去使用 Latches: Bw-Tree 不会在写入的时候获取具有排他性的所有权，而是使用 Compare-and-Swap 来处理映射表的物理偏移量。</p>
 <p>Figure 6-7 展示了一个简单的 Bw-Tree，每个逻辑节点包含了一个基础节点跟多个链接起来的增量节点。</p>
 <p><img src="chapter_6_6_bw_trees.assets/image-20210317175600041.png" alt="image-20210317175600041" /></p>
@@ -182,7 +163,7 @@
 <li>映射表中会被更新为指向步骤 2 中最新创建的增量节点</li>
 </ol>
 <p>更新操作中的第三步会使用原子性的 Compare-and-Swap 操作来完成，所以所有的读取跟指针的修改是可以并发进行的，他们要么在修改之前要么在修改之后进行，而不会因为更新而导致读取被堵塞。在修改之前的读取不会看到最新的增量节点，因为他还没成功更新，在修改之后的读取会使用最新的指针，因此能观察到最新的更新。如果两个线程同时尝试去更新最新的增量节点，只有一个能够执行成功，另一个则需要再次进行重试。</p>
-<h3><a class="header" href="#structural-modification-operations" id="structural-modification-operations">Structural Modification Operations</a></h3>
+<h3 id="structural-modification-operations"><a class="header" href="#structural-modification-operations">Structural Modification Operations</a></h3>
 <p>Bw-Tree 的逻辑结构跟 B-Tree 的类似，意味着他的节点也可能增长得过大或是收缩到几乎为空导致需要对树的结构进行修改操作 <em>(SMOs)</em>，比如进行分裂或合并。分裂跟合并的语义跟 B-Tree 的是类似的，只是他们的实现是不同的。</p>
 <p>分裂操作首先会对需要分裂节点的逻辑内容进行整合，将所有的增量节点应用到基础节点上，然后创建一个新的包含了分裂点右侧元素的页。然后就继续执行下面的两步：</p>
 <ol>
@@ -198,7 +179,7 @@
 </ol>
 <p>并发的 SMO 需要在父节点上增加额外的 <em>abort delta node</em> 中断增量节点来防止出现并发的分裂跟合并，中断增量节点有跟写入锁类似的功能：在同一个时刻只有一个线程能够获取这个写入的权限，其他尝试往这个增量节点添加新记录的线程都会被中止。在 SMO 完成后中断增量节点就可以从父节点上面移除了。</p>
 <p>Bw-Tree 的高度会在根节点分裂的时候增加，当根节点太大时会分裂成两个节点，然后会在原本的位置创建新的根节点，接着原本的根节点跟其新创建的邻接节点会成为他的子节点。</p>
-<h3><a class="header" href="#consolidation-and-garbage-collection" id="consolidation-and-garbage-collection">Consolidation and Garbage Collection</a></h3>
+<h3 id="consolidation-and-garbage-collection"><a class="header" href="#consolidation-and-garbage-collection">Consolidation and Garbage Collection</a></h3>
 <p>增量链在没有增加额外措施的情况下能够无限的增长，因此读取的代价也会随着链条越长变得越昂贵，我们需要尝试将增量链的长度控制在合理的边界内。当他触及到了配置的阈值时，我们会通过将所有增量节点应用到基础节点上来重建这个节点，并让他成为新的基础节点。新的基础节点会被写到磁盘中的新的位置，然后会将映射表中对应的指针指向它。作为构建日志结构化存储的基础，他被用来负责垃圾回收、节点合并跟重分配，我们会在后续的 <em>LLAMA and Mindful Stacking</em> 中讨论更多的细节。</p>
 <p>在节点被合并时，原本的内容 <em>(基础节点跟增量节点)</em> 就无法从映射表中定位到了。但是我们不能马上释放这部分内存，因为他们可能仍然被其他正在执行的操作使用着。因为读取者没有持有任何 Latch <em>(读取者不需要经过或注册任何屏障信息来访问一个节点)</em>，我们需要找到其他的方式来跟踪存活的页。</p>
 <p>为了将能看到或不能看到特定节点的线程分隔开， Bw-Tree 使用了一种称为 <em>epoch-based reclamation</em> 的技术。如果有些节点跟增量信息因为整合，在某个代数从映射表删除了，则该原始的节点会被保留直到该代数或更低代数的读取完成。在这之后，该节点才能够被安全的进行垃圾回收，因为需要确保后续的读取者无法看到这些节点，因为这些读取者启动的时候这些节点应该都是无法被定位的。</p>
@@ -209,17 +190,13 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="chapter_6_5_fd_trees.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../db/chapter_6_5_fd_trees.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
-                            <a rel="next" href="chapter_6_7_cache_oblivious_trees.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../db/chapter_6_7_cache_oblivious_trees.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -227,49 +204,36 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="chapter_6_5_fd_trees.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../db/chapter_6_5_fd_trees.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
-                    <a rel="next" href="chapter_6_7_cache_oblivious_trees.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../db/chapter_6_7_cache_oblivious_trees.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>

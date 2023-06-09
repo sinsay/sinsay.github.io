@@ -4,37 +4,24 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Select - SinSay&#x27;s Note Book</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../favicon.png">
-        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        
         <link rel="stylesheet" href="../css/print.css" media="print">
-        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -42,19 +29,18 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -70,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -82,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -95,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html" class="active"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/index.html"><strong aria-hidden="true">5.</strong> Tracing</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 执行命令</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html" class="active"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/part_1_storage_engine.html"><strong aria-hidden="true">3.1.</strong> Storage Engine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">3.1.1.</strong> Introduction and Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">3.1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item "><a href="../db/chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">3.1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item "><a href="../db/chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">3.1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item "><a href="../db/chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">3.1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item "><a href="../db/chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">3.1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item "><a href="../db/chapter_1_7_summary.html"><strong aria-hidden="true">3.1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_2_1_btree_basic.html"><strong aria-hidden="true">3.1.2.</strong> BTree Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">3.1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item "><a href="../db/chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">3.1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item "><a href="../db/chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">3.1.2.3.</strong> Ubiquitous B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_2_5_summary.html"><strong aria-hidden="true">3.1.2.4.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_3_1_file_format.html"><strong aria-hidden="true">3.1.3.</strong> File Format</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_3_2_motivation.html"><strong aria-hidden="true">3.1.3.1.</strong> Motivation</a></li><li class="chapter-item "><a href="../db/chapter_3_3_binary_encoding.html"><strong aria-hidden="true">3.1.3.2.</strong> Binary Encoding</a></li><li class="chapter-item "><a href="../db/chapter_3_4_general_principles.html"><strong aria-hidden="true">3.1.3.3.</strong> General Principles</a></li><li class="chapter-item "><a href="../db/chapter_3_5_page_structure.html"><strong aria-hidden="true">3.1.3.4.</strong> Page Structure</a></li><li class="chapter-item "><a href="../db/chapter_3_6_slotted_pages.html"><strong aria-hidden="true">3.1.3.5.</strong> Slotted Pages</a></li><li class="chapter-item "><a href="../db/chapter_3_7_cell_layout.html"><strong aria-hidden="true">3.1.3.6.</strong> Cell Layout</a></li><li class="chapter-item "><a href="../db/chapter_3_8_combining_cell_into_slotted_pages.html"><strong aria-hidden="true">3.1.3.7.</strong> Combining Cell into Slotted Pages</a></li><li class="chapter-item "><a href="../db/chapter_3_9_managing_variable_size_data.html"><strong aria-hidden="true">3.1.3.8.</strong> Managing Variable Size Data</a></li><li class="chapter-item "><a href="../db/chapter_3_10_versioning.html"><strong aria-hidden="true">3.1.3.9.</strong> Versioning</a></li><li class="chapter-item "><a href="../db/chapter_3_11_checksumming.html"><strong aria-hidden="true">3.1.3.10.</strong> Checksumming</a></li><li class="chapter-item "><a href="../db/chapter_3_12_summary.html"><strong aria-hidden="true">3.1.3.11.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_4_1_implementing_btrees.html"><strong aria-hidden="true">3.1.4.</strong> Implementing BTrees</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_4_2_page_header.html"><strong aria-hidden="true">3.1.4.1.</strong> Page Header</a></li><li class="chapter-item "><a href="../db/chapter_4_3_binary_search.html"><strong aria-hidden="true">3.1.4.2.</strong> Binary Search</a></li><li class="chapter-item "><a href="../db/chapter_4_4_propagating_spits_and_merges.html"><strong aria-hidden="true">3.1.4.3.</strong> Propagating Splits and Merges</a></li><li class="chapter-item "><a href="../db/chapter_4_5_rebalacing.html"><strong aria-hidden="true">3.1.4.4.</strong> Rebalacing</a></li><li class="chapter-item "><a href="../db/chapter_4_6_right_only_appends.html"><strong aria-hidden="true">3.1.4.5.</strong> Right-Only Appends</a></li><li class="chapter-item "><a href="../db/chapter_4_7_compression.html"><strong aria-hidden="true">3.1.4.6.</strong> Compression</a></li><li class="chapter-item "><a href="../db/chapter_4_8_vacuum_and_maintenance.html"><strong aria-hidden="true">3.1.4.7.</strong> Vacuum and Maintenance</a></li><li class="chapter-item "><a href="../db/chapter_4_9_summary.html"><strong aria-hidden="true">3.1.4.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_5_1_transaction_processing_and_recovery.html"><strong aria-hidden="true">3.1.5.</strong> Transaction Processing and Recovery</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_5_2_buffer_management.html"><strong aria-hidden="true">3.1.5.1.</strong> Buffer Management</a></li><li class="chapter-item "><a href="../db/chapter_5_3_recovery.html"><strong aria-hidden="true">3.1.5.2.</strong> Recovery</a></li><li class="chapter-item "><a href="../db/chapter_5_4_concurrency_control.html"><strong aria-hidden="true">3.1.5.3.</strong> Concurrenty Control</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_6_1_btree_variants.html"><strong aria-hidden="true">3.1.6.</strong> B-Trees Variant</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_6_2_copy_on_write.html"><strong aria-hidden="true">3.1.6.1.</strong> Copy-on-Write</a></li><li class="chapter-item "><a href="../db/chapter_6_3_abstracting_node_updates.html"><strong aria-hidden="true">3.1.6.2.</strong> Abstracting Node Updates</a></li><li class="chapter-item "><a href="../db/chapter_6_4_lary_btrees.html"><strong aria-hidden="true">3.1.6.3.</strong> Lazy B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_5_fd_trees.html"><strong aria-hidden="true">3.1.6.4.</strong> FD-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_6_bw_trees.html"><strong aria-hidden="true">3.1.6.5.</strong> Bw-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_7_cache_oblivious_trees.html"><strong aria-hidden="true">3.1.6.6.</strong> Cache-Oblivious B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_8_summary.html"><strong aria-hidden="true">3.1.6.7.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_7_1_log_structured_storage.html"><strong aria-hidden="true">3.1.7.</strong> Log-Structure Storage</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_7_2_lsm_trees.html"><strong aria-hidden="true">3.1.7.1.</strong> LSM Trees</a></li><li class="chapter-item "><a href="../db/chapter_7_3_read_write_space_amplification.html"><strong aria-hidden="true">3.1.7.2.</strong> Read, Write, and Space Amplification</a></li><li class="chapter-item "><a href="../db/chapter_7_4_implementation_details.html"><strong aria-hidden="true">3.1.7.3.</strong> Implemetation Details</a></li><li class="chapter-item "><a href="../db/chapter_7_5_unordered_lsm_storage.html"><strong aria-hidden="true">3.1.7.4.</strong> Unordered LSM Storage</a></li><li class="chapter-item "><a href="../db/chapter_7_6_concurrency_in_lsm_trees.html"><strong aria-hidden="true">3.1.7.5.</strong> Concurrency in LSM Trees</a></li><li class="chapter-item "><a href="../db/chapter_7_7_log_stacking.html"><strong aria-hidden="true">3.1.7.6.</strong> Log Stacking</a></li><li class="chapter-item "><a href="../db/chapter_7_8_llama_and_mindful_stacking.html"><strong aria-hidden="true">3.1.7.7.</strong> LLAMA and Mindful Stacking</a></li><li class="chapter-item "><a href="../db/chapter_7_9_summary.html"><strong aria-hidden="true">3.1.7.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/part_i_conclusion.html"><strong aria-hidden="true">3.1.8.</strong> Conclusion</a></li></ol></li><li class="chapter-item "><a href="../db/part_ii_distributed_systems.html"><strong aria-hidden="true">3.2.</strong> Distributed Systems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_8_1_introduction_and_overview.html"><strong aria-hidden="true">3.2.1.</strong> Introduction and Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_8_2_concurrent_execution.html"><strong aria-hidden="true">3.2.1.1.</strong> Concurrent Execution</a></li><li class="chapter-item "><a href="../db/chapter_8_3_fallacies_of_distributed_computing.html"><strong aria-hidden="true">3.2.1.2.</strong> Fallacies of Distributed Computing</a></li><li class="chapter-item "><a href="../db/chapter_8_4_distributed_systems_abstrictions.html"><strong aria-hidden="true">3.2.1.3.</strong> Distributed Systems Abstriction</a></li><li class="chapter-item "><a href="../db/chapter_8_5_two_generals_problem.html"><strong aria-hidden="true">3.2.1.4.</strong> Two Generals Problem</a></li><li class="chapter-item "><a href="../db/chapter_8_6_flp_impossibility.html"><strong aria-hidden="true">3.2.1.5.</strong> FLP Impossibility)</a></li><li class="chapter-item "><a href="../db/chapter_8_7_system_synchrony.html"><strong aria-hidden="true">3.2.1.6.</strong> System Synchrony</a></li><li class="chapter-item "><a href="../db/chapter_8_8_failure_models.html"><strong aria-hidden="true">3.2.1.7.</strong> Failure Models</a></li><li class="chapter-item "><a href="../db/chapter_8_9_summary.html"><strong aria-hidden="true">3.2.1.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_9_1_failure_dection.html"><strong aria-hidden="true">3.2.2.</strong> Failure Dectection</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_9_2_heartbeats_and_pings.html"><strong aria-hidden="true">3.2.2.1.</strong> Heartbeats and Pinga</a></li><li class="chapter-item "><a href="../db/chapter_9_3_phi_accural_failure_detector.html"><strong aria-hidden="true">3.2.2.2.</strong> Phi-Accural Failure Dector</a></li><li class="chapter-item "><a href="../db/chapter_9_4_gossip_and_failure_detection.html"><strong aria-hidden="true">3.2.2.3.</strong> Gossip and Failure Detection</a></li><li class="chapter-item "><a href="../db/chapter_9_5_reversing_failure_detection.html"><strong aria-hidden="true">3.2.2.4.</strong> Reversing Failure Detection</a></li><li class="chapter-item "><a href="../db/chapter_9_6_summary.html"><strong aria-hidden="true">3.2.2.5.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_10_1_leader_election.html"><strong aria-hidden="true">3.2.3.</strong> Leader Election</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_10_2_bully_algorithm.html"><strong aria-hidden="true">3.2.3.1.</strong> Bully Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_3_next_in_line_failover.html"><strong aria-hidden="true">3.2.3.2.</strong> Next-in-Line Failover</a></li><li class="chapter-item "><a href="../db/chapter_10_4_candidate_ordinary_optimization.html"><strong aria-hidden="true">3.2.3.3.</strong> Candidate/Ordinary Optimization</a></li><li class="chapter-item "><a href="../db/chapter_10_5_invitation_algorithm.html"><strong aria-hidden="true">3.2.3.4.</strong> Invitation Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_6_ring_algorithm.html"><strong aria-hidden="true">3.2.3.5.</strong> Ring Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_7_summary.html"><strong aria-hidden="true">3.2.3.6.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_11_1_overview.html"><strong aria-hidden="true">3.2.4.</strong> Replication and Consistency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_11_2_achieving_availability.html"><strong aria-hidden="true">3.2.4.1.</strong> Achieving Availability</a></li><li class="chapter-item "><a href="../db/chapter_11_3_infamous_cap.html"><strong aria-hidden="true">3.2.4.2.</strong> Infamous CAP</a></li><li class="chapter-item "><a href="../db/chapter_11_4_shared_memory.html"><strong aria-hidden="true">3.2.4.3.</strong> Shared Memory</a></li><li class="chapter-item "><a href="../db/chapter_11_5_ordering.html"><strong aria-hidden="true">3.2.4.4.</strong> Ordering</a></li><li class="chapter-item "><a href="../db/chapter_11_6_consistency_models.html"><strong aria-hidden="true">3.2.4.5.</strong> Consistency Models</a></li><li class="chapter-item "><a href="../db/chapter_11_7_eventual_consistency.html"><strong aria-hidden="true">3.2.4.6.</strong> Eventual Consistency</a></li><li class="chapter-item "><a href="../db/chapter_11_8_tunable_consistency.html"><strong aria-hidden="true">3.2.4.7.</strong> Tunable Consistency</a></li><li class="chapter-item "><a href="../db/chapter_11_9_witness_replicas.html"><strong aria-hidden="true">3.2.4.8.</strong> Witness Replicas</a></li><li class="chapter-item "><a href="../db/chapter_11_10_strong_eventual_consistency_and_crdts.html"><strong aria-hidden="true">3.2.4.9.</strong> Strong Eventual Consistency and CRDTs</a></li><li class="chapter-item "><a href="../db/chapter_11_11_summary.html"><strong aria-hidden="true">3.2.4.10.</strong> Summary</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../distributed/mapreduce_note.html"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item "><a href="../distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/src/index.html"><strong aria-hidden="true">5.</strong> Tracing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tracing/src/1_Concept_Data_Sources.html"><strong aria-hidden="true">5.1.</strong> Concept - Data Source</a></li><li class="chapter-item "><a href="../tracing/src/2_Concepts_Instrumenting.html"><strong aria-hidden="true">5.2.</strong> Concept - Instrumenting</a></li><li class="chapter-item "><a href="../tracing/src/3_Concept_Instrumenting_Libraries.html"><strong aria-hidden="true">5.3.</strong> Concept - Instrumenting Libraries</a></li><li class="chapter-item "><a href="../tracing/src/4_Concept_Data_Collection.html"><strong aria-hidden="true">5.4.</strong> Concept - Data Collection</a></li><li class="chapter-item "><a href="../tracing/src/5_Concept_Distributions.html"><strong aria-hidden="true">5.5.</strong> Concept - Distributions</a></li><li class="chapter-item "><a href="../tracing/src/6_Collector_Getting_Started.html"><strong aria-hidden="true">5.6.</strong> Collector - Getting Started</a></li><li class="chapter-item "><a href="../tracing/src/7_Metrics_API.html"><strong aria-hidden="true">5.7.</strong> Metrics - API</a></li></ol></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item "><a href="../redis/ziplist.html"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 1. 基本定义</a></li><li class="chapter-item "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 2. 分析起步</a></li><li class="chapter-item "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 3. 请求处理</a></li><li class="chapter-item "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 4. 执行命令</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -103,8 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -114,35 +101,30 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -150,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -163,9 +144,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#select" id="select">Select</a></h1>
+                        <h1 id="select"><a class="header" href="#select">Select</a></h1>
 <p>到目前为止，在需要可以并发运行程序时，可以通过 <code>spawn</code> 创建一个新的任务，现在我们来学一下 Tokio 的一些其他执行异步代码的方式。</p>
-<h2><a class="header" href="#tokioselect" id="tokioselect"><code>tokio::select!</code></a></h2>
+<h2 id="tokioselect"><a class="header" href="#tokioselect"><code>tokio::select!</code></a></h2>
 <p><code>tokio::select!</code> 宏允许我们等待多个异步的任务，并且在其中<strong>一个</strong>完成时返回，比如</p>
 <pre><pre class="playground"><code class="language-rust">use tokio::sync::oneshot;
 
@@ -190,11 +171,10 @@ async fn main() {
       println!(&quot;rx2 completed first with {:?}&quot;, val);
     }
   }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>这里我们使用了两个 OneShot Channel, 每个 Channel 都可能会先完成，<code>select!</code> 语句同时等待这两个 Channel，并在操作完成时将其返回值绑定到语句块的 <code>val</code> 变量，然后执行对应的完成语句。</p>
 <p>要注意的是，另一个未完成的操作将会被丢弃，在这个示例中，对应的操作是等待每一个 <code>oneshot::Receiver</code> 的结果，最后未完成的那个 <code>Channel</code> 将会被丢弃。</p>
-<h2><a class="header" href="#cancellation" id="cancellation">Cancellation</a></h2>
+<h2 id="cancellation"><a class="header" href="#cancellation">Cancellation</a></h2>
 <p>在 Rust 的异步系统中，取消操作通过丢弃对应的 <code>Future</code> 实现，回顾 <code>Async in depth</code> 一节，Rust 的异步操作是通过惰性执行的  <code>Future</code> 来实现的，这些操作只会在对 <code>Future</code> 进行 Poll 的时候执行，如果 <code>Future</code> 被丢弃，则其对应的操作将无法继续推进，因为操作对应的状态已经丢失了。</p>
 <p>有时候异步的操作会用来创建后台任务或者其他运行在后台的操作，比如在上面的示例中，一个任务被创建来发送信息，通常来说这些任务会通过计算来产生一些数据。</p>
 <p><code>Future</code> 或其他的类型可以通过实现 <code>Drop</code> 来实现资源清理的操作，Tokio 的 <code>oneshot::Receiver</code> 通过实现 <code>Drop</code> 来给 <code>Sender</code> 发送关闭的通知，<code>Sender</code> 会在收到通知的时候可以通过 通过 <code>Drop</code> 其他的资源来清理进程内的信息。</p>
@@ -235,9 +215,8 @@ async fn main() {
       println!(&quot;rx2 completed first with {:?}&quot;, val);
     }
   }
-}
-</code></pre></pre>
-<h2><a class="header" href="#the-future-implemention" id="the-future-implemention">The <code>Future</code> Implemention</a></h2>
+}</code></pre></pre>
+<h2 id="the-future-implemention"><a class="header" href="#the-future-implemention">The <code>Future</code> Implemention</a></h2>
 <p>为了更好的理解 <code>select!</code> 是如何工作的，我们来假设看看其 <code>Future</code> 的实现会像什么样子，在这个简单的版本中，<code>select!</code> 包含了一些额外功能，如随机的选择第一个调用 <code>poll</code> 的分支。</p>
 <pre><pre class="playground"><code class="language-rust">use tokio::sync::oneshot;
 use std::future::Future;
@@ -278,22 +257,19 @@ async fn main() {
     rx1,
     rx2
   }.await;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p><code>MySelect</code>  包含了每个分支使用的 <code>Future</code>，当他被 <code>poll</code> 时，首先会尝试 <code>poll</code> 第一个分支，如果该分支的 <code>Future</code> 已完成，则处理该分支的代码，并且 <code>MySelect</code> 也进入完成状态，当 <code>.await</code> 接收到已完成 <code>Future</code> 的通知后，该 <code>Future</code> 就会被丢弃，这就会导致 <code>MySelect</code> 中的各个 <code>Future</code> 都被丢弃，因此另一个未完成的分支的 <code>Future</code> 在这时会被取消执行。</p>
 <p>记住前一节我们提到的:</p>
 <blockquote>
 <p>当一个 <code>Future</code> 返回 <code>Poll::Pending</code> 时，他要 <strong>确保</strong> 执行器能够在稍后的某个时间点收到通知，如果无法保证这点，该任务会无限的挂起导致无法运行。</p>
 </blockquote>
 <p>在 <code>MySelect</code> 的实现中我们没有使用到 <code>Context</code> 参数，因为所需的 <code>Waker</code> 已经通过 <code>cx</code> 传递给了更内层的 <code>Future</code>，内层的 <code>Future</code> 在需要的时候会使用我们传递的 <code>Waker</code>，当他们返回 <code>Poll::Pending</code> 时，<code>MySelect</code> 也同样返回 <code>Poll::Pending</code>，因此 <code>MySelect</code> 满足 <code>Waker</code> 的要求。</p>
-<h2><a class="header" href="#syntax" id="syntax">Syntax</a></h2>
+<h2 id="syntax"><a class="header" href="#syntax">Syntax</a></h2>
 <p><code>select!</code> 宏能够处理两个以上的分支，事实上当前的分支限制数是 64 个，每个分支的结构如下</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>&lt;pattern&gt; = &lt;async experssion&gt; =&gt; &lt;handler&gt;,
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>当 <code>select</code> 宏被执行时，所有的 <code>&lt;async expression&gt;</code> 被收集起来然后并行的执行，当其中一个表达式完成时，他的返回结果会检查是否满足 <code>&lt;pattern&gt;</code> 条件，如果满足，则其他分支的所有表达式都将被丢弃，然后当前这个分支的 <code>&lt;handler&gt;</code> 将会被执行，<code>&lt;handler&gt;</code> 表达式在执行时还能够访问到 <code>&lt;pattern&gt;</code> 得到的绑定数据。</p>
 <p>使用 <code>&lt;pattern&gt;</code> 最简单的方式是提供一个变量名，这样在 <code>&lt;async expression&gt;</code> 满足时，对应的 <code>&lt;handler&gt;</code> 可以在其代码中通过该变量名访问到 <code>&lt;async expression&gt;</code> 执行的结果。这也是为什么我们在最初的例子中可以在 <code>&lt;handler&gt;</code> 中使用 <code>&lt;pettern&gt;</code> 定义的 <code>val</code> 变量。</p>
 <p>如果 <code>&lt;pattern&gt;</code> 的定义跟表达式执行的结果类型不匹配，则其他的异步表达式会会继续执行知道下一个完成，然后下一个完成的逻辑跟当前这样一样，继续尝试匹配对应的 <code>&lt;pattern&gt;</code>。</p>
@@ -319,8 +295,7 @@ async fn main() {
       println!(&quot;received message first {:?}&quot;, msg);
     }
   }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>下面的例子则是从 <code>oneshot</code> 接受信息，或是启动 <code>TcpListener</code> 接收连接的循环</p>
 <pre><pre class="playground"><code class="language-rust">use tokio::net::TcpListener;
 use tokio::sync::oneshot;
@@ -351,10 +326,9 @@ async fn main() io::Result&lt;()&gt; {
   }
   
   Ok(())
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>上面代码中接收 <code>socket</code> 的循环会一直运行到出错，又或者 <code>rx</code> 接收到了信息，<code>_</code> 符号用来表示我们并不在意异步表达式的返回值。</p>
-<h2><a class="header" href="#return-value" id="return-value">Return Value</a></h2>
+<h2 id="return-value"><a class="header" href="#return-value">Return Value</a></h2>
 <p><code>tokio::select</code> 宏会将以执行的 <code>&lt;handler</code> 的返回值作为其返回值，如</p>
 <pre><pre class="playground"><code class="language-rust">async fn computation1() -&gt; String {
   // ...
@@ -372,10 +346,9 @@ async fn main() {
   };
   
   println!(&quot;Got = {}&quot;, out);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>因此，该宏会要求每一个分支的 <code>&lt;handler&gt;</code> 都返回相同的类型，如果不需要最终的执行结果，那明确的返回 <code>()</code> 是一个比较好的做法。</p>
-<h2><a class="header" href="#errors" id="errors">Errors</a></h2>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <p>通常情况下 <code>?</code> 操作符可以用来向上传播表达式的错误信息，接着我们看看 <code>?</code> 操作符在异步表达式中是如何工作的。在异步的表达式中我们同样可以使用 <code>?</code> 操作符来向上传播错误，这意味着异步表达式的返回结果需要是 <code>Result</code> 类型。在 <code>&lt;handler&gt;</code> 块中使用 <code>?</code> 语句能够让错误传播出 <code>select!</code> 表达式。让我们来看个例子</p>
 <pre><pre class="playground"><code class="language-rust">use tokio::net::TcpListener;
 use tokio::sync::oneshot;
@@ -404,17 +377,14 @@ async fn main() -&gt; io::Result&lt;()&gt; {
   }
   
   Ok(())
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>我们看到示例中使用了 <code>listener.accept().await?</code>，这一句的 <code>?</code> 操作符能够将错误信息从表达式中传播给 <code>&lt;pattern&gt;</code> ，也就是 <code>res</code>，在发生错误的情况下 <code>res</code> 将被设置为 <code>Err(_)</code> ，紧接着在 <code>&lt;handler&gt;</code> 中再次对 <code>res</code> 使用了 <code>?</code> 操作符，因此对应的错误信息将被再次传播到 <code>main</code> 函数中。</p>
-<h2><a class="header" href="#pattern-maching" id="pattern-maching">Pattern Maching</a></h2>
+<h2 id="pattern-maching"><a class="header" href="#pattern-maching">Pattern Maching</a></h2>
 <p>让我们回顾一下 <code>select!</code> 宏分支匹配的定义</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>&lt;pattern&gt; = &lt;async expression&gt; =&gt; &lt;handler&gt;,
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>到目前为止，我们只在 <code>&lt;pattern&gt;</code> 中使用了变量绑定，实际上任意的 Rust 模式匹配都可以在 <code>&lt;pattern&gt;</code> 中使用，比如当我们在从 多个 MPSC Channel 中接收数据时，可能会这样写</p>
 <pre><pre class="playground"><code class="language-rust">use tokio::sync::mpsc;
 
@@ -438,15 +408,13 @@ async fn main() {
       println!(&quot;Both channels closed&quot;);
     }
   }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>在这个示例中，<code>select!</code> 表达式同时在等待 <code>rx1</code> 及 <code>rx2</code> 的消息，在 Channel 关闭时对 <code>rect()</code> 的调用会返回 <code>None</code>，该返回值与 <code>&lt;pattern&gt;</code> 的定义不匹配，因此该对应的分支将被关闭，然后 <code>select!</code> 表达式会继续等待剩余的其他分支。</p>
 <p>我们还发现 <code>select!</code> 表达式包含了一个 <code>else</code> 分支，因为需要对 <code>select!</code> 表达式进行求值，但是在使用模式匹配时可能所有的模式都匹配不上，在这种情况下我们就需要使用 <code>else</code> 分支来帮助 <code>select!</code> 求值。</p>
-<h3><a class="header" href="#borrowing" id="borrowing">Borrowing</a></h3>
+<h3 id="borrowing"><a class="header" href="#borrowing">Borrowing</a></h3>
 <p>在我们创建任务时，所创建任务的异步代码块必须持有他使用的数据，但 <code>select!</code> 并没有这个限制，每个分支的表达式可以对数据进行借用以及并发的进行操作，在 Rust 的借用规则中，多个异步表达式能够借用同一个不可变引用，或者一个一步表达式能够借用一个可变引用。</p>
 <p>下面来看一些例子，我们同时的发送同一份数据到两个不同的 TCP 终端。</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>use tokio::io::AsyncWriteExt;
 use tokio::net::TcpStream;
@@ -474,8 +442,7 @@ async fn race(
 
     Ok(())
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>示例中 <code>data</code> 这个变量以不可变的形式被不同的异步分支借用，当其中一个分支的操作成功执行后，另一个分支就会被丢弃。因为匹配的模式需要是 <code>Ok(_)</code>，所以当其中一个分支匹配失败，另一个会继续执行下去。</p>
 <p>当引用出现在了每个分支的 <code>&lt;handler&gt;</code> 中，<code>select!</code> 保证只会有一个 <code>handler</code> 会执行，因此各个不同的 <code>&lt;handler&gt;</code> 能够对同一份数据都持有可变的借用。</p>
 <p>比如下面在多个分支中对 <code>out</code> 变量进行了修改</p>
@@ -502,9 +469,8 @@ async fn main() {
     }
 
     println!(&quot;{}&quot;, out);
-}
-</code></pre></pre>
-<h2><a class="header" href="#loops" id="loops">Loops</a></h2>
+}</code></pre></pre>
+<h2 id="loops"><a class="header" href="#loops">Loops</a></h2>
 <p><code>select!</code> 宏常常会被在循环中使用，在这一小节我们来看一些将 <code>select!</code> 用在循环中的常见例子。首先从从多个不同的 Channel 读取数据开始</p>
 <pre><pre class="playground"><code class="language-rust">use tokio::sync::mpsc;
 
@@ -526,14 +492,13 @@ async fn main() {
     }
 
     println!(&quot;All channels have been closed.&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>这个示例尝试从三个 Channel 中读取数据，只要任意一个 Channel 接收到了数据，就将他输出到 <code>STDOUT</code> 中，当 <code>rect()</code> 函数返回 <code>None</code> 时，因为有模式匹配的保护，这个循环会继续执行， <code>select!</code> 宏会继续等待剩余的 Channel。当所有的 Channel 都关闭后，<code>else</code> 分支会被执行然后循环被中止。</p>
 <p><code>select!</code> 宏会随机的选择可读的分支，在上例中当多个 Channel 中都有可读的数据时，将随机选择一个 Channel 来读取。这个实现是为了处理循环中消费消息的能力落后于生产消息这个场景所带来的问题，这个场景意味着 Channel 总会被填满，如果 <code>select!</code> 没有随机的选取分支，将导致循环中的 <code>rx1</code> 永远是第一个检查是否有数据可读的分支，如果 <code>rx1</code> 一直都有新的消息要处理，那其他分支中的 Channel 将永远不会被消费。</p>
 <blockquote>
 <p>如果 <code>select!</code> 被求值时，其中的多个 Channel 都存在排队中的消息，只有一个 Channel 的消息会被消费，其他所有的 Channel 都不会进行任何检查，他们的消息会被一直存在 Channel 中，直到循环的下一轮迭代，这些消息并不会丢失。</p>
 </blockquote>
-<h3><a class="header" href="#resuming-an-async-operation" id="resuming-an-async-operation">Resuming an async operation</a></h3>
+<h3 id="resuming-an-async-operation"><a class="header" href="#resuming-an-async-operation">Resuming an async operation</a></h3>
 <p>现在我们来展示如果在多次 <code>select!</code> 调用中执行同一个异步操作，在这个例子中，我们有一个类型是 <code>i32</code> 的 Channel，还有一个异步的函数，我们希望在这个异步函数完成或者是我们的 Channel 接收到偶数时推出循环。</p>
 <pre><pre class="playground"><code class="language-rust">async fn action() {
     // Some asynchronous logic
@@ -556,8 +521,7 @@ async fn main() {
             }
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>在示例中看到，我们并没有把对 <code>action()</code> 的调用放到 <code>select!</code> 的某个分支，相反，我们在循环前先调用了 <code>action()</code> 并将其返回值保存到了一个名为 <code>operation</code> 的变量中，<strong>并且</strong> 没有在他上面调用 <code>.await</code>，然后以 <code>operation</code> 作为参数调用了 <code>tokio::pin!</code> 宏。</p>
 <p>在 <code>select!</code> 循环中，我们使用了 <code>&amp;mut operation</code> 而不是直接使用 <code>operation</code>。这个 <code>operation</code> 变量在整个异步的操作中都存在，每次循环的迭代都会使用同一个 <code>operation</code> 而不是每次都调用一次 <code>action()</code>。</p>
 <p>另外一个 <code>select!</code> 的分支则会从 Channel 中接收消息，如果接收到的消息是偶数，则完成这个循环，否则进入下一次循环继续执行 <code>select!</code>。</p>
@@ -586,7 +550,7 @@ async fn main() {
 </code></pre>
 <p>这个错误信息并不是很清晰，当然也有我们还没深入了解 <code>Future</code> 的原因。当前的话只需要了解到，每个想要在其上调用 <code>.await</code> 的值都需要实现 <code>Future</code> ，如果你遇到提示说尝试在一个没有实现 <code>Future</code> 的引用中调用 <code>.await</code> 的错误的话，那大概率就是需要去 Pinned <em>(钉住)</em> 这个 <code>Future</code> 了。</p>
 <p>更多关于 Pin 的信息可以从 <a href="https://doc.rust-lang.org/std/pin/index.html">标准库</a> 文档中了解。</p>
-<h3><a class="header" href="#monifiying-a-branch" id="monifiying-a-branch">Monifiying a branch</a></h3>
+<h3 id="monifiying-a-branch"><a class="header" href="#monifiying-a-branch">Monifiying a branch</a></h3>
 <p>接下来看一个略微复杂一点的循环，我们有 </p>
 <ol>
 <li>一个 <code>i32</code> 类型的 Channel</li>
@@ -642,8 +606,7 @@ async fn main() {
             }
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>我们使用了跟上一个示例类似的策略，异步的函数在循环外调用并将返回值赋给 <code>operation</code> 变量，Pinned 这个变量。循环会从 <code>operation</code> 跟 Channel 中做 <code>select!</code>。</p>
 <p>我们看到 <code>action</code> 函数接收的是 <code>Option&lt;i32&gt;</code> 类型的参数，在从 Channel 收到偶数之前，我们需要初始化 <code>operation</code>，因此我们让 <code>action</code> 接收 <code>Option</code> 参数并以 <code>Option</code> 作为返回类型，如果传递的是 <code>None</code> 参数，他会直接返回 <code>None</code>，在循环的一开始 <code>operation</code> 会马上完成并返回 <code>None</code>。</p>
 <p>这个示例还使用了一些新的语法，在第一个分支中包含了 <code>, if !done</code> 语句，这称为分支的先决条件，在解释他用来干什么之前，我们看看移除这个先决条件会发生什么</p>
@@ -652,7 +615,7 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p>这个错误发生在我们尝试对已完成的 <code>operation</code> 重复调用 <code>.await</code> 时，通常来说，在调用 <code>.await</code> 之后对应的值是已经被消费掉的。在我们的例子中，我们是对引用调用了 <code>.await</code> ，这意味着 <code>operation</code> 在完成后仍在循环中被调用。</p>
 <p>为了避免这个问题导致的崩溃，我们需要小心的避免当 <code>operation</code> 完成时再对其进行调用，因此使用了 <code>done</code> 变量来记录 <code>operation</code> 的完成状态。<code>select!</code> 分支提供了先决条件这个机制，先决条件在 <code>select!</code> 调用对应分支 <code>.await</code> 之前进行检查，如果先决条件的返回值是  <code>false</code> 则该分支在当前 <code>select!</code> 中被禁用。我们把 <code>done</code> 变量初始化为 <code>false</code>，只有当 <code>operation</code> 完成时他会被设置为 <code>true</code>。因此在接下来的循环中对 <code>operation</code> 进行检查的分支会被禁用，然后当从 Channel 中接收到新的偶数时，<code>operation</code> 会被重置，然后 <code>done</code> 会被设置为 <code>false</code>。</p>
-<h2><a class="header" href="#per-task-concurrency" id="per-task-concurrency">Per-Task Concurrency</a></h2>
+<h2 id="per-task-concurrency"><a class="header" href="#per-task-concurrency">Per-Task Concurrency</a></h2>
 <p><code>tokio::spawn</code> 跟 <code>select!</code> 都同样会并发的执行其中的异步操作，但是他们使用的策略是不同的。<code>tokio::spawn</code> 是接收异步的操作然后创建一个新的任务去运行他，任务是 Tokio 运行时调度的基本单位，两个不同的任务会被 Tokio 独立的进行调度，他们可能会同时被调度到不同的操作系统线程上执行，因此创建一个新任务跟创建新的线程有着相同的限制: 没有借用。</p>
 <p><code>select!</code> 使用同一个任务来运行所有的分支，因为所有在 <code>select!</code> 中的分支都在同一个任务中执行，所以他们永远不会同时的触发，<code>select!</code> 宏让单个任务能够多路复用多个异步的操作。</p>
 
@@ -660,17 +623,13 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../tokio/tutorial-indepth.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../tokio/tutorial-streams.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -678,49 +637,36 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../tokio/tutorial-indepth.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
                     <a rel="next" href="../tokio/tutorial-streams.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>

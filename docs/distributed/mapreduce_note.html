@@ -4,37 +4,24 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>MapReduce (译) - SinSay&#x27;s Note Book</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../favicon.png">
-        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        
         <link rel="stylesheet" href="../css/print.css" media="print">
-        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -42,19 +29,18 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -70,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -82,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -95,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item expanded "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html" class="active"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item expanded "><a href="../distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/index.html"><strong aria-hidden="true">5.</strong> Tracing</a></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item expanded "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item expanded "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item expanded "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item expanded "><a href="../redis/ziplist.html"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 基本定义</a></li><li class="chapter-item expanded "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 分析起步</a></li><li class="chapter-item expanded "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 请求处理</a></li><li class="chapter-item expanded "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 执行命令</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../about.html"><strong aria-hidden="true">1.</strong> About Me</a></li><li class="chapter-item expanded "><a href="../tokio.html"><strong aria-hidden="true">2.</strong> Tokio Tutirial (译)</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tokio/tutorial-hello.html"><strong aria-hidden="true">2.1.</strong> Hello</a></li><li class="chapter-item "><a href="../tokio/tutorial-spawning.html"><strong aria-hidden="true">2.2.</strong> Spawning</a></li><li class="chapter-item "><a href="../tokio/tutorial-shared-state.html"><strong aria-hidden="true">2.3.</strong> Shared State</a></li><li class="chapter-item "><a href="../tokio/tutorial-channel.html"><strong aria-hidden="true">2.4.</strong> Channel</a></li><li class="chapter-item "><a href="../tokio/tutorial-io.html"><strong aria-hidden="true">2.5.</strong> I/O</a></li><li class="chapter-item "><a href="../tokio/tutorial-framing.html"><strong aria-hidden="true">2.6.</strong> Framing</a></li><li class="chapter-item "><a href="../tokio/tutorial-indepth.html"><strong aria-hidden="true">2.7.</strong> Async In Depth</a></li><li class="chapter-item "><a href="../tokio/tutorial-select.html"><strong aria-hidden="true">2.8.</strong> Select</a></li><li class="chapter-item "><a href="../tokio/tutorial-streams.html"><strong aria-hidden="true">2.9.</strong> Streams</a></li></ol></li><li class="chapter-item expanded "><a href="../db/index.html"><strong aria-hidden="true">3.</strong> Database Internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/part_1_storage_engine.html"><strong aria-hidden="true">3.1.</strong> Storage Engine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_1_1_introduction_and_overview.html"><strong aria-hidden="true">3.1.1.</strong> Introduction and Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_1_2_dbms_architecture.html"><strong aria-hidden="true">3.1.1.1.</strong> DBMS Architecture</a></li><li class="chapter-item "><a href="../db/chapter_1_3_memory_disk_base_dbms.html"><strong aria-hidden="true">3.1.1.2.</strong> Memory- Versus Disk-Based DBMS</a></li><li class="chapter-item "><a href="../db/chapter_1_4_column_row_oriented.html"><strong aria-hidden="true">3.1.1.3.</strong> Column- Versus Row-Oriented DBMS</a></li><li class="chapter-item "><a href="../db/chapter_1_5_data_files_and_index_files.html"><strong aria-hidden="true">3.1.1.4.</strong> Data Files and Index Files</a></li><li class="chapter-item "><a href="../db/chapter_1_6_buffering_immutability_and_ordering.html"><strong aria-hidden="true">3.1.1.5.</strong> Buffering Immutability and Ordering</a></li><li class="chapter-item "><a href="../db/chapter_1_7_summary.html"><strong aria-hidden="true">3.1.1.6.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_2_1_btree_basic.html"><strong aria-hidden="true">3.1.2.</strong> BTree Basics</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_2_2_binary_search_trees.html"><strong aria-hidden="true">3.1.2.1.</strong> Binary Search Trees</a></li><li class="chapter-item "><a href="../db/chapter_2_3_disk_based_structures.html"><strong aria-hidden="true">3.1.2.2.</strong> Disk Based Structures</a></li><li class="chapter-item "><a href="../db/chapter_2_4_ubiquitous_btrees.html"><strong aria-hidden="true">3.1.2.3.</strong> Ubiquitous B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_2_5_summary.html"><strong aria-hidden="true">3.1.2.4.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_3_1_file_format.html"><strong aria-hidden="true">3.1.3.</strong> File Format</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_3_2_motivation.html"><strong aria-hidden="true">3.1.3.1.</strong> Motivation</a></li><li class="chapter-item "><a href="../db/chapter_3_3_binary_encoding.html"><strong aria-hidden="true">3.1.3.2.</strong> Binary Encoding</a></li><li class="chapter-item "><a href="../db/chapter_3_4_general_principles.html"><strong aria-hidden="true">3.1.3.3.</strong> General Principles</a></li><li class="chapter-item "><a href="../db/chapter_3_5_page_structure.html"><strong aria-hidden="true">3.1.3.4.</strong> Page Structure</a></li><li class="chapter-item "><a href="../db/chapter_3_6_slotted_pages.html"><strong aria-hidden="true">3.1.3.5.</strong> Slotted Pages</a></li><li class="chapter-item "><a href="../db/chapter_3_7_cell_layout.html"><strong aria-hidden="true">3.1.3.6.</strong> Cell Layout</a></li><li class="chapter-item "><a href="../db/chapter_3_8_combining_cell_into_slotted_pages.html"><strong aria-hidden="true">3.1.3.7.</strong> Combining Cell into Slotted Pages</a></li><li class="chapter-item "><a href="../db/chapter_3_9_managing_variable_size_data.html"><strong aria-hidden="true">3.1.3.8.</strong> Managing Variable Size Data</a></li><li class="chapter-item "><a href="../db/chapter_3_10_versioning.html"><strong aria-hidden="true">3.1.3.9.</strong> Versioning</a></li><li class="chapter-item "><a href="../db/chapter_3_11_checksumming.html"><strong aria-hidden="true">3.1.3.10.</strong> Checksumming</a></li><li class="chapter-item "><a href="../db/chapter_3_12_summary.html"><strong aria-hidden="true">3.1.3.11.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_4_1_implementing_btrees.html"><strong aria-hidden="true">3.1.4.</strong> Implementing BTrees</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_4_2_page_header.html"><strong aria-hidden="true">3.1.4.1.</strong> Page Header</a></li><li class="chapter-item "><a href="../db/chapter_4_3_binary_search.html"><strong aria-hidden="true">3.1.4.2.</strong> Binary Search</a></li><li class="chapter-item "><a href="../db/chapter_4_4_propagating_spits_and_merges.html"><strong aria-hidden="true">3.1.4.3.</strong> Propagating Splits and Merges</a></li><li class="chapter-item "><a href="../db/chapter_4_5_rebalacing.html"><strong aria-hidden="true">3.1.4.4.</strong> Rebalacing</a></li><li class="chapter-item "><a href="../db/chapter_4_6_right_only_appends.html"><strong aria-hidden="true">3.1.4.5.</strong> Right-Only Appends</a></li><li class="chapter-item "><a href="../db/chapter_4_7_compression.html"><strong aria-hidden="true">3.1.4.6.</strong> Compression</a></li><li class="chapter-item "><a href="../db/chapter_4_8_vacuum_and_maintenance.html"><strong aria-hidden="true">3.1.4.7.</strong> Vacuum and Maintenance</a></li><li class="chapter-item "><a href="../db/chapter_4_9_summary.html"><strong aria-hidden="true">3.1.4.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_5_1_transaction_processing_and_recovery.html"><strong aria-hidden="true">3.1.5.</strong> Transaction Processing and Recovery</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_5_2_buffer_management.html"><strong aria-hidden="true">3.1.5.1.</strong> Buffer Management</a></li><li class="chapter-item "><a href="../db/chapter_5_3_recovery.html"><strong aria-hidden="true">3.1.5.2.</strong> Recovery</a></li><li class="chapter-item "><a href="../db/chapter_5_4_concurrency_control.html"><strong aria-hidden="true">3.1.5.3.</strong> Concurrenty Control</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_6_1_btree_variants.html"><strong aria-hidden="true">3.1.6.</strong> B-Trees Variant</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_6_2_copy_on_write.html"><strong aria-hidden="true">3.1.6.1.</strong> Copy-on-Write</a></li><li class="chapter-item "><a href="../db/chapter_6_3_abstracting_node_updates.html"><strong aria-hidden="true">3.1.6.2.</strong> Abstracting Node Updates</a></li><li class="chapter-item "><a href="../db/chapter_6_4_lary_btrees.html"><strong aria-hidden="true">3.1.6.3.</strong> Lazy B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_5_fd_trees.html"><strong aria-hidden="true">3.1.6.4.</strong> FD-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_6_bw_trees.html"><strong aria-hidden="true">3.1.6.5.</strong> Bw-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_7_cache_oblivious_trees.html"><strong aria-hidden="true">3.1.6.6.</strong> Cache-Oblivious B-Trees</a></li><li class="chapter-item "><a href="../db/chapter_6_8_summary.html"><strong aria-hidden="true">3.1.6.7.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_7_1_log_structured_storage.html"><strong aria-hidden="true">3.1.7.</strong> Log-Structure Storage</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_7_2_lsm_trees.html"><strong aria-hidden="true">3.1.7.1.</strong> LSM Trees</a></li><li class="chapter-item "><a href="../db/chapter_7_3_read_write_space_amplification.html"><strong aria-hidden="true">3.1.7.2.</strong> Read, Write, and Space Amplification</a></li><li class="chapter-item "><a href="../db/chapter_7_4_implementation_details.html"><strong aria-hidden="true">3.1.7.3.</strong> Implemetation Details</a></li><li class="chapter-item "><a href="../db/chapter_7_5_unordered_lsm_storage.html"><strong aria-hidden="true">3.1.7.4.</strong> Unordered LSM Storage</a></li><li class="chapter-item "><a href="../db/chapter_7_6_concurrency_in_lsm_trees.html"><strong aria-hidden="true">3.1.7.5.</strong> Concurrency in LSM Trees</a></li><li class="chapter-item "><a href="../db/chapter_7_7_log_stacking.html"><strong aria-hidden="true">3.1.7.6.</strong> Log Stacking</a></li><li class="chapter-item "><a href="../db/chapter_7_8_llama_and_mindful_stacking.html"><strong aria-hidden="true">3.1.7.7.</strong> LLAMA and Mindful Stacking</a></li><li class="chapter-item "><a href="../db/chapter_7_9_summary.html"><strong aria-hidden="true">3.1.7.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/part_i_conclusion.html"><strong aria-hidden="true">3.1.8.</strong> Conclusion</a></li></ol></li><li class="chapter-item "><a href="../db/part_ii_distributed_systems.html"><strong aria-hidden="true">3.2.</strong> Distributed Systems</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_8_1_introduction_and_overview.html"><strong aria-hidden="true">3.2.1.</strong> Introduction and Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_8_2_concurrent_execution.html"><strong aria-hidden="true">3.2.1.1.</strong> Concurrent Execution</a></li><li class="chapter-item "><a href="../db/chapter_8_3_fallacies_of_distributed_computing.html"><strong aria-hidden="true">3.2.1.2.</strong> Fallacies of Distributed Computing</a></li><li class="chapter-item "><a href="../db/chapter_8_4_distributed_systems_abstrictions.html"><strong aria-hidden="true">3.2.1.3.</strong> Distributed Systems Abstriction</a></li><li class="chapter-item "><a href="../db/chapter_8_5_two_generals_problem.html"><strong aria-hidden="true">3.2.1.4.</strong> Two Generals Problem</a></li><li class="chapter-item "><a href="../db/chapter_8_6_flp_impossibility.html"><strong aria-hidden="true">3.2.1.5.</strong> FLP Impossibility)</a></li><li class="chapter-item "><a href="../db/chapter_8_7_system_synchrony.html"><strong aria-hidden="true">3.2.1.6.</strong> System Synchrony</a></li><li class="chapter-item "><a href="../db/chapter_8_8_failure_models.html"><strong aria-hidden="true">3.2.1.7.</strong> Failure Models</a></li><li class="chapter-item "><a href="../db/chapter_8_9_summary.html"><strong aria-hidden="true">3.2.1.8.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_9_1_failure_dection.html"><strong aria-hidden="true">3.2.2.</strong> Failure Dectection</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_9_2_heartbeats_and_pings.html"><strong aria-hidden="true">3.2.2.1.</strong> Heartbeats and Pinga</a></li><li class="chapter-item "><a href="../db/chapter_9_3_phi_accural_failure_detector.html"><strong aria-hidden="true">3.2.2.2.</strong> Phi-Accural Failure Dector</a></li><li class="chapter-item "><a href="../db/chapter_9_4_gossip_and_failure_detection.html"><strong aria-hidden="true">3.2.2.3.</strong> Gossip and Failure Detection</a></li><li class="chapter-item "><a href="../db/chapter_9_5_reversing_failure_detection.html"><strong aria-hidden="true">3.2.2.4.</strong> Reversing Failure Detection</a></li><li class="chapter-item "><a href="../db/chapter_9_6_summary.html"><strong aria-hidden="true">3.2.2.5.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_10_1_leader_election.html"><strong aria-hidden="true">3.2.3.</strong> Leader Election</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_10_2_bully_algorithm.html"><strong aria-hidden="true">3.2.3.1.</strong> Bully Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_3_next_in_line_failover.html"><strong aria-hidden="true">3.2.3.2.</strong> Next-in-Line Failover</a></li><li class="chapter-item "><a href="../db/chapter_10_4_candidate_ordinary_optimization.html"><strong aria-hidden="true">3.2.3.3.</strong> Candidate/Ordinary Optimization</a></li><li class="chapter-item "><a href="../db/chapter_10_5_invitation_algorithm.html"><strong aria-hidden="true">3.2.3.4.</strong> Invitation Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_6_ring_algorithm.html"><strong aria-hidden="true">3.2.3.5.</strong> Ring Algorithm</a></li><li class="chapter-item "><a href="../db/chapter_10_7_summary.html"><strong aria-hidden="true">3.2.3.6.</strong> Summary</a></li></ol></li><li class="chapter-item "><a href="../db/chapter_11_1_overview.html"><strong aria-hidden="true">3.2.4.</strong> Replication and Consistency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../db/chapter_11_2_achieving_availability.html"><strong aria-hidden="true">3.2.4.1.</strong> Achieving Availability</a></li><li class="chapter-item "><a href="../db/chapter_11_3_infamous_cap.html"><strong aria-hidden="true">3.2.4.2.</strong> Infamous CAP</a></li><li class="chapter-item "><a href="../db/chapter_11_4_shared_memory.html"><strong aria-hidden="true">3.2.4.3.</strong> Shared Memory</a></li><li class="chapter-item "><a href="../db/chapter_11_5_ordering.html"><strong aria-hidden="true">3.2.4.4.</strong> Ordering</a></li><li class="chapter-item "><a href="../db/chapter_11_6_consistency_models.html"><strong aria-hidden="true">3.2.4.5.</strong> Consistency Models</a></li><li class="chapter-item "><a href="../db/chapter_11_7_eventual_consistency.html"><strong aria-hidden="true">3.2.4.6.</strong> Eventual Consistency</a></li><li class="chapter-item "><a href="../db/chapter_11_8_tunable_consistency.html"><strong aria-hidden="true">3.2.4.7.</strong> Tunable Consistency</a></li><li class="chapter-item "><a href="../db/chapter_11_9_witness_replicas.html"><strong aria-hidden="true">3.2.4.8.</strong> Witness Replicas</a></li><li class="chapter-item "><a href="../db/chapter_11_10_strong_eventual_consistency_and_crdts.html"><strong aria-hidden="true">3.2.4.9.</strong> Strong Eventual Consistency and CRDTs</a></li><li class="chapter-item "><a href="../db/chapter_11_11_summary.html"><strong aria-hidden="true">3.2.4.10.</strong> Summary</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../distributed.html"><strong aria-hidden="true">4.</strong> Distributed</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../distributed/mapreduce_note.html" class="active"><strong aria-hidden="true">4.1.</strong> MapReduce (译)</a></li><li class="chapter-item "><a href="../distributed/raft_note.html"><strong aria-hidden="true">4.2.</strong> Raft (译)</a></li></ol></li><li class="chapter-item expanded "><a href="../tracing/src/index.html"><strong aria-hidden="true">5.</strong> Tracing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tracing/src/1_Concept_Data_Sources.html"><strong aria-hidden="true">5.1.</strong> Concept - Data Source</a></li><li class="chapter-item "><a href="../tracing/src/2_Concepts_Instrumenting.html"><strong aria-hidden="true">5.2.</strong> Concept - Instrumenting</a></li><li class="chapter-item "><a href="../tracing/src/3_Concept_Instrumenting_Libraries.html"><strong aria-hidden="true">5.3.</strong> Concept - Instrumenting Libraries</a></li><li class="chapter-item "><a href="../tracing/src/4_Concept_Data_Collection.html"><strong aria-hidden="true">5.4.</strong> Concept - Data Collection</a></li><li class="chapter-item "><a href="../tracing/src/5_Concept_Distributions.html"><strong aria-hidden="true">5.5.</strong> Concept - Distributions</a></li><li class="chapter-item "><a href="../tracing/src/6_Collector_Getting_Started.html"><strong aria-hidden="true">5.6.</strong> Collector - Getting Started</a></li><li class="chapter-item "><a href="../tracing/src/7_Metrics_API.html"><strong aria-hidden="true">5.7.</strong> Metrics - API</a></li></ol></li><li class="chapter-item expanded "><a href="../data_struct.html"><strong aria-hidden="true">6.</strong> DataStruct</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../redis/sds.html"><strong aria-hidden="true">6.1.</strong> sds</a></li><li class="chapter-item "><a href="../redis/dict.html"><strong aria-hidden="true">6.2.</strong> dict</a></li><li class="chapter-item "><a href="../redis/skiplist.html"><strong aria-hidden="true">6.3.</strong> skiplist</a></li><li class="chapter-item "><a href="../redis/intset.html"><strong aria-hidden="true">6.4.</strong> intset</a></li><li class="chapter-item "><a href="../redis/ziplist.html"><strong aria-hidden="true">6.5.</strong> ziplist</a></li></ol></li><li class="chapter-item expanded "><a href="../redis.html"><strong aria-hidden="true">7.</strong> Redis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../redis/1.redis-basic.html"><strong aria-hidden="true">7.1.</strong> 1. 基本定义</a></li><li class="chapter-item "><a href="../redis/2.redis-analyse.html"><strong aria-hidden="true">7.2.</strong> 2. 分析起步</a></li><li class="chapter-item "><a href="../redis/3.redis-process.html"><strong aria-hidden="true">7.3.</strong> 3. 请求处理</a></li><li class="chapter-item "><a href="../redis/4.redis-execute.html"><strong aria-hidden="true">7.4.</strong> 4. 执行命令</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -103,8 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -114,35 +101,30 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">SinSay&#x27;s Note Book</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -150,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -163,22 +144,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#mapreduce-以简易的方式在庞大集群中处理数据" id="mapreduce-以简易的方式在庞大集群中处理数据">MapReduce: 以简易的方式在庞大集群中处理数据</a></h2>
+                        <h2 id="mapreduce-以简易的方式在庞大集群中处理数据"><a class="header" href="#mapreduce-以简易的方式在庞大集群中处理数据">MapReduce: 以简易的方式在庞大集群中处理数据</a></h2>
 <p>[TOC]</p>
-<h2><a class="header" href="#摘要-abstract" id="摘要-abstract">摘要 Abstract</a></h2>
+<h2 id="摘要-abstract"><a class="header" href="#摘要-abstract">摘要 Abstract</a></h2>
 <p><code>MapReduce</code> 是一个用来处理或生成大型数据集的编程模型的具体实现. 用户通过 <code>map</code> 函数对 <em>键值对</em> 的输入进行处理，从而产生一系列的中间 <em>键值对</em>, 然后 <code>reduce</code> 函数合并所有 <em>键</em> 相同的 <em>值</em>. 许多现实中的任务都能够使用这个模型来表达，就像我们将在本论文中介绍的。</p>
 <p>使用这个函数式风格实现的函数，能够在一个使用普通商业计算机的集群中，自动的并行执行. 运行时会对输入的数据进行分区、调度到集群中的机器中运行，并处理机器的机及机器之间的通信问题. 这能够使程序员在不具有 <em>并行化</em> 或 <em>分布式系统</em>的经验时，也能够非常容易的将整个分布式系统的资源利用起来.</p>
 <p>我们对 <code>MapReduce</code> 的实现能在使用普通商业计算机组成的庞大集群中运行且具有高度的可扩展性：一个典型的 <code>MapReduce</code> 计算能够在数以千计的机器上处理巨大的数据量。程序员们也会发现整个系统是如此的易于使用：每天都会有数以百计的 <code>MapReduce</code> 程序被实现并转换为上千个 <code>MapReduce</code> 的任务在 <code>Google</code> 的集群中运行。</p>
-<h2><a class="header" href="#1-介绍-introduction" id="1-介绍-introduction">1. 介绍 Introduction</a></h2>
+<h2 id="1-介绍-introduction"><a class="header" href="#1-介绍-introduction">1. 介绍 Introduction</a></h2>
 <p>在过去的五年中，包括作者在内的许多谷歌的员工为了各种目的实现了数以百计的程序用来处理大量的原始数据，比如处理网页的爬虫、页面请求日志等，为了处理各种不同类型及来源的数据，比如倒排索引、各种网页的图结构的表示方式，每个站点中各个页面的概要等，以及每天都最频繁执行的查询。这些任务中的大部分都是比较简单的。但是，因为这些计算所需输入的数据往往都是非常巨大的，所以程序必须能够分布在数以百计或千计的机器上去运行，才能够在可接受的时间内完成。问题在于，让程序能够并行化，让数据分布到各个机器上以及处理分布任务的失效等，比原本需要实现的计算逻辑更为复杂。</p>
 <p>为了应对这个难题，我们设计了一个允许我们表达原本简单的计算，同时隐藏背后复杂的并行化、容错、数据分布及负载均衡的新的抽象。这个抽象是从 <code>Lisp</code> 及类似的函数式编程语言中的 <code>map</code> 及 <code>reduce</code> 模型启发而来的。我们发现大部分的计算都类似于通过将逻辑上的 <code>记录</code> 作为 <code>map</code> 操作的输入，然后产生一个中间态的 <code>key/value</code> 集合，然后将集合中所有 <code>key</code> 相同的记录作为同一个 <code>reduce</code> 操作的参数，最终能够合理的将这些数据聚合起来。将用户实现的 <code>map</code> 跟 <code>reduce</code> 操作应用到这个函数式模型中，允许我们可以很简单的将计算并行化，并使用函数的可重入性作为基础机制来支持容错。</p>
 <p>我们以上设计的提供了简单且强大的接口，让我们能够自动的并行化及得到可扩展的分布式计算能力，结合这个接口的实现使我们得到了能够高性能的运行在普通商业计算机集群上。</p>
 <p>第二节将介绍基础的编程模型并提供几个实例；第三节将介绍一个<code>MapReduce</code> 的实现能够适配我们现有的集群计算环境；第四节将介绍几个我们精炼出来的有用的编程模型。第五节则是确认了我们的实现在各种多样化的任务中的性能；第六节介绍了在 Google 中使用 <code>MapReduce</code> 的经验，其中包括了重写产品级的索引系统；第七节讨论了一些相关及未来的工作。</p>
-<h2><a class="header" href="#2-编程模型-programming-model" id="2-编程模型-programming-model">2. 编程模型 Programming Model</a></h2>
+<h2 id="2-编程模型-programming-model"><a class="header" href="#2-编程模型-programming-model">2. 编程模型 Programming Model</a></h2>
 <p>计算任务会获取一个 <code>Key/Value</code> 的键值对集合，然后产生一个 <code>Key/Value</code> 的键值对集合作为输出。而 <code>MapReduce</code> 库的用户则负责将计算任务表达为两个函数： <code>Map</code> 及 <code>Reduce</code>。</p>
 <p><code>Map</code> 是由用户实现的一个接收一个键值对并输出一个中间态的键值对的函数。<code>MapReduce</code> 库则将这些中间态的值通过相同的 <code>Key</code> 进行关联及分组，并传递给下一步的 <code>Reduce</code> 函数。</p>
 <p><code>Reduce</code> 函数一样是由用户实现，接收一个来自中间态的 <code>Key</code>，及一个由该 <code>Key</code> 组合得到的 <code>Value</code> 集合。他负责合并这些 <code>Value</code> 为一个更小的结果集合。典型的场景是每个 <code>Reduce</code> 的调用会产生 0 或 1 个输出。从中间态得到的 <code>Value</code> 集合通过迭代器的方式传递给用户实现的 <code>Reduce</code> 函数，这种方式使我们能够处理大于内存的数据。</p>
-<h3><a class="header" href="#21-示例-example" id="21-示例-example">2.1 示例 Example</a></h3>
+<h3 id="21-示例-example"><a class="header" href="#21-示例-example">2.1 示例 Example</a></h3>
 <p>考虑一个问题，为统计一大批的文档集合中，各个词出现的次数。用户可能会实现类似下面的伪代码：</p>
 <pre><code class="language-java">map(String key, String value):
 	// key: document name
@@ -196,14 +177,14 @@ reduce(String key, Iterator values):
 </code></pre>
 <p><code>Map</code> 函数将每个词作为 key，及将其关联的统计数（即是 example 中的 &quot;1&quot;）通过 <code>EmitItermediate</code> 提交出来。而 <code>Reduce</code> 函数则计算所有词的个数总和，并将总和与该词一起通过 <code>Emit</code> 提交。</p>
 <p>除此之外，用户写的代码去填充 <code>MapReduce</code> 规则对象中定义中，输入文件、输出文件一些其他的参数。然后用户将规则对象作为参数开始启动 <code>MapReduce</code> 函数，这个时候，用户实现的代码将会跟由 <code>C++</code> 实现的 <code>MapReduce</code> 库进行链接。附录 A 包含该实例的完整代码。</p>
-<h3><a class="header" href="#22-类型-types" id="22-类型-types">2.2 类型 Types</a></h3>
+<h3 id="22-类型-types"><a class="header" href="#22-类型-types">2.2 类型 Types</a></h3>
 <p>尽管上一小节的伪代码是用字符串来描述输入跟输出，概念上，<code>Map</code> 跟 <code>Reduce</code> 函数提供给用户的是关联的数据类型：</p>
 <pre><code>map    (k1, v1)				 -&gt; list(k2, v2)
 reduce (k2, list(v2))  -&gt; list(v2)
 </code></pre>
 <p>举例来说，输入的 <code>Keys</code> 跟 <code>Values</code> 是被描绘成跟输出的的 <code>Keys</code> 跟 <code>Values</code> 不同的领域，并且，中间态的 <code>Keys</code> 跟 <code>Values</code> 跟输出的 <code>Keys</code> 跟 <code>Values</code> 则是相同领域的。</p>
 <p>我们的 <code>C++</code> 实现传递了 <code>String</code> 给用户实现的函数，并且将类型转换等工作交给了用户自己去实现。</p>
-<h3><a class="header" href="#23-更多示例-more-examples" id="23-更多示例-more-examples">2.3 更多示例 More Examples</a></h3>
+<h3 id="23-更多示例-more-examples"><a class="header" href="#23-更多示例-more-examples">2.3 更多示例 More Examples</a></h3>
 <p>下面这些有趣的小程序可以轻易地用 <code>MapReduce</code> 的计算来表示。</p>
 <p><strong>Distributed Grep</strong>: <code>Map</code> 函数提交每一个符合指定模式的行，而 <code>Reduce</code> 函数则只是简单的将中间态的数据作为最终输出。</p>
 <p><strong>Count of URL Access Frequency</strong>: <code>Map</code> 函数处理页面的请求日志，然后输出如 (URL, 1) 。<code>Reduce</code> 函数则将输入的所有相同 URL 的 <code>Values</code> 统计起来，然后输入 （URL, total count) 的键值对。</p>
@@ -211,7 +192,7 @@ reduce (k2, list(v2))  -&gt; list(v2)
 <p><strong>Term-Vector per Host</strong>: 词向量以 <code>(Word, Frequency)</code>键值对的形式总结了一篇文档或一系列文档中最重要的词语。<code>Map</code> 为每篇输入的文档函数提交 <code>(Hostname, Term Vertor)</code>形式的键值对，其中的 <code>Host</code> 是从文档的 Url 解析得到的。<code>Reduce</code> 函数则以 <code>Host</code> 为键，将每篇文档的词向量叠加起来，并丢弃那些少见或价值不高的词，最终输出以 <code>(Hostname, Term Vector)</code> 形式的键值对。</p>
 <p><strong>Inverted Index</strong>: <code>Map</code>函数解析文档信息，并提交一系列的 <code>(Word, Document ID)</code> 键值对。<code>Reduce</code> 函数接收所有指定词的键值对，根据文档的 <code>ID</code> 排序后，提交以 <code>Word</code> 为 <code>Key</code> 以 <code>Document ID</code> 列表为 <code>Value</code> 的键值对列表 <code>(Word, list(Document ID))</code> 集合。这个输出的键值对集合组成了一个简单的倒排索引，可以使用它来定位每个词所在的文档。</p>
 <p><strong>Distributed Sort</strong>: <code>Map</code> 函数提前每条记录的 <code>Key</code>, 并以 <code>(Key, Record)</code> 的记录提交。<code>Reduce</code> 函数则原封不动的提交接收到的键值对。这个计算依赖于在 4.1 节讨论的分区机制及在 4.2 节提到的排序特性。</p>
-<h2><a class="header" href="#3-实现-implement" id="3-实现-implement">3. 实现 Implement</a></h2>
+<h2 id="3-实现-implement"><a class="header" href="#3-实现-implement">3. 实现 Implement</a></h2>
 <p>按照 <code>MapReduce</code> 的接口来提供各种不同的实现是可行的，但是否正确的选择则取决于当时的环境。举例来说，一种实现可能很适合小型的共享内存的机器，另一种可能适合 <code>NUMA</code> 多处理器的机器，还有一种适合大量的通过网络连接的机器集群。</p>
 <p>在这一节将描述一种在 Google 内部用的非常广泛的实现，他所使用的环境是：以普通商用计算机通过以太网连接起来的庞大集群。在这个环境中：</p>
 <ol>
@@ -221,7 +202,7 @@ reduce (k2, list(v2))  -&gt; list(v2)
 <li>每台机器上都安装了普通的 IDE 硬盘，内部开发的分布式文件系统则用来管理这些硬盘中的数据，这个文件系统使用 Replication 的方式为这些不安全的硬件来提供高可用性及可靠性。</li>
 <li>用户提交任务到分布式系统，每个任务由一系列的 Task 组成，这个任务由调度器安排到集群中的一系列机器中运行。</li>
 </ol>
-<h3><a class="header" href="#31-运行概览-execution-overview" id="31-运行概览-execution-overview">3.1 运行概览 Execution Overview</a></h3>
+<h3 id="31-运行概览-execution-overview"><a class="header" href="#31-运行概览-execution-overview">3.1 运行概览 Execution Overview</a></h3>
 <p><img src="./mapreduce_note.assets/image-20200419011527655.png" alt="image-20200419011527655" /></p>
 <p><code>Map</code> 阶段自动的将输入数据分成 M 个分区，并发布到多台机器上，分块后的数据能够并行的在不同的机器上处理。<code>Reduce</code> 阶段则将使用中间态的 Key 集合按照分区函数分成 R 个实例（如使用 <code>hash(key) mod R</code> 的方式），分区数 R 及分区函数由用户提供。</p>
 <p>附图 1 展示了我们实现的 <code>MapReduce</code> 版本的总体流程，当一个用户的程序调用了 <code>MapReduce</code> 函数，就会触发下列列出的一系列操作（下面操作的序号与附图中的序号是相符的）：</p>
@@ -235,59 +216,59 @@ reduce (k2, list(v2))  -&gt; list(v2)
 <li>当所有的 <code>Map</code> 及 <code>Reduce</code> 任务都完成了，<code>Master</code> 将唤醒用户的程序，这时 <code>MapReduce</code> 调用将从用户的代码返回。</li>
 </ol>
 <p>在任务成功执行之后，<code>MapReduce</code> 的输出被分成了 R 个文件（每个 <code>Recuce</code> 任务一个，名称规则则由用户提供），常见情况下，用户无需自己将这 R 个文件合并成一个，他们通常会被作为其他 <code>MapReduce</code> 任务输入文件，或是通过其他的能够处理多个文件分布式程序来使用它们。</p>
-<h3><a class="header" href="#32-master-data-structures" id="32-master-data-structures">3.2 Master Data Structures</a></h3>
+<h3 id="32-master-data-structures"><a class="header" href="#32-master-data-structures">3.2 Master Data Structures</a></h3>
 <p><code>Master</code> 副本维护着许多的数据结构，如每个 <code>Map</code> 及 <code>Task</code> 任务的状态(idle, in-progress, completed)，及每个 <code>Worker</code> 副本的标识。</p>
 <p><code>Master</code> 还充当着在 <code>Map</code> 任务及 <code>Reduce</code> 任务中传递中间态文件信息的管道。因此 <code>Master</code> 需要维护 R 个，由 <code>Map</code> 任务输出的文件路径及尺寸的中间态文件的信息。这些文件的信息会在每个 <code>Map</code> 任务完成的时候更新。这些信息将会被增量的推送给那些 <code>in-progress</code> (处理中) 状态的 <code>Reduce</code> 任务。</p>
-<h3><a class="header" href="#33-容错-fault-tolerance" id="33-容错-fault-tolerance">3.3 容错 Fault Tolerance</a></h3>
+<h3 id="33-容错-fault-tolerance"><a class="header" href="#33-容错-fault-tolerance">3.3 容错 Fault Tolerance</a></h3>
 <p><code>MapReduce</code> 库就是为了帮助人们在成百上千的机器上处理大批量的数据，所以它必须能够优雅的处理机器的失效问题。</p>
-<h4><a class="header" href="#worker-failure" id="worker-failure">Worker Failure</a></h4>
+<h4 id="worker-failure"><a class="header" href="#worker-failure">Worker Failure</a></h4>
 <p><code>Master</code> 会周期性的 <code>Ping</code> 每个 <code>Worker</code> 副本。如果在指定的时间内没有收到回复，<code>Master</code> 会将其设置为 <code>failed</code> 失效。当一个 <code>Worker</code> 副本完成他手上的 <code>Map</code> 任务时，会将其自身的状态设置回 <code>idle</code>，这样他就能继续接受调度去执行其他的任务了。类似的，如果一个 <code>Map</code> 或 <code>Reduce</code> 任务执行失败了，当前的 <code>Worker</code> 也会设置自身为 <code>idle</code> 状态以接受新的调度。</p>
 <p>当一个 <code>Worker</code> 失效时，他的 <code>Map</code> 任务失败后会会重新调度运行，因为他原本的输出是在 <code>Worker</code> 本地的磁盘上，所以失败时那些输出已经无法再次访问了。一个 <code>Reduce</code> 任务则无需重新执行，因为他的输出是保存到全局的文件系统中的。</p>
 <p>当一个 <code>Map</code> 任务首次执行在 <code>Worker</code> A 副本上，然后接着在 <code>Worker</code> B 副本上执行时（因为 A 失效了）， 所有负责 <code>Reduce</code> 任务的 <code>Worker</code> 副本会接收到他在 <code>Worker</code> B 上重新执行的通知，这样 <code>Reduce</code> 任务就不会尝试从 <code>Worker</code> A 中读取数据，而是会尝试从 <code>Worker</code> B 中读取。</p>
 <p><code>MapReduce</code> 能够应付大批量的 <code>Worker</code> 节点失效的情形。比如当前正在处理一个 <code>MapReduce</code> 工作，集群的网络出问题导致 80 台机器在数分钟内无法连通。<code>MapReduce</code> 的 <code>Master</code> 通过重运行那些原本运行在失效节点上的任务，使进度能够继续推进，最终完成整个 <code>MapReduce</code> 工作，</p>
-<h4><a class="header" href="#master-failure" id="master-failure">Master Failure</a></h4>
+<h4 id="master-failure"><a class="header" href="#master-failure">Master Failure</a></h4>
 <p>可以通过让 <code>Master</code> 周期性的将我们上文中提到的数据结构保存为检查点。如果 <code>Master</code> 节点失效了，新的副本能够通过最新的检查点来恢复状态。然而，因为只有一个 <code>Master</code> 节点，它的失效是非常罕见的。因此我们现在的实现中会在 <code>Master</code> 节点失效时终端整个 <code>MapReduce</code> 的执行。客户端可以在需要的时候自己来检查并且重新尝试运行这个 <code>MapReduce</code> 工作。</p>
-<h4><a class="header" href="#semantics-in-the-presence-of-failures" id="semantics-in-the-presence-of-failures">Semantics in the Presence of Failures</a></h4>
+<h4 id="semantics-in-the-presence-of-failures"><a class="header" href="#semantics-in-the-presence-of-failures">Semantics in the Presence of Failures</a></h4>
 <p>当用户提供的 <code>Map</code> 及 <code>Reduce</code> 操作对于输入的参数是具有确定性的*（即函数的输出只跟输入的参数有关，类似纯函数）<em>，我们的分布式实现能够产生与程序在没有出错时顺序执行时同样的输出</em>（也就是分布式运行的结果能够保持跟顺序执行的结果一致）*。</p>
 <p>我们依赖于对 <code>Map</code> 跟 <code>Reduce</code> 输出的原子性的提交来达到这个目标。每个执行中的任务都将它的输出写入到私有的临时文件中。 <code>Reduce</code> 任务产生一个这样的文件，<code>Map</code> 任务则产生 R 个这样的文件（为每个 <code>Reduce</code>产生一个）。当一个 <code>Map</code> 任务完成时，<code>Worker</code> 节点会发送消息通知 <code>Master</code> 节点，这个消息中就会包含这 R 个临时文件的名称。如果 <code>Master</code> 节点收到已通知过的任务完成消息，他会忽略这个消息。否则的话他就将这 R 个文件的名称信息保存到他自己的数据结构中。</p>
 <p>当 <code>Reduce</code> 任务完成时，运行该任务的 <code>Worker</code> 节点会自动的将临时文件重命名为最终的数据文件。如果一个相同的任务同时在多个机器上执行了，会在最终的输出文件上产生多次重命名调用。我们依赖于底层文件系统的原子性的重命名操作来保证最终的输出文件只会被一个 <code>Reduce</code> 任务执行重命名一次。</p>
 <p>大部分的 <code>Map</code> 跟 <code>Reduce</code> 操作是具有确定性的，所以我们提供了跟顺序执行具有相同的语义，因此这让开发人员能够很容易的来解释或定义程序的行为。当 <code>Map</code> 与/或 <code>Reduce</code> 是不具有确定性的，我们提供了稍弱一些但仍然合理的语义，对于非确定性的操作来说，一个 <code>Reduce</code> 任务  R~1~ 的输出跟按照顺序执行的输出是等价的。==然而，对于另一个不同的 <code>Reduce</code> 任务的R~2~ 可能会符合 R~2~ 使用不同的顺序执行的输出。??==</p>
 <p>考虑有 <code>Map</code> 任务 M 跟 <code>Reduce</code> 任务 R~1~ 跟 R~2~ 。让 e(R~i~) 表示 R~i~ 的一次提交。这是会出现较弱的语义因为 e(R~1~) 可能会读到 M 的某次执行输出，而 e(R~2~) 可能会读到 M 的另外一次执行输出。</p>
-<h3><a class="header" href="#34-本地化-locality" id="34-本地化-locality">3.4 本地化 Locality</a></h3>
+<h3 id="34-本地化-locality"><a class="header" href="#34-本地化-locality">3.4 本地化 Locality</a></h3>
 <p>网络带宽在我们的计算环境中是相对缺乏的。我们会通过一个事实来尝试节约带宽，那就是我们的输入数据是使用 GFS 保存在集群的本地的磁盘上的。GFC 会将每个文件分割成 64MB 的块并在不同的机器上保存数个副本（通常是 3 个）。而<code>MapReduce</code> 的 <code>Master</code> 则根据每个输入文件每个块在集群中的分布信息尝试在拥有相关文件块的机器上调度 <code>Map</code> 任务。当没法实现的时候，则尝试在拥有相关文件块机器的邻近机器上调度 <code>Map</code> 任务（比如处于相同网络交换机的机器），在运行一个大型的 <code>MapReduce</code> 任务时，这是对于集群中的 <code>Worker</code> 节点来说是一个重要的优化，大部分的输入数据都能够在本地读取，从而无需耗费网络带宽。</p>
-<h3><a class="header" href="#35-任务粒度-task-granularity" id="35-任务粒度-task-granularity">3.5 任务粒度 Task Granularity</a></h3>
+<h3 id="35-任务粒度-task-granularity"><a class="header" href="#35-任务粒度-task-granularity">3.5 任务粒度 Task Granularity</a></h3>
 <p>如前面所说的，我们将 <code>Map</code> 阶段分割为 M 个，将 <code>Reduce</code> 阶段分割为 R 个。理想情况下， M 跟 R 应该远大于 <code>Worker</code> 节点的数量。每个 <code>Worker</code> 节点处理多个任务能动态的提升负载均衡，也能够加快 <code>Worker</code> 失效时的恢复速度：大部分的 <code>Map</code> 任务能够分布到集群所有 <code>Worker</code> 节点中去完成。</p>
 <p>这里对于 M 跟 R 实际的大小在我们的实现里有着实际的界限。<code>Master</code> 节点需要做 O(M+R) 次调度抉择，及在内存中保存 O(M * R) 个状态信息。（当然，这个常数因子对内存的消耗是非常小的，在 O(M * R) 中的每一个 Map/Reduce 任务的键值对只需消耗大约一个字节）</p>
 <p>而且R 常常是由用户进行限制的，因为每个 Reduce 的最终输出都是一个独立的文件。实际上，我们趋向于根据让每个单独的任务接收 16MB 到 64MB 的输入的原则来定义 M（这样我们在上一届所提的本地化优化，就能发挥他的作用了），然后我们把 R 定义为 所期望 <code>Reduce</code> 在多少个 <code>Worker</code> 节点上运行的数目乘以一个较小的常数。在期望使用 2,000 个 <code>Worker</code> 个节点时，我们常常定义 M = 200,000 及 R = 5,000。</p>
-<h4><a class="header" href="#36-后备任务-backup-tasks" id="36-后备任务-backup-tasks">3.6 后备任务 Backup Tasks</a></h4>
+<h4 id="36-后备任务-backup-tasks"><a class="header" href="#36-后备任务-backup-tasks">3.6 后备任务 Backup Tasks</a></h4>
 <p>掉队者(Straggler) 是一个常见的会放大整个 <code>MapReduce</code> 操作运行时长的因素：在整个计算过程中，有一些机器耗费了比寻常更长的时长去执行他的 <code>Map</code> 或 <code>Reduce</code> 任务。掉队者可能因为许多的原因出现。比如一个磁盘损坏了的机器会导致他的读取性能从 30 MB/s 下降到 1 MB/s。集群中的调度器或调度其他的任务在同一个机器上执行，造成 CPU，内存，磁盘 或网络带宽的竞争。一个我们最近遇到的问题是机器的初始化代码配置错误导致处理器缓存被禁用：在受影响的机器上的计算效率下降了超过一百倍。</p>
 <p>我们使用了一个通用的机制来缓解掉队者问题。当一个 <code>MapReduce</code> 整体接近完成时，<code>Master</code> 节点会为那些还在运行中的任务启动后备任务。这些任务会在他的主任务或后备任务完成时被标记为完成。我们还对这个机制进行了些调整来保证他不会占用整个集群的太多计算资源（几个百分点）。最后我们发现它显著的减少了一些大型 <code>MapReduce</code> 任务的时间。比如我们将在 5.3 节介绍的 <code>Sort</code> 程序，在禁用该机制的情况下他多耗费了 44% 的时间。</p>
-<h2><a class="header" href="#4-精炼-refinements" id="4-精炼-refinements">4. 精炼 Refinements</a></h2>
+<h2 id="4-精炼-refinements"><a class="header" href="#4-精炼-refinements">4. 精炼 Refinements</a></h2>
 <p>尽管使用基础的 <code>Map</code> 跟 <code>Reduce</code> 函数已经能够满足大部分的需求，但我们发现有一些扩展支持是非常有用的，在这一节将介绍它们。</p>
-<h3><a class="header" href="#41-分区函数-patitioning-function" id="41-分区函数-patitioning-function">4.1 分区函数 Patitioning Function</a></h3>
+<h3 id="41-分区函数-patitioning-function"><a class="header" href="#41-分区函数-patitioning-function">4.1 分区函数 Patitioning Function</a></h3>
 <p>用户的 <code>MapReduce</code> 任务提供了他们希望 <code>Reduce</code> 函数输出的文件数 R。数据通过分区函数对中间态数据的 Key 进行分区后传递到 <code>Reduce</code> 函数中。默认提供的分区函数使用了哈希的方式 <em>(如 <code>hash(key) mod R</code>)</em>，这使数据能够均衡分布的输出到各分区。在某些场景中，能够使用其他的分区函数可能会更好，比如最终输出的 <code>Key</code> 是 <code>URL</code>，我们希望同一个站点的链接最终能够集中在同一个输出文件中。为了支持类似这样的场景，我们允许用户提供一个自定义的 分区函数。比如使用 <code>hash(Hostname(urlkey)) mod R</code>  作为分区函数就能够保证同一个站点的数据能够输出到同一个文件中。</p>
-<h3><a class="header" href="#42-顺序保证-ordering-guarantees" id="42-顺序保证-ordering-guarantees">4.2 顺序保证 Ordering Guarantees</a></h3>
+<h3 id="42-顺序保证-ordering-guarantees"><a class="header" href="#42-顺序保证-ordering-guarantees">4.2 顺序保证 Ordering Guarantees</a></h3>
 <p>在给定的一个分区中，中间态的键值对数据能够确保以升序的方式进行处理。这个保证让每个分区生成一个有序的最终结果集变得更加简易。这在用户需要对最终输出文件进行随机访问或要求数据有序的情况下是非常有用的。</p>
-<h3><a class="header" href="#43-合并函数-combiner-function" id="43-合并函数-combiner-function">4.3 合并函数 Combiner Function</a></h3>
+<h3 id="43-合并函数-combiner-function"><a class="header" href="#43-合并函数-combiner-function">4.3 合并函数 Combiner Function</a></h3>
 <p>在某些情况下，一些由 <code>Map</code> 任务产生的中间态的 Key 存在着很明显的重复，且用户提供的 <code>Reduce</code> 函数是可交换且与其相关的。一个较好的例子就是在 2.1 节介绍的单词统计的例子。如果单词的出现的频率遵循 <code>Zipf</code> 分布，那每个 <code>Map</code> 任务都会产生成百上千的类似 <code>(the, 1)</code> 键值对的记录。这些记录将通过网络发送到 <code>Reduce</code> 函数来产生一个总值。我们允许用户提供一个可选的<code>合并</code>函数，在数据被通过网络发送出去之前进行合并。</p>
 <p>这个 <code>合并</code> 函数在每个运行了 <code>Map</code> 任务的机器上执行。常见的情况是 <code>合并</code> 函数的实现跟 <code>Reduce</code> 函数是几乎一样的。他们之间的唯一区别是 <code>MapReduce</code> 库对他们输出结果的处理方式。<code>Reduce</code> 函数的输入结果被写到最终的输出文件中。<code>合并</code> 函数的输出结果则被写到中间态的文件中，然后被发送到 <code>Reduce</code> 任务中去。</p>
 <p>部分的合并显著的提升了 <code>MapReduce</code> 操作的性能，附录中提供了使用 <code>合并</code>函数的例子。</p>
-<h3><a class="header" href="#44-输入与输出的类型-input-and-output-types" id="44-输入与输出的类型-input-and-output-types">4.4 输入与输出的类型 Input and Output Types</a></h3>
+<h3 id="44-输入与输出的类型-input-and-output-types"><a class="header" href="#44-输入与输出的类型-input-and-output-types">4.4 输入与输出的类型 Input and Output Types</a></h3>
 <p><code>MapReduce</code> 库提供了读取不同类型的输入文件的支持，比如 <code>文本</code> 类型的输入将每行数据当成一个键值对：<code>Key</code> 是该文件的偏移量， <code>Value</code>则是每一行的内容。另一种常见的支持格式类型则是按照 Key 排序的一系列的键值对。每种输入类型的实现知道如何按区间切分数据为一系列有意义的 <code>Map</code> 任务（如文本模式则以行为区间来分割数据）。用户可以通过实现 <code>reader</code> 接口来为一些新的输入类型增加支持，尽管大部分的用户都只是使用少数的几个预定义输入类型。</p>
 <p>一个 <code>reader</code> 的实现不一定非得从文件中读取数据，也可以很容易的实现一个从数据库中读取记录或从内存中的某些数据结构读取记录的 <code>reader</code>。</p>
 <p>以同样的方式，我们提供了一系列的输出类型支持用于产生不同的数据，并且用户也能够轻易的添加一种新的输出类型。</p>
-<h3><a class="header" href="#45-副作用-side-effects" id="45-副作用-side-effects">4.5 副作用 Side-effects</a></h3>
+<h3 id="45-副作用-side-effects"><a class="header" href="#45-副作用-side-effects">4.5 副作用 Side-effects</a></h3>
 <p>有些情况下，<code>MapReduce</code> 的用户发现输出一些辅助文件便于他们后续的 <code>Map</code> 或 <code>Reduce</code> 操作。我们依赖于应用的 <code>Writer</code> 去保证这些副作用的操作具有原子性及幂等性。如 <code>Writer</code> 将输出写到临时文件并在完成整个输出后，原子性的重命名这个临时文件到最终文件来。</p>
 <p>我们并不提供这种在单个任务中产生多个输出文件的类似原子二阶段提交的支持。因此对于这种会产生多个输出文件且文件间有一致性要求的任务，都必须具有确定性。这个限制在实践中还没产生过什么问题。</p>
-<h3><a class="header" href="#46-忽略错误记录-skipping-bad-records" id="46-忽略错误记录-skipping-bad-records">4.6 忽略错误记录 Skipping Bad Records</a></h3>
+<h3 id="46-忽略错误记录-skipping-bad-records"><a class="header" href="#46-忽略错误记录-skipping-bad-records">4.6 忽略错误记录 Skipping Bad Records</a></h3>
 <p>有时用户提供的 <code>Map</code> 或 <code>Reduce</code> 函数可能存在 Bug， 导致在处理某些记录时会让程序崩溃。这些 Bug 会导致程序无法完成。通常的做法是去修复这些 Bug，但有些时候这不一定可行：也许这个 Bug 来自于一些我们无法触及源码的第三方库。而且，忽略某些出错的记录也是一个可以接受的选择，比如在对一个大数据集进行统计分析。由此我们体统了一个可选的模式，用于在 <code>MapReduce</code> 库执行时检测那些必然会导致程序崩溃的记录，在遇到这些记录时选择忽略他们，从而让程序能够正常完成。</p>
 <p>每个 <code>Worker</code> 进程都会使用信号来处理程序的段错误及总线错误信息。在执行 <code>Map</code> 或 <code>Reduce</code> 操作前，<code>MapRecude</code> 库会在全局变量中保存当前正在处理函数的序号。如果用户的代码触发了对应的信号，该进程会通过 UPD 发送一个包含了当前序号的消息给 <code>Master</code> 副本。当<code>Master</code>副本收到有节点因为这条记录失败的了超过一次，在下一次运行这一趟任务时，他将该条记录标识为应当忽略的信息一并发送给 <code>Map</code> 或 <code>Reduce</code> 任务。</p>
-<h3><a class="header" href="#47-本地执行-local-execution" id="47-本地执行-local-execution">4.7 本地执行 Local Execution</a></h3>
+<h3 id="47-本地执行-local-execution"><a class="header" href="#47-本地执行-local-execution">4.7 本地执行 Local Execution</a></h3>
 <p>对 <code>Map</code> 或者 <code>Reduce</code> 函数进行调试可能会比较困难，因为他们实际运行在一个可能具有数千台机器的分布式系统上，而且具体运行在哪个机器还得依照 <code>Master</code> 副本的调度来决定。为了提高调试、性能测试及小规模扩展的测试，我们开发了 <code>MapReduce</code> 的另一个实现版本：他们只会在本地机器上顺序的运行每个任务。对任务流的控制则归还给了用户，可以把它当成一个普通的 <code>Map</code> 任务。用户在启动程序时只需要提供一个特殊的标识，这样他们就可以在 <code>MapReduce</code> 中进行他们常用的调试或测试了。</p>
-<h3><a class="header" href="#48-状态信息-status-information" id="48-状态信息-status-information">4.8 状态信息 Status Information</a></h3>
+<h3 id="48-状态信息-status-information"><a class="header" href="#48-状态信息-status-information">4.8 状态信息 Status Information</a></h3>
 <p><code>Master</code> 节点同时还运行着一个 HTTP 服务，用来提供一些用户可读的信息页面。这些信息页面提供了整个计算的进度信息，比如有哪些任务已经完成了，有哪些任务正在运行，输入了多少字节数，中间态的数据占了多少字节，输出了多少字节数，处理速度等等。这些页面还包含连接到每个任务的标准输出跟标准错误输出文件的链接。用户可以使用这些数据来推测任务大概会花费多少时间，需不需要为计算添加更多的资源。这些信息同样还能用来分析任务的性能在什么情况下会运行的比预估的慢。</p>
 <p>还有，最顶层的状态信息页还展示了哪些 <code>Worker</code> 失效了，以及他们失效时正在运行哪些 <code>Map</code> 或 <code>Reduce</code> 任务。这些信息对于我们用来分析程序的 Bug 来说是非常有用的。</p>
-<h3><a class="header" href="#49-计数器-counters" id="49-计数器-counters">4.9 计数器 Counters</a></h3>
+<h3 id="49-计数器-counters"><a class="header" href="#49-计数器-counters">4.9 计数器 Counters</a></h3>
 <p><code>MapReduce</code> 库还提供了帮助我们用于统计一些事件信息的计数器支持。比如，用户的代码可能想要统计一共处理了多少个词，或索引了多少篇德文的文档。</p>
 <p>用户代码通过创建一个命名的计数器对象来使用这个机制，并可以在用户实现的 <code>Map</code> 或 <code>Reduce</code> 函数中去递增这些计数器。看个例子：</p>
 <pre><code class="language-cpp">Counter* uppercase;
@@ -302,16 +283,16 @@ map(String name, String contents):
 <p>这些运行在 <code>Worker</code> 节点上的计数器的值，会周期性的提交给 <code>Master</code> 节点（通过附加在对 <code>Master</code> Ping 检查的响应中）。<code>Master</code> 节点则统计这些来自成功运行的 <code>Map</code> 或 <code>Reduce</code> 任务计数器，并在最后计算完成时将统计的信息返回给用户。当前的计数器值同样会在 状态信息页面上展示，用于让人可以通过计数器的值来得到执行进度。在统计计数器的值时，<code>Master</code> 节点会检查计数器的值是否来自于重复执行的 <code>Map</code> 或 <code>Reduce</code> 任务，以防止重复统计（重复执行可能来自于备用任务机制或因为失败而重复执行的任务）。</p>
 <p><code>MapReduce</code> 库自身也会维护一些计数器，比如输入的键值对数目以及输出的键值对数目。</p>
 <p>用户会发现计数器机制对于 <code>MapReduce</code> 任务的行为检查是非常有用的。比如，对于某些 <code>MapReduce</code> 操作，用户的代码可能想确认确认输出的键值对数目跟输入的键值对数目是否相等，或是计算德文相关的文档在整体文档中的比例。</p>
-<h2><a class="header" href="#5-性能-performance" id="5-性能-performance">5. 性能 Performance</a></h2>
+<h2 id="5-性能-performance"><a class="header" href="#5-性能-performance">5. 性能 Performance</a></h2>
 <p>在这一节中我们使用两个跑在庞大集群的计算任务来验证 <code>MapReduce</code> 的性能。其中一个在大约 1TB 的数据中查询一个常见的模式。另一个则是对大约 1TB 的数据进行排序。</p>
 <p>这两个是从真实程序中挑选出的两个典型的 <code>MapReduce</code> 程序 -- 其中一个对数据进行重组为另一种数据；另一个程序从一个大量的数据集中提取出少量我们感兴趣的数据。</p>
-<h3><a class="header" href="#51-集群配置-cluster-configuration" id="51-集群配置-cluster-configuration">5.1 集群配置 Cluster Configuration</a></h3>
+<h3 id="51-集群配置-cluster-configuration"><a class="header" href="#51-集群配置-cluster-configuration">5.1 集群配置 Cluster Configuration</a></h3>
 <p>所有的程序都将运行在这个由大约 1800 台机器组成的集群中。其中每一台机器使用的配置都是：2GHz Inter Xeon Processos with Hyper Threaading, 4GB 的内存， 两块 160GB 的 IDE 硬盘，千兆的网卡。这些机器在一个树状的二级路由网路中，路由的顶部带宽大概为 100-200 Gbps。并且，它们都处于同一个网络中，所以每个机器之间的 往返延时(RTT round-trip time) 都少于 1 毫秒。</p>
 <p>这 4GB 的内存中，有 1-1.5GB 将被其他的集群中的任务所使用。这些将要执行的任务都被安排在周末的下午，这个时间段中大部分的计算机资源，如 CPU，硬盘跟网络带宽都比较闲余。</p>
-<h3><a class="header" href="#52-查找-grep" id="52-查找-grep">5.2 查找 <code>Grep</code></a></h3>
+<h3 id="52-查找-grep"><a class="header" href="#52-查找-grep">5.2 查找 <code>Grep</code></a></h3>
 <p>查找程序 <code>grep</code> 将会扫描 10^10^ 条 100Byte 大小的，符合三个指定特征模式的记录（大概有 92,337 条记录）。输入的文件分块尺寸为 64MB(M = 15000) 且最终输入的文件只有一个（R = 1）。</p>
 <p>附图 2 展示了计算过程的时间曲线。Y 轴展示了某个时刻下对输入数据进行扫描的速率。速率则由于不断的将 <code>MapReduce</code> 计算分配给更多的机器而得到逐步的提高。在分配给了 1764 台机器的时候，整体的速率达到了 30GB 每秒。在 <code>Map</code> 任务完成后整体的速率则开始下降，并在 80 秒是趋近于零。最终整个任务从开始到完成花费了大约 150 秒。这其中包含了整个程序启动以及分发的开销所使用的 1 分钟，以及操作 GFS 去打开这 1000 个输入文件以及获取其相应的信息用来做本地化优化的开销。</p>
-<h3><a class="header" href="#53-排序-sort" id="53-排序-sort">5.3 排序 Sort</a></h3>
+<h3 id="53-排序-sort"><a class="header" href="#53-排序-sort">5.3 排序 Sort</a></h3>
 <p>排序程序对 10^10^ 个 100 字节的记录进行排序。该程序以 TeraSort 的基准为模型。</p>
 <p>该排序程序包含了不到 50 行的用户代码。包括了 3 行的 <code>Map</code> 函数，用来从输入的文本行中提取大小为 10 个字节的 Key, 及提价以该 Key 及文本行构成的键值对。我们使用了内建的 <code>Identity</code> 函数作为 <code>Reduce</code> 操作符。这个函数将中间态的键值对信息直接作为最终的输出。最终输出被写入到了一组双向复制的 GFS 文件中。（也就是最终输出的数据量为 2TB，因为输入为 1TB）</p>
 <p>像之前提到的，输入的数据被分割成以 64MB 为块的文件（M = 15000）。然后将最终排好序的结果，以记录的 Key 作为分区函数的根据，输出到 4000 个文件中（R = 4000）。</p>
@@ -321,12 +302,12 @@ map(String name, String contents):
 <p>左下的图片则展示了 <code>Reduce</code> 任务将最终数据写入到磁盘的速率。我们发现在第一次清洗及第一次写入间是有延迟的 ，因为这时机器还在忙于对中间态的数据进行排序。写入持续维持在 2-4GB/s 一段时间，所有的写入则在 850 秒时完成。加上启动时的负载，整个任务花费了 891 秒，这个成绩跟当前最佳 1057 秒的 TeraSort 性能是比较接近的。</p>
 <p>还有一些注意点：输入的速率高于清洗的速率及最终输出的速率是因为我们的本地化优化 -- 大部分的数据都是从本地磁盘读取，得以绕过相关的网络带宽限制。清洗的速率高于最终数据的速率是因为在输出步骤需要将已排序的数据写入两次文件系统（我们为最终的输出使用了两个副本用来保持高可靠性及可用性）。写两个副本是由底层使用的文件系统提供的高可用性的保障。如果底层的文件系统使用可靠的编码来替代使用副本的方式，也可以降低对网络带宽的消耗。</p>
 <p><img src="./mapreduce_note.assets/image-20200505013319855.png" alt="image-20200505013319855" /></p>
-<h3><a class="header" href="#54-备用任务的效果-effect-of-backup-tasks" id="54-备用任务的效果-effect-of-backup-tasks">5.4 备用任务的效果 Effect of Backup Tasks</a></h3>
+<h3 id="54-备用任务的效果-effect-of-backup-tasks"><a class="header" href="#54-备用任务的效果-effect-of-backup-tasks">5.4 备用任务的效果 Effect of Backup Tasks</a></h3>
 <p>在附图 3(b) 中，我们展示了在排序程序中将备用任务机制禁用的结果。执行的整个流程跟附图 3(a) 非常接近，除了一点，在最后接近完成时，有非常长的拖尾任务，在 960 秒后，有 5 个 <code>Reduce</code> 任务未完成。然而这些掉队者在 300 秒后仍未完成。整个执行的耗时被延长到 1283 秒，比开启了备用任务机制时多花了 44% 的时间。</p>
-<h3><a class="header" href="#55-机器失效-machine-failures" id="55-机器失效-machine-failures">5.5 机器失效 Machine Failures</a></h3>
+<h3 id="55-机器失效-machine-failures"><a class="header" href="#55-机器失效-machine-failures">5.5 机器失效 Machine Failures</a></h3>
 <p>在附图 3(c) 中，我们展示了在排序程序过程中，在几分钟内杀掉了 1746 个 <code>Worker</code> 中的 200 个。集群中的调度器马上为我们在这些机器上又重启了新的 <code>Worker</code> 进程。（我们只是杀掉了这些进程，机器还是正常运行着的）。</p>
 <p><code>Worker</code> 进程被杀导致了输入的速率出现了负数，因为那些之前已经完成的 <code>Map</code> 任务消失了，所以其相关的任务需要被重新来完成。这些需要重新运行的 <code>Map</code> 任务在相对快的时间内被执行。整个计算过程，包括启动时的负载，最终在 933 秒时完成。（只是在正常运行的情况下增加了 %5 的运行时间）</p>
-<h2><a class="header" href="#5-经验-experience" id="5-经验-experience">5. 经验 Experience</a></h2>
+<h2 id="5-经验-experience"><a class="header" href="#5-经验-experience">5. 经验 Experience</a></h2>
 <p>我们在在 2003 年的 2 月实现了第一版的 <code>MapReduce</code> 库，然后再 2003 年的 8 月做了一些重要的强化，其中包括了本地化优化，认读在多个 <code>Worker</code> 运行中的动态负载均衡等。从那时起， <code>MapReduce</code> 对我们所在工作中能处理问题的能力带来了非常多的惊喜。他被用在了谷歌中的多个领域中，包括：</p>
 <ul>
 <li>大规模的机器学习问题</li>
@@ -339,14 +320,14 @@ map(String name, String contents):
 <p>附图 4 展示了在我们的代码管理系统中 <code>MapReduce</code> 程序的增长曲线。从 2003 早期的 0 个到 2004 9 月的接近 900 个。<code>MapReduce</code> 得到了巨大的成功，因为他让我们可以在学习半个小时后就书写出简单的程序，并让这些程序高效的运行在有上千台机器上。大大的加速了具体开发和原型之间的循环。更重要的是，他让那些对分布式或者并行系统完全没经验的人们轻易的用上了我们的集群资源。</p>
 <p>在最后，<code>MapReduce</code> 库记录分析了每个任务对计算资源的使用情况，在表格 1 中，我们统计了再 2004 年 8 月各个程序在使用的 <code>MpaReduce</code> 的情况。</p>
 <p><img src="./mapreduce_note.assets/image-20200505154959382.png" alt="image-20200505154959382" /></p>
-<h3><a class="header" href="#61-大规模的索引-large-scale-indexing" id="61-大规模的索引-large-scale-indexing">6.1 大规模的索引 Large-Scale Indexing</a></h3>
+<h3 id="61-大规模的索引-large-scale-indexing"><a class="header" href="#61-大规模的索引-large-scale-indexing">6.1 大规模的索引 Large-Scale Indexing</a></h3>
 <p><code>MapReduce</code> 一个最重要的使用是用它来完全重写产品级的索引系统，用于构建一些供谷歌的检索服务使用的数据结构。这个索引系统接收大量的储存于 GFS 的文档集合，这些文档集合来自于我们的采集系统。这些文档的原始文本的尺寸超过了 20TB。这个索引的过程需要 5 到 10 个 <code>MapReduce</code> 操作。使用 <code>MapReduce</code> （相对于之前的基于网络分发的分布式索引系统）带来了下面几点优点：</p>
 <ul>
 <li>索引的代码更清晰、简洁跟易于理解，因为代码中那些错误处理、分布式及并行化的部分已经由 <code>MapReduce</code> 库处理了。比如其中一个步骤中的 3800 行 C++ 代码被使用 <code>MapReduce</code> 编写的 700 行代码代替了。</li>
 <li><code>MapReduce</code> 库的性能已经足够好了，所以我们能将与概念上不相关的部分分隔开，而不是将他们混合在在一起来避免额外的数据传输。这让我们能够更容易的去更改索引的步骤。比如，在旧系统中一个更改可能需要花费数个月的时间，在新的实现中则只需要几天。</li>
 <li>索引的处理也变得更加容易操作，因为大部分因为机器故障、机器缓慢及网络延迟等问题都被 <code>MapReduce</code> 库自动解决了。更进一步的是，可以简单的通过为索引程序添加机器来提升性能。</li>
 </ul>
-<h2><a class="header" href="#7-相关工作-related-work" id="7-相关工作-related-work">7. 相关工作 Related Work</a></h2>
+<h2 id="7-相关工作-related-work"><a class="header" href="#7-相关工作-related-work">7. 相关工作 Related Work</a></h2>
 <p>很多的系统都提供了一种加以限制的编程模型，并通过该模型得以自动化的将程序并行化。==For example, an associative func- tion can be computed over all prefixes of an N element array in log N time on N processors using parallel prefix computations==。<code>MapReduce</code> 可以视为我们根据实际的经验对这些模型进行了简化的精华版。更重要的，我们实现了在上千个处理器中运行的容错机制，作为对比，大部分并行处理系统的实现只支持较小的规模，而且会将一些细节上的问题，如处理机器出错等问题交给开发人员去处理。</p>
 <p>大部分的同步编程方法跟 MPI(跨语言通讯) 机制提供了较高层次的抽象来让开发人员能够较易的实现并行的代码。这些系统跟 <code>MapReduce</code> 显著的不同点就在于它提供了一个受限的编程模型用来自动将用户的代码并行化以及提供对用户来说透明的容错机制。</p>
 <p>我们的本地化优化的设计灵感来自一些技术，如 <code>active disks</code>， 那些计算会被下推到靠近存储磁盘的处理元素那，从而节省了大量的 I/O 操作或网络传输。我们将程序运行在那些普通的直接连接硬盘设备的商业机器上，而不是直接运行在磁盘控制处理器上，不过大致上他们是一样的。</p>
@@ -355,7 +336,7 @@ map(String name, String contents):
 <p><code>River</code> 提供了一个分布式队列，供程序间的信息传递。跟 <code>MapReduce</code> 类似， <code>River</code> 尝试提供一个平均性能优秀的方式去兼容多样的硬件或系统。<code>River</code> 通过小心的调度 磁盘 及 网络的传输来达到这个目标。<code>MapReduce</code> 使用了另一种方式，通过对编程模型加以限制，<code>MapReduce</code> 的 <code>Framework</code> 得以将任务拆分为大量的小粒度的任务。这些任务会被动态的调度在各个 <code>Worker</code> 中，所以越快速的机器能够处理约多的任务。这个受限的编程模型允许我们在程序的最后阶段通过冗余执行的方式来降低那些性能在平均性能以为的机器的计算时间。（比如机器较慢或被卡住的机器）</p>
 <p><code>BAD-FS</code> 提供了跟 <code>MapReduce</code> 差异非常大的编程模型，不像 <code>MapReduce</code>，他将任务执行在跨广域网的机器上，这里有两个基本的相似点：(1) 两个系统都使用冗余执行来恢复失效的任务中丢失的数据。(2) 两个系统都使用了本地化调度来减少数据在网络中的传输。</p>
 <p><code>TACC</code> 是一个被设计来构建高可用网络服务的系统。类似 <code>MapReduce</code>，他使用了重复执行的的机制来实现容错。</p>
-<h2><a class="header" href="#8-总结-conclusions" id="8-总结-conclusions">8. 总结 Conclusions</a></h2>
+<h2 id="8-总结-conclusions"><a class="header" href="#8-总结-conclusions">8. 总结 Conclusions</a></h2>
 <p><code>MapReduce</code> 的编程模型已经成功的在 Google 的各个不同场景中得到应用。我们将它的成功归结于几个原因。第一，就算是对于没有并行跟分布式系统经验的程序员来说这个编程模型也是易于使用的，因为他将并行的细节、错误处理、本地化优化跟负载均衡都隐藏在库的背后。第二，大型复杂的问题也很容易用 <code>MapReduce</code> 的模型来表达。比如用 <code>MapReduce</code> 来生成 Google 的检索服务所需使用的数据结构，排序数据，数据挖掘，机器学习以及其他各种系统等。第三，我们实现的 <code>MapReduce</code> 能够在由上千台机器组成的集群规模中运行。这个实现能够高效的使用这些机器资源，从而可以处理各种在 Google 中所需的大型计算问题。</p>
 <p>我们还在这个实现中学习到了许多的东西。第一，加以限制的编程模型让并行化跟分布式计算以及容错更加易于实现。第二，网络带宽是稀缺资源，一些优化措施让我们能够显著的减少在网络中传输的数据：本地化优化让我们尽量从本地磁盘读取输入数据，及将中间态数据写入到本地磁盘，以实现节省带宽。第三，裁减的过慢的任务能用来减少一些过慢的机器及机器故障跟数据丢失的带来的问题。</p>
 
@@ -363,17 +344,13 @@ map(String name, String contents):
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../distributed.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../distributed/raft_note.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -381,49 +358,36 @@ map(String name, String contents):
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../distributed.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
                     <a rel="next" href="../distributed/raft_note.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>
